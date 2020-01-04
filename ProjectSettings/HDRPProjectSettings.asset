@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  m_DefaultScenePrefabSaved: {fileID: 3628837357921210760, guid: 7a069bc3ea99ce14a9b310b38300d871,
-    type: 2}
-  m_DefaultDXRScenePrefabSaved: {fileID: 4893056312182120781, guid: 34db58074999f9144864c751b675a0ca,
+  m_DefaultScenePrefabSaved: {fileID: 4893056312182120781, guid: 38b1cb12f11a75f4884b7ff5e713eacc,
+    type: 3}
+  m_DefaultDXRScenePrefabSaved: {fileID: 4893056312182120781, guid: 44d02fb158df27b4caca0a18bf7bab4e,
     type: 3}
   m_ProjectSettingFolderPath: HDRPDefaultResources
   m_WizardPopupAtStart: 0
