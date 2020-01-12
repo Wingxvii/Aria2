@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 1
   profiles:
-  - scatteringDistance: {r: 0.7568628, g: 0.32156864, b: 0.20000002, a: 1}
+  - name: Skin
+    scatteringDistance: {r: 0.7568628, g: 0.32156864, b: 0.20000002, a: 1}
     transmissionTint: {r: 0.75686276, g: 0.32156864, b: 0.2, a: 1}
     texturingMode: 0
     transmissionMode: 2
@@ -22,7 +23,8 @@ MonoBehaviour:
     worldScale: 1
     ior: 1.36
     hash: 1076810881
-  - scatteringDistance: {r: 0.7568628, g: 0.7019608, b: 0.24313727, a: 1}
+  - name: Foliage
+    scatteringDistance: {r: 0.7568628, g: 0.7019608, b: 0.24313727, a: 1}
     transmissionTint: {r: 1, g: 1, b: 1, a: 1}
     texturingMode: 0
     transmissionMode: 1
@@ -30,7 +32,8 @@ MonoBehaviour:
     worldScale: 1
     ior: 1.4
     hash: 1080305144
-  - scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - name: Profile 3
+    scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     transmissionTint: {r: 1, g: 1, b: 1, a: 1}
     texturingMode: 0
     transmissionMode: 0
@@ -38,7 +41,8 @@ MonoBehaviour:
     worldScale: 1
     ior: 1.4
     hash: 1074201531
-  - scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - name: Profile 4
+    scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     transmissionTint: {r: 1, g: 1, b: 1, a: 1}
     texturingMode: 0
     transmissionMode: 0
@@ -46,7 +50,8 @@ MonoBehaviour:
     worldScale: 1
     ior: 1.4
     hash: 1077410467
-  - scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - name: Profile 5
+    scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     transmissionTint: {r: 1, g: 1, b: 1, a: 1}
     texturingMode: 0
     transmissionMode: 0
@@ -54,7 +59,8 @@ MonoBehaviour:
     worldScale: 1
     ior: 1.4
     hash: 1074144171
-  - scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - name: Profile 6
+    scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     transmissionTint: {r: 1, g: 1, b: 1, a: 1}
     texturingMode: 0
     transmissionMode: 0
@@ -62,7 +68,8 @@ MonoBehaviour:
     worldScale: 1
     ior: 1.4
     hash: 1077688587
-  - scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - name: Profile 7
+    scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     transmissionTint: {r: 1, g: 1, b: 1, a: 1}
     texturingMode: 0
     transmissionMode: 0
@@ -70,7 +77,8 @@ MonoBehaviour:
     worldScale: 1
     ior: 1.4
     hash: 1078825108
-  - scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - name: Profile 8
+    scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     transmissionTint: {r: 1, g: 1, b: 1, a: 1}
     texturingMode: 0
     transmissionMode: 0
@@ -78,7 +86,8 @@ MonoBehaviour:
     worldScale: 1
     ior: 1.4
     hash: 1075314330
-  - scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - name: Profile 9
+    scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     transmissionTint: {r: 1, g: 1, b: 1, a: 1}
     texturingMode: 0
     transmissionMode: 0
@@ -86,7 +95,8 @@ MonoBehaviour:
     worldScale: 1
     ior: 1.4
     hash: 1080290065
-  - scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - name: Profile 10
+    scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     transmissionTint: {r: 1, g: 1, b: 1, a: 1}
     texturingMode: 0
     transmissionMode: 0
@@ -94,7 +104,8 @@ MonoBehaviour:
     worldScale: 1
     ior: 1.4
     hash: 1077689397
-  - scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - name: Profile 11
+    scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     transmissionTint: {r: 1, g: 1, b: 1, a: 1}
     texturingMode: 0
     transmissionMode: 0
@@ -102,7 +113,8 @@ MonoBehaviour:
     worldScale: 1
     ior: 1.4
     hash: 1075317919
-  - scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - name: Profile 12
+    scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     transmissionTint: {r: 1, g: 1, b: 1, a: 1}
     texturingMode: 0
     transmissionMode: 0
@@ -110,7 +122,8 @@ MonoBehaviour:
     worldScale: 1
     ior: 1.4
     hash: 1079890158
-  - scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - name: Profile 13
+    scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     transmissionTint: {r: 1, g: 1, b: 1, a: 1}
     texturingMode: 0
     transmissionMode: 0
@@ -118,7 +131,8 @@ MonoBehaviour:
     worldScale: 1
     ior: 1.4
     hash: 1077255147
-  - scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - name: Profile 14
+    scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     transmissionTint: {r: 1, g: 1, b: 1, a: 1}
     texturingMode: 0
     transmissionMode: 0
@@ -126,7 +140,8 @@ MonoBehaviour:
     worldScale: 1
     ior: 1.4
     hash: 1078182581
-  - scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - name: Profile 15
+    scatteringDistance: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     transmissionTint: {r: 1, g: 1, b: 1, a: 1}
     texturingMode: 0
     transmissionMode: 0
@@ -135,11 +150,12 @@ MonoBehaviour:
     ior: 1.4
     hash: 1075657327
   profile:
+    name: Skin
     scatteringDistance: {r: 0.7568628, g: 0.32156864, b: 0.20000002, a: 1}
     transmissionTint: {r: 0.75686276, g: 0.32156864, b: 0.2, a: 1}
     texturingMode: 0
-    transmissionMode: 0
-    thicknessRemap: {x: 0, y: 25}
+    transmissionMode: 2
+    thicknessRemap: {x: 0, y: 8.152544}
     worldScale: 1
     ior: 1.36
     hash: 1076810881
