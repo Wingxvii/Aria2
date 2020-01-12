@@ -16,3 +16,57 @@
 2020-01-12 14:46:38.4101 [DEBUG] Scene Fusion version 1.8.5-1
 2020-01-12 14:47:05.3078 [DEBUG] Scene Fusion version 1.8.5-1
 2020-01-12 14:50:17.3554 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 18:05:05.0852 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 18:06:33.2825 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 18:07:32.1698 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 18:09:37.4850 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 18:09:44.9944 [ERROR] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+System.ThrowHelper.ThrowArgumentOutOfRangeException (System.ExceptionArgument argument, System.ExceptionResource resource) (at <599589bf4ce248909b8a14cbe4a2034e>:0)
+System.ThrowHelper.ThrowArgumentOutOfRangeException () (at <599589bf4ce248909b8a14cbe4a2034e>:0)
+System.Collections.Generic.List`1[T].get_Item (System.Int32 index) (at <599589bf4ce248909b8a14cbe4a2034e>:0)
+UnityEditor.GameObjectTreeViewDataSource.GetItem (System.Int32 row) (at C:/buildslave/unity/build/Editor/Mono/GUI/TreeView/GameObjectTreeViewDataSource.cs:160)
+UnityEditor.IMGUI.Controls.TreeViewController.IterateVisibleItems (System.Int32 firstRow, System.Int32 numVisibleRows, System.Single rowWidth, System.Boolean hasFocus) (at C:/buildslave/unity/build/Editor/Mono/GUI/TreeView/TreeViewController.cs:691)
+UnityEditor.IMGUI.Controls.TreeViewController.OnGUI (UnityEngine.Rect rect, System.Int32 keyboardControlID) (at C:/buildslave/unity/build/Editor/Mono/GUI/TreeView/TreeViewController.cs:594)
+UnityEditor.SceneHierarchy.DoTreeView (System.Single searchPathHeight) (at C:/buildslave/unity/build/Editor/Mono/SceneHierarchy.cs:783)
+UnityEditor.SceneHierarchy.OnGUI (UnityEngine.Rect rect) (at C:/buildslave/unity/build/Editor/Mono/SceneHierarchy.cs:581)
+UnityEditor.SceneHierarchyWindow.DoSceneHierarchy () (at C:/buildslave/unity/build/Editor/Mono/SceneHierarchyWindow.cs:150)
+UnityEditor.SceneHierarchyWindow.OnGUI () (at C:/buildslave/unity/build/Editor/Mono/SceneHierarchyWindow.cs:133)
+System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <599589bf4ce248909b8a14cbe4a2034e>:0)
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) (at <599589bf4ce248909b8a14cbe4a2034e>:0)
+System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) (at <599589bf4ce248909b8a14cbe4a2034e>:0)
+UnityEditor.HostView.Invoke (System.String methodName, System.Object obj) (at C:/buildslave/unity/build/Editor/Mono/HostView.cs:359)
+UnityEditor.HostView.Invoke (System.String methodName) (at C:/buildslave/unity/build/Editor/Mono/HostView.cs:353)
+UnityEditor.HostView.InvokeOnGUI (UnityEngine.Rect onGUIPosition, UnityEngine.Rect viewRect) (at C:/buildslave/unity/build/Editor/Mono/HostView.cs:329)
+UnityEditor.DockArea.DrawView (UnityEngine.Rect viewRect, UnityEngine.Rect dockAreaRect, System.Boolean floatingWindow, System.Boolean isBottomTab) (at C:/buildslave/unity/build/Editor/Mono/GUI/DockArea.cs:374)
+UnityEditor.DockArea.OldOnGUI () (at C:/buildslave/unity/build/Editor/Mono/GUI/DockArea.cs:341)
+UnityEngine.UIElements.IMGUIContainer.DoOnGUI (UnityEngine.Event evt, UnityEngine.Matrix4x4 parentTransform, UnityEngine.Rect clippingRect, System.Boolean isComputingLayout, UnityEngine.Rect layoutSize) (at C:/buildslave/unity/build/Modules/UIElements/IMGUIContainer.cs:298)
+UnityEngine.UIElements.IMGUIContainer.HandleIMGUIEvent (UnityEngine.Event e, UnityEngine.Matrix4x4 worldTransform, UnityEngine.Rect clippingRect) (at C:/buildslave/unity/build/Modules/UIElements/IMGUIContainer.cs:483)
+UnityEngine.UIElements.IMGUIContainer.HandleIMGUIEvent (UnityEngine.Event e) (at C:/buildslave/unity/build/Modules/UIElements/IMGUIContainer.cs:466)
+UnityEngine.UIElements.IMGUIContainer.HandleEvent (UnityEngine.UIElements.EventBase evt) (at C:/buildslave/unity/build/Modules/UIElements/IMGUIContainer.cs:447)
+UnityEngine.UIElements.EventDispatchUtilities.PropagateEvent (UnityEngine.UIElements.EventBase evt) (at C:/buildslave/unity/build/Modules/UIElements/Events/IEventDispatchingStrategy.cs:64)
+UnityEngine.UIElements.MouseEventDispatchingStrategy.DispatchEvent (UnityEngine.UIElements.EventBase evt, UnityEngine.UIElements.IPanel panel) (at C:/buildslave/unity/build/Modules/UIElements/Events/MouseEventDispatchingStrategy.cs:59)
+UnityEngine.UIElements.EventDispatcher.ProcessEvent (UnityEngine.UIElements.EventBase evt, UnityEngine.UIElements.IPanel panel) (at C:/buildslave/unity/build/Modules/UIElements/EventDispatcher.cs:280)
+UnityEngine.UIElements.EventDispatcher.Dispatch (UnityEngine.UIElements.EventBase evt, UnityEngine.UIElements.IPanel panel, UnityEngine.UIElements.DispatchMode dispatchMode) (at C:/buildslave/unity/build/Modules/UIElements/EventDispatcher.cs:156)
+UnityEngine.UIElements.BaseVisualElementPanel.SendEvent (UnityEngine.UIElements.EventBase e, UnityEngine.UIElements.DispatchMode dispatchMode) (at C:/buildslave/unity/build/Modules/UIElements/Panel.cs:190)
+UnityEngine.UIElements.UIElementsUtility.DoDispatch (UnityEngine.UIElements.BaseVisualElementPanel panel) (at C:/buildslave/unity/build/Modules/UIElements/UIElementsUtility.cs:255)
+UnityEngine.UIElements.UIElementsUtility.ProcessEvent (System.Int32 instanceID, System.IntPtr nativeEventPtr) (at C:/buildslave/unity/build/Modules/UIElements/UIElementsUtility.cs:78)
+UnityEngine.GUIUtility.ProcessEvent (System.Int32 instanceID, System.IntPtr nativeEventPtr) (at C:/buildslave/unity/build/Modules/IMGUI/GUIUtility.cs:179)
+
+2020-01-12 18:10:14.1929 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 18:10:14.3565 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-12 18:10:46.2743 [DEBUG] Play mode: False
+2020-01-12 18:11:12.8976 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 18:11:13.0944 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-12 18:11:30.9061 [DEBUG] Play mode: False
+2020-01-12 18:13:10.0141 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 18:13:10.1871 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-12 18:13:41.7742 [DEBUG] Play mode: False
+2020-01-12 18:13:58.4068 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 18:14:02.9121 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 18:14:03.0668 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-12 18:14:12.5034 [DEBUG] Play mode: False
+2020-01-12 18:15:25.9397 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 18:15:26.0943 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-12 18:15:34.6758 [DEBUG] Play mode: False
