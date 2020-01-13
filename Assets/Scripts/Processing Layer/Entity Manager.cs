@@ -85,7 +85,8 @@ public class EntityManager : MonoBehaviour
         }
 
     }
-    //deactivates an entity (use local entity function to call this)
+    //deactivates an entity: DO NOT USE
+    //@Entity OnDeActivate()
     public void DeactivateEntity(EntityType type, Entity entity) {
         ActiveEntitiesByType[(int)type].Remove(entity);
         DeactivatedEntitiesByType[(int)type].Enqueue(entity);

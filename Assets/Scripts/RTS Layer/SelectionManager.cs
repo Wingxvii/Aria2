@@ -126,8 +126,12 @@ namespace RTSInput
             //handle key press
             HandleKeys();
 
+            //check activity
+            CheckActivity();
+
             //handle selection changes
             HandleSelectionChanges();
+
 
         }
 
@@ -181,6 +185,22 @@ namespace RTSInput
             }
         }
 
+        //check the activity of all objects
+        private void CheckActivity() {
+            foreach (Entity obj in SelectionManager.Instance.SelectedEntities) {
+                if (!obj.gameObject.activeSelf) {
+                    //remove if not active
+                    SelectionManager.Instance.SelectedEntities.Remove(obj);
+
+                    //update primary selected activity
+                    if (PrimaryEntity == obj) {
+                        SwitchPrimarySelected();
+                    }
+                    selectionChanged = true;
+                }
+            }
+        }
+
         private void HandleKeys()
         {
             //deactivate preset on shift hold up
@@ -189,6 +209,8 @@ namespace RTSInput
                 RTSManager.Instance.prefabObject.SetActive(false);
                 ClearSelection();
             }
+
+
 
             //handles primary selectable cycling
             if (Input.GetKeyDown(KeyCode.Tab) && PrimaryEntity != null && currentEvent == MouseEvent.Selection)
