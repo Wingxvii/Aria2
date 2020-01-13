@@ -22,11 +22,11 @@ public class EntityManager : MonoBehaviour
     #endregion
 
     //list of all entities;
-    public List<Entity> AllEntities { get; private set; }
+    public List<Entity> AllEntities;
 
     //unsorted entities; Managed interally;
-    public List<List<Entity>> ActiveEntitiesByType { get; private set; }
-    public List<Queue<Entity>> DeactivatedEntitiesByType { get; private set; }
+    public List<List<Entity>> ActiveEntitiesByType;
+    public List<Queue<Entity>> DeactivatedEntitiesByType;
 
     //layermasks
     public LayerMask staticsMask;
@@ -85,10 +85,28 @@ public class EntityManager : MonoBehaviour
         }
 
     }
-    //deactivates an entity
+    //deactivates an entity (use local entity function to call this)
     public void DeactivateEntity(EntityType type, Entity entity) {
         ActiveEntitiesByType[(int)type].Remove(entity);
         DeactivatedEntitiesByType[(int)type].Enqueue(entity);
+    }
+
+    //initalize new entity with overloads
+    public Entity InitNewEntity(EntityType type, Vector3 position) 
+    {
+        return InitNewEntity(type, position, Quaternion.identity);
+    }
+    public Entity InitNewEntity(EntityType type, Vector3 position, Vector3 rotation)
+    {
+        return InitNewEntity(type, position, Quaternion.Euler(rotation.x, rotation.y, rotation.z)); ;
+    }
+    public Entity InitNewEntity(EntityType type, Vector3 position, Quaternion rotation)
+    {
+        Entity returnEntity = GetNewEntity(type);
+        returnEntity.transform.position = position;
+        returnEntity.transform.rotation = rotation;
+
+        return returnEntity;
     }
 
     //factory for entity creation
