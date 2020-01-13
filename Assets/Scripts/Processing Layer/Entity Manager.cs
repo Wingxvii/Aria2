@@ -57,8 +57,15 @@ public class EntityManager : MonoBehaviour
         staticsMask = LayerMask.GetMask("Background");
         staticsMask += LayerMask.GetMask("StaticsMask");
 
+        entitysMask = LayerMask.GetMask("Wall");
+        entitysMask += LayerMask.GetMask("Player");
+        entitysMask += LayerMask.GetMask("Barracks");
+        entitysMask += LayerMask.GetMask("Turret");
+        entitysMask += LayerMask.GetMask("Droid");
+
+
         //create prefabs
-        droidPrefab = Resources.Load<GameObject>("Prefabs/Entities/Wall");
+        droidPrefab = Resources.Load<GameObject>("Prefabs/Entities/Droid");
         playerPrefab = Resources.Load<GameObject>("Prefabs/Entities/Player");
         wallPrefab = Resources.Load<GameObject>("Prefabs/Entities/Wall");
         barracksPrefab = Resources.Load<GameObject>("Prefabs/Entities/Barracks");

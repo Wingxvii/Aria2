@@ -1,11 +1,11 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
-    public enum PlayerType { 
-        Spectator,
-        RTS,
-        FPS,
-    }
+public enum PlayerType { 
+    Spectator,
+    RTS,
+    FPS,
+}
 
 public class GameController : MonoBehaviour
 {

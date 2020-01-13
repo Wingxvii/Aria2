@@ -1295,3 +1295,587 @@ UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/bui
 UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
 
 2020-01-12 21:42:05.4385 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:45:10.7060 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:10.7110 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:10.7130 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:10.7140 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:12.7936 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:45:21.6877 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:21.6967 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:21.7087 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:21.7097 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:21.7107 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:23.5910 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:45:39.8263 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:39.8313 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:39.8333 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:39.8353 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:39.8363 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:41.7300 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:45:48.3781 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:48.3830 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:48.3860 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:48.3880 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:48.3890 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:50.2845 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:45:58.9462 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:58.9512 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:58.9532 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:58.9552 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:45:58.9562 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:00.8417 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:46:08.9766 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:08.9826 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:08.9846 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:08.9866 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:08.9876 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:10.9019 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:46:13.7364 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:13.7423 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:13.7443 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:13.7463 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:13.7473 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:15.6187 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:46:25.2624 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:25.2674 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:25.2703 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:25.2723 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:25.2723 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:27.2468 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:46:33.9342 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:33.9421 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:33.9452 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:33.9472 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:33.9481 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:35.8490 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:46:58.6134 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:58.6194 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:58.6234 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:58.6253 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:46:58.6263 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:47:00.4765 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:47:14.7903 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:47:14.7964 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:47:14.7983 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:47:14.8003 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:47:14.8013 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:47:16.6962 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:47:19.7976 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:47:19.8036 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:47:19.8066 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:47:19.8086 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:47:19.8096 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:47:21.7021 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:47:46.8896 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:47:46.8946 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:47:46.8976 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:47:46.8985 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:47:46.8996 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:47:48.7912 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:48:00.4509 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:48:00.4558 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:48:00.4588 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:48:00.4608 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:48:00.4618 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:48:02.4456 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:48:32.6101 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:48:32.6161 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:48:32.6191 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:48:32.6211 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:48:32.6221 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:48:34.5536 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:48:44.6126 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:48:44.6196 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:48:44.6226 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:48:44.6245 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:48:44.6265 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:48:46.5125 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:49:05.6168 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:49:05.6218 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:49:05.6247 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:49:05.6267 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:49:05.6287 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:49:07.5711 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:49:56.1000 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:49:56.1060 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:49:56.1080 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:49:56.1099 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:49:56.1120 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:49:58.0633 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:50:04.2416 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:04.2466 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:04.2496 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:04.2516 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:04.2536 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:06.1887 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:50:11.3096 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:11.3226 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:11.3256 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:11.3275 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:11.3285 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:13.2278 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:50:20.0618 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:20.0678 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:20.0708 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:20.0728 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:20.0738 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:22.0849 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:50:33.8638 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:33.8698 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:33.8728 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:33.8747 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:33.8758 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:35.8793 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:50:42.8800 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:42.8860 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:42.8879 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:42.8909 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:42.8919 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:44.9029 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:50:48.9004 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:48.9055 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:48.9084 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:48.9104 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:48.9114 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:50:51.0012 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:51:34.5632 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:51:34.5682 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:51:34.5712 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:51:34.5732 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:51:34.5752 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:51:36.5374 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:56:51.2034 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:56:51.2094 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:56:51.2123 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:56:51.2154 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:56:51.2164 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:56:53.5070 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 21:56:59.8250 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:56:59.8309 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:56:59.8330 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:56:59.8359 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:56:59.8369 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 21:57:01.7601 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-12 22:15:54.0854 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 22:15:54.0904 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 22:15:54.0934 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 22:15:54.0954 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 22:15:54.0964 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+UnityEditor.GameObjectInspector.ClearPreviewCache () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:211)
+UnityEditor.GameObjectInspector.OnDisable () (at C:/buildslave/unity/build/Editor/Mono/Inspector/GameObjectInspector.cs:199)
+
+2020-01-12 22:15:56.0241 [DEBUG] Scene Fusion version 1.8.5-1
