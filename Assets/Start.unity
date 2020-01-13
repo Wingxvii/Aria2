@@ -166,4 +166,5 @@ MonoBehaviour:
   gameStart: 0
   loadedScene: 1
   IP: 
+  type: 0
   gameState: 0

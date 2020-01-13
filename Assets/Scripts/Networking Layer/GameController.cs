@@ -1,20 +1,16 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
-
-namespace SceneManagement
-{
-
     public enum PlayerType { 
         Spectator,
         RTS,
         FPS,
     }
 
-    public class GameController : MonoBehaviour
-    {
+public class GameController : MonoBehaviour
+{
 
-        #region SingletonCode
+    #region SingletonCode
         private static GameController _instance;
         public static GameController Instance { get { return _instance; } }
         private void Awake()
@@ -35,33 +31,32 @@ namespace SceneManagement
         //single pattern ends here
         #endregion
 
-        public bool gameStart = false;
-        public int loadedScene = 1;
-        public string IP = "";
-        public PlayerType type = PlayerType.Spectator;
-        public int gameState = 0;
+    public bool gameStart = false;
+    public int loadedScene = 1;
+    public string IP = "";
+    public PlayerType type = PlayerType.Spectator;
+    public int gameState = 0;
 
-        //use to swap scene
-        public void SwapScene(int scene)
-        {
-            UnloadScene(loadedScene);
-            LoadScene(scene);
-        }
-
-        //use to load scene
-        public void LoadScene(int scene)
-        {
-            loadedScene = scene;
-            SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
-        }
-
-        //use to unload scene
-        public void UnloadScene(int scene)
-        {
-            SceneManager.UnloadSceneAsync(scene);
-        }
-
+    //use to swap scene
+    public void SwapScene(int scene)
+    {
+        UnloadScene(loadedScene);
+        LoadScene(scene);
     }
+
+    //use to load scene
+    public void LoadScene(int scene)
+    {
+        loadedScene = scene;
+        SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
+    }
+
+    //use to unload scene
+    public void UnloadScene(int scene)
+    {
+        SceneManager.UnloadSceneAsync(scene);
+    }
+
 }
 
 /*
