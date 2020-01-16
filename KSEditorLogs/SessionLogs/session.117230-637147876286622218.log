@@ -1,0 +1,32 @@
+2020-01-16 16:07:08.7510 [DEBUG] Validating model...
+2020-01-16 16:07:08.8478 [DEBUG] Model updated
+2020-01-16 16:07:08.8478 [DEBUG] Authenticating with server...
+2020-01-16 16:07:09.3096 [DEBUG] Connected to room. (117230:SceneFusion:SceneFusion)
+2020-01-16 16:07:09.3155 [INFO] Connected to server.
+2020-01-16 16:07:09.3155 [DEBUG] OS : Microsoft Windows NT 10.0.17763.0
+2020-01-16 16:07:09.3155 [DEBUG] Unity Version : 2019.2.5f1
+2020-01-16 16:07:09.3155 [DEBUG] Pro License : False
+2020-01-16 16:07:09.3155 [DEBUG] Platform : WindowsEditor
+2020-01-16 16:07:09.3177 [DEBUG] Build Target : StandaloneWindows64
+2020-01-16 16:07:09.3177 [DEBUG] Scene Fusion version : 1.8.5
+2020-01-16 16:07:09.3177 [DEBUG] Scene Fusion client build : 1
+2020-01-16 16:07:09.3177 [DEBUG] User : john.wang@ontariotechu.net
+2020-01-16 16:07:09.3177 [DEBUG] Waiting for server response
+2020-01-16 16:07:09.4164 [DEBUG] Tier: Free, Permissions: 00000200
+2020-01-16 16:07:09.4164 [DEBUG] User Permissions: FFFFFFFF
+2020-01-16 16:07:09.6478 [DEBUG] No stand-in for UnityEngine.LocalizationAsset
+2020-01-16 16:07:09.6478 [DEBUG] No stand-in for UnityEngine.ProceduralMaterial
+2020-01-16 16:07:09.6478 [DEBUG] No stand-in for UnityEngine.ProceduralTexture
+2020-01-16 16:07:09.6478 [DEBUG] No stand-in for UnityEngine.TerrainLayer
+2020-01-16 16:07:09.6478 [DEBUG] No stand-in for UnityEngine.Experimental.VFX.VisualEffectAsset
+2020-01-16 16:07:09.6488 [DEBUG] No stand-in for UnityEngine.Experimental.Rendering.HDPipeline.AxF
+2020-01-16 16:07:09.6488 [DEBUG] No stand-in for UnityEngine.Experimental.Rendering.HDPipeline.Fabric
+2020-01-16 16:07:09.6488 [DEBUG] No stand-in for UnityEngine.Experimental.Rendering.HDPipeline.Hair
+2020-01-16 16:07:09.6488 [DEBUG] No stand-in for UnityEngine.Experimental.Rendering.HDPipeline.Lit
+2020-01-16 16:07:09.6488 [DEBUG] No stand-in for UnityEngine.Experimental.Rendering.HDPipeline.RenderPipelineMaterial
+2020-01-16 16:07:09.6488 [DEBUG] No stand-in for UnityEngine.Experimental.Rendering.HDPipeline.StackLit
+2020-01-16 16:07:09.6488 [DEBUG] No stand-in for UnityEngine.Experimental.Rendering.HDPipeline.Unlit
+2020-01-16 16:07:09.6917 [WARNING] Cannot sync 'Skybox/Cubemap' (Material) because it is not in Unity's asset database.
+2020-01-16 16:07:11.1613 [DEBUG] Uploading scene 'Untitled'
+2020-01-16 16:07:11.2151 [DEBUG] Spawn request. (Objects: 4)
+2020-01-16 16:07:11.4173 [DEBUG] Loading complete
