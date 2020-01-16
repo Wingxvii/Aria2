@@ -30,3 +30,6 @@
 2020-01-16 16:07:11.1613 [DEBUG] Uploading scene 'Untitled'
 2020-01-16 16:07:11.2151 [DEBUG] Spawn request. (Objects: 4)
 2020-01-16 16:07:11.4173 [DEBUG] Loading complete
+2020-01-16 16:11:36.7545 [DEBUG] Disconnecting from room (117230:SceneFusion:SceneFusion)
+2020-01-16 16:11:36.7565 [INFO] Disconnected from server.
+2020-01-16 16:11:36.7565 [DEBUG] Disconnect. (Duration: -14)
