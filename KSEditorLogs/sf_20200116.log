@@ -1,1 +1,24 @@
 2020-01-16 09:41:02.1503 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-16 12:25:51.1525 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-16 13:18:34.4238 [INFO] Launching Session: Untitled
+2020-01-16 13:18:36.3342 [DEBUG] Connecting
+2020-01-16 13:18:36.3641 [DEBUG] Connecting to room (117029:SceneFusion:SceneFusion) via TCP at roommanager-ec2-35-164-71-216.kinematicsoup.com:21312
+2020-01-16 13:19:04.3800 [DEBUG] Sent C:/Users/turnt/OneDrive/Documents/Unity/Aria2/KSEditorLogs/SessionLogs/session.117029-637147775163971061.log
+2020-01-16 13:19:10.6221 [INFO] Launching Session: Untitled
+2020-01-16 13:19:18.8913 [DEBUG] Connecting
+2020-01-16 13:19:18.9073 [DEBUG] Connecting to room (117037:SceneFusion:SceneFusion) via TCP at roommanager-ec2-13-124-178-67.kinematicsoup.com:21312
+2020-01-16 13:19:33.6465 [DEBUG] Sent C:/Users/turnt/OneDrive/Documents/Unity/Aria2/KSEditorLogs/SessionLogs/session.117037-637147775589303168.log
+2020-01-16 13:19:33.6475 [DEBUG] Connection failed. (117037:SceneFusion:SceneFusion)
+2020-01-16 13:19:49.4677 [DEBUG] Connecting
+2020-01-16 13:19:49.4766 [DEBUG] Connecting to room (117037:SceneFusion:SceneFusion) via TCP at roommanager-ec2-13-124-178-67.kinematicsoup.com:21312
+2020-01-16 13:19:52.0048 [DEBUG] Sent C:/Users/turnt/OneDrive/Documents/Unity/Aria2/KSEditorLogs/SessionLogs/session.117037-637147775894776766.log
+2020-01-16 13:19:52.0057 [DEBUG] Connection failed. (117037:SceneFusion:SceneFusion)
+2020-01-16 13:20:06.3029 [DEBUG] Connecting
+2020-01-16 13:20:06.3128 [DEBUG] Connecting to room (117037:SceneFusion:SceneFusion) via TCP at roommanager-ec2-13-124-178-67.kinematicsoup.com:21312
+2020-01-16 13:20:08.1875 [DEBUG] Sent C:/Users/turnt/OneDrive/Documents/Unity/Aria2/KSEditorLogs/SessionLogs/session.117037-637147776063138697.log
+2020-01-16 13:20:08.1885 [DEBUG] Connection failed. (117037:SceneFusion:SceneFusion)
+2020-01-16 13:20:10.5965 [INFO] Launching Session: Untitled
+2020-01-16 13:20:13.6199 [DEBUG] Connecting
+2020-01-16 13:20:13.6288 [DEBUG] Connecting to room (117051:SceneFusion:SceneFusion) via TCP at roommanager-ec2-13-124-178-67.kinematicsoup.com:21312
+2020-01-16 13:20:17.1204 [DEBUG] Sent C:/Users/turnt/OneDrive/Documents/Unity/Aria2/KSEditorLogs/SessionLogs/session.117051-637147776136298904.log
+2020-01-16 13:20:17.1213 [DEBUG] Connection failed. (117051:SceneFusion:SceneFusion)

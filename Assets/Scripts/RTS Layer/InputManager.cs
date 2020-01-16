@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 
 namespace RTSInput
 {
@@ -272,85 +272,37 @@ namespace RTSInput
 
                     activeBlueprint.SetActive(false);
                     currentEvent = MouseEvent.None;
-
                 }
                 //handle unit/building attack commands
-                else if (currentEvent == MouseEvent.UnitAttack)
+                else if (currentEvent == MouseEvent.AttackCursor)
                 {
                     if (HitObject != null && HitObject.type == EntityType.Player)
                     {
-                        switch (PrimaryEntity.type)
+                        foreach (Entity obj in SelectedEntities)
                         {
-                            //droids will attack tether to enemy
-                            case EntityType.Droid:
-                                foreach (Entity obj in SelectedEntities)
-                                {
-                                    if (obj.type == EntityType.Droid)
-                                    {
-                                        Droid temp = (Droid)obj;
-                                        temp.IssueAttack((Player)HitObject);
-                                    }
-                                }
-                                break;
-                            //turrets will aim attack enemy
-                            case EntityType.Turret:
-                                foreach (Entity obj in SelectedEntities)
-                                {
-                                    if (obj.type == EntityType.Turret)
-                                    {
-                                        Turret temp = (Turret)obj;
-                                        temp.IssueAttack((Player)HitObject);
-                                    }
-                                }
-                                break;
-
-                            default:
-                                break;
+                            if (obj.type == EntityType.Droid || obj.type == EntityType.Turret)
+                            {
+                                CommandManager.Instance.AttackTarget(obj, HitObject);
+                            }
                         }
-                        AnimationManager.Instance.PlayAttack(mousePosition);
-                        RTSManager.Instance.activeBlueprint.SetActive(false);
-                        currentEvent = MouseEvent.Selection;
                     }
-                    else
-                    {
-                        switch (PrimaryEntity.type)
-                        {
-                            //droids will attack tether to enemy
-                            case EntityType.Droid:
-                                foreach (Entity obj in SelectedEntities)
-                                {
-                                    if (obj.type == EntityType.Droid)
-                                    {
-                                        Droid temp = (Droid)obj;
-                                        temp.IssueAttack(mousePosition);
-                                    }
-                                }
-                                break;
-                            default:
-                                break;
-                        }
-                        AnimationManager.Instance.PlayAttack(mousePosition);
-                        RTSManager.Instance.activeBlueprint.SetActive(false);
-                        currentEvent = MouseEvent.Selection;
-                    }
+                    activeBlueprint.SetActive(false);
+                    currentEvent = MouseEvent.None;
                 }
                 //handle barracks rally point
-                else if (currentEvent == MouseEvent.Rally)
+                else if (currentEvent == MouseEvent.RallyCursor)
                 {
                     //send the mouse location of all objects with the same type as the primary type
                     foreach (Entity obj in SelectedEntities)
                     {
                         if (obj.type == PrimaryEntity.type)
                         {
-                            obj.IssueLocation(mousePosition);
+                            CommandManager.Instance.IssueRally(obj, staticPosition);
                         }
                     }
-
-                    RTSManager.Instance.activeBlueprint.SetActive(false);
-                    currentEvent = MouseEvent.Selection;
-
+                    activeBlueprint.SetActive(false);
+                    currentEvent = MouseEvent.None;
                 }
-
                 #endregion
 
                 #region Selection Logic
@@ -382,7 +334,7 @@ namespace RTSInput
                                     SelectedEntities.Add(HitObject);
                                     SwitchPrimarySelected(HitObject);
 
-                                    currentEvent = MouseEvent.Selection;
+                                    currentEvent = MouseEvent.None;
                                     HitObject.OnSelect();
                                 }
                                 //refocus to one selection
@@ -403,7 +355,7 @@ namespace RTSInput
                                 SelectedEntities.Add(HitObject);
                                 SwitchPrimarySelected(HitObject);
 
-                                currentEvent = MouseEvent.Selection;
+                                currentEvent = MouseEvent.None;
                                 HitObject.OnSelect();
                             }
                         }

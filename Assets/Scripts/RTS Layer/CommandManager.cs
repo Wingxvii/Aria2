@@ -36,6 +36,10 @@ namespace RTSInput
 
         }
 
+        //tells unit to attack sepific target
+        public void AttackTarget(Entity source, Entity target ) { 
+        
+        }
 
 
         #endregion
