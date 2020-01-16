@@ -360,13 +360,13 @@ namespace RTSInput
                             }
                         }
                         //deselect on ground selection, with selection exceptions
-                        else if (HitObject.gameObject.tag == "Ground" && !((currentEvent == MouseEvent.PrefabBuild || (currentEvent == MouseEvent.Selection && boxActive)) && Input.GetKey(KeyCode.LeftShift)))
+                        else if (HitObject.gameObject.tag == "Ground" && !(currentEvent == MouseEvent.None && boxActive) && Input.GetKey(KeyCode.LeftShift))
                         {
                             foreach (Entity obj in SelectedEntities)
                             {
                                 obj.OnDeselect();
                             }
-                            currentEvent = MouseEvent.Nothing;
+                            currentEvent = MouseEvent.None;
                             SelectedEntities.Clear();
                         }
                         selectionChanged = true;
@@ -382,73 +382,44 @@ namespace RTSInput
             if (Input.GetKeyUp(KeyCode.Mouse1))
             {
                 //disable current command and revert to selection 
-                if (currentEvent == MouseEvent.PrefabBuild || currentEvent == MouseEvent.UnitMove || currentEvent == MouseEvent.UnitAttack || currentEvent == MouseEvent.Rally)
+                if (currentEvent != MouseEvent.None)
                 {
-                    RTSManager.Instance.activeBlueprint.SetActive(false);
-                    currentEvent = MouseEvent.Selection;
+                    activeBlueprint.SetActive(false);
+                    currentEvent = MouseEvent.None;
                 }
                 //if current event is selection
-                if (currentEvent == MouseEvent.Selection)
+                if (currentEvent == MouseEvent.None)
                 {
                     //check if enemy selected
                     if (HitObject != null && HitObject.type == EntityType.Player)
                     {
-                        Debug.Log("Player Hit");
-                        switch (PrimaryEntity.type)
-                        {
-                            //droids will attack tether to enemy
-                            case EntityType.Droid:
-                                foreach (Entity obj in SelectedEntities)
-                                {
-                                    if (obj.type == EntityType.Droid)
-                                    {
-                                        Droid temp = (Droid)obj;
-                                        temp.IssueAttack((Player)HitObject);
-                                    }
-                                }
-                                break;
-                            //turrets will aim attack enemy
-                            case EntityType.Turret:
-                                foreach (Entity obj in SelectedEntities)
-                                {
-                                    if (obj.type == EntityType.Turret)
-                                    {
-                                        Turret temp = (Turret)obj;
-                                        temp.IssueAttack((Player)HitObject);
-                                    }
-                                }
-                                break;
-
-                            default:
-                                break;
-                        }
-                        AnimationManager.Instance.PlayAttack(mousePosition);
-                    }
-                    else
-                    {
-                        //handle state default right-click commands
-                        if (PrimaryEntity != null)
-                        {
-                            switch (PrimaryEntity.type)
-                            {
-                                case EntityType.Droid:
-                                    AnimationManager.Instance.PlayMove(mousePosition);
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-                        //apply command to all objects selected of the same type
                         foreach (Entity obj in SelectedEntities)
                         {
-                            if (obj.type == PrimaryEntity.type)
+                            if (obj.type == EntityType.Droid || obj.type == EntityType.Turret)
                             {
-                                obj.IssueLocation(mousePosition);
+                                CommandManager.Instance.AttackTarget(obj, HitObject);
+                            }
+                        }
+                    }
+                    else if(SelectedEntities.Count > 0)
+                    {
+                        //give every object their default commands
+                        foreach (Entity obj in SelectedEntities)
+                        {
+                            if (obj.type == EntityType.Turret)
+                            {
+                                CommandManager.Instance.AttackTarget(obj, HitObject);
+                            }
+                            else if (obj.type == EntityType.Droid)
+                            {
+                                CommandManager.Instance.Move(obj, staticPosition);
+                            }
+                            else if (obj.type == EntityType.Barracks) {
+                                CommandManager.Instance.IssueRally(obj, staticPosition);
                             }
                         }
                     }
                 }
-
             }
         }
 
@@ -495,7 +466,7 @@ namespace RTSInput
 
 
             //handles primary selectable cycling
-            if (Input.GetKeyDown(KeyCode.Tab) && PrimaryEntity != null && currentEvent == MouseEvent.Selection)
+            if (Input.GetKeyDown(KeyCode.Tab) && PrimaryEntity != null && currentEvent == MouseEvent.None)
             {
                 //allows the program to do a full search starting from the flag
                 do
