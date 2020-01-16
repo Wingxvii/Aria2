@@ -5,21 +5,21 @@ using UnityEngine;
 
 namespace RTSInput
 {
-    public enum MouseEvent
-    {
-        Nothing = 0,        //nothing
-        Selection = 1,      //when objects are selected
-        PrefabBuild = 2,    //when a prefab is selected
-        UnitMove = 3,       //move order for unit command selected
-        UnitAttack = 4,     //attack order for unit command selected
-        Rally = 5,          //rally point for barracks selected
+    public enum MouseEvent { 
+        None,
+        Turret,
+        Barracks,
+        Wall,
+        MovementCursor,
+        AttackCursor,
+        RallyCursor,
     }
 
-    public class SelectionManager : MonoBehaviour
+    public class InputManager : MonoBehaviour
     {
         #region SingletonCode
-        private static SelectionManager _instance;
-        public static SelectionManager Instance { get { return _instance; } }
+        private static InputManager _instance;
+        public static InputManager Instance { get { return _instance; } }
         private void Awake()
         {
             if (_instance != null && _instance != this)
@@ -47,8 +47,6 @@ namespace RTSInput
         #region SelectedAttributes
 
         [Header("Selected Attributes")]
-        //mouse selection
-        public MouseEvent currentEvent = MouseEvent.Nothing;
         //primary selected object
         public Entity PrimaryEntity;
         public List<Entity> SelectedEntities;
@@ -61,24 +59,59 @@ namespace RTSInput
         #region Raycasting
         [Header("Raycasting")]
         //raycasting
-        public Vector3 mousePosition;
+
+        //cast mouse position on static game map
+        public Vector3 staticPosition;
+        //currently hit object, if any
+        public Entity HitObject;
+
         private Ray ray;
         private RaycastHit hit;
-        //currently hit object
-        public Entity HitObject;
         #endregion
 
+        #region Blueprints
+        public GameObject activeBlueprint;
+
+        public GameObject turretBlueprint;
+        public GameObject barracksBlueprint;   
+        public GameObject wallBlueprint;
+        public GameObject moveCursorBlueprint;
+        public GameObject attackCursorBlueprint;
+        public GameObject rallyBlueprint;
+        #endregion
+
+        #region DoubleClick
         //double click
         [Header("Double Click")]
         private float doubleClickTimeLimit = 0.2f;
+        #endregion
 
+        MouseEvent currentEvent = MouseEvent.None;
 
         // Start is called before the first frame update
         void Start()
         {
+            //TODO:set this as active scene
+            //SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(2));
+
             SelectedEntities = new List<Entity>();
             StartCoroutine(DoubleClickListener());
 
+            //prefab instanitation
+            turretBlueprint = Instantiate(Resources.Load<GameObject>("Prefabs/Blueprints/turretBlueprint"));
+            turretBlueprint.SetActive(false);
+            barracksBlueprint = Instantiate(Resources.Load<GameObject>("Prefabs/Blueprints/barracksBlueprint"));
+            barracksBlueprint.SetActive(false);
+            wallBlueprint = Instantiate(Resources.Load<GameObject>("Prefabs/Blueprints/wallBlueprint"));
+            wallBlueprint.SetActive(false);
+            moveCursorBlueprint = Instantiate(Resources.Load<GameObject>("Prefabs/Blueprints/moveCursorBlueprint"));
+            moveCursorBlueprint.SetActive(false);
+            attackCursorBlueprint = Instantiate(Resources.Load<GameObject>("Prefabs/Blueprints/attackCursorBlueprint"));
+            attackCursorBlueprint.SetActive(false);
+            rallyBlueprint = Instantiate(Resources.Load<GameObject>("Prefabs/Blueprints/rallyBlueprint"));
+            rallyBlueprint.SetActive(false);
+            activeBlueprint = turretBlueprint;
+            activeBlueprint.SetActive(false);
         }
 
         // Update is called once per frame
@@ -87,25 +120,12 @@ namespace RTSInput
             #region Raycast
             //raycast the mouse
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (currentEvent == MouseEvent.PrefabBuild)
+            if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.staticsMask))
             {
-                if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.staticsMask))
-                {
-                    mousePosition = hit.point;
-                }
-
+                staticPosition = hit.point;
             }
-            else
-            {
-                if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.entitysMask))
-                {
-                    mousePosition = hit.point;
-                }
-            }
-            #endregion
 
-            //check to see if anything gets hit
-            if (hit.collider && hit.collider.gameObject.tag == "Entity")
+            if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.entitysMask))
             {
                 HitObject = hit.collider.gameObject.GetComponent<Entity>();
             }
@@ -113,6 +133,9 @@ namespace RTSInput
             {
                 HitObject = null;
             }
+            //check to see if anything gets hit
+
+            #endregion
 
             //handle selection box first
             HandleSelectionBox();
@@ -132,6 +155,15 @@ namespace RTSInput
             //handle selection changes
             HandleSelectionChanges();
 
+            //check validity of current blueprint
+            CheckValidity();
+
+
+            //bind prefab object to mouse
+            if (activeBlueprint != null && activeBlueprint.activeSelf)
+            {
+                activeBlueprint.GetComponent<Transform>().position = new Vector3(InputManager.Instance.staticPosition.x, InputManager.Instance.staticPosition.y + activeBlueprint.GetComponent<Transform>().localScale.y, InputManager.Instance.staticPosition.z);
+            }
 
         }
 
@@ -139,7 +171,7 @@ namespace RTSInput
         private void HandleSelectionBox()
         {
             //handle box init behaviour
-            if (Input.GetMouseButtonDown(0) && boxActive == false && currentEvent != MouseEvent.PrefabBuild)
+            if (Input.GetMouseButtonDown(0) && boxActive == false && currentEvent == MouseEvent.None)
             {
                 boxStart = Input.mousePosition;
                 boxActive = true;
@@ -171,7 +203,6 @@ namespace RTSInput
                     {
                         //Debug.Log(obj.name);
                         SelectedEntities.Add(obj);
-                        currentEvent = MouseEvent.Selection;
                         obj.GetComponent<Entity>().OnSelect();
                         selectionChanged = true;
                     }
@@ -185,65 +216,7 @@ namespace RTSInput
             }
         }
 
-        //check the activity of all objects
-        private void CheckActivity() {
-            foreach (Entity obj in SelectionManager.Instance.SelectedEntities) {
-                if (!obj.gameObject.activeSelf) {
-                    //remove if not active
-                    SelectionManager.Instance.SelectedEntities.Remove(obj);
-
-                    //update primary selected activity
-                    if (PrimaryEntity == obj) {
-                        SwitchPrimarySelected();
-                    }
-                    selectionChanged = true;
-                }
-            }
-        }
-
-        private void HandleKeys()
-        {
-            //deactivate preset on shift hold up
-            if (Input.GetKeyUp(KeyCode.LeftShift) && currentEvent == MouseEvent.PrefabBuild)
-            {
-                RTSManager.Instance.prefabObject.SetActive(false);
-                ClearSelection();
-            }
-
-
-
-            //handles primary selectable cycling
-            if (Input.GetKeyDown(KeyCode.Tab) && PrimaryEntity != null && currentEvent == MouseEvent.Selection)
-            {
-                //allows the program to do a full search starting from the flag
-                do
-                {
-                    foreach (Entity obj in SelectedEntities)
-                    {
-                        //this checks for the first item in the next selectable type, then switches the primary to it
-                        if (PrimaryEntity == obj)
-                        {
-                            //checks if this went full circle
-                            if (selectedTypeFlag)
-                            {
-                                selectedTypeFlag = false;
-                                break;
-                            }
-                            //else, set flag to true
-                            selectedTypeFlag = true;
-                        }
-                        //if a different type is found, and flag is active
-                        if (obj.type != PrimaryEntity.type && selectedTypeFlag)
-                        {
-                            selectedTypeFlag = false;
-                            PrimaryEntity = obj;
-                        }
-                    }
-                } while (selectedTypeFlag);                 //my first practical use of do-while =D
-            }
-
-        }
-
+        //handles left mouse input
         private void HandleLeftMouseClicks()
         {
             //check if anything events need to be handled
@@ -251,49 +224,54 @@ namespace RTSInput
             {
                 #region Prefab Logic
                 //check for prefab placeable
-                if (currentEvent == MouseEvent.PrefabBuild && RTSManager.Instance.prefabObject != null && RTSManager.Instance.prefabObject.GetComponent<ShellPlacement>().placeable)
+                if (currentEvent == MouseEvent.Turret || currentEvent == MouseEvent.Wall || currentEvent == MouseEvent.Barracks)
                 {
-                    //check for continous placement
-                    if (!Input.GetKey(KeyCode.LeftShift))
+                    if (activeBlueprint != null && activeBlueprint.GetComponent<ShellPlacement>().placeable)
                     {
-                        RTSManager.Instance.prefabObject.SetActive(false);
-                        ClearSelection();
-                    }
-                    //check for purchaseability
-                    if (ResourceManager.Instance.Purchase(RTSManager.Instance.prefabType))
-                    {
-                        RTSManager.Instance.OnPlace(UseFactoryPattern(mousePosition, RTSManager.Instance.prefabType));
-                    }
-                    //not purchaseable
-                    else
-                    {
-                        Debug.Log("NOT ENOUGH CREDITS");
-                    }
+                        ShellPlacement shell = activeBlueprint.GetComponent<ShellPlacement>();
 
-                }
-                //handle prefab not placeable exception
-                else if (currentEvent == MouseEvent.PrefabBuild && RTSManager.Instance.prefabObject != null && !RTSManager.Instance.prefabObject.GetComponent<ShellPlacement>().placeable)
-                {
-                    Debug.Log("INVALID PLACEMENT");
+                        //check for continous placement
+                        if (!Input.GetKey(KeyCode.LeftShift))
+                        {
+                            activeBlueprint.SetActive(false);
+                            ClearSelection();
+                        }
+                        //TODO: check for purchaseability 
+                        if (ResourceManager.Instance.Purchase(shell.type))
+                        {
+                            CommandManager.Instance.Build(staticPosition, shell.type);
+                        }
+                        //not purchaseable
+                        else
+                        {
+                            Debug.Log("NOT ENOUGH CREDITS");
+                        }
+
+                    }
+                    //handle prefab not placeable exception
+                    else if (activeBlueprint != null && !activeBlueprint.GetComponent<ShellPlacement>().placeable)
+                    {
+                        Debug.Log("INVALID PLACEMENT");
+                    }
                 }
                 #endregion
 
                 #region Unit Command Logic
                 //handle unit movement commands
-                else if (currentEvent == MouseEvent.UnitMove)
+                else if (currentEvent == MouseEvent.MovementCursor)
                 {
                     //send the mouse location of all objects with the same type as the primary type
                     foreach (Entity obj in SelectedEntities)
                     {
                         if (obj.type == PrimaryEntity.type)
                         {
-                            obj.IssueLocation(mousePosition);
+                            //TODO: Issue movement command
+                            CommandManager.Instance.Move(obj, staticPosition);
                         }
                     }
 
-                    AnimationManager.Instance.PlayMove(mousePosition);
-                    RTSManager.Instance.prefabObject.SetActive(false);
-                    currentEvent = MouseEvent.Selection;
+                    activeBlueprint.SetActive(false);
+                    currentEvent = MouseEvent.None;
 
                 }
                 //handle unit/building attack commands
@@ -330,7 +308,7 @@ namespace RTSInput
                                 break;
                         }
                         AnimationManager.Instance.PlayAttack(mousePosition);
-                        RTSManager.Instance.prefabObject.SetActive(false);
+                        RTSManager.Instance.activeBlueprint.SetActive(false);
                         currentEvent = MouseEvent.Selection;
                     }
                     else
@@ -352,7 +330,7 @@ namespace RTSInput
                                 break;
                         }
                         AnimationManager.Instance.PlayAttack(mousePosition);
-                        RTSManager.Instance.prefabObject.SetActive(false);
+                        RTSManager.Instance.activeBlueprint.SetActive(false);
                         currentEvent = MouseEvent.Selection;
                     }
                 }
@@ -368,7 +346,7 @@ namespace RTSInput
                         }
                     }
 
-                    RTSManager.Instance.prefabObject.SetActive(false);
+                    RTSManager.Instance.activeBlueprint.SetActive(false);
                     currentEvent = MouseEvent.Selection;
 
                 }
@@ -446,6 +424,7 @@ namespace RTSInput
             }
         }
 
+        //handles right mouse input
         private void HandleRightMouseClicks()
         {
             if (Input.GetKeyUp(KeyCode.Mouse1))
@@ -453,7 +432,7 @@ namespace RTSInput
                 //disable current command and revert to selection 
                 if (currentEvent == MouseEvent.PrefabBuild || currentEvent == MouseEvent.UnitMove || currentEvent == MouseEvent.UnitAttack || currentEvent == MouseEvent.Rally)
                 {
-                    RTSManager.Instance.prefabObject.SetActive(false);
+                    RTSManager.Instance.activeBlueprint.SetActive(false);
                     currentEvent = MouseEvent.Selection;
                 }
                 //if current event is selection
@@ -521,13 +500,195 @@ namespace RTSInput
             }
         }
 
+        //handles all key input
+        private void HandleKeys()
+        {
+
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                Debug.Break();
+            }
+            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Delete))
+            {
+                OnDeleteAll();
+            }
+            if (Input.GetKeyDown(KeyCode.Delete))
+            {
+                OnDelete();
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                OnBuildPrefabs(1);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                OnBuildPrefabs(2);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                OnBuildPrefabs(3);
+            }
+            if (Input.GetKeyDown("escape"))
+            {
+                Application.Quit();
+            }
 
 
-        //begin prefab creation
-        public void OnPrefabCreation()
+            //deactivate preset on shift hold up
+            if (Input.GetKeyUp(KeyCode.LeftShift) && currentEvent != MouseEvent.None)
+            {
+                ShiftUp();
+            }
+
+
+
+            //handles primary selectable cycling
+            if (Input.GetKeyDown(KeyCode.Tab) && PrimaryEntity != null && currentEvent == MouseEvent.Selection)
+            {
+                //allows the program to do a full search starting from the flag
+                do
+                {
+                    foreach (Entity obj in SelectedEntities)
+                    {
+                        //this checks for the first item in the next selectable type, then switches the primary to it
+                        if (PrimaryEntity == obj)
+                        {
+                            //checks if this went full circle
+                            if (selectedTypeFlag)
+                            {
+                                selectedTypeFlag = false;
+                                break;
+                            }
+                            //else, set flag to true
+                            selectedTypeFlag = true;
+                        }
+                        //if a different type is found, and flag is active
+                        if (obj.type != PrimaryEntity.type && selectedTypeFlag)
+                        {
+                            selectedTypeFlag = false;
+                            PrimaryEntity = obj;
+                        }
+                    }
+                } while (selectedTypeFlag);                 //my first practical use of do-while =D
+            }
+
+        }
+
+        //check the activity of all objects
+        private void CheckActivity() {
+            foreach (Entity obj in InputManager.Instance.SelectedEntities) {
+                if (!obj.gameObject.activeSelf) {
+                    //remove if not active
+                    InputManager.Instance.SelectedEntities.Remove(obj);
+
+                    //update primary selected activity
+                    if (PrimaryEntity == obj) {
+                        SwitchPrimarySelected();
+                    }
+                    selectionChanged = true;
+                }
+            }
+        }
+
+        //handles changes in selection
+        private void HandleSelectionChanges()
+        {
+            //if flag is activated do operations
+            if (selectionChanged)
+            {
+                //Debug.Log("Selection Changed");
+                if (SelectedEntities.Count > 1)
+                {
+                    //here is where the selection UI happens
+                    SelectionUI.Instance.ProcessUI(true);
+                }
+
+                selectionChanged = false;
+            }
+        }
+
+
+        #region Helpers
+
+        //checks for if current mouse blueprints' activities
+        public void CheckValidity()
+        {
+
+            if (turretBlueprint.activeSelf)
+            {
+                //check for activity
+                if (activeBlueprint != turretBlueprint) { turretBlueprint.SetActive(false); }
+                //check for mouse status validity
+                if (InputManager.Instance.currentEvent != MouseEvent.Turret) { turretBlueprint.SetActive(false); }
+            }
+            if (barracksBlueprint.activeSelf)
+            {
+                //check for activity
+                if (activeBlueprint != barracksBlueprint) { barracksBlueprint.SetActive(false); }
+                //check for mouse status validity
+                if (InputManager.Instance.currentEvent != MouseEvent.Barracks) { barracksBlueprint.SetActive(false); }
+            }
+            if (wallBlueprint.activeSelf)
+            {
+                //check for activity
+                if (activeBlueprint != wallBlueprint) { wallBlueprint.SetActive(false); }
+                //check for mouse status validity
+                if (InputManager.Instance.currentEvent != MouseEvent.Wall) { barracksBlueprint.SetActive(false); }
+
+            }
+            if (moveCursorBlueprint.activeSelf)
+            {
+                //check for activity
+                if (activeBlueprint != moveCursorBlueprint) { moveCursorBlueprint.SetActive(false); }
+                //check for mouse status validity
+                if (InputManager.Instance.currentEvent != MouseEvent.MovementCursor) { moveCursorBlueprint.SetActive(false); }
+
+            }
+            if (attackCursorBlueprint.activeSelf)
+            {
+                //check for activity
+                if (activeBlueprint != attackCursorBlueprint) { attackCursorBlueprint.SetActive(false); }
+                //check for mouse status validity
+                if (InputManager.Instance.currentEvent != MouseEvent.AttackCursor) { attackCursorBlueprint.SetActive(false); }
+            }
+            if (rallyBlueprint.activeSelf)
+            {
+                //check for activity
+                if (activeBlueprint != rallyBlueprint) { rallyBlueprint.SetActive(false); }
+                //check for mouse status validity
+                if (InputManager.Instance.currentEvent != MouseEvent.RallyCursor) { rallyBlueprint.SetActive(false); }
+
+            }
+
+        }
+
+
+        public void OnBuildPrefabs(int prefab)
         {
             ClearSelection();
-            currentEvent = MouseEvent.PrefabBuild;
+            activeBlueprint.SetActive(false);
+
+            switch (prefab)
+            {
+                case 1:
+                    currentEvent = MouseEvent.Turret;
+                    turretBlueprint.SetActive(true);
+                    activeBlueprint = turretBlueprint;
+                    break;
+                case 2:
+                    currentEvent = MouseEvent.Barracks;
+                    barracksBlueprint.SetActive(true);
+                    activeBlueprint = barracksBlueprint;
+                    break;
+                case 3:
+                    currentEvent = MouseEvent.Wall;
+                    wallBlueprint.SetActive(true);
+                    activeBlueprint = wallBlueprint;
+                    break;
+                default:
+                    Debug.LogError("Error: Invalid Type for building blueprint");
+                    break;
+            }
         }
 
         //deselects an object
@@ -553,15 +714,22 @@ namespace RTSInput
                     SelectionUI.Instance.ProcessUI(false);
                 }
             }
-            else if (currentEvent != MouseEvent.PrefabBuild)
+            else
             {
                 ClearSelection();
             }
 
         }
 
+        //if shift is released at any time
+        public void ShiftUp()
+        {
+            activeBlueprint.SetActive(false);
+            InputManager.Instance.ClearSelection();
+        }
 
-        //clears selection
+
+        //clears selection (deselects everything)
         public void ClearSelection()
         {
             if (!SelectedEntities.Count.Equals(0))
@@ -574,7 +742,7 @@ namespace RTSInput
             }
 
             selectionChanged = true;
-            currentEvent = MouseEvent.Nothing;
+            currentEvent = MouseEvent.None;
             boxStart = Vector2.zero;
             boxEnd = Vector2.zero;
             boxActive = false;
@@ -589,25 +757,9 @@ namespace RTSInput
             SelectedEntities.Add(obj);
             SwitchPrimarySelected(obj);
 
-            currentEvent = MouseEvent.Selection;
+            currentEvent = MouseEvent.None;
             obj.OnSelect();
 
-        }
-        //handles changes in selection
-        private void HandleSelectionChanges()
-        {
-            //if flag is activated do operations
-            if (selectionChanged)
-            {
-                //Debug.Log("Selection Changed");
-                if (SelectedEntities.Count > 1)
-                {
-                    //here is where the selection UI happens
-                    SelectionUI.Instance.ProcessUI(true);
-                }
-
-                selectionChanged = false;
-            }
         }
         //switches currently active entity
         public void SwitchPrimarySelected(Entity primary = null)
@@ -621,6 +773,80 @@ namespace RTSInput
                 PrimaryEntity = primary;
             }
         }
+
+        //deactivate selected entities
+        public void OnDelete()
+        {
+            foreach (Entity obj in InputManager.Instance.SelectedEntities)
+            {
+                obj.OnDeActivate();
+            }
+        }
+
+        //deactivate all entities
+        public void OnDeleteAll()
+        {
+            InputManager.Instance.ClearSelection();
+
+            foreach (Entity obj in EntityManager.Instance.AllEntities)
+            {
+                if (obj.gameObject.activeSelf)
+                {
+                    obj.OnDeActivate();
+                }
+            }
+        }
+
+
+        #endregion
+
+        #region UIInputFunctions
+
+        //train unit in barracks
+        public void OnTrainBarracks(int unitType)
+        {
+            //TODO: call train unit function on all selected barracks
+
+        }
+
+        //switch current mouse action to Movement indicator
+        public void OnSelectMove()
+        {
+            activeBlueprint.SetActive(false);
+            activeBlueprint = moveCursorBlueprint;
+            activeBlueprint.SetActive(true);
+
+            currentEvent = MouseEvent.MovementCursor;
+        }
+
+        //switch current mouse action to Attack indicator
+        public void OnSelectAttack()
+        {
+            activeBlueprint.SetActive(false);
+            activeBlueprint = attackCursorBlueprint;
+            activeBlueprint.SetActive(true);
+
+            currentEvent = MouseEvent.AttackCursor;
+
+        }
+        //reloads all turrets
+        public void OnReload()
+        {
+            //TODO: Add reloading functionality to turrets
+        }
+
+        //switch current mouse action to Rally point indicator
+        public void OnRally()
+        {
+            activeBlueprint.SetActive(false);
+            activeBlueprint = rallyBlueprint;
+            activeBlueprint.SetActive(true);
+
+            currentEvent = MouseEvent.RallyCursor;
+        }
+        #endregion
+
+        #region Functional Input
         private void OnGUI()
         {
             //used to draw selection box
@@ -664,7 +890,7 @@ namespace RTSInput
         private void DoubleClick()
         {
             //Debug.Log("Double Clicked");
-            if (currentEvent == MouseEvent.Nothing || currentEvent == MouseEvent.Selection)
+            if (currentEvent == MouseEvent.None)
             {
                 if (HitObject != null && Input.GetKey(KeyCode.LeftShift))
                 {
@@ -678,7 +904,6 @@ namespace RTSInput
                             !SelectedEntities.Contains(entity) && entity.gameObject.activeSelf)
                         {
                             SelectedEntities.Add(entity);
-                            currentEvent = MouseEvent.Selection;
                             entity.GetComponent<Entity>().OnSelect();
                             selectionChanged = true;
                         }
@@ -688,5 +913,6 @@ namespace RTSInput
                 }
             }
         }
+        #endregion
     }
 }

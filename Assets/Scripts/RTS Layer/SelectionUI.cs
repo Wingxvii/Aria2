@@ -95,9 +95,9 @@ namespace RTSInput
 
 
             //calculate num of pages
-            if (SelectionManager.Instance.SelectedEntities.Count > itemsPerPage)
+            if (InputManager.Instance.SelectedEntities.Count > itemsPerPage)
             {
-                numOfPages = SelectionManager.Instance.SelectedEntities.Count / itemsPerPage;
+                numOfPages = InputManager.Instance.SelectedEntities.Count / itemsPerPage;
                 numOfPages++;
             }
 
@@ -113,7 +113,7 @@ namespace RTSInput
             //display based on the page
             int counterOffset = (currPage - 1) * itemsPerPage;
 
-            for (int counter = counterOffset; counter < SelectionManager.Instance.SelectedEntities.Count; counter++)
+            for (int counter = counterOffset; counter < InputManager.Instance.SelectedEntities.Count; counter++)
             {
 
                 //counter surpass items exception
@@ -123,7 +123,7 @@ namespace RTSInput
                 }
 
                 buttonPool[counter - counterOffset].SetActive(true);
-                switch (SelectionManager.Instance.SelectedEntities[counter].type)
+                switch (InputManager.Instance.SelectedEntities[counter].type)
                 {
                     case EntityType.Barracks:
                         buttonPool[counter - counterOffset].GetComponent<Image>().sprite = ButtonBarracks;
@@ -139,7 +139,7 @@ namespace RTSInput
                         break;
                 }
 
-                buttonPool[counter - counterOffset].GetComponent<SelectionButton>().OnCreate(SelectionManager.Instance.SelectedEntities[counter]);
+                buttonPool[counter - counterOffset].GetComponent<SelectionButton>().OnCreate(InputManager.Instance.SelectedEntities[counter]);
             }
         }
 
@@ -153,11 +153,11 @@ namespace RTSInput
         {
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftControl))
             {
-                SelectionManager.Instance.DeselectItem(button.parentObject);
+                InputManager.Instance.DeselectItem(button.parentObject);
             }
             else
             {
-                SelectionManager.Instance.OnFocusSelected(button.parentObject);
+                InputManager.Instance.OnFocusSelected(button.parentObject);
             }
         }
 

@@ -5,6 +5,7 @@ public class ShellPlacement : MonoBehaviour
     public Material red;
     public Material green;
     public MeshRenderer selfRenderer;
+    public EntityType type;
 
     public bool placeable = false;
 
