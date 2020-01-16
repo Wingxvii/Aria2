@@ -31,8 +31,7 @@ namespace RTSInput
         }
 
         //gives unit a movement command
-        public void Move(Entity target, Vector3 position)
-        {
+        public void Move(Entity source, Vector3 position){
 
         }
 
@@ -41,6 +40,10 @@ namespace RTSInput
         
         }
 
+        //issues a position for a rally point
+        public void IssueRally(Entity source, Vector3 position) { 
+            
+        }
 
         #endregion
     }
