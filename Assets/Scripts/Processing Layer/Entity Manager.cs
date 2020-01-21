@@ -147,4 +147,10 @@ public class EntityManager : MonoBehaviour
         return returnValue;
     }
 
+    //simple getters
+    public List<Entity> ActivePlayers() {
+        return ActiveEntitiesByType[(int)EntityType.Player];
+    }
+
+
 }

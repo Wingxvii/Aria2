@@ -118,7 +118,7 @@ public class Droid : Entity
                     shortestDist = float.MaxValue;
 
                     //check shortest in range for each player
-                    foreach (Player player in DroidManager.Instance.playerTargets)
+                    foreach (Player player in EntityManager.Instance.ActivePlayers())
                     {
                         float dist = Vector3.Distance(player.transform.position, this.transform.position);
                         if (dist < shortestDist)
@@ -143,7 +143,7 @@ public class Droid : Entity
                     shortestDist = float.MaxValue;
 
                     //check shortest in range for each player
-                    foreach (Player player in DroidManager.Instance.playerTargets)
+                    foreach (Player player in EntityManager.Instance.ActivePlayers())
                     {
                         float dist = Vector3.Distance(player.transform.position, this.transform.position);
                         if (dist < shortestDist)
@@ -161,7 +161,7 @@ public class Droid : Entity
                 case DroidState.Standing:
                     shortestDist = float.MaxValue;
 
-                    foreach (Player player in DroidManager.Instance.playerTargets)
+                    foreach (Player player in EntityManager.Instance.ActivePlayers())
                     {
                         float dist = Vector3.Distance(player.transform.position, this.transform.position);
                         if (dist < shortestDist)
@@ -200,7 +200,7 @@ public class Droid : Entity
     }
     private void OnTriggerStay(Collider other)
     {
-        if (GameController.Instance.type == PlayerType.FPS && other.tag == "Entity" && other.gameObject.GetComponent<Entity>().type == EntityType.Player)
+        if (GameController.Instance.type == PlayerType.RTS && other.tag == "Entity" && other.gameObject.GetComponent<Entity>().type == EntityType.Player)
         {
             if (state != DroidState.AttackMoving && state != DroidState.Moving && state != DroidState.TargetAttacking)
             {
@@ -213,18 +213,6 @@ public class Droid : Entity
             OnAttack();
         }
     }
-
-    IEnumerator PlayDeath()
-    {
-        NetworkManager.SendKilledEntity(this);
-
-        yield return new WaitForSeconds(3.0f);
-
-        Debug.Log("Dead droid");
-        DroidManager.Instance.KillDroid(this);
-        SelectionManager.Instance.DeselectItem(this);
-    }
-
 
 
 }
