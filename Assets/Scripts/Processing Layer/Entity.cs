@@ -17,7 +17,7 @@ public enum EntityType
     TOTAL,
 }
 
-public class Entity : MonoBehaviour
+public abstract class Entity : MonoBehaviour
 {
 
     //ID

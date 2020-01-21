@@ -113,7 +113,6 @@ public class Player : Entity
 
         //anim.SetFloat("Walk", Vector3.Dot(this.GetComponent<Rigidbody>().velocity, transform.forward) / 10);
         //anim.SetFloat("Turn", Vector3.Dot(this.GetComponent<Rigidbody>().velocity, transform.right) / 10);
-        base.BaseUpdate();
     }
 
     public override void OnDeath()
@@ -132,6 +131,5 @@ public class Player : Entity
     public override void OnDamage(int num, Entity culprit)
     {
         //NetworkManager.SendDamagePlayer(num, this.id + 1, culprit.id);
-        base.OnDamage(num, culprit);
     }
 }

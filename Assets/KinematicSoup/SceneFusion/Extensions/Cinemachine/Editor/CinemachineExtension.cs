@@ -76,6 +76,8 @@ namespace KS.SceneFusion.Extensions.Editor
 
             m_componentOwnerField = typeof(CinemachineVirtualCamera).GetField("m_ComponentOwner",
                 BindingFlags.NonPublic | BindingFlags.Instance);
+
+            sfUtility.SyncHiddenProperties<CinemachineFreeLook>("m_Rigs");
         }
 
         /**

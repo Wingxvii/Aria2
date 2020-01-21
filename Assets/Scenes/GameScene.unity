@@ -129,6 +129,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 296745277}
+  - component: {fileID: 296745281}
+  - component: {fileID: 296745280}
+  - component: {fileID: 296745279}
+  - component: {fileID: 296745278}
   m_Layer: 0
   m_Name: RTS Manager
   m_TagString: Untagged
@@ -150,6 +154,98 @@ Transform:
   m_Father: {fileID: 1582702574}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &296745278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296745276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e8d748ae71c9da40bda45a7cda3c87f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pages: []
+  currPage: 1
+  itemsPerPage: 0
+  numOfPages: 1
+  XStart: -215
+  XOffset: 99
+  numOfCols: 14
+  YStart: -400
+  YOffset: -55
+  numOfRows: 2
+  ButtonDroid: {fileID: 0}
+  ButtonBarracks: {fileID: 0}
+  ButtonWall: {fileID: 0}
+  ButtonTurret: {fileID: 0}
+  ButtonPrefab: {fileID: 0}
+  UIParent: {fileID: 0}
+  buttonPool: []
+--- !u!114 &296745279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296745276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c1c6505ddea7c543bc87b9b35450dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: 1
+  credits: 0
+  totalSupply: 0
+  supplyCurrent: 0
+  numBarracksActive: 0
+  creditText: {fileID: 0}
+  supplyText: {fileID: 0}
+  time: {fileID: 0}
+  timeElapsed: 0
+--- !u!114 &296745280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296745276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 518420d5b20efc74787b60bf84b2946b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxStart: {x: 0, y: 0}
+  boxEnd: {x: 0, y: 0}
+  boxActive: 0
+  selectionBox: {fileID: 0}
+  BoxThreshold: 15
+  PrimaryEntity: {fileID: 0}
+  SelectedEntities: []
+  selectedTypeFlag: 0
+  selectionChanged: 0
+  staticPosition: {x: 0, y: 0, z: 0}
+  HitObject: {fileID: 0}
+  activeBlueprint: {fileID: 0}
+  turretBlueprint: {fileID: 0}
+  barracksBlueprint: {fileID: 0}
+  wallBlueprint: {fileID: 0}
+  moveCursorBlueprint: {fileID: 0}
+  attackCursorBlueprint: {fileID: 0}
+  rallyBlueprint: {fileID: 0}
+--- !u!114 &296745281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296745276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe8e9bd262e7364f8e29c0fe11a01b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &683400370
 GameObject:
   m_ObjectHideFlags: 0
@@ -3503,6 +3599,7 @@ GameObject:
   - component: {fileID: 7603134986487013751}
   - component: {fileID: 7603134986487013750}
   - component: {fileID: 7603134986487013753}
+  - component: {fileID: 7603134986487013754}
   m_Layer: 5
   m_Name: RTS_HUD Canvas
   m_TagString: Ground
@@ -3527,6 +3624,35 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7603134986487013754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7603134986487013752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e8d748ae71c9da40bda45a7cda3c87f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pages: []
+  currPage: 1
+  itemsPerPage: 0
+  numOfPages: 1
+  XStart: -215
+  XOffset: 99
+  numOfCols: 14
+  YStart: -400
+  YOffset: -55
+  numOfRows: 2
+  ButtonDroid: {fileID: 0}
+  ButtonBarracks: {fileID: 0}
+  ButtonWall: {fileID: 0}
+  ButtonTurret: {fileID: 0}
+  ButtonPrefab: {fileID: 0}
+  UIParent: {fileID: 0}
+  buttonPool: []
 --- !u!222 &7603134986508045318
 CanvasRenderer:
   m_ObjectHideFlags: 0

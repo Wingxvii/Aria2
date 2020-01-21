@@ -15,3 +15,29 @@ Latest Version: 1.8.6
 2020-01-21 13:54:30.2371 [DEBUG] Refresh token (aD6sG1zGdLOiTYaQr47DNIOOkbKS79OE7lqHGZYinAKTEtrX1Kt1xSjx5e8CizW3A6CydgaR5Gdoi8JAKJh8hqpY1iGfkPSlg4hW5ALPhee5UW4NJxpWYykjXSqJ8zGOFcrxfe2PU0kkAbw0kmCt1Fdou7PLwhZRnIU6r7YT9cFuOg2w9tm9nBAI9B67l45psGd4Je55WycxEwz4LY4lDapj9FctB5FtkDSSPiac8dejaY9OeEfU76EIRyznulu) error: {"err":"Error getting response stream (ReadDone1): ReceiveFailure"}
 2020-01-21 17:01:04.6058 [DEBUG] Scene Fusion version 1.8.5-1
 2020-01-21 17:01:07.6314 [DEBUG] Refresh token () error: {"err":"Invalid token"}
+2020-01-21 18:12:47.7202 [DEBUG] Scene Fusion: A new version of Scene Fusion is available.
+Current Version: 1.8.5
+Latest Version: 1.8.6
+2020-01-21 18:12:50.7314 [INFO] Launching Session: GameScene
+2020-01-21 18:12:54.3216 [DEBUG] Connecting
+2020-01-21 18:12:54.3445 [DEBUG] Connecting to room (117652:SceneFusion:SceneFusion) via TCP at roommanager-ec2-18-228-191-46.kinematicsoup.com:21312
+2020-01-21 18:12:56.4682 [DEBUG] Sent C:/Users/turnt/OneDrive/Documents/Unity/Aria2/KSEditorLogs/SessionLogs/session.117652-637152271743784433.log
+2020-01-21 18:12:56.4692 [DEBUG] Connection failed. (117652:SceneFusion:SceneFusion)
+2020-01-21 18:16:57.5252 [DEBUG] Scene Fusion: A new version of Scene Fusion is available.
+Current Version: 1.8.5
+Latest Version: 1.8.6
+2020-01-21 18:17:26.2391 [DEBUG] Scene Fusion: A new version of Scene Fusion is available.
+Current Version: 1.8.5
+Latest Version: 1.8.6
+2020-01-21 18:18:08.4406 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 18:18:24.7286 [INFO] Launching Session: GameScene
+2020-01-21 18:18:27.6812 [DEBUG] Connecting
+2020-01-21 18:18:27.7072 [DEBUG] Connecting to room (117653:SceneFusion:SceneFusion) via TCP at roommanager-ec2-13-124-178-67.kinematicsoup.com:21312
+2020-01-21 18:18:35.6228 [DEBUG] Sent C:/Users/turnt/OneDrive/Documents/Unity/Aria2/KSEditorLogs/SessionLogs/session.117653-637152275077321413.log
+2020-01-21 18:18:35.6238 [DEBUG] Failed to authenticate: Authentication failed.
+2020-01-21 18:18:36.6757 [DEBUG] Connection failed. (117653:SceneFusion:SceneFusion)
+2020-01-21 18:18:42.5410 [DEBUG] Connecting
+2020-01-21 18:18:42.5580 [DEBUG] Connecting to room (117653:SceneFusion:SceneFusion) via TCP at roommanager-ec2-13-124-178-67.kinematicsoup.com:21312
+2020-01-21 18:18:44.6488 [DEBUG] Sent C:/Users/turnt/OneDrive/Documents/Unity/Aria2/KSEditorLogs/SessionLogs/session.117653-637152275225580372.log
+2020-01-21 18:18:44.6488 [DEBUG] Connection failed. (117653:SceneFusion:SceneFusion)
+2020-01-21 18:23:10.0446 [DEBUG] Scene Fusion version 1.8.6-0
