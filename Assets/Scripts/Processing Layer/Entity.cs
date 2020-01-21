@@ -40,7 +40,7 @@ public class Entity : MonoBehaviour
     private RectTransform canvasTransform;
     //selection
     private Behaviour selectedHalo;
-    private bool selected = false;
+    protected bool selected = false;
     #endregion
 
     private void Awake()
@@ -66,6 +66,7 @@ public class Entity : MonoBehaviour
         //set id
         id = ++idtracker;
         indexedList.Add(this);
+        BaseAwake();
     }
 
     //called on activate
@@ -109,10 +110,12 @@ public class Entity : MonoBehaviour
         else {
             Debug.LogError("Selection is disabled");
         }
+        BaseSelected();
     }
     //selection by FPS player
     public void OnDeselect()
     {
+        BaseDeselected();
         if (isRTS)
         {
 
@@ -128,10 +131,12 @@ public class Entity : MonoBehaviour
     public virtual void OnActivate()
     {
         this.gameObject.SetActive(true);
+        BaseActivation();
     }
     //managed method for deactivation
     public virtual void OnDeActivate()
     {
+        BaseDeactivation();
         EntityManager.Instance.DeactivateEntity(type, this);
         ResetValues();
         OnDeselect();
@@ -172,11 +177,20 @@ public class Entity : MonoBehaviour
         OnDeActivate();
     }
 
-
+    protected virtual void BaseAwake() { }
     protected virtual void BaseStart() { }
+    protected virtual void BaseEnable() { }
     protected virtual void BaseUpdate() { }
-    protected virtual void BaseFixedUpdate() { }
     protected virtual void BaseLateUpdate() { }
+    protected virtual void BaseFixedUpdate() { }
+    protected virtual void BaseOnDestory() { }
+
+    public virtual void IssueLocation(Vector3 location) { }
+    public virtual void BaseActivation() { }
+    public virtual void BaseDeactivation() { }
+
+    public virtual void BaseSelected() { }
+    public virtual void BaseDeselected() { }
 
 
 }

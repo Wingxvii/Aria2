@@ -29,6 +29,10 @@ public class ResourceManager : MonoBehaviour
         public const int COST_TURRET = 400;
         public const int COST_WALL = 250;
         public const int TRICKLERATE = 4;
+        public const int FRAMETICK = 1;
+
+        public const float DROIDTRAINTIME = 5.0f;
+
 
         public const int SUPPLY_PER_BARRACKS = 20;
 
@@ -174,6 +178,67 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
+    //requests a drone to build, returns time to build
+    public float RequestQueue(EntityType type)
+    {
+        if (ResourceManager.Instance.supplyCurrent < ResourceManager.Instance.totalSupply)
+        {
+            switch (type)
+            {
+                case EntityType.Droid:
+                    ResourceManager.Instance.supplyCurrent++;
+                    return 5f;
+                default:
+                    Debug.Log("ERROR: DROID TYPE INVALID");
+                    return -1f;
+            }
+        }
+        Debug.Log("MAX SUPPLY REACHED");
+        return -1f;
+    }
+
+
+    //called when drone is requested to be built
+    public void QueueFinished(Transform home, EntityType type)
+    {
+        if (home.gameObject.activeSelf)
+        {
+            switch (type)
+            {
+                case EntityType.Droid:
+                    Droid temp = (Droid)EntityManager.Instance.GetNewEntity(EntityType.Droid);
+                    temp.gameObject.transform.position = home.position;
+
+                    break;
+                default:
+                    Debug.Log("ERROR: DROID TYPE INVALID");
+                    break;
+            }
+        }
+    }
+
+
+    //called when drone is requested to be built, with a rally
+    public void QueueFinished(Transform home, EntityType type, Vector3 rally)
+    {
+        if (home.gameObject.activeSelf)
+        {
+
+            switch (type)
+            {
+                case EntityType.Droid:
+                    Droid temp = (Droid)EntityManager.Instance.GetNewEntity(EntityType.Droid);
+                    temp.gameObject.transform.position = home.position;
+                    temp.IssueLocation(rally);
+                    break;
+                default:
+                    Debug.Log("ERROR: DROID TYPE INVALID");
+                    break;
+            }
+        }
+    }
+
+
 
     public void UpdateSupply()
     {
@@ -183,4 +248,5 @@ public class ResourceManager : MonoBehaviour
             totalSupply = ResourceConstants.SUPPLY_MAX;
         }
     }
+
 }

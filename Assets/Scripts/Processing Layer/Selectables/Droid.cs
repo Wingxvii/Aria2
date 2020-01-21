@@ -182,6 +182,22 @@ public class Droid : Entity
         }
     }
 
+    public override void IssueLocation(Vector3 location)
+    {
+        state = DroidState.Moving;
+        journeyPoint = location;
+    }
+
+    public void IssueAttack(Vector3 location)
+    {
+        state = DroidState.AttackMoving;
+        journeyPoint = location;
+    }
+    public void IssueAttack(Player attackee)
+    {
+        state = DroidState.TargetAttacking;
+        attackPoint = attackee;
+    }
 
     public void MoveTo(Vector2 pos)
     {
