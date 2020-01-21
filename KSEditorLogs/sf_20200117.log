@@ -1,0 +1,19 @@
+2020-01-17 12:13:46.4025 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-17 12:25:11.5956 [INFO] Launching Session: samplescene
+2020-01-17 12:25:15.7044 [DEBUG] Connecting
+2020-01-17 12:25:15.7363 [DEBUG] Connecting to room (117302:SceneFusion:SceneFusion) via TCP at roommanager-ec2-18-228-191-46.kinematicsoup.com:21312
+2020-01-17 12:25:17.5395 [DEBUG] Sent C:/Users/turnt/OneDrive/Documents/Unity/Aria2/KSEditorLogs/SessionLogs/session.117302-637148607157732448.log
+2020-01-17 12:25:17.5405 [DEBUG] Connection failed. (117302:SceneFusion:SceneFusion)
+2020-01-17 12:25:33.3581 [INFO] Launching Session: samplescene
+2020-01-17 12:25:37.2923 [DEBUG] Connecting
+2020-01-17 12:25:37.3013 [DEBUG] Connecting to room (117303:SceneFusion:SceneFusion) via TCP at roommanager-ec2-18-228-191-46.kinematicsoup.com:21312
+2020-01-17 12:25:40.1196 [DEBUG] Sent C:/Users/turnt/OneDrive/Documents/Unity/Aria2/KSEditorLogs/SessionLogs/session.117303-637148607373023515.log
+2020-01-17 12:25:40.1206 [DEBUG] Connection failed. (117303:SceneFusion:SceneFusion)
+2020-01-17 12:25:47.5908 [DEBUG] Connecting
+2020-01-17 12:25:47.6038 [DEBUG] Connecting to room (117302:SceneFusion:SceneFusion) via TCP at roommanager-ec2-18-228-191-46.kinematicsoup.com:21312
+2020-01-17 12:25:49.5568 [DEBUG] Sent C:/Users/turnt/OneDrive/Documents/Unity/Aria2/KSEditorLogs/SessionLogs/session.117302-637148607476048022.log
+2020-01-17 12:25:49.5568 [DEBUG] Connection failed. (117302:SceneFusion:SceneFusion)
+2020-01-17 12:33:15.0915 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-17 14:02:39.2216 [DEBUG] Refresh token (a4O8ptyPl9Nwwpsn1aZsYR3UYKTMeREEiKuWAOlD4s3bXraQuRMypCOHeJz8KHFyDRS5Yg9taL3iAJ0izcd1bfioGwN15YMu5OcZaXMlsHxsTOcUy6JRSiD4rRpfKshYGfX877PkdtYChFhiif5qei1L8X9Gzj05Tws8jL1hbNOi7tcwElms854nFPQ8prHaQA5J8Kz9kqhwf06zjZE8FP4AJIJ2JAr8JMEK2HH105MbFDrl8LEHML6ik6mlTDa) error: {"err":"Error: NameResolutionFailure"}
+2020-01-17 14:08:45.5498 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-17 14:13:54.5526 [DEBUG] Refresh token (a4O8ptyPl9Nwwpsn1aZsYR3UYKTMeREEiKuWAOlD4s3bXraQuRMypCOHeJz8KHFyDRS5Yg9taL3iAJ0izcd1bfioGwN15YMu5OcZaXMlsHxsTOcUy6JRSiD4rRpfKshYGfX877PkdtYChFhiif5qei1L8X9Gzj05Tws8jL1hbNOi7tcwElms854nFPQ8prHaQA5J8Kz9kqhwf06zjZE8FP4AJIJ2JAr8JMEK2HH105MbFDrl8LEHML6ik6mlTDa) error: {"err":"Error getting response stream (ReadDone1): ReceiveFailure"}

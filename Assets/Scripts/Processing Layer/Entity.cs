@@ -28,7 +28,7 @@ public class Entity : MonoBehaviour
     //attributes
     public EntityType type;
     public int currentHealth = 1;
-    private int maxHealth = 1;
+    protected int maxHealth = 1;
     public bool destructable = false;
 
     //RTS BEHAVIOURS
@@ -54,7 +54,6 @@ public class Entity : MonoBehaviour
         {
             //clean up unwanted items
 
-
         }
         else if (GameController.Instance.type == PlayerType.FPS) {
             //clean up unwanted items
@@ -74,18 +73,26 @@ public class Entity : MonoBehaviour
     {
         //ensure values are reset on start
         ResetValues();
+        BaseStart();
     }
     //updates
     private void Update()
     {
         healthBar.value = (float)currentHealth / (float)maxHealth;
+        BaseUpdate();
     }
+    private void FixedUpdate()
+    {
+        BaseFixedUpdate();
+    }
+
     private void LateUpdate()
     {
         if (isRTS)
         {
             canvasTransform.eulerAngles = new Vector3(90, 0, 0);
         }
+        BaseLateUpdate();
     }
 
 
@@ -164,6 +171,12 @@ public class Entity : MonoBehaviour
         //deactivate
         OnDeActivate();
     }
+
+
+    protected virtual void BaseStart() { }
+    protected virtual void BaseUpdate() { }
+    protected virtual void BaseFixedUpdate() { }
+    protected virtual void BaseLateUpdate() { }
 
 
 }
