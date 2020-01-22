@@ -98,17 +98,17 @@ namespace RTSInput
             StartCoroutine(DoubleClickListener());
 
             //prefab instanitation
-            turretBlueprint = Instantiate(Resources.Load<GameObject>("Prefabs/Blueprints/turretBlueprint"));
+            turretBlueprint = Instantiate(turretBlueprint);
             turretBlueprint.SetActive(false);
-            barracksBlueprint = Instantiate(Resources.Load<GameObject>("Prefabs/Blueprints/barracksBlueprint"));
+            barracksBlueprint = Instantiate(barracksBlueprint);
             barracksBlueprint.SetActive(false);
-            wallBlueprint = Instantiate(Resources.Load<GameObject>("Prefabs/Blueprints/wallBlueprint"));
+            wallBlueprint = Instantiate(wallBlueprint);
             wallBlueprint.SetActive(false);
-            moveCursorBlueprint = Instantiate(Resources.Load<GameObject>("Prefabs/Blueprints/moveCursorBlueprint"));
+            moveCursorBlueprint = Instantiate(moveCursorBlueprint);
             moveCursorBlueprint.SetActive(false);
-            attackCursorBlueprint = Instantiate(Resources.Load<GameObject>("Prefabs/Blueprints/attackCursorBlueprint"));
+            attackCursorBlueprint = Instantiate(attackCursorBlueprint);
             attackCursorBlueprint.SetActive(false);
-            rallyBlueprint = Instantiate(Resources.Load<GameObject>("Prefabs/Blueprints/rallyBlueprint"));
+            rallyBlueprint = Instantiate(rallyBlueprint);
             rallyBlueprint.SetActive(false);
             activeBlueprint = turretBlueprint;
             activeBlueprint.SetActive(false);

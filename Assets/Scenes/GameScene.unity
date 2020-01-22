@@ -163,26 +163,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 296745276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e8d748ae71c9da40bda45a7cda3c87f, type: 3}
+  m_Script: {fileID: 11500000, guid: 74280053712782c4cba44e4f533a2a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pages: []
-  currPage: 1
-  itemsPerPage: 0
-  numOfPages: 1
-  XStart: -215
-  XOffset: 99
-  numOfCols: 14
-  YStart: -400
-  YOffset: -55
-  numOfRows: 2
-  ButtonDroid: {fileID: 0}
-  ButtonBarracks: {fileID: 0}
-  ButtonWall: {fileID: 0}
-  ButtonTurret: {fileID: 0}
-  ButtonPrefab: {fileID: 0}
-  UIParent: {fileID: 0}
-  buttonPool: []
+  UIBuilding: {fileID: 7603134987628681575}
+  UIBarracks: {fileID: 7603134986740650708}
+  UIDroid: {fileID: 7603134987160018166}
+  UITurret: {fileID: 7603134986907790035}
+  UIWall: {fileID: 7603134987700358761}
+  UIPlayer: {fileID: 7603134986583030896}
+  UISelection: {fileID: 7603134985965292207}
 --- !u!114 &296745279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +209,7 @@ MonoBehaviour:
   boxStart: {x: 0, y: 0}
   boxEnd: {x: 0, y: 0}
   boxActive: 0
-  selectionBox: {fileID: 0}
+  selectionBox: {fileID: 2800000, guid: 9a597a81d661ef44c9e012c08d91d2e6, type: 3}
   BoxThreshold: 15
   PrimaryEntity: {fileID: 0}
   SelectedEntities: []
@@ -228,12 +218,18 @@ MonoBehaviour:
   staticPosition: {x: 0, y: 0, z: 0}
   HitObject: {fileID: 0}
   activeBlueprint: {fileID: 0}
-  turretBlueprint: {fileID: 0}
-  barracksBlueprint: {fileID: 0}
-  wallBlueprint: {fileID: 0}
-  moveCursorBlueprint: {fileID: 0}
-  attackCursorBlueprint: {fileID: 0}
-  rallyBlueprint: {fileID: 0}
+  turretBlueprint: {fileID: 1436627955740270682, guid: 59f234e42d154974f9442df9747bfa4a,
+    type: 3}
+  barracksBlueprint: {fileID: 7171218989621235658, guid: 14867b8e3fd02904da28c0191aba46e3,
+    type: 3}
+  wallBlueprint: {fileID: 2943965205063777523, guid: 8f40839140d57484d963bc133282dd5d,
+    type: 3}
+  moveCursorBlueprint: {fileID: 2683152570318193574, guid: 8934e153b9e7c384e8f9576c8e84713e,
+    type: 3}
+  attackCursorBlueprint: {fileID: 2683152570318193574, guid: 6a8aa18d98588eb4caf5b6a50144c5a5,
+    type: 3}
+  rallyBlueprint: {fileID: 274030189064651138, guid: e7a791ce740bfd344b008af4444a1eaf,
+    type: 3}
 --- !u!114 &296745281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +251,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 683400371}
-  - component: {fileID: 683400372}
   m_Layer: 0
   m_Name: Game Scene
   m_TagString: Untagged
@@ -278,38 +273,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &683400372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 683400370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 146d260c39bca5a40989584930ccf3c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AllEntities: []
-  staticsMask:
-    serializedVersion: 2
-    m_Bits: 1536
-  entitysMask:
-    serializedVersion: 2
-    m_Bits: 63488
-  droidPrefab: {fileID: 4037481489312127328, guid: 4ef75879c87c1124c9f1ababa0166f0e,
-    type: 3}
-  playerPrefab: {fileID: 311159786221882674, guid: 63cac48023e4fe143a027c492edaeb46,
-    type: 3}
-  wallPrefab: {fileID: 5312696359181907221, guid: 291c3751be750c543bea7848f2ee38bf,
-    type: 3}
-  barracksPrefab: {fileID: 5243640246768292037, guid: cd8126f404d7ca9439d766667b571fd4,
-    type: 3}
-  turretPrefab: {fileID: 5508097730102920826, guid: 529508816a634614b898583372ae9b5c,
-    type: 3}
-  dummyPlayerPrefab: {fileID: 0}
-  controllablePlayerPrefab: {fileID: 0}
-  FPSspawnpoints: []
 --- !u!1 &1106957173
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,6 +541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1935975878}
   - component: {fileID: 1935975879}
+  - component: {fileID: 1935975880}
   m_Layer: 0
   m_Name: Scene Manager
   m_TagString: Untagged
@@ -614,18 +578,38 @@ MonoBehaviour:
   AllEntities: []
   staticsMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1536
   entitysMask:
     serializedVersion: 2
-    m_Bits: 0
-  droidPrefab: {fileID: 0}
-  playerPrefab: {fileID: 0}
-  wallPrefab: {fileID: 0}
-  barracksPrefab: {fileID: 0}
-  turretPrefab: {fileID: 0}
-  dummyPlayerPrefab: {fileID: 0}
+    m_Bits: 63488
+  droidPrefab: {fileID: 4037481489312127328, guid: 4ef75879c87c1124c9f1ababa0166f0e,
+    type: 3}
+  playerPrefab: {fileID: 311159786221882674, guid: 63cac48023e4fe143a027c492edaeb46,
+    type: 3}
+  wallPrefab: {fileID: 5312696359181907221, guid: 291c3751be750c543bea7848f2ee38bf,
+    type: 3}
+  barracksPrefab: {fileID: 5243640246768292037, guid: cd8126f404d7ca9439d766667b571fd4,
+    type: 3}
+  turretPrefab: {fileID: 5508097730102920826, guid: 529508816a634614b898583372ae9b5c,
+    type: 3}
   controllablePlayerPrefab: {fileID: 0}
-  FPSspawnpoints: []
+--- !u!114 &1935975880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935975877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97bdfb756a5cdd499f36808ad069e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStart: 1
+  loadedScene: 1
+  IP: 
+  type: 1
+  gameState: 0
 --- !u!1 &2029513483
 GameObject:
   m_ObjectHideFlags: 0

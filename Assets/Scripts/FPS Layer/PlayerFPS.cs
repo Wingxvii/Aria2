@@ -70,8 +70,8 @@ public class PlayerFPS : Entity
             c.material.bounceCombine = PhysicMaterialCombine.Minimum;
         }
 
-        spawnPointNum = EntityManager.Instance.freeSpawnPoints.Dequeue();
-        spawnPoint = EntityManager.Instance.FPSspawnpoints[spawnPointNum];
+        spawnPointNum = SpawnManager.Instance.freeSpawnPoints.Dequeue();
+        spawnPoint = SpawnManager.Instance.FPSspawnpoints[spawnPointNum];
     }
 
     protected override void BaseStart()
@@ -200,7 +200,7 @@ public class PlayerFPS : Entity
     protected override void BaseOnDestory()
     {
         if (spawnPointNum >= 0)
-            EntityManager.Instance.freeSpawnPoints.Enqueue(spawnPointNum);
+            SpawnManager.Instance.freeSpawnPoints.Enqueue(spawnPointNum);
     }
 
     //Use this to network damage being dealt

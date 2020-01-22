@@ -28,7 +28,7 @@ public abstract class Entity : MonoBehaviour
     //attributes
     public EntityType type;
     public int currentHealth = 1;
-    protected int maxHealth = 1;
+    public int maxHealth = 1;
     public bool destructable = false;
 
     //RTS BEHAVIOURS

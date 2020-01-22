@@ -12,3 +12,1619 @@
 2020-01-22 15:37:52.2230 [DEBUG] Scene Fusion version 1.8.6-0
 2020-01-22 15:46:02.3565 [DEBUG] Scene Fusion version 1.8.6-0
 2020-01-22 15:47:53.1349 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 15:49:37.7727 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 15:49:51.8582 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 15:49:51.9519 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:51.9529 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:51.9539 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:51.9539 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:51.9549 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:51.9549 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:51.9559 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:51.9898 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-22 15:49:51.9958 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:51.9968 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:51.9968 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:51.9977 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.0127 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.0137 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.0147 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.0267 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.0267 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.0386 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.0396 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.0406 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.0516 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.0526 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.0536 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.0646 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.0646 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.0765 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.0775 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.0785 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.0905 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.0915 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.0925 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.1055 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.1055 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.1184 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.1184 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.1194 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.1304 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.1314 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.1324 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.1444 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.1454 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.1613 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.1623 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.1633 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.1783 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.1793 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.1803 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.1932 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.1942 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.1952 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.2082 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.2092 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.2221 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.2231 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.2231 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.2341 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.2351 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.2361 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.2471 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.2481 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.2590 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.2600 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.2611 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.2720 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.2730 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.2740 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.2870 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.2880 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.2989 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.2999 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.3009 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.3149 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.3159 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.3169 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.3299 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.3309 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.3329 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.3488 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.3488 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.3727 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.3737 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.3747 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.3757 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.3897 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.3911 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.4057 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.4067 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.4077 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.4216 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.4216 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.4226 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.4376 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.4386 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.4396 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.4535 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.4545 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.4545 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.4685 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.4695 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.4815 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.4825 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.4834 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.4964 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.4974 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.4984 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.5114 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.5124 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.5134 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.5263 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.5273 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.5393 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.5393 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.5403 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.5563 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.5563 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.5573 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.5742 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.5752 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.5772 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.5912 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.5922 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.5932 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.6041 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.6051 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.6181 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.6191 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.6201 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.6330 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.6340 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.6350 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.6470 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.6480 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.6610 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.6620 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.6630 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.6759 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.6769 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.6779 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.6939 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.6939 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.6949 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.7088 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.7098 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.7228 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.7238 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.7248 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.7398 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.7408 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.7408 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.7527 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.7537 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.7547 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.7677 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.7687 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.7846 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.7856 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.7866 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.7996 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.8006 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.8016 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.8136 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.8146 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.8156 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.8295 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.8305 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.8445 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.8455 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.8465 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.8604 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.8614 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.8624 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.8754 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.8754 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.8764 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.8884 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.8894 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.9013 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.9023 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.9033 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.9153 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.9153 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.9163 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.9293 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.9293 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.9432 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.9442 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.9442 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.9592 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.9592 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.9602 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.9761 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.9771 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.9771 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:52.9921 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:52.9931 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:52.9941 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.0090 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.0090 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.0282 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.0290 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.0300 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.0400 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.0410 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.0410 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.0520 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.0530 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.0530 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.0639 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.0650 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.0749 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.0749 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.0759 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.0869 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.0879 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.0998 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.0998 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.1009 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.1118 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.1118 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.1128 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.1238 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.1248 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.1357 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.1367 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.1377 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.1487 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.1497 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.1597 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.1607 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.1607 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.1726 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.1726 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.1737 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.1840 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.1850 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.1980 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.1990 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.1990 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.2100 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.2110 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.2209 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.2219 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.2230 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.2329 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.2339 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.2339 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.2449 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.2449 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.2559 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.2569 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.2569 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.2688 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.2688 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.2798 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.2808 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.2808 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.2928 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.2938 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.2948 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.3067 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.3067 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.3177 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.3187 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.3187 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.3297 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.3307 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.3406 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.3416 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.3426 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.3536 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.3546 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.3546 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.3666 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.3676 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.3815 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.3815 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.3825 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.3975 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.3985 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.3985 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.4124 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.4135 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.4135 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.4274 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.4284 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.4394 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.4404 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.4414 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.4523 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.4533 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.4543 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.4658 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.4668 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.4818 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.4828 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.4838 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.4957 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.4957 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.4967 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.5097 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.5107 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.5237 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.5237 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.5247 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.5376 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.5376 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.5386 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.5516 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.5526 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.5536 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.5666 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.5676 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.5795 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.5805 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.5815 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.5945 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.5945 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.5955 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.6144 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.6154 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.6154 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.6304 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.6314 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.6324 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.6453 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.6453 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.6573 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.6585 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.6585 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.6713 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.6723 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.6733 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.6852 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.6862 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.6992 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.6992 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.7002 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.7122 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.7122 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.7132 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.7241 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.7251 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.7381 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.7391 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.7401 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.7521 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.7531 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.7541 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.7666 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.7675 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.7795 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.7805 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.7805 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.7935 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.7945 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.7955 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.8054 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.8064 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.8174 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.8184 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.8194 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.8334 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.8344 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.8354 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.8453 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.8463 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.8573 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.8583 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.8583 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.8693 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.8703 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.8812 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.8822 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.8832 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.8942 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.8952 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.8962 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.9062 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.9072 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.9191 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.9191 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.9201 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.9331 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.9331 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.9341 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.9451 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.9451 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.9560 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.9570 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.9570 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.9680 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.9690 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.9790 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.9800 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.9810 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:53.9910 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:53.9920 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:53.9920 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:54.0029 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:54.0039 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:54.0149 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:54.0149 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:54.0159 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:54.0269 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:54.0269 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:54.0458 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:54.0458 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:54.0468 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:54.0588 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:54.0598 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:54.0608 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:54.0708 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:54.0708 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:54.0718 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:54.0817 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:54.0827 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:54.0937 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:54.0947 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:54.0947 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:54.1047 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:54.1057 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:54.1157 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:54.1166 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:54.1166 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:54.1276 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:54.1286 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:54.1386 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:54.1396 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:54.1406 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:54.1535 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.FixedUpdate () (at Assets/Scripts/RTS Layer/ResourceManager.cs:110)
+
+2020-01-22 15:49:54.1535 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+ResourceManager.Update () (at Assets/Scripts/RTS Layer/ResourceManager.cs:80)
+
+2020-01-22 15:49:54.1546 [ERROR] UnassignedReferenceException: The variable turretBlueprint of InputManager has not been assigned.
+You probably need to assign the turretBlueprint variable of the InputManager script in the inspector.
+RTSInput.InputManager.CheckValidity () (at Assets/Scripts/RTS Layer/InputManager.cs:540)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159)
+
+2020-01-22 15:49:54.9156 [DEBUG] Play mode: False
+2020-01-22 15:58:13.0767 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 16:00:34.4519 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 16:04:20.8882 [DEBUG] Scene Fusion version 1.8.6-0
