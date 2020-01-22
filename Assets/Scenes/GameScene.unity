@@ -297,11 +297,16 @@ MonoBehaviour:
   entitysMask:
     serializedVersion: 2
     m_Bits: 63488
-  droidPrefab: {fileID: 0}
-  playerPrefab: {fileID: 0}
-  wallPrefab: {fileID: 0}
-  barracksPrefab: {fileID: 0}
-  turretPrefab: {fileID: 0}
+  droidPrefab: {fileID: 4037481489312127328, guid: 4ef75879c87c1124c9f1ababa0166f0e,
+    type: 3}
+  playerPrefab: {fileID: 311159786221882674, guid: 63cac48023e4fe143a027c492edaeb46,
+    type: 3}
+  wallPrefab: {fileID: 5312696359181907221, guid: 291c3751be750c543bea7848f2ee38bf,
+    type: 3}
+  barracksPrefab: {fileID: 5243640246768292037, guid: cd8126f404d7ca9439d766667b571fd4,
+    type: 3}
+  turretPrefab: {fileID: 5508097730102920826, guid: 529508816a634614b898583372ae9b5c,
+    type: 3}
   dummyPlayerPrefab: {fileID: 0}
   controllablePlayerPrefab: {fileID: 0}
   FPSspawnpoints: []

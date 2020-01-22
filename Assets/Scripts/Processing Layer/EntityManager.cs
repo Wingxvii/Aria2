@@ -38,11 +38,7 @@ public class EntityManager : MonoBehaviour
     public GameObject wallPrefab;
     public GameObject barracksPrefab;
     public GameObject turretPrefab;
-    public GameObject dummyPlayerPrefab;
     public GameObject controllablePlayerPrefab;
-
-    public Transform[] FPSspawnpoints;
-    public Queue<int> freeSpawnPoints;
 
     private void Start()
     {
@@ -51,11 +47,6 @@ public class EntityManager : MonoBehaviour
         ActiveEntitiesByType = new List<List<Entity>>();
         DeactivatedEntitiesByType = new List<Queue<Entity>>();
 
-        freeSpawnPoints = new Queue<int>();
-        for (int i = 0; i < freeSpawnPoints.Count; ++i)
-        {
-            freeSpawnPoints.Enqueue(i);
-        }
 
         //create a list per type
         for (int counter = 0; counter < (int)EntityType.TOTAL; counter++) {
