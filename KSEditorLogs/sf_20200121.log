@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 2020-01-21 09:41:26.7758 [DEBUG] Scene Fusion version 1.8.5-1
 2020-01-21 09:41:32.3824 [DEBUG] Scene Fusion: A new version of Scene Fusion is available.
 Current Version: 1.8.5
@@ -41,3 +42,75 @@ Latest Version: 1.8.6
 2020-01-21 18:18:44.6488 [DEBUG] Sent C:/Users/turnt/OneDrive/Documents/Unity/Aria2/KSEditorLogs/SessionLogs/session.117653-637152275225580372.log
 2020-01-21 18:18:44.6488 [DEBUG] Connection failed. (117653:SceneFusion:SceneFusion)
 2020-01-21 18:23:10.0446 [DEBUG] Scene Fusion version 1.8.6-0
+=======
+2020-01-21 21:50:28.1689 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-21 21:50:32.9694 [DEBUG] Scene Fusion: A new version of Scene Fusion is available.
+Current Version: 1.8.5
+Latest Version: 1.8.6
+2020-01-21 21:53:30.2808 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-21 21:54:14.6100 [INFO] Launching Session: Untitled
+2020-01-21 21:54:20.5747 [DEBUG] Connecting
+2020-01-21 21:54:20.5983 [DEBUG] Connecting to room (117663:SceneFusion:SceneFusion) via TCP at roommanager-ec2-18-228-191-46.kinematicsoup.com:21312
+2020-01-21 21:55:36.1915 [DEBUG] Sent C:/Users/jakob/OneDrive/Documents/_UNITY_PRACTICE/_ARIA_2_REPO/Aria2/KSEditorLogs/SessionLogs/session.117663-637152404608148152.log
+2020-01-21 22:16:31.3430 [DEBUG] Scene Fusion version 1.8.5-1
+2020-01-21 22:16:32.4147 [DEBUG] Scene Fusion: A new version of Scene Fusion is available.
+Current Version: 1.8.5
+Latest Version: 1.8.6
+>>>>>>> Stashed changes
+2020-01-21 22:19:33.4449 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 22:27:25.6630 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 22:29:03.7771 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 22:29:45.9520 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 22:32:51.3288 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 22:33:35.4788 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 22:46:24.8294 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 22:47:54.6377 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 22:50:35.1560 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 22:51:34.0391 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 22:52:29.1069 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 22:53:53.8525 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 22:57:21.9755 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 22:57:41.0979 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 22:58:12.4815 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 22:58:17.4385 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 22:58:50.5856 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:00:08.6550 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:02:51.8589 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:04:13.6163 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:04:41.5207 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:05:02.3804 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:05:33.7522 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:05:42.4788 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:05:56.9815 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:09:44.9544 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:10:17.3984 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:10:37.1067 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:11:30.5815 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:12:28.7223 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:13:29.6655 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:14:11.7486 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:19:25.2496 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:20:42.7664 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:24:44.6836 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:24:52.3717 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:25:48.2777 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:26:04.8740 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:26:50.7550 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:28:51.6503 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:29:18.9158 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:29:56.9089 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:31:18.6350 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:31:24.9378 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:32:08.3831 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:32:13.4671 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:32:38.9908 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:34:00.5255 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:34:09.5473 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:44:08.1164 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:50:43.0856 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:51:08.7235 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:51:24.3616 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:51:58.7924 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:56:36.4849 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:58:00.3263 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 23:58:25.4994 [DEBUG] Scene Fusion version 1.8.6-0

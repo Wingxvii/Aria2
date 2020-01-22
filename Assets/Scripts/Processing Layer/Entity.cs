@@ -11,7 +11,7 @@ public enum EntityType
     Droid,
     Turret,
     Player,
-    
+    Dummy,
     
     
     TOTAL,
