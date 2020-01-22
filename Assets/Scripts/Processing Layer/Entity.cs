@@ -176,21 +176,25 @@ public abstract class Entity : MonoBehaviour
         //deactivate
         OnDeActivate();
     }
+    
+    protected virtual void BaseAwake() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    protected virtual void BaseStart() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    protected virtual void BaseEnable() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    protected virtual void BaseUpdate() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    protected virtual void BaseLateUpdate() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    protected virtual void BaseFixedUpdate() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    protected virtual void BaseOnDestory() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
 
-    protected virtual void BaseAwake() { }
-    protected virtual void BaseStart() { }
-    protected virtual void BaseEnable() { }
-    protected virtual void BaseUpdate() { }
-    protected virtual void BaseLateUpdate() { }
-    protected virtual void BaseFixedUpdate() { }
-    protected virtual void BaseOnDestory() { }
+    public virtual void IssueLocation(Vector3 location) { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    public virtual void IssueAttack(Vector3 location) { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    public virtual void IssueAttack(Entity attackee) { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    public virtual void CallAction(int action) { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
 
-    public virtual void IssueLocation(Vector3 location) { }
-    public virtual void BaseActivation() { }
-    public virtual void BaseDeactivation() { }
+    public virtual void BaseActivation() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    public virtual void BaseDeactivation() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
 
-    public virtual void BaseSelected() { }
-    public virtual void BaseDeselected() { }
+    public virtual void BaseSelected() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    public virtual void BaseDeselected() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
 
 
 }

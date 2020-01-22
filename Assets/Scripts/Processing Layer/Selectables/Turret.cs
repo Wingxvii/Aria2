@@ -17,7 +17,7 @@ public class Turret : Entity
     public TurretState state = TurretState.Idle;
     public float visionRange = 30.0f;
     public float maxRange = 50.0f;
-    private Player attackPoint;
+    private Entity attackPoint;
     public float shortestDist;
     public ParticleSystem muzzle;
 
@@ -250,6 +250,13 @@ public class Turret : Entity
         }
     }
 
+    public override void CallAction(int action)
+    {
+        if (action == 1) { //reload
+            Reload();
+        }
+
+    }
     protected override void BaseUpdate()
     {
         if (GameController.Instance.type == PlayerType.FPS)
@@ -281,7 +288,7 @@ public class Turret : Entity
             }
         }
     }
-    public void IssueAttack(Player attackee)
+    public override void IssueAttack(Entity attackee)
     {
         if (state != TurretState.Reloading)
         {

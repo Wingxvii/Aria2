@@ -127,4 +127,11 @@ public class Barracks : Entity
         }
     }
 
+    public override void CallAction(int action)
+    {
+        if (action == 1) { 
+            
+        }
+    }
+
 }

@@ -20,7 +20,7 @@ public class Droid : Entity
     private Rigidbody selfRigid;
 
     private Vector3 journeyPoint;
-    private Player attackPoint;
+    private Entity attackPoint;
     public DroidState state = DroidState.Standing;
 
     public float journeyAccuracy = 5.0f;
@@ -186,18 +186,21 @@ public class Droid : Entity
         journeyPoint = location;
     }
 
-    public void IssueAttack(Vector3 location)
+    public override void IssueAttack(Vector3 location)
     {
         state = DroidState.AttackMoving;
         journeyPoint = location;
     }
-    public void IssueAttack(Player attackee)
+    public override void IssueAttack(Entity attackee)
     {
-        state = DroidState.TargetAttacking;
-        attackPoint = attackee;
+        if (attackee.type == EntityType.Player)
+        {
+            state = DroidState.TargetAttacking;
+            attackPoint = attackee;
+        }
     }
 
-    public void MoveTo(Vector2 pos)
+    private void MoveTo(Vector2 pos)
     {
         faceingPoint = journeyPoint;
 

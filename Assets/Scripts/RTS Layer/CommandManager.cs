@@ -34,26 +34,37 @@ namespace RTSInput
         }
 
         //gives unit a movement command
-        public void Move(Entity source, Vector3 position){
-            if (source.type == EntityType.Droid) { 
-                
+        public void IssueLocation(Entity source, Vector3 position){
+            if (source.type == EntityType.Droid || source.type == EntityType.Barracks)
+            {
+                source.IssueLocation(position);
             }
         }
 
         //tells unit to attack sepific target
-        public void AttackTarget(Entity source, Entity target ) { 
-            
-        }
-
-        //issues a position for a rally point
-        public void IssueRally(Entity source, Vector3 position) { 
-            
-        }
-
-        //update all entities
-        private void Update()
+        public void IssueAttack(Entity source, Entity target)
         {
-            
+            if (source.type == EntityType.Droid || source.type == EntityType.Turret)
+            {
+                source.IssueAttack(target);
+            }
+        }
+
+        //tells unit to attack sepific target
+        public void IssueAttack(Entity source, Vector3 position)
+        {
+            if (source.type == EntityType.Droid)
+            {
+                source.IssueAttack(position);
+            }
+        }
+
+
+        public void CallAction(Entity source, int action) {
+            if (source.type == EntityType.Barracks || source.type == EntityType.Turret)
+            {
+                source.CallAction(action);
+            }
         }
 
         #endregion
