@@ -177,12 +177,12 @@ public abstract class Entity : MonoBehaviour
         OnDeActivate();
     }
     
-    protected virtual void BaseAwake() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
-    protected virtual void BaseStart() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    protected virtual void BaseAwake() {}
+    protected virtual void BaseStart() {}
     protected virtual void BaseEnable() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
-    protected virtual void BaseUpdate() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
-    protected virtual void BaseLateUpdate() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
-    protected virtual void BaseFixedUpdate() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    protected virtual void BaseUpdate() {}
+    protected virtual void BaseLateUpdate() {}
+    protected virtual void BaseFixedUpdate() {}
     protected virtual void BaseOnDestory() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
 
     public virtual void IssueLocation(Vector3 location) { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }

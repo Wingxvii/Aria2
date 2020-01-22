@@ -134,6 +134,9 @@ public class EntityManager : MonoBehaviour
 
                 break;
         }
+
+        returnValue.gameObject.SetActive(true);
+
         AllEntities.Add(returnValue);
         ActiveEntitiesByType[(int)type].Add(returnValue);
 
