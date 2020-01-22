@@ -40,6 +40,8 @@ public class Droid : Entity
     // Start is called before the first frame update
     protected override void BaseStart()
     {
+        type = EntityType.Droid;
+
         //setup rigidbody
         if (!selfRigid){selfRigid = this.GetComponent<Rigidbody>();}
 

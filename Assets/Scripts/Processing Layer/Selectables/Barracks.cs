@@ -25,6 +25,7 @@ public class Barracks : Entity
     {
         currentHealth = 1000;
         maxHealth = 1000;
+        type = EntityType.Barracks;
 
         canvas = GetComponentInChildren<Canvas>();
         canvas.transform.LookAt(canvas.transform.position + Camera.main.transform.rotation * Vector3.back, Camera.main.transform.rotation * Vector3.up);

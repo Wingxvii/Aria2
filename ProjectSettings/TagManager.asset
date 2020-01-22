@@ -8,6 +8,10 @@ TagManager:
   - Entity
   - Blueprint
   - Flag
+  - Shell
+  - Animation
+  - Weapon
+  - SelectableObject
   layers:
   - Default
   - TransparentFX

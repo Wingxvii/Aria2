@@ -36,7 +36,7 @@ public class Turret : Entity
 
     //hit ray
     private RaycastHit hit;
-    public LayerMask turretLayerMask;
+    private LayerMask turretLayerMask;
 
     //models
     public GameObject head;
@@ -53,6 +53,8 @@ public class Turret : Entity
     protected override void BaseStart()
     {
         fixedTimeStep = (int)(1f / Time.fixedDeltaTime);
+
+        type = EntityType.Turret;
 
         if (!muzzle){muzzle = GetComponentInChildren<ParticleSystem>();}
         currentHealth = 500;

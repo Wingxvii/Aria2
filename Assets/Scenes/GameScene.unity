@@ -302,6 +302,9 @@ MonoBehaviour:
   wallPrefab: {fileID: 0}
   barracksPrefab: {fileID: 0}
   turretPrefab: {fileID: 0}
+  dummyPlayerPrefab: {fileID: 0}
+  controllablePlayerPrefab: {fileID: 0}
+  FPSspawnpoints: []
 --- !u!1 &1106957173
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,9 +603,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1935975877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e56e5d1005997c945acd8d35468c5658, type: 3}
+  m_Script: {fileID: 11500000, guid: 146d260c39bca5a40989584930ccf3c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllEntities: []
+  staticsMask:
+    serializedVersion: 2
+    m_Bits: 0
+  entitysMask:
+    serializedVersion: 2
+    m_Bits: 0
+  droidPrefab: {fileID: 0}
+  playerPrefab: {fileID: 0}
+  wallPrefab: {fileID: 0}
+  barracksPrefab: {fileID: 0}
+  turretPrefab: {fileID: 0}
+  dummyPlayerPrefab: {fileID: 0}
+  controllablePlayerPrefab: {fileID: 0}
+  FPSspawnpoints: []
 --- !u!1 &2029513483
 GameObject:
   m_ObjectHideFlags: 0

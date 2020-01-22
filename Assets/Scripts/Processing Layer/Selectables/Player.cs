@@ -14,7 +14,6 @@ public class Player : Entity
     private Rigidbody playerBody;
 
     public int activeWeapon = 0;
-    public Animator anim;
 
     static public Vector3 pos = new Vector3(0, 0, 0);
     public float moveSpeed = 1;
@@ -26,6 +25,8 @@ public class Player : Entity
     // Start is called before the first frame update
     protected override void BaseStart()
     {
+        type = EntityType.Player;
+
         currentHealth = 200;
         maxHealth = 200;
 

@@ -9,6 +9,7 @@ public class Wall : Entity
     protected override void BaseStart()
     {
         Wallhit = GetComponentInChildren<ParticleSystem>();
+        type = EntityType.Wall;
 
         currentHealth = 500;
         maxHealth = 500;
