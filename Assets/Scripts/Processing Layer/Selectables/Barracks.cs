@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class Barracks : Entity
 {
-    public Slider buildProcess;
+    private Slider buildProcess;
     public Queue<float> buildTimes;
     public float currentBuildTime = 0;
 
     public static float droidTrainTime = 5.0f;
     public static int maxTrainingCap = 25;
 
-    public Canvas canvas;
+    private Canvas canvas;
 
     public GameObject flagObj;
     public bool flagActive = false;
 
-    public Transform spawnPoint;
+    private Transform spawnPoint;
 
 
     //inherited function realizations
@@ -28,6 +28,9 @@ public class Barracks : Entity
 
         canvas = GetComponentInChildren<Canvas>();
         canvas.transform.LookAt(canvas.transform.position + Camera.main.transform.rotation * Vector3.back, Camera.main.transform.rotation * Vector3.up);
+
+        spawnPoint = canvas.transform.Find("SpawnPoint");
+        buildProcess.gameObject.SetActive(false);
 
         buildProcess = canvas.transform.Find("Building Progress").GetComponent<Slider>();
         buildProcess.gameObject.SetActive(false);

@@ -49,7 +49,7 @@ public abstract class Entity : MonoBehaviour
         selectedHalo = (Behaviour)this.GetComponent("Halo");
         selectedHalo.enabled = false;
         canvasTransform = this.transform.Find("Canvas").GetComponent<RectTransform>();
-
+        healthBar = this.transform.Find("").GetComponent<Slider>();
         if (GameController.Instance.type == PlayerType.RTS)
         {
             //clean up unwanted items

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Entity
+  - Blueprint
+  - Flag
   layers:
   - Default
   - TransparentFX

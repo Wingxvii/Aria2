@@ -34,10 +34,6 @@ public class Droid : Entity
     //rotation
     public float rotateSpeed;
     public Vector3 faceingPoint = new Vector3(0, 0, 0);
-
-    //models
-    public GameObject body;
-
     private bool deathCheck = false;
     //network updates
 

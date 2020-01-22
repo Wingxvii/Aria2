@@ -41,3 +41,33 @@ Latest Version: 1.8.6
 2020-01-21 18:18:44.6488 [DEBUG] Sent C:/Users/turnt/OneDrive/Documents/Unity/Aria2/KSEditorLogs/SessionLogs/session.117653-637152275225580372.log
 2020-01-21 18:18:44.6488 [DEBUG] Connection failed. (117653:SceneFusion:SceneFusion)
 2020-01-21 18:23:10.0446 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 18:28:18.5767 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 18:30:03.3124 [INFO] Launching Session: GameScene
+2020-01-21 18:30:06.2025 [DEBUG] Connecting
+2020-01-21 18:30:06.2224 [DEBUG] Connecting to room (117654:SceneFusion:SceneFusion) via TCP at roommanager-ec2-13-124-178-67.kinematicsoup.com:21312
+2020-01-21 18:30:09.6911 [DEBUG] Sent C:/Users/turnt/OneDrive/Documents/Unity/Aria2/KSEditorLogs/SessionLogs/session.117654-637152282062393929.log
+2020-01-21 18:30:09.6921 [DEBUG] Connection failed. (117654:SceneFusion:SceneFusion)
+2020-01-21 18:34:49.7867 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 18:36:14.9109 [INFO] Launching Session: GameScene
+2020-01-21 18:36:15.5830 [DEBUG] Connecting
+2020-01-21 18:36:15.6045 [DEBUG] Connecting to room (117655:SceneFusion:SceneFusion) via TCP at roommanager-ec2-35-164-71-216.kinematicsoup.com:21312
+2020-01-21 18:36:34.1479 [DEBUG] Sent C:/Users/turnt/OneDrive/Documents/Unity/Aria2/KSEditorLogs/SessionLogs/session.117655-637152285756374620.log
+2020-01-21 20:21:42.7914 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 20:27:53.7817 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 20:47:48.1003 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 20:47:55.4777 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 20:49:49.1231 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 20:49:55.8590 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 20:53:49.6261 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 20:54:22.1323 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 20:55:07.9022 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 20:55:19.0932 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 20:55:24.4000 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 20:55:30.9736 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 20:57:30.1093 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 20:59:01.5227 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 20:59:23.2107 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 20:59:33.5009 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 20:59:41.9822 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 20:59:51.2779 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-21 21:03:02.0401 [DEBUG] Refresh token (4ADMF9kDUofbAehAuYdX8pbDJgfAmupCiJxfspkg80iOfo5LkCaCXX5FqpZElHsH6TPGTYxTHhsrCqmBOEcYb5KUYcmdRyAKmPAQX2B2NKaI2OJkOJPaNcXqJWSjNjxulgTcUSn9ZGZem4UyReYsG4SY33QSADupRdiwdfYnIsOhwIYkfQluzbdFHktInTanqagJB9rNZTxYLbGsBknhUjc8E1eKSawmmk3gacCX8eE5Lbyc9IQMm1dAYUYBpeY) error: {"err":"Error getting response stream (ReadDone1): ReceiveFailure"}

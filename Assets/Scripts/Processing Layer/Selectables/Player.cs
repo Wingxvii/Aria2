@@ -9,11 +9,9 @@ public class Player : Entity
         Alive = (1 << 0),
         Shooting = (1 << 1),
         Jumping = (1 << 2),
-
     }
 
-    public Transform playerTransform;
-    public Rigidbody playerBody;
+    private Rigidbody playerBody;
 
     public int activeWeapon = 0;
     public Animator anim;
@@ -33,7 +31,6 @@ public class Player : Entity
 
         destructable = false;
 
-        playerTransform = this.GetComponent<Transform>();
         playerBody = this.GetComponent<Rigidbody>();
 
         foreach (Weapon weapon in weapons)
