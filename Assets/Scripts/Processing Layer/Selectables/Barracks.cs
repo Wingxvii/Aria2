@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Barracks : Entity
 {
-    private Slider buildProcess;
+    public Slider buildProcess;
     public Queue<float> buildTimes;
     public float currentBuildTime = 0;
 

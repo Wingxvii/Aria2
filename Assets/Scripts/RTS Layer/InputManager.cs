@@ -590,8 +590,6 @@ namespace RTSInput
             }
 
         }
-
-
         public void OnBuildPrefabs(int prefab)
         {
             ClearSelection();
