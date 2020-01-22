@@ -293,10 +293,10 @@ MonoBehaviour:
   AllEntities: []
   staticsMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1536
   entitysMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 63488
   droidPrefab: {fileID: 0}
   playerPrefab: {fileID: 0}
   wallPrefab: {fileID: 0}
@@ -3645,7 +3645,7 @@ GameObject:
   - component: {fileID: 7603134986487013754}
   m_Layer: 5
   m_Name: RTS_HUD Canvas
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

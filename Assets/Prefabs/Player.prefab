@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 311159786221882680}
   m_Layer: 13
   m_Name: Player
-  m_TagString: Entity
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12166,7 +12166,7 @@ GameObject:
   - component: {fileID: 2837952117589441275}
   m_Layer: 13
   m_Name: mixamorig:Hips
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
