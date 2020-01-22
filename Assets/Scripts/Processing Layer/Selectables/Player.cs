@@ -50,10 +50,10 @@ public class Player : Entity
 
     public void SendUpdate(Vector3 pos, Vector3 rot, int state)
     {
-        if (GameController.Instance.type == PlayerType.FPS)
+        if (GameSceneController.Instance.type == PlayerType.FPS)
         {
         }
-        else if (GameController.Instance.type == PlayerType.RTS)
+        else if (GameSceneController.Instance.type == PlayerType.RTS)
         {
 
             this.GetComponent<Rigidbody>().velocity = (pos - this.transform.position) * 10f;
@@ -92,19 +92,19 @@ public class Player : Entity
     // Update is called once per frame
     protected override void BaseUpdate()
     {
-        if (GameController.Instance.type == PlayerType.FPS && Input.GetKey(KeyCode.D) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
+        if (GameSceneController.Instance.type == PlayerType.FPS && Input.GetKey(KeyCode.D) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
         {
             playerBody.velocity += new Vector3(1 * moveSpeed, 0, 0);
         }
-        if (GameController.Instance.type == PlayerType.FPS && Input.GetKey(KeyCode.A) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
+        if (GameSceneController.Instance.type == PlayerType.FPS && Input.GetKey(KeyCode.A) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
         {
             playerBody.velocity += new Vector3(1 * -moveSpeed, 0, 0);
         }
-        if (GameController.Instance.type == PlayerType.FPS && Input.GetKey(KeyCode.W) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
+        if (GameSceneController.Instance.type == PlayerType.FPS && Input.GetKey(KeyCode.W) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
         {
             playerBody.velocity += new Vector3(0, 0, 1 * moveSpeed);
         }
-        if (GameController.Instance.type == PlayerType.FPS && Input.GetKey(KeyCode.S) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
+        if (GameSceneController.Instance.type == PlayerType.FPS && Input.GetKey(KeyCode.S) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
         {
             playerBody.velocity += new Vector3(0, 0, 1 * -moveSpeed);
         }

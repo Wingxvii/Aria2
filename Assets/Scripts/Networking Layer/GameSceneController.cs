@@ -7,12 +7,12 @@ public enum PlayerType {
     FPS,
 }
 
-public class GameController : MonoBehaviour
+public class GameSceneController : MonoBehaviour
 {
 
     #region SingletonCode
-        private static GameController _instance;
-        public static GameController Instance { get { return _instance; } }
+        private static GameSceneController _instance;
+        public static GameSceneController Instance { get { return _instance; } }
         private void Awake()
         {
             if (_instance != null && _instance != this)
@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
             }
 
             //loads start menu
-            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+            //SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
             gameStart = true;
         }
         //single pattern ends here
@@ -34,9 +34,9 @@ public class GameController : MonoBehaviour
     public bool gameStart = false;
     public int loadedScene = 1;
     public string IP = "";
-    public PlayerType type = PlayerType.Spectator;
+    public PlayerType type;
     public int gameState = 0;
-
+    
     //use to swap scene
     public void SwapScene(int scene)
     {
@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync(scene);
     }
-
+    
 }
 
 /*

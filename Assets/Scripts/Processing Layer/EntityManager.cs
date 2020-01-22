@@ -63,14 +63,6 @@ public class EntityManager : MonoBehaviour
         entitysMask += LayerMask.GetMask("Barracks");
         entitysMask += LayerMask.GetMask("Turret");
         entitysMask += LayerMask.GetMask("Droid");
-
-
-        //create prefabs
-        droidPrefab = Resources.Load<GameObject>("Prefabs/Entities/Droid");
-        playerPrefab = Resources.Load<GameObject>("Prefabs/Entities/Player");
-        wallPrefab = Resources.Load<GameObject>("Prefabs/Entities/Wall");
-        barracksPrefab = Resources.Load<GameObject>("Prefabs/Entities/Barracks");
-        turretPrefab = Resources.Load<GameObject>("Prefabs/Entities/Turret");
     }
 
     //returns an avaliable entity from pool or newly instantiated, if none are avaliable

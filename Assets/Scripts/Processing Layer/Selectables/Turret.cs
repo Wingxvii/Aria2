@@ -90,10 +90,10 @@ public class Turret : Entity
     protected override void BaseFixedUpdate()
     {
 
-        if (GameController.Instance.type == PlayerType.FPS)
+        if (GameSceneController.Instance.type == PlayerType.FPS)
         {
         }
-        else if (GameController.Instance.type == PlayerType.RTS)
+        else if (GameSceneController.Instance.type == PlayerType.RTS)
         {
 
 
@@ -259,10 +259,10 @@ public class Turret : Entity
     }
     protected override void BaseUpdate()
     {
-        if (GameController.Instance.type == PlayerType.FPS)
+        if (GameSceneController.Instance.type == PlayerType.FPS)
         {
         }
-        else if (GameController.Instance.type == PlayerType.RTS)
+        else if (GameSceneController.Instance.type == PlayerType.RTS)
         {
 
 

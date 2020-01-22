@@ -252,8 +252,6 @@ namespace RTS_Cam
                 desiredMove = Quaternion.Euler(new Vector3(0f, transform.eulerAngles.y, 0f)) * desiredMove;
                 desiredMove = m_Transform.InverseTransformDirection(desiredMove);
 
-                Debug.Log(desiredMove.x.ToString() + ":" + desiredMove.y.ToString());
-
 
                 m_Transform.Translate(desiredMove, Space.Self);
             }

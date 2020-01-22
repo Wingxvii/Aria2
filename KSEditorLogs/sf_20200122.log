@@ -1634,3 +1634,412 @@ RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:159
 2020-01-22 17:49:09.5927 [DEBUG] Scene Fusion version 1.8.6-0
 2020-01-22 17:52:01.6905 [DEBUG] Scene Fusion version 1.8.6-0
 2020-01-22 18:08:44.0113 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:22:16.7667 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:23:32.8631 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:24:05.4462 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:24:35.2007 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:25:53.1085 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:27:28.4933 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:27:28.6729 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-22 18:27:35.5453 [DEBUG] Play mode: False
+2020-01-22 18:28:32.0701 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:30:08.3867 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:30:08.5034 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.5589 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-22 18:30:08.5648 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.5848 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.6008 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.6177 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.6346 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.6516 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.6686 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.6856 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.7026 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.7194 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.8281 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.8481 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.8650 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.8800 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.8969 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.9179 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.9398 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.9528 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.9657 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.9787 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:08.9937 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.0057 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.0196 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.0326 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.0455 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.0585 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.0715 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.0854 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.0984 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.1114 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.1233 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.1373 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.1503 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.1652 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.1762 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.1882 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.2011 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.2141 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.2280 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.2390 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.2510 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.2620 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.2729 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.2869 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.2999 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.3128 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.3258 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.3387 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.3527 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.3647 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.3766 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.3876 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.4006 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.4126 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.4236 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.4345 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.4465 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.4575 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.4714 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.4834 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.4960 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.5079 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.5199 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.5309 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.5418 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.5528 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.5638 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.5757 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.5877 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.5987 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.6096 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:09.6216 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.5083 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.5212 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.5342 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.5442 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.5551 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.5671 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.5791 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.5910 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.6030 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.6160 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.6279 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.6389 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.6509 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.6619 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.6738 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.6858 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.6968 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.7077 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.7197 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.7307 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.7416 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.7536 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.7646 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.7765 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.7875 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.7985 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.8105 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.8214 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.8354 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.8484 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.8593 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.8703 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.8823 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.8942 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.9057 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.9167 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.9287 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.9396 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:10.9526 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:122)
+
+2020-01-22 18:30:11.7650 [DEBUG] Play mode: False
+2020-01-22 18:30:32.4340 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:30:32.5966 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-22 18:30:34.6642 [DEBUG] Play mode: False
+2020-01-22 18:31:24.3356 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:32:03.3114 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:32:34.1107 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:35:22.4887 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:35:29.5111 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:35:29.6686 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-22 18:35:39.2871 [DEBUG] Play mode: False
+2020-01-22 18:35:42.9630 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:35:43.1166 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-22 18:36:01.1519 [DEBUG] Play mode: False
+2020-01-22 18:36:51.7207 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:36:51.8536 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-22 18:36:57.3508 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.HandleLeftMouseClicks () (at Assets/Scripts/RTS Layer/InputManager.cs:319)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:143)
+
+2020-01-22 18:36:58.2025 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.HandleLeftMouseClicks () (at Assets/Scripts/RTS Layer/InputManager.cs:319)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:143)
+
+2020-01-22 18:37:14.2152 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.HandleLeftMouseClicks () (at Assets/Scripts/RTS Layer/InputManager.cs:319)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:143)
+
+2020-01-22 18:37:42.5308 [DEBUG] Play mode: False
+2020-01-22 18:39:03.7807 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:39:03.9622 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-22 18:39:04.6173 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.HandleLeftMouseClicks () (at Assets/Scripts/RTS Layer/InputManager.cs:319)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:143)
+
+2020-01-22 18:39:05.8427 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.HandleLeftMouseClicks () (at Assets/Scripts/RTS Layer/InputManager.cs:319)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:143)
+
+2020-01-22 18:39:08.2775 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.HandleLeftMouseClicks () (at Assets/Scripts/RTS Layer/InputManager.cs:319)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:143)
+
+2020-01-22 18:39:09.4540 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.HandleLeftMouseClicks () (at Assets/Scripts/RTS Layer/InputManager.cs:319)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:143)
+
+2020-01-22 18:39:19.0385 [DEBUG] Play mode: False
+2020-01-22 18:39:34.8464 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:39:35.0429 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-22 18:39:51.6473 [DEBUG] Play mode: False
+2020-01-22 18:43:36.2153 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-22 18:43:36.4367 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-22 18:43:38.5789 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.HandleLeftMouseClicks () (at Assets/Scripts/RTS Layer/InputManager.cs:319)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:143)
+
+2020-01-22 18:43:39.1249 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+RTSInput.InputManager.HandleLeftMouseClicks () (at Assets/Scripts/RTS Layer/InputManager.cs:319)
+RTSInput.InputManager.Update () (at Assets/Scripts/RTS Layer/InputManager.cs:143)
+
+2020-01-22 18:43:41.0123 [DEBUG] Play mode: False

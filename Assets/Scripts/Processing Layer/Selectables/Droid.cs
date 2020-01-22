@@ -53,10 +53,10 @@ public class Droid : Entity
     // Update is called once per frame
     protected override void BaseUpdate()
     {
-        if (GameController.Instance.type == PlayerType.FPS)
+        if (GameSceneController.Instance.type == PlayerType.FPS)
         {
         }
-        else if (GameController.Instance.type == PlayerType.RTS) {
+        else if (GameSceneController.Instance.type == PlayerType.RTS) {
             if (currentCoolDown > 0.0f)
             {
                 currentCoolDown -= Time.deltaTime;
@@ -84,11 +84,11 @@ public class Droid : Entity
         }
 
 
-        if (GameController.Instance.type == PlayerType.FPS)
+        if (GameSceneController.Instance.type == PlayerType.FPS)
         {
 
         }
-        else if (GameController.Instance.type == PlayerType.RTS) {
+        else if (GameSceneController.Instance.type == PlayerType.RTS) {
             float shortestDist;
 
             //AI STATE MACHINE
@@ -217,7 +217,7 @@ public class Droid : Entity
     }
     private void OnTriggerStay(Collider other)
     {
-        if (GameController.Instance.type == PlayerType.RTS && other.tag == "Entity" && other.gameObject.GetComponent<Entity>().type == EntityType.Player)
+        if (GameSceneController.Instance.type == PlayerType.RTS && other.tag == "Entity" && other.gameObject.GetComponent<Entity>().type == EntityType.Player)
         {
             if (state != DroidState.AttackMoving && state != DroidState.Moving && state != DroidState.TargetAttacking)
             {

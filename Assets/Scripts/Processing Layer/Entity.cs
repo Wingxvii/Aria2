@@ -50,12 +50,12 @@ public abstract class Entity : MonoBehaviour
         selectedHalo.enabled = false;
         canvasTransform = this.transform.Find("Canvas").GetComponent<RectTransform>();
         healthBar = this.transform.Find("").GetComponent<Slider>();
-        if (GameController.Instance.type == PlayerType.RTS)
+        if (GameSceneController.Instance.type == PlayerType.RTS)
         {
             //clean up unwanted items
 
         }
-        else if (GameController.Instance.type == PlayerType.FPS) {
+        else if (GameSceneController.Instance.type == PlayerType.FPS) {
             //clean up unwanted items
 
             Destroy(selectedHalo);
