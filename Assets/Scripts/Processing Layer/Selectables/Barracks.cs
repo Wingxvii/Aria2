@@ -42,6 +42,9 @@ public class Barracks : Entity
         flagObj = Instantiate(flagObj, Vector3.zero, Quaternion.identity);
         flagObj.SetActive(false);
         flagActive = false;
+
+        BaseActivation();
+
     }
 
     protected override void BaseUpdate()
@@ -95,6 +98,11 @@ public class Barracks : Entity
         flagActive = true;
     }
 
+    public override void BaseActivation()
+    {
+        ResourceManager.Instance.numBarracksActive++;
+        ResourceManager.Instance.UpdateSupply();
+    }
 
     public override void BaseDeactivation()
     {
@@ -115,9 +123,12 @@ public class Barracks : Entity
     //child-sepific functions
     public void OnTrainRequest()
     {
-        if (ResourceManager.Instance.Purchase(EntityType.Droid) && buildTimes.Count < maxTrainingCap)
+        if (buildTimes.Count < maxTrainingCap && ResourceManager.Instance.supplyCurrent < ResourceManager.Instance.totalSupply && ResourceManager.Instance.Purchase(EntityType.Droid))
         {
             buildTimes.Enqueue(ResourceManager.Instance.RequestQueue(EntityType.Droid));
+        }
+        else if (ResourceManager.Instance.supplyCurrent >= ResourceManager.Instance.totalSupply) {
+            Debug.Log("MAX SUPPLY REACHED");
         }
         else if (buildTimes.Count >= maxTrainingCap)
         {
@@ -131,8 +142,8 @@ public class Barracks : Entity
 
     public override void CallAction(int action)
     {
-        if (action == 1) { 
-            
+        if (action == 1) {
+            OnTrainRequest();
         }
     }
 

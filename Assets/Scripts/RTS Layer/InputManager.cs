@@ -734,7 +734,7 @@ namespace RTSInput
         {
             foreach (Entity entity in SelectedEntities) {
                 if (entity.type == PrimaryEntity.type) {
-                    entity.CallAction(1);
+                    CommandManager.Instance.CallAction(entity, 1);
                 }
             }
         }

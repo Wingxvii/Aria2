@@ -181,20 +181,15 @@ public class ResourceManager : MonoBehaviour
     //requests a drone to build, returns time to build
     public float RequestQueue(EntityType type)
     {
-        if (ResourceManager.Instance.supplyCurrent < ResourceManager.Instance.totalSupply)
+        switch (type)
         {
-            switch (type)
-            {
-                case EntityType.Droid:
-                    ResourceManager.Instance.supplyCurrent++;
-                    return 5f;
-                default:
-                    Debug.Log("ERROR: DROID TYPE INVALID");
-                    return -1f;
-            }
+            case EntityType.Droid:
+                ResourceManager.Instance.supplyCurrent++;
+                return 5f;
+            default:
+                Debug.Log("ERROR: DROID TYPE INVALID");
+                return -1f;
         }
-        Debug.Log("MAX SUPPLY REACHED");
-        return -1f;
     }
 
 
