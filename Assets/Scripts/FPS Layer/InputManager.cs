@@ -259,7 +259,7 @@ namespace FPSLayer
             {
                 if (!_instance.inputsUpdated)
                     _instance.UpdateInputs();
-                return _rotate;
+                return new Vector3(_rotate.y, _rotate.x, _rotate.z);
             }
         }
 

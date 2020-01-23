@@ -20,8 +20,17 @@ public class PivotFPS : MonoBehaviour
             );
         if (rotX)
         {
-            Vector3 angles = transform.localRotation.eulerAngles;
+            Vector3 angles = transform.localEulerAngles;
+
+            if (angles.z > 90f)
+            {
+                angles.x = 180f - angles.x;
+            }
+            if (angles.x > 180f)
+                angles.x -= 360f;
+
             angles.x = Mathf.Clamp(angles.x, -90f, 90f);
+            //Debug.Log(angles);
             transform.localRotation = Quaternion.Euler(angles);
         }
     }

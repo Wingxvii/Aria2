@@ -44,6 +44,11 @@ public class PlayerFPS : Entity
 
     public static LayerMask playerLayer { get; private set; }
 
+    private void Awake()
+    {
+        BaseAwake();
+    }
+
     protected override void BaseAwake()
     {
         base.BaseAwake();
@@ -91,8 +96,8 @@ public class PlayerFPS : Entity
         }
         else
         {
-            spawnPointNum = EntityManager.Instance.freeSpawnPoints.Dequeue();
-            spawnPoint = EntityManager.Instance.FPSspawnpoints[spawnPointNum];
+            spawnPointNum = SpawnManager.Instance.freeSpawnPoints.Dequeue();
+            spawnPoint = SpawnManager.Instance.FPSspawnpoints[spawnPointNum];
             transform.position = spawnPoint.position;
             this.gameObject.transform.rotation = Quaternion.identity;
         }
@@ -110,12 +115,17 @@ public class PlayerFPS : Entity
 
             if (FPSLayer.InputManager.Instance.jump && stats.groundAngleFloat <= stats.maxWalkableAngle)
             {
-                rb.AddForce(stats.groundAngle * Vector3.up * stats.jumpPower);
+                //rb.AddForce(stats.groundAngle * Vector3.up * stats.jumpPower);
+                Vector3 vel = Quaternion.Inverse(stats.groundAngle) * rb.velocity;
+                vel.y = stats.jumpPower;
+                rb.velocity = stats.groundAngle * vel;
+                //Debug.Log("JOOMP");
             }
 
+            //Debug.Log(FPSLayer.InputManager.Instance.move);
             rb.velocity = MiscFuncsFPS.ClampVelocity(
                 rb.velocity, 
-                (stats.colliding ? stats.acceleration : stats.airborneAcceleration) * FPSLayer.InputManager.Instance.move * Time.fixedDeltaTime, 
+                (stats.colliding ? stats.acceleration : stats.airborneAcceleration) * (transform.rotation * FPSLayer.InputManager.Instance.move) * Time.fixedDeltaTime, 
                 in stats
                 );
 
@@ -127,6 +137,8 @@ public class PlayerFPS : Entity
         {
             //Edit things via networking code here
         }
+
+        //Debug.Log("FIXED");
     }
 
     protected override void BaseUpdate()
@@ -147,14 +159,16 @@ public class PlayerFPS : Entity
                     {
                         mainGun.gameObject.SetActive(false);
                         selectedGun = (FPSLayer.InputManager.Instance.swap + selectedGun) % guns.Length;
+                        if (selectedGun < 0)
+                            selectedGun += guns.Length;
                         mainGun = guns[selectedGun];
                         mainGun.gameObject.SetActive(true);
                     }
 
-                    if (FPSLayer.InputManager.Instance.directSwap > 0 && FPSLayer.InputManager.Instance.directSwap <= guns.Length && FPSLayer.InputManager.Instance.directSwap != selectedGun)
+                    if (FPSLayer.InputManager.Instance.directSwap > 0 && FPSLayer.InputManager.Instance.directSwap <= guns.Length && FPSLayer.InputManager.Instance.directSwap - 1 != selectedGun)
                     {
                         mainGun.gameObject.SetActive(false);
-                        selectedGun = FPSLayer.InputManager.Instance.directSwap;
+                        selectedGun = FPSLayer.InputManager.Instance.directSwap - 1;
                         mainGun = guns[selectedGun];
                         mainGun.gameObject.SetActive(true);
                     }
@@ -177,6 +191,7 @@ public class PlayerFPS : Entity
                         mps = MinorPlayerState.None;
                     break;
             }
+            //Debug.Log("OOPDATE");
         }
         else if (type == EntityType.Dummy)
         {
@@ -217,6 +232,7 @@ public class PlayerFPS : Entity
 
     private void OnCollisionStay(Collision collision)
     {
+        //Debug.Log("COLLISION");
         if (type == EntityType.Player)
         {
             if (collision.contacts.Length > 0)
@@ -225,12 +241,13 @@ public class PlayerFPS : Entity
             {
                 Vector3 trueNorm = cp.normal / cp.normal.magnitude;
                 float dotProduct = Vector3.Dot(Vector3.up, trueNorm);
-                if (dotProduct < Vector3.Dot(Vector3.up, stats.groundAngle * Vector3.up))
+                if (dotProduct > Vector3.Dot(Vector3.up, stats.groundAngle * Vector3.up))
                 {
                     stats.groundAngle = Quaternion.FromToRotation(Vector3.up, trueNorm);
                     stats.groundAngleFloat = Mathf.Acos(Vector3.Dot(Vector3.up, trueNorm));
                 }
             }
         }
+        //Debug.Log("STILL HERE");
     }
 }

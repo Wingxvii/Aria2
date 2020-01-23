@@ -75,7 +75,7 @@ public class GunFPS : MonoBehaviour
                 BulletFPS bullet = Instantiate<BulletFPS>(clip.bullet);
 
                 if (!rayHit)
-                    bullet.transform.rotation = gv.transform.rotation * Quaternion.Euler(Vector3.right * Random.Range(0, specs.accuracyAngle)) * Quaternion.Euler(Vector3.forward * Random.Range(0, 360));
+                    bullet.transform.rotation = gv.transform.rotation * Quaternion.Euler(Vector3.forward * Random.Range(0, 360)) * Quaternion.Euler(Vector3.right * Random.Range(0, specs.accuracyAngle));
                 else
                 {
                     bullet.transform.rotation = Quaternion.FromToRotation(gv.transform.forward, distanceNormal) * gv.transform.rotation *
@@ -95,14 +95,14 @@ public class GunFPS : MonoBehaviour
     public void Reload(int maxAvailable)
     {
         specs.cooldown = specs.reloadSpeed;
-        clip.ammo.currentBullets = Mathf.Max(maxAvailable, clip.ammo.maxBulletCount);
+        clip.ammo.currentBullets = Mathf.Min(maxAvailable, clip.ammo.maxBulletCount);
     }
 
     private void LateUpdate()
     {
         if (!dtUpdated)
             specs.firePause = Mathf.Min(specs.firePause + Time.deltaTime, specs.fireRate);
-        specs.cooldown = Mathf.Min(specs.cooldown - Time.deltaTime, 0f);
+        specs.cooldown = Mathf.Max(specs.cooldown - Time.deltaTime, 0f);
         dtUpdated = false;
     }
 }
