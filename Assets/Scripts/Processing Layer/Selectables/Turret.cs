@@ -17,7 +17,7 @@ public class Turret : Entity
     public TurretState state = TurretState.Idle;
     public float visionRange = 30.0f;
     public float maxRange = 50.0f;
-    private Player attackPoint;
+    private Entity attackPoint;
     public float shortestDist;
     public ParticleSystem muzzle;
 
@@ -36,7 +36,7 @@ public class Turret : Entity
 
     //hit ray
     private RaycastHit hit;
-    public LayerMask turretLayerMask;
+    private LayerMask turretLayerMask;
 
     //models
     public GameObject head;
@@ -53,6 +53,8 @@ public class Turret : Entity
     protected override void BaseStart()
     {
         fixedTimeStep = (int)(1f / Time.fixedDeltaTime);
+
+        type = EntityType.Turret;
 
         if (!muzzle){muzzle = GetComponentInChildren<ParticleSystem>();}
         currentHealth = 500;
@@ -88,10 +90,10 @@ public class Turret : Entity
     protected override void BaseFixedUpdate()
     {
 
-        if (GameController.Instance.type == PlayerType.FPS)
+        if (GameSceneController.Instance.type == PlayerType.FPS)
         {
         }
-        else if (GameController.Instance.type == PlayerType.RTS)
+        else if (GameSceneController.Instance.type == PlayerType.RTS)
         {
 
 
@@ -176,10 +178,12 @@ public class Turret : Entity
 
                     break;
                 case TurretState.TargetedShooting:
-                    //search for shortest player
-                    dist = Vector3.Distance(attackPoint.transform.position, this.transform.position);
-                    shortestDist = dist;
 
+                    if (attackPoint)
+                    {
+                        //search for shortest player
+                        dist = Vector3.Distance(attackPoint.transform.position, this.transform.position);
+                        shortestDist = dist;
                     //look at
                     if (shortestDist < maxRange)
                     {
@@ -210,6 +214,7 @@ public class Turret : Entity
                     else
                     {
                         state = TurretState.Idle;
+                    }
                     }
 
                     break;
@@ -248,12 +253,19 @@ public class Turret : Entity
         }
     }
 
+    public override void CallAction(int action)
+    {
+        if (action == 1) { //reload
+            Reload();
+        }
+
+    }
     protected override void BaseUpdate()
     {
-        if (GameController.Instance.type == PlayerType.FPS)
+        if (GameSceneController.Instance.type == PlayerType.FPS)
         {
         }
-        else if (GameController.Instance.type == PlayerType.RTS)
+        else if (GameSceneController.Instance.type == PlayerType.RTS)
         {
 
 
@@ -265,7 +277,6 @@ public class Turret : Entity
                 float step = rotateSpeed * Time.deltaTime;
 
                 Vector3 newDir = Vector3.RotateTowards(head.transform.forward, targetDir, step, 0.0f);
-
 
                 // Move our position a step closer to the target.
                 head.transform.rotation = Quaternion.LookRotation(newDir);
@@ -279,7 +290,7 @@ public class Turret : Entity
             }
         }
     }
-    public void IssueAttack(Player attackee)
+    public override void IssueAttack(Entity attackee)
     {
         if (state != TurretState.Reloading)
         {

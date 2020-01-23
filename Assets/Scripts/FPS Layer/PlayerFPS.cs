@@ -206,7 +206,7 @@ public class PlayerFPS : Entity
     protected override void BaseOnDestory()
     {
         if (spawnPointNum >= 0)
-            EntityManager.Instance.freeSpawnPoints.Enqueue(spawnPointNum);
+            SpawnManager.Instance.freeSpawnPoints.Enqueue(spawnPointNum);
     }
 
     //Use this to network damage being dealt

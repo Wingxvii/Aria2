@@ -28,12 +28,12 @@ public abstract class Entity : MonoBehaviour
     //attributes
     public EntityType type;
     public int currentHealth = 1;
-    protected int maxHealth = 1;
+    public int maxHealth = 1;
     public bool destructable = false;
 
     //RTS BEHAVIOURS
     #region RTS
-    private bool isRTS = false;
+    private bool isRTS = true;
 
     //canvas
     private Slider healthBar;
@@ -43,19 +43,21 @@ public abstract class Entity : MonoBehaviour
     protected bool selected = false;
     #endregion
 
-    private void Awake()
+    private void Start()
     {
         //init all ui elements
         selectedHalo = (Behaviour)this.GetComponent("Halo");
         selectedHalo.enabled = false;
         canvasTransform = this.transform.Find("Canvas").GetComponent<RectTransform>();
-
-        if (GameController.Instance.type == PlayerType.RTS)
+        healthBar = canvasTransform.transform.Find("Health").GetComponent<Slider>();
+        if (GameSceneController.Instance.type == PlayerType.RTS)
         {
             //clean up unwanted items
+            isRTS = true;
+
 
         }
-        else if (GameController.Instance.type == PlayerType.FPS) {
+        else if (GameSceneController.Instance.type == PlayerType.FPS) {
             //clean up unwanted items
 
             Destroy(selectedHalo);
@@ -66,16 +68,9 @@ public abstract class Entity : MonoBehaviour
         //set id
         id = ++idtracker;
         indexedList.Add(this);
-        BaseAwake();
-    }
-
-    //called on activate
-    private void Start()
-    {
-        //ensure values are reset on start
-        ResetValues();
         BaseStart();
     }
+
     //updates
     private void Update()
     {
@@ -167,8 +162,6 @@ public abstract class Entity : MonoBehaviour
         this.gameObject.transform.position = Vector3.zero;
         this.gameObject.transform.rotation = Quaternion.identity;
         this.currentHealth = maxHealth;
-
-        this.gameObject.SetActive(false);
     }
     //death of unit
     public virtual void OnDeath()
@@ -176,20 +169,24 @@ public abstract class Entity : MonoBehaviour
         //deactivate
         OnDeActivate();
     }
+    
+    protected virtual void BaseAwake() {}
+    protected virtual void BaseStart() {}
+    protected virtual void BaseEnable() {}
+    protected virtual void BaseUpdate() {}
+    protected virtual void BaseLateUpdate() {}
+    protected virtual void BaseFixedUpdate() {}
+    protected virtual void BaseOnDestory() {}
 
-    protected virtual void BaseAwake() { }
-    protected virtual void BaseStart() { }
-    protected virtual void BaseEnable() { }
-    protected virtual void BaseUpdate() { }
-    protected virtual void BaseLateUpdate() { }
-    protected virtual void BaseFixedUpdate() { }
-    protected virtual void BaseOnDestory() { }
+    public virtual void IssueLocation(Vector3 location) { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    public virtual void IssueAttack(Vector3 location) { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    public virtual void IssueAttack(Entity attackee) { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    public virtual void CallAction(int action) { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
 
-    public virtual void IssueLocation(Vector3 location) { }
-    public virtual void BaseActivation() { }
+    public virtual void BaseActivation() {}
     public virtual void BaseDeactivation() { }
 
-    public virtual void BaseSelected() { }
+    public virtual void BaseSelected() {}
     public virtual void BaseDeselected() { }
 
 

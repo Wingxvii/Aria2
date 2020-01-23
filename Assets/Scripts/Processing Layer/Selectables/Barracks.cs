@@ -12,12 +12,12 @@ public class Barracks : Entity
     public static float droidTrainTime = 5.0f;
     public static int maxTrainingCap = 25;
 
-    public Canvas canvas;
+    private Canvas canvas;
 
     public GameObject flagObj;
     public bool flagActive = false;
 
-    public Transform spawnPoint;
+    private Transform spawnPoint;
 
 
     //inherited function realizations
@@ -25,9 +25,13 @@ public class Barracks : Entity
     {
         currentHealth = 1000;
         maxHealth = 1000;
+        type = EntityType.Barracks;
 
         canvas = GetComponentInChildren<Canvas>();
         canvas.transform.LookAt(canvas.transform.position + Camera.main.transform.rotation * Vector3.back, Camera.main.transform.rotation * Vector3.up);
+
+        spawnPoint = this.transform.Find("SpawnPoint");
+        buildProcess.gameObject.SetActive(false);
 
         buildProcess = canvas.transform.Find("Building Progress").GetComponent<Slider>();
         buildProcess.gameObject.SetActive(false);
@@ -38,6 +42,9 @@ public class Barracks : Entity
         flagObj = Instantiate(flagObj, Vector3.zero, Quaternion.identity);
         flagObj.SetActive(false);
         flagActive = false;
+
+        BaseActivation();
+
     }
 
     protected override void BaseUpdate()
@@ -90,6 +97,13 @@ public class Barracks : Entity
         flagObj.transform.position = new Vector3(location.x, location.y + 2.5f, location.z);
         flagActive = true;
     }
+
+    public override void BaseActivation()
+    {
+        ResourceManager.Instance.numBarracksActive++;
+        ResourceManager.Instance.UpdateSupply();
+    }
+
     public override void BaseDeactivation()
     {
         ResourceManager.Instance.numBarracksActive--;
@@ -109,9 +123,12 @@ public class Barracks : Entity
     //child-sepific functions
     public void OnTrainRequest()
     {
-        if (ResourceManager.Instance.Purchase(EntityType.Droid) && buildTimes.Count < maxTrainingCap)
+        if (buildTimes.Count < maxTrainingCap && ResourceManager.Instance.supplyCurrent < ResourceManager.Instance.totalSupply && ResourceManager.Instance.Purchase(EntityType.Droid))
         {
             buildTimes.Enqueue(ResourceManager.Instance.RequestQueue(EntityType.Droid));
+        }
+        else if (ResourceManager.Instance.supplyCurrent >= ResourceManager.Instance.totalSupply) {
+            Debug.Log("MAX SUPPLY REACHED");
         }
         else if (buildTimes.Count >= maxTrainingCap)
         {
@@ -120,6 +137,13 @@ public class Barracks : Entity
         else
         {
             Debug.Log("NOT ENOUGH CREDITS");
+        }
+    }
+
+    public override void CallAction(int action)
+    {
+        if (action == 1) {
+            OnTrainRequest();
         }
     }
 

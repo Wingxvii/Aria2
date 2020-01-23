@@ -20,7 +20,7 @@ public class Droid : Entity
     private Rigidbody selfRigid;
 
     private Vector3 journeyPoint;
-    private Player attackPoint;
+    private Entity attackPoint;
     public DroidState state = DroidState.Standing;
 
     public float journeyAccuracy = 5.0f;
@@ -34,31 +34,27 @@ public class Droid : Entity
     //rotation
     public float rotateSpeed;
     public Vector3 faceingPoint = new Vector3(0, 0, 0);
-
-    //models
-    public GameObject body;
-
-    private bool deathCheck = false;
     //network updates
 
     // Start is called before the first frame update
     protected override void BaseStart()
     {
+        type = EntityType.Droid;
+
         //setup rigidbody
         if (!selfRigid){selfRigid = this.GetComponent<Rigidbody>();}
 
         maxHealth = 100;
         currentHealth = 100;
-        deathCheck = false;
     }
 
     // Update is called once per frame
     protected override void BaseUpdate()
     {
-        if (GameController.Instance.type == PlayerType.FPS)
+        if (GameSceneController.Instance.type == PlayerType.FPS)
         {
         }
-        else if (GameController.Instance.type == PlayerType.RTS) {
+        else if (GameSceneController.Instance.type == PlayerType.RTS) {
             if (currentCoolDown > 0.0f)
             {
                 currentCoolDown -= Time.deltaTime;
@@ -86,11 +82,11 @@ public class Droid : Entity
         }
 
 
-        if (GameController.Instance.type == PlayerType.FPS)
+        if (GameSceneController.Instance.type == PlayerType.FPS)
         {
 
         }
-        else if (GameController.Instance.type == PlayerType.RTS) {
+        else if (GameSceneController.Instance.type == PlayerType.RTS) {
             float shortestDist;
 
             //AI STATE MACHINE
@@ -188,18 +184,21 @@ public class Droid : Entity
         journeyPoint = location;
     }
 
-    public void IssueAttack(Vector3 location)
+    public override void IssueAttack(Vector3 location)
     {
         state = DroidState.AttackMoving;
         journeyPoint = location;
     }
-    public void IssueAttack(Player attackee)
+    public override void IssueAttack(Entity attackee)
     {
-        state = DroidState.TargetAttacking;
-        attackPoint = attackee;
+        if (attackee.type == EntityType.Player)
+        {
+            state = DroidState.TargetAttacking;
+            attackPoint = attackee;
+        }
     }
 
-    public void MoveTo(Vector2 pos)
+    private void MoveTo(Vector2 pos)
     {
         faceingPoint = journeyPoint;
 
@@ -216,7 +215,7 @@ public class Droid : Entity
     }
     private void OnTriggerStay(Collider other)
     {
-        if (GameController.Instance.type == PlayerType.RTS && other.tag == "Entity" && other.gameObject.GetComponent<Entity>().type == EntityType.Player)
+        if (GameSceneController.Instance.type == PlayerType.RTS && other.tag == "Entity" && other.gameObject.GetComponent<Entity>().type == EntityType.Player)
         {
             if (state != DroidState.AttackMoving && state != DroidState.Moving && state != DroidState.TargetAttacking)
             {

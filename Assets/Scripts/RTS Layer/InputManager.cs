@@ -91,24 +91,23 @@ namespace RTSInput
         // Start is called before the first frame update
         void Start()
         {
-            //TODO:set this as active scene
             //SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(2));
 
             SelectedEntities = new List<Entity>();
             StartCoroutine(DoubleClickListener());
 
             //prefab instanitation
-            turretBlueprint = Instantiate(Resources.Load<GameObject>("Prefabs/Blueprints/turretBlueprint"));
+            turretBlueprint = Instantiate(turretBlueprint);
             turretBlueprint.SetActive(false);
-            barracksBlueprint = Instantiate(Resources.Load<GameObject>("Prefabs/Blueprints/barracksBlueprint"));
+            barracksBlueprint = Instantiate(barracksBlueprint);
             barracksBlueprint.SetActive(false);
-            wallBlueprint = Instantiate(Resources.Load<GameObject>("Prefabs/Blueprints/wallBlueprint"));
+            wallBlueprint = Instantiate(wallBlueprint);
             wallBlueprint.SetActive(false);
-            moveCursorBlueprint = Instantiate(Resources.Load<GameObject>("Prefabs/Blueprints/moveCursorBlueprint"));
+            moveCursorBlueprint = Instantiate(moveCursorBlueprint);
             moveCursorBlueprint.SetActive(false);
-            attackCursorBlueprint = Instantiate(Resources.Load<GameObject>("Prefabs/Blueprints/attackCursorBlueprint"));
+            attackCursorBlueprint = Instantiate(attackCursorBlueprint);
             attackCursorBlueprint.SetActive(false);
-            rallyBlueprint = Instantiate(Resources.Load<GameObject>("Prefabs/Blueprints/rallyBlueprint"));
+            rallyBlueprint = Instantiate(rallyBlueprint);
             rallyBlueprint.SetActive(false);
             activeBlueprint = turretBlueprint;
             activeBlueprint.SetActive(false);
@@ -236,7 +235,6 @@ namespace RTSInput
                             activeBlueprint.SetActive(false);
                             ClearSelection();
                         }
-                        //TODO: check for purchaseability 
                         if (ResourceManager.Instance.Purchase(shell.type))
                         {
                             CommandManager.Instance.Build(staticPosition, shell.type);
@@ -265,8 +263,7 @@ namespace RTSInput
                     {
                         if (obj.type == PrimaryEntity.type)
                         {
-                            //TODO: Issue movement command
-                            CommandManager.Instance.Move(obj, staticPosition);
+                            CommandManager.Instance.IssueLocation(obj, staticPosition);
                         }
                     }
 
@@ -282,7 +279,16 @@ namespace RTSInput
                         {
                             if (obj.type == EntityType.Droid || obj.type == EntityType.Turret)
                             {
-                                CommandManager.Instance.AttackTarget(obj, HitObject);
+                                CommandManager.Instance.IssueAttack(obj, HitObject);
+                            }
+                        }
+                    }
+                    else {
+                        foreach (Entity obj in SelectedEntities)
+                        {
+                            if (obj.type == EntityType.Droid || obj.type == EntityType.Turret)
+                            {
+                                CommandManager.Instance.IssueAttack(obj, staticPosition);
                             }
                         }
                     }
@@ -297,7 +303,7 @@ namespace RTSInput
                     {
                         if (obj.type == PrimaryEntity.type)
                         {
-                            CommandManager.Instance.IssueRally(obj, staticPosition);
+                            CommandManager.Instance.IssueLocation(obj, staticPosition);
                         }
                     }
                     activeBlueprint.SetActive(false);
@@ -397,7 +403,7 @@ namespace RTSInput
                         {
                             if (obj.type == EntityType.Droid || obj.type == EntityType.Turret)
                             {
-                                CommandManager.Instance.AttackTarget(obj, HitObject);
+                                CommandManager.Instance.IssueAttack(obj, HitObject);
                             }
                         }
                     }
@@ -408,14 +414,14 @@ namespace RTSInput
                         {
                             if (obj.type == EntityType.Turret)
                             {
-                                CommandManager.Instance.AttackTarget(obj, HitObject);
+                                CommandManager.Instance.IssueAttack(obj, HitObject);
                             }
                             else if (obj.type == EntityType.Droid)
                             {
-                                CommandManager.Instance.Move(obj, staticPosition);
+                                CommandManager.Instance.IssueLocation(obj, staticPosition);
                             }
                             else if (obj.type == EntityType.Barracks) {
-                                CommandManager.Instance.IssueRally(obj, staticPosition);
+                                CommandManager.Instance.IssueLocation(obj, staticPosition);
                             }
                         }
                     }
@@ -584,8 +590,6 @@ namespace RTSInput
             }
 
         }
-
-
         public void OnBuildPrefabs(int prefab)
         {
             ClearSelection();
@@ -726,10 +730,13 @@ namespace RTSInput
         #region UIInputFunctions
 
         //train unit in barracks
-        public void OnTrainBarracks(int unitType)
+        public void OnTrainBarracks()
         {
-            //TODO: call train unit function on all selected barracks
-
+            foreach (Entity entity in SelectedEntities) {
+                if (entity.type == PrimaryEntity.type) {
+                    CommandManager.Instance.CallAction(entity, 1);
+                }
+            }
         }
 
         //switch current mouse action to Movement indicator
@@ -755,7 +762,13 @@ namespace RTSInput
         //reloads all turrets
         public void OnReload()
         {
-            //TODO: Add reloading functionality to turrets
+            foreach (Entity entity in SelectedEntities)
+            {
+                if (entity.type == PrimaryEntity.type)
+                {
+                    entity.CallAction(1);
+                }
+            }
         }
 
         //switch current mouse action to Rally point indicator

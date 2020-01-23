@@ -39,7 +39,7 @@ public class ResourceManager : MonoBehaviour
         public const bool CREDITS_OFF = false;
         public const bool UNKILLABLEPLAYER = true;
 
-        public const bool RTSPLAYERDEBUGMODE = false;
+        public const bool RTSPLAYERDEBUGMODE = true;
     }
 
     public enum GameState
@@ -181,20 +181,15 @@ public class ResourceManager : MonoBehaviour
     //requests a drone to build, returns time to build
     public float RequestQueue(EntityType type)
     {
-        if (ResourceManager.Instance.supplyCurrent < ResourceManager.Instance.totalSupply)
+        switch (type)
         {
-            switch (type)
-            {
-                case EntityType.Droid:
-                    ResourceManager.Instance.supplyCurrent++;
-                    return 5f;
-                default:
-                    Debug.Log("ERROR: DROID TYPE INVALID");
-                    return -1f;
-            }
+            case EntityType.Droid:
+                ResourceManager.Instance.supplyCurrent++;
+                return 5f;
+            default:
+                Debug.Log("ERROR: DROID TYPE INVALID");
+                return -1f;
         }
-        Debug.Log("MAX SUPPLY REACHED");
-        return -1f;
     }
 
 
