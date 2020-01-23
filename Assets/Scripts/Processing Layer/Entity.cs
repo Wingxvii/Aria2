@@ -33,7 +33,7 @@ public abstract class Entity : MonoBehaviour
 
     //RTS BEHAVIOURS
     #region RTS
-    private bool isRTS = false;
+    private bool isRTS = true;
 
     //canvas
     private Slider healthBar;
@@ -49,10 +49,12 @@ public abstract class Entity : MonoBehaviour
         selectedHalo = (Behaviour)this.GetComponent("Halo");
         selectedHalo.enabled = false;
         canvasTransform = this.transform.Find("Canvas").GetComponent<RectTransform>();
-        healthBar = this.transform.Find("").GetComponent<Slider>();
+        healthBar = canvasTransform.transform.Find("Health").GetComponent<Slider>();
         if (GameSceneController.Instance.type == PlayerType.RTS)
         {
             //clean up unwanted items
+            isRTS = true;
+
 
         }
         else if (GameSceneController.Instance.type == PlayerType.FPS) {
@@ -179,22 +181,22 @@ public abstract class Entity : MonoBehaviour
     
     protected virtual void BaseAwake() {}
     protected virtual void BaseStart() {}
-    protected virtual void BaseEnable() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    protected virtual void BaseEnable() {}
     protected virtual void BaseUpdate() {}
     protected virtual void BaseLateUpdate() {}
     protected virtual void BaseFixedUpdate() {}
-    protected virtual void BaseOnDestory() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    protected virtual void BaseOnDestory() {}
 
     public virtual void IssueLocation(Vector3 location) { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
     public virtual void IssueAttack(Vector3 location) { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
     public virtual void IssueAttack(Entity attackee) { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
     public virtual void CallAction(int action) { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
 
-    public virtual void BaseActivation() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
-    public virtual void BaseDeactivation() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    public virtual void BaseActivation() {}
+    public virtual void BaseDeactivation() { }
 
-    public virtual void BaseSelected() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
-    public virtual void BaseDeselected() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    public virtual void BaseSelected() {}
+    public virtual void BaseDeselected() { }
 
 
 }

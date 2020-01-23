@@ -371,7 +371,8 @@ MonoBehaviour:
   id: 0
   type: 0
   currentHealth: 1
-  destructable: 0
+  maxHealth: 1
+  destructable: 1
   Wallhit: {fileID: 205447919571514328}
 --- !u!65 &-7882440169768465847
 BoxCollider:

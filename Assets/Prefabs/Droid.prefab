@@ -690,7 +690,8 @@ MonoBehaviour:
   id: 0
   type: 3
   currentHealth: 1
-  destructable: 0
+  maxHealth: 1
+  destructable: 1
   maxSpeed: 5
   minSpeed: 2
   state: 0

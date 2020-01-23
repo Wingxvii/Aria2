@@ -76,7 +76,6 @@ public class EntityManager : MonoBehaviour
         else {
             return CreateEntity(type);
         }
-
     }
     //deactivates an entity: DO NOT USE
     //@Entity OnDeActivate()
@@ -134,8 +133,6 @@ public class EntityManager : MonoBehaviour
 
                 break;
         }
-
-        returnValue.gameObject.SetActive(true);
 
         AllEntities.Add(returnValue);
         ActiveEntitiesByType[(int)type].Add(returnValue);

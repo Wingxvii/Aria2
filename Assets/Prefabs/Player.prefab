@@ -475,7 +475,8 @@ MonoBehaviour:
   id: 0
   type: 5
   currentHealth: 1
-  destructable: 0
+  maxHealth: 1
+  destructable: 1
   activeWeapon: 0
   moveSpeed: 1
   maxSpeed: 20

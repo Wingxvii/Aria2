@@ -29,6 +29,9 @@ namespace RTSInput
         public void Build(Vector3 position, EntityType type) {
             if (type == EntityType.Barracks || type == EntityType.Turret || type == EntityType.Wall) {
                 Entity newEntity = EntityManager.Instance.GetNewEntity(type);
+
+                Debug.Log(position);
+
                 newEntity.transform.position = position;
             }
         }
