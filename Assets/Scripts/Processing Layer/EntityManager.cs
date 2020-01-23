@@ -63,6 +63,21 @@ public class EntityManager : MonoBehaviour
         entitysMask += LayerMask.GetMask("Barracks");
         entitysMask += LayerMask.GetMask("Turret");
         entitysMask += LayerMask.GetMask("Droid");
+
+        //spawn players for debugging
+        Entity temp = GetNewEntity(EntityType.Player);
+        temp.transform.position = new Vector3(-10f, 0.5f, -10f);
+        AllEntities.Add(temp);
+        ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
+        temp = GetNewEntity(EntityType.Player);
+        temp.transform.position = new Vector3(-15f, 0.5f, -10f);
+        AllEntities.Add(temp);
+        ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
+        temp = GetNewEntity(EntityType.Player);
+        temp.transform.position = new Vector3(-20f, 0.5f, -10f);
+        AllEntities.Add(temp);
+        ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
+
     }
 
     //returns an avaliable entity from pool or newly instantiated, if none are avaliable

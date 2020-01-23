@@ -24,8 +24,6 @@ public class GameSceneController : MonoBehaviour
                 _instance = this;
             }
 
-            //loads start menu
-            //SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
             gameStart = true;
         }
         //single pattern ends here

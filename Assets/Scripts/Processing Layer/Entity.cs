@@ -43,7 +43,7 @@ public abstract class Entity : MonoBehaviour
     protected bool selected = false;
     #endregion
 
-    private void Awake()
+    private void Start()
     {
         //init all ui elements
         selectedHalo = (Behaviour)this.GetComponent("Halo");
@@ -68,16 +68,9 @@ public abstract class Entity : MonoBehaviour
         //set id
         id = ++idtracker;
         indexedList.Add(this);
-        BaseAwake();
-    }
-
-    //called on activate
-    private void Start()
-    {
-        //ensure values are reset on start
-        ResetValues();
         BaseStart();
     }
+
     //updates
     private void Update()
     {
@@ -169,8 +162,6 @@ public abstract class Entity : MonoBehaviour
         this.gameObject.transform.position = Vector3.zero;
         this.gameObject.transform.rotation = Quaternion.identity;
         this.currentHealth = maxHealth;
-
-        this.gameObject.SetActive(false);
     }
     //death of unit
     public virtual void OnDeath()

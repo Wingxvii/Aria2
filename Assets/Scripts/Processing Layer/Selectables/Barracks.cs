@@ -94,6 +94,8 @@ public class Barracks : Entity
         flagObj.transform.position = new Vector3(location.x, location.y + 2.5f, location.z);
         flagActive = true;
     }
+
+
     public override void BaseDeactivation()
     {
         ResourceManager.Instance.numBarracksActive--;

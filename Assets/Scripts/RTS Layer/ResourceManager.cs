@@ -39,7 +39,7 @@ public class ResourceManager : MonoBehaviour
         public const bool CREDITS_OFF = false;
         public const bool UNKILLABLEPLAYER = true;
 
-        public const bool RTSPLAYERDEBUGMODE = false;
+        public const bool RTSPLAYERDEBUGMODE = true;
     }
 
     public enum GameState

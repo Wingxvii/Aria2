@@ -178,10 +178,12 @@ public class Turret : Entity
 
                     break;
                 case TurretState.TargetedShooting:
-                    //search for shortest player
-                    dist = Vector3.Distance(attackPoint.transform.position, this.transform.position);
-                    shortestDist = dist;
 
+                    if (attackPoint)
+                    {
+                        //search for shortest player
+                        dist = Vector3.Distance(attackPoint.transform.position, this.transform.position);
+                        shortestDist = dist;
                     //look at
                     if (shortestDist < maxRange)
                     {
@@ -212,6 +214,7 @@ public class Turret : Entity
                     else
                     {
                         state = TurretState.Idle;
+                    }
                     }
 
                     break;

@@ -92,19 +92,19 @@ public class Player : Entity
     // Update is called once per frame
     protected override void BaseUpdate()
     {
-        if (GameSceneController.Instance.type == PlayerType.FPS && Input.GetKey(KeyCode.D) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
+        if (GameSceneController.Instance.type == PlayerType.RTS && Input.GetKey(KeyCode.D) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
         {
             playerBody.velocity += new Vector3(1 * moveSpeed, 0, 0);
         }
-        if (GameSceneController.Instance.type == PlayerType.FPS && Input.GetKey(KeyCode.A) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
+        if (GameSceneController.Instance.type == PlayerType.RTS && Input.GetKey(KeyCode.A) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
         {
             playerBody.velocity += new Vector3(1 * -moveSpeed, 0, 0);
         }
-        if (GameSceneController.Instance.type == PlayerType.FPS && Input.GetKey(KeyCode.W) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
+        if (GameSceneController.Instance.type == PlayerType.RTS && Input.GetKey(KeyCode.W) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
         {
             playerBody.velocity += new Vector3(0, 0, 1 * moveSpeed);
         }
-        if (GameSceneController.Instance.type == PlayerType.FPS && Input.GetKey(KeyCode.S) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
+        if (GameSceneController.Instance.type == PlayerType.RTS && Input.GetKey(KeyCode.S) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
         {
             playerBody.velocity += new Vector3(0, 0, 1 * -moveSpeed);
         }

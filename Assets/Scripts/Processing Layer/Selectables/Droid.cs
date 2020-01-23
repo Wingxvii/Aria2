@@ -34,7 +34,6 @@ public class Droid : Entity
     //rotation
     public float rotateSpeed;
     public Vector3 faceingPoint = new Vector3(0, 0, 0);
-    private bool deathCheck = false;
     //network updates
 
     // Start is called before the first frame update
@@ -47,7 +46,6 @@ public class Droid : Entity
 
         maxHealth = 100;
         currentHealth = 100;
-        deathCheck = false;
     }
 
     // Update is called once per frame
