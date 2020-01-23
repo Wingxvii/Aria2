@@ -263,7 +263,7 @@ MonoBehaviour:
   attackDamage: 5
   reloadTimer: 0
   currentAmno: 10
-  rotateSpeed: 0
+  rotateSpeed: 2
   faceingPoint: {x: 0, y: 0, z: 0}
   head: {fileID: 8884248750197795924}
   body: {fileID: 8858981734660671219}

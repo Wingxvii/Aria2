@@ -30,7 +30,7 @@ public class Barracks : Entity
         canvas = GetComponentInChildren<Canvas>();
         canvas.transform.LookAt(canvas.transform.position + Camera.main.transform.rotation * Vector3.back, Camera.main.transform.rotation * Vector3.up);
 
-        spawnPoint = canvas.transform.Find("SpawnPoint");
+        spawnPoint = this.transform.Find("SpawnPoint");
         buildProcess.gameObject.SetActive(false);
 
         buildProcess = canvas.transform.Find("Building Progress").GetComponent<Slider>();
