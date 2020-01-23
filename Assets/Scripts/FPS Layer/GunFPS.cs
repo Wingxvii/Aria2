@@ -75,11 +75,11 @@ public class GunFPS : MonoBehaviour
                 BulletFPS bullet = Instantiate<BulletFPS>(clip.bullet);
 
                 if (!rayHit)
-                    bullet.transform.rotation = Quaternion.Euler(new Vector3(specs.accuracyAngle, 0, 360)) * gv.transform.rotation;
+                    bullet.transform.rotation = gv.transform.rotation * Quaternion.Euler(Vector3.right * Random.Range(0, specs.accuracyAngle)) * Quaternion.Euler(Vector3.forward * Random.Range(0, 360));
                 else
                 {
-                    bullet.transform.rotation = Quaternion.Euler(new Vector3(specs.accuracyAngle, 0, 360)) *
-                        Quaternion.FromToRotation(gv.transform.forward, distanceNormal) * gv.transform.rotation;
+                    bullet.transform.rotation = Quaternion.FromToRotation(gv.transform.forward, distanceNormal) * gv.transform.rotation *
+                        Quaternion.Euler(Vector3.forward * Random.Range(0, 360)) * Quaternion.Euler(Vector3.right * Random.Range(0, specs.accuracyAngle));
                 }
 
                 bullet.transform.position = gv.transform.position;

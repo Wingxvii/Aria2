@@ -70,13 +70,12 @@ public class PlayerFPS : Entity
             c.material.bounceCombine = PhysicMaterialCombine.Minimum;
         }
 
-        spawnPointNum = EntityManager.Instance.freeSpawnPoints.Dequeue();
-        spawnPoint = EntityManager.Instance.FPSspawnpoints[spawnPointNum];
     }
 
     protected override void BaseStart()
     {
         base.BaseStart();
+
         for (int i = 1; i < guns.Length; ++i)
         {
             guns[i].gameObject.SetActive(false);
@@ -87,6 +86,13 @@ public class PlayerFPS : Entity
     {
         if (spawnPoint != null)
         {
+            transform.position = spawnPoint.position;
+            this.gameObject.transform.rotation = Quaternion.identity;
+        }
+        else
+        {
+            spawnPointNum = EntityManager.Instance.freeSpawnPoints.Dequeue();
+            spawnPoint = EntityManager.Instance.FPSspawnpoints[spawnPointNum];
             transform.position = spawnPoint.position;
             this.gameObject.transform.rotation = Quaternion.identity;
         }
