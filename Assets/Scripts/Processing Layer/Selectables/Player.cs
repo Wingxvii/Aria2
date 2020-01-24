@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Netcode;
 
 public class Player : Entity
 {
@@ -128,6 +129,6 @@ public class Player : Entity
 
     public override void OnDamage(int num, Entity culprit)
     {
-        //NetworkManager.SendDamagePlayer(num, this.id + 1, culprit.id);
+        NetworkManager.SendDamagePlayer(num, this.id, culprit.id);
     }
 }

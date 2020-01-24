@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Netcode;
 
 public enum EntityType
 {
@@ -138,6 +139,17 @@ public abstract class Entity : MonoBehaviour
 
 
     //deals damage to entity
+    public virtual void OnDamage(int num)
+    {
+        if (destructable)
+        {
+            currentHealth -= num;
+        }
+        if (currentHealth <= 0)
+        {
+            OnDeath();
+        }
+    }
     public virtual void OnDamage(int num, Entity culprit)
     {
         if (destructable)
@@ -149,6 +161,8 @@ public abstract class Entity : MonoBehaviour
             OnDeath();
         }
     }
+
+
     //resets all values
     public virtual void ResetValues()
     {
@@ -165,6 +179,7 @@ public abstract class Entity : MonoBehaviour
     public virtual void OnDeath()
     {
         //deactivate
+        NetworkManager.SendKilledEntity(this);
         OnDeActivate();
     }
     
