@@ -152,6 +152,25 @@ public class PlayerFPS : Entity
         else if (type == EntityType.Dummy)
         {
             //Edit things via networking code here
+
+            if (GameSceneController.Instance.type == PlayerType.RTS && Input.GetKey(KeyCode.D) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
+            {
+                rb.velocity += new Vector3(1 * stats.acceleration * Time.fixedDeltaTime / 3, 0, 0);
+            }
+            if (GameSceneController.Instance.type == PlayerType.RTS && Input.GetKey(KeyCode.A) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
+            {
+                rb.velocity += new Vector3(1 * -stats.acceleration * Time.fixedDeltaTime / 3, 0, 0);
+            }
+            if (GameSceneController.Instance.type == PlayerType.RTS && Input.GetKey(KeyCode.W) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
+            {
+                rb.velocity += new Vector3(0, 0, 1 * stats.acceleration * Time.fixedDeltaTime / 3);
+            }
+            if (GameSceneController.Instance.type == PlayerType.RTS && Input.GetKey(KeyCode.S) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
+            {
+                rb.velocity += new Vector3(0, 0, 1 * -stats.acceleration * Time.fixedDeltaTime / 3);
+            }
+
+            rb.velocity = MiscFuncsFPS.ApplyFriction(rb.velocity, in stats);
         }
 
         //Debug.Log("FIXED");

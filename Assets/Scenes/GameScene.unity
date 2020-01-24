@@ -183,7 +183,7 @@ MonoBehaviour:
   gameStart: 1
   loadedScene: 1
   IP: 
-  type: 2
+  type: 1
   gameState: 0
 --- !u!4 &574309900
 Transform:
