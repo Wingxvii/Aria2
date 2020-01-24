@@ -25,9 +25,11 @@ public class GameSceneController : MonoBehaviour
             }
 
             gameStart = true;
+            LoadScene(1);
+            loadedScene = 1;
         }
         //single pattern ends here
-        #endregion
+    #endregion
 
     public bool gameStart = false;
     public int loadedScene = 1;
@@ -56,14 +58,3 @@ public class GameSceneController : MonoBehaviour
     }
     
 }
-
-/*
- * Scenes Index:
- * 
- * 0 - Master manager
- * 1 - Start Menu
- * 2 - RTS
- * 3 - FPS
- * 4 - End scene
- * 
- */

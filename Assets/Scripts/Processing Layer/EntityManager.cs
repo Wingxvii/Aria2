@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using Netcode;
 public class EntityManager : MonoBehaviour
 {
     #region SingletonCode
@@ -9,6 +10,7 @@ public class EntityManager : MonoBehaviour
     public static EntityManager Instance { get { return _instance; } }
     private void Awake()
     {
+
         if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
@@ -40,12 +42,41 @@ public class EntityManager : MonoBehaviour
     public GameObject turretPrefab;
     public GameObject controllablePlayerPrefab;
 
+    //managers
+    public GameObject FPSManagers;
+    public GameObject RTSManagers;
+
     private void Start()
     {
+        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(2));
+
+        //add managers
+        if (GameSceneController.Instance.type == PlayerType.FPS)
+        {
+            Destroy(RTSManagers);
+        }
+        else if (GameSceneController.Instance.type == PlayerType.RTS) {
+            Destroy(FPSManagers); 
+
+        }
+
+
+
         //create all lists
         AllEntities = new List<Entity>();
         ActiveEntitiesByType = new List<List<Entity>>();
         DeactivatedEntitiesByType = new List<Queue<Entity>>();
+
+        if (AllEntities.Count > 0)
+        {
+            foreach (Entity entity in AllEntities)
+            {
+                if (entity.gameObject.activeSelf)
+                {
+                    ActiveEntitiesByType[(int)entity.type].Add(entity);
+                }
+            }
+        }
 
 
         //create a list per type
@@ -66,6 +97,7 @@ public class EntityManager : MonoBehaviour
 
         //spawn players for debugging
         Entity temp = GetNewEntity(EntityType.Player);
+
         temp.transform.position = new Vector3(-10f, 0.5f, -10f);
         AllEntities.Add(temp);
         ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
@@ -78,14 +110,21 @@ public class EntityManager : MonoBehaviour
         AllEntities.Add(temp);
         ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
 
+
+
+
     }
 
     //returns an avaliable entity from pool or newly instantiated, if none are avaliable
     public Entity GetNewEntity(EntityType type) {
+
         if (DeactivatedEntitiesByType[(int)type].Count != 0)
         {
             Entity returnEntity = DeactivatedEntitiesByType[(int)type].Dequeue();
             returnEntity.OnActivate();
+
+            NetworkManager.SendBuildEntity(returnEntity);
+
             return returnEntity;
         }
         else {
