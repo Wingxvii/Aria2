@@ -62,6 +62,8 @@ public class PlayerFPS : Entity
     {
         base.BaseAwake();
 
+        ResetValues();
+
         if(playerLayer.value == 0)
         {
             playerLayer = LayerMask.GetMask("Player");

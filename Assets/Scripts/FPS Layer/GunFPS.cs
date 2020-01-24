@@ -46,13 +46,13 @@ public class GunFPS : MonoBehaviour
     public void StartPlaying()
     {
         playing = true;
-        shotFlash.Play();
+        //shotFlash.Play();
     }
 
     public void StopPlaying()
     {
         playing = false;
-        shotFlash.Stop();
+        //shotFlash.Stop();
     }
 
     public void Fire(Transform camTransform, PlayerFPS sender)

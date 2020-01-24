@@ -42,7 +42,7 @@ public class SpawnManager : MonoBehaviour
         }
 
         freeSpawnPoints = new Queue<int>();
-        for (int i = 0; i < freeSpawnPoints.Count; ++i)
+        for (int i = 0; i < FPSspawnpoints.Length; ++i)
         {
             freeSpawnPoints.Enqueue(i);
         }

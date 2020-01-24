@@ -52,6 +52,8 @@ public class EntityManager : MonoBehaviour
         //add managers
         if (GameSceneController.Instance.type == PlayerType.FPS)
         {
+            if (!Netcode.NetworkManager.isConnected)
+                GameSceneController.Instance.playerNumber = 1;
             Destroy(RTSManagers);
         }
         else if (GameSceneController.Instance.type == PlayerType.RTS) {
@@ -185,6 +187,10 @@ public class EntityManager : MonoBehaviour
 
                 break;
             case EntityType.Player:
+                returnValue = Instantiate(controllablePlayerPrefab).GetComponent<Entity>();
+
+                break;
+            case EntityType.Dummy:
                 returnValue = Instantiate(playerPrefab).GetComponent<Entity>();
 
                 break;

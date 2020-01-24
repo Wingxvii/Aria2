@@ -323,3 +323,386 @@ UnityEngine.EventSystems.EventSystem:Update()
 2020-01-24 09:52:39.5026 [DEBUG] Play mode: True, sync in play mode: False
 2020-01-24 09:52:41.6796 [DEBUG] Play mode: False
 >>>>>>> Stashed changes
+2020-01-24 10:00:40.4682 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 10:18:43.7211 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 10:18:50.9849 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 10:18:51.1253 [DEBUG] Play mode: True, sync in play mode: False
+2020-01-24 10:18:56.1872 [DEBUG] Play mode: False
+2020-01-24 10:20:25.4638 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 10:20:31.3753 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 10:20:31.5275 [DEBUG] Play mode: True, sync in play mode: False
+2020-01-24 10:21:04.0483 [DEBUG] Play mode: False
+2020-01-24 10:25:10.6495 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 10:25:10.8324 [DEBUG] Play mode: True, sync in play mode: False
+2020-01-24 10:25:27.0119 [DEBUG] Play mode: False
+2020-01-24 10:25:57.8762 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 10:25:58.0817 [DEBUG] Play mode: True, sync in play mode: False
+2020-01-24 10:26:11.9603 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:191)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:26:11.9613 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:26:29.4322 [DEBUG] Play mode: False
+2020-01-24 10:27:16.5163 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 10:27:16.7636 [DEBUG] Play mode: True, sync in play mode: False
+2020-01-24 10:27:28.7984 [DEBUG] Play mode: False
+2020-01-24 10:29:00.5411 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 10:29:06.8303 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 10:29:06.9845 [DEBUG] Play mode: True, sync in play mode: False
+2020-01-24 10:29:14.7071 [DEBUG] Play mode: False
+2020-01-24 10:29:19.3161 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 10:29:19.5046 [DEBUG] Play mode: True, sync in play mode: False
+2020-01-24 10:31:14.4469 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 10:31:17.6381 [DEBUG] Play mode: False
+2020-01-24 10:31:20.7123 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 10:31:20.8948 [DEBUG] Play mode: True, sync in play mode: False
+2020-01-24 10:31:32.1570 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.1580 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.1800 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.1860 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.2129 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.2129 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.2448 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.2458 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.2807 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.2807 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.3127 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.3127 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.3456 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.3466 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.3805 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.3805 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.4766 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.4766 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.5420 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.5430 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.5789 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.5799 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.6134 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.6143 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.6762 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.6772 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.7131 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.7131 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.7460 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.7470 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.7809 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.7809 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.8128 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.8128 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.8467 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.8477 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.9106 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.9115 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.9455 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.9465 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:32.9784 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:32.9794 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:33.0133 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:33.0143 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:33.0452 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:33.0462 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:33.0811 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:33.0821 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:33.1449 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:33.1460 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:33.1808 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:33.1818 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:33.2137 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:33.2137 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:33.5503 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:33.5503 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:33.5783 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:33.5793 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:33.6142 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:33.6152 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:33.6521 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:33.6541 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:33.6790 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:33.6801 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:33.7140 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:33.7150 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:33.7469 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StartPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:49)
+GunFPS.Fire (UnityEngine.Transform camTransform, PlayerFPS sender) (at Assets/Scripts/FPS Layer/GunFPS.cs:67)
+PlayerFPS.BaseUpdate () (at Assets/Scripts/FPS Layer/PlayerFPS.cs:193)
+Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:77)
+
+2020-01-24 10:31:33.7469 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+GunFPS.StopPlaying () (at Assets/Scripts/FPS Layer/GunFPS.cs:55)
+GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
+
+2020-01-24 10:31:36.8603 [DEBUG] Play mode: False
+2020-01-24 10:31:55.2432 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 10:31:59.8107 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 10:31:59.9743 [DEBUG] Play mode: True, sync in play mode: False
+2020-01-24 10:32:35.4856 [DEBUG] Play mode: False
