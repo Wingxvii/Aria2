@@ -72,7 +72,10 @@ namespace RTSInput
                         EnableUI(UIPlayer);
                         GetStats(UIPlayer, InputManager.Instance.PrimaryEntity);
                         break;
-    
+                    case EntityType.Dummy:
+                        EnableUI(UIPlayer);
+                        GetStats(UIPlayer, InputManager.Instance.PrimaryEntity);
+                        break;
                     default:
                         Debug.LogError("Selectable Type Unidentified: UIMANAGER");
     
