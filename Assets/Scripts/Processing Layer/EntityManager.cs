@@ -45,14 +45,15 @@ public class EntityManager : MonoBehaviour
     //managers
     public GameObject FPSManagers;
     public GameObject RTSManagers;
-
+    public GameObject Debugger;
     private void Start()
     {
-        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(2));
         GameSceneController.Instance.gameStart = true;
         //add managers
         if (GameSceneController.Instance.type == PlayerType.FPS)
         {
+            if (!Netcode.NetworkManager.isConnected)
+                GameSceneController.Instance.playerNumber = 1;
             Destroy(RTSManagers);
         }
         else if (GameSceneController.Instance.type == PlayerType.RTS) {
@@ -60,7 +61,7 @@ public class EntityManager : MonoBehaviour
 
         }
 
-
+        SpawnManager.Instance.Initialize();
 
         //create all lists
         AllEntities = new List<Entity>();
@@ -96,19 +97,35 @@ public class EntityManager : MonoBehaviour
         entitysMask += LayerMask.GetMask("Droid");
 
         //spawn players for debugging
-        Entity temp = GetNewEntity(EntityType.Player);
+        EntityType[] spawnType = new EntityType[3];
+        Entity temp;
 
-        temp.transform.position = new Vector3(-10f, 0.5f, -10f);
-        AllEntities.Add(temp);
-        ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
-        temp = GetNewEntity(EntityType.Player);
-        temp.transform.position = new Vector3(-15f, 0.5f, -10f);
-        AllEntities.Add(temp);
-        ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
-        temp = GetNewEntity(EntityType.Player);
-        temp.transform.position = new Vector3(-20f, 0.5f, -10f);
-        AllEntities.Add(temp);
-        ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
+        for (int i = 0; i < spawnType.Length; ++i)
+        {
+            spawnType[i] = (GameSceneController.Instance.playerNumber == i + 1) ? EntityType.Player : EntityType.Dummy;
+
+            temp = GetNewEntity(spawnType[i]);
+
+            //temp.transform.position = new Vector3(-10f, 0.5f, -10f);
+            AllEntities.Add(temp);
+            ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
+        }
+
+        //Entity temp = GetNewEntity(EntityType.Player);
+        //
+        //temp.transform.position = new Vector3(-10f, 0.5f, -10f);
+        //AllEntities.Add(temp);
+        //ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
+        //
+        //temp = GetNewEntity(EntityType.Player);
+        //temp.transform.position = new Vector3(-15f, 0.5f, -10f);
+        //AllEntities.Add(temp);
+        //ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
+        //
+        //temp = GetNewEntity(EntityType.Player);
+        //temp.transform.position = new Vector3(-20f, 0.5f, -10f);
+        //AllEntities.Add(temp);
+        //ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
 
 
 
@@ -170,6 +187,10 @@ public class EntityManager : MonoBehaviour
 
                 break;
             case EntityType.Player:
+                returnValue = Instantiate(controllablePlayerPrefab).GetComponent<Entity>();
+
+                break;
+            case EntityType.Dummy:
                 returnValue = Instantiate(playerPrefab).GetComponent<Entity>();
 
                 break;

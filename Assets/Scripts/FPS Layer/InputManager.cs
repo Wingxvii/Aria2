@@ -26,6 +26,7 @@ namespace FPSLayer
             else
             {
                 _instance = this;
+                _previousMousePosition = Input.mousePosition;
                 WFEOF = new WaitForEndOfFrame();
                 StartCoroutine(FrameUpdate());
             }
@@ -109,7 +110,7 @@ namespace FPSLayer
 
         Vector3 _move = Vector3.zero;
         Vector3 _rotate = Vector3.zero;
-        Vector3 _previousMousePosition = Input.mousePosition;
+        Vector3 _previousMousePosition;
         bool _jump = false;
         bool _shoot = false;
         int _cycle = 0;
@@ -258,7 +259,7 @@ namespace FPSLayer
             {
                 if (!_instance.inputsUpdated)
                     _instance.UpdateInputs();
-                return _rotate;
+                return new Vector3(_rotate.y, _rotate.x, _rotate.z);
             }
         }
 

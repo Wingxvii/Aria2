@@ -32,10 +32,27 @@ public class GunFPS : MonoBehaviour
     bool dtUpdated = false;
     Vector3 cameraSight;
 
+    public ParticleSystem shotFlash;
+    public bool playing = false;
+
     private void Awake()
     {
         clip = GetComponent<AmmoClipFPS>();
         bulletSpawns = GetComponentsInChildren<GunVectorFPS>();
+
+        shotFlash = GetComponentInChildren<ParticleSystem>();
+    }
+
+    public void StartPlaying()
+    {
+        playing = true;
+        //shotFlash.Play();
+    }
+
+    public void StopPlaying()
+    {
+        playing = false;
+        //shotFlash.Stop();
     }
 
     public void Fire(Transform camTransform, PlayerFPS sender)
@@ -46,11 +63,14 @@ public class GunFPS : MonoBehaviour
 
         while (clip.ammo.currentBullets > 0 && specs.firePause >= specs.fireRate)
         {
+            if (!playing)
+                StartPlaying();
             specs.firePause -= specs.fireRate;
 
             bool rayHit = false;
             Vector3 distanceNormal = Vector3.forward;
             RaycastHit closest;
+
             if (specs.snapToCameraTarget)
             {
                 RaycastHit[] rch = Physics.RaycastAll(new Ray(camTransform.position, camTransform.rotation * Vector3.forward), float.PositiveInfinity, ~PlayerFPS.playerLayer);
@@ -70,16 +90,18 @@ public class GunFPS : MonoBehaviour
                 }
             }
 
+            StartPlaying();
+
             foreach(GunVectorFPS gv in bulletSpawns)
             {
                 BulletFPS bullet = Instantiate<BulletFPS>(clip.bullet);
 
                 if (!rayHit)
-                    bullet.transform.rotation = Quaternion.Euler(new Vector3(specs.accuracyAngle, 0, 360)) * gv.transform.rotation;
+                    bullet.transform.rotation = gv.transform.rotation * Quaternion.Euler(Vector3.forward * Random.Range(0, 360)) * Quaternion.Euler(Vector3.right * Random.Range(0, specs.accuracyAngle));
                 else
                 {
-                    bullet.transform.rotation = Quaternion.Euler(new Vector3(specs.accuracyAngle, 0, 360)) *
-                        Quaternion.FromToRotation(gv.transform.forward, distanceNormal) * gv.transform.rotation;
+                    bullet.transform.rotation = Quaternion.FromToRotation(gv.transform.forward, distanceNormal) * gv.transform.rotation *
+                        Quaternion.Euler(Vector3.forward * Random.Range(0, 360)) * Quaternion.Euler(Vector3.right * Random.Range(0, specs.accuracyAngle));
                 }
 
                 bullet.transform.position = gv.transform.position;
@@ -92,17 +114,29 @@ public class GunFPS : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        if (playing)
+            StopPlaying();
+    }
+
+    
+
     public void Reload(int maxAvailable)
     {
         specs.cooldown = specs.reloadSpeed;
-        clip.ammo.currentBullets = Mathf.Max(maxAvailable, clip.ammo.maxBulletCount);
+        clip.ammo.currentBullets = Mathf.Min(maxAvailable, clip.ammo.maxBulletCount);
     }
 
     private void LateUpdate()
     {
+        if (playing)
+            StopPlaying();
         if (!dtUpdated)
+        {
             specs.firePause = Mathf.Min(specs.firePause + Time.deltaTime, specs.fireRate);
-        specs.cooldown = Mathf.Min(specs.cooldown - Time.deltaTime, 0f);
+        }
+        specs.cooldown = Mathf.Max(specs.cooldown - Time.deltaTime, 0f);
         dtUpdated = false;
     }
 }

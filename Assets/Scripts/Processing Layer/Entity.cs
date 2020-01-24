@@ -34,7 +34,7 @@ public abstract class Entity : MonoBehaviour
 
     //RTS BEHAVIOURS
     #region RTS
-    private bool isRTS = true;
+    private bool isRTS = false;
 
     //canvas
     private Slider healthBar;
@@ -46,24 +46,21 @@ public abstract class Entity : MonoBehaviour
 
     private void Start()
     {
-        //init all ui elements
-        selectedHalo = (Behaviour)this.GetComponent("Halo");
-        selectedHalo.enabled = false;
-        canvasTransform = this.transform.Find("Canvas").GetComponent<RectTransform>();
-        healthBar = canvasTransform.transform.Find("Health").GetComponent<Slider>();
+        
+
         if (GameSceneController.Instance.type == PlayerType.RTS)
         {
             //clean up unwanted items
             isRTS = true;
 
-
+            //init all ui elements
+            selectedHalo = (Behaviour)this.GetComponent("Halo");
+            selectedHalo.enabled = false;
+            canvasTransform = this.transform.Find("Canvas").GetComponent<RectTransform>();
+            healthBar = canvasTransform.transform.Find("Health").GetComponent<Slider>();
         }
         else if (GameSceneController.Instance.type == PlayerType.FPS) {
             //clean up unwanted items
-
-            Destroy(selectedHalo);
-            Destroy(canvasTransform);
-
 
         }
         //set id
@@ -75,7 +72,8 @@ public abstract class Entity : MonoBehaviour
     //updates
     private void Update()
     {
-        healthBar.value = (float)currentHealth / (float)maxHealth;
+        if (isRTS)
+            healthBar.value = (float)currentHealth / (float)maxHealth;
         BaseUpdate();
     }
     private void FixedUpdate()

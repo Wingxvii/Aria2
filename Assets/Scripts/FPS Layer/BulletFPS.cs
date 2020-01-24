@@ -39,7 +39,7 @@ public class BulletFPS : MonoBehaviour
             transform.position = transform.position + transform.rotation * Vector3.forward * bulletStats.distance;
         }
 
-        Disappear();
+        StartCoroutine(Disappear());
     }
 
     IEnumerator Disappear()

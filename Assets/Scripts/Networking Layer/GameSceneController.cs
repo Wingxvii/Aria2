@@ -23,20 +23,29 @@ public class GameSceneController : MonoBehaviour
             {
                 _instance = this;
             }
-
             gameStart = true;
-            LoadScene(1);
-            loadedScene = 1;
+
         }
-        //single pattern ends here
+    //single pattern ends here
     #endregion
+
+    public int playerNumber = -1; 
 
     public bool gameStart = false;
     public int loadedScene = 1;
     public string IP = "";
     public PlayerType type;
     public int gameState = 0;
-    
+
+    public void Start()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            LoadScene(1);
+            loadedScene = 1;
+        }
+    }
+
     //use to swap scene
     public void SwapScene(int scene)
     {
@@ -54,6 +63,7 @@ public class GameSceneController : MonoBehaviour
     //use to unload scene
     public void UnloadScene(int scene)
     {
+        Debug.Log("Unloaded");
         SceneManager.UnloadSceneAsync(scene);
     }
     

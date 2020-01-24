@@ -6,7 +6,9 @@ public class MiscFuncsFPS
 {
     public static Vector3 ApplyFriction(Vector3 velocity, in PlayerStats stats)
     {
-        Vector3 stableVelocity = Quaternion.Inverse(stats.groundAngle) * velocity;
+        Vector3 stableVelocity = velocity;
+        if (stats.colliding)
+            stableVelocity = Quaternion.Inverse(stats.groundAngle) * velocity;
         Vector2 normal = new Vector2(stableVelocity.x, stableVelocity.z);
         float mag = normal.magnitude;
         normal /= mag;
@@ -28,14 +30,19 @@ public class MiscFuncsFPS
             stableVelocity.z -= normal.y * frict;
         }
 
-        return stats.groundAngle * stableVelocity;
+        if (stats.colliding)
+            return stats.groundAngle * stableVelocity;
+        return stableVelocity;
     }
 
     public static Vector3 ClampVelocity(Vector3 currentVelocity, Vector3 addVelocity, in PlayerStats stats)
     {
-        Vector3 stableVelocity = Quaternion.Inverse(stats.groundAngle) * currentVelocity;
+        Vector3 stableVelocity = currentVelocity;
+        if (stats.colliding)
+            stableVelocity = Quaternion.Inverse(stats.groundAngle) * stableVelocity;
         float maxMag = Mathf.Max(new Vector2(stableVelocity.x, stableVelocity.z).magnitude, stats.maxSpeed);
-        float realMag = new Vector2(stableVelocity.x + addVelocity.x, stableVelocity.z + addVelocity.z).magnitude;
+        stableVelocity += addVelocity;
+        float realMag = new Vector2(stableVelocity.x, stableVelocity.z).magnitude;
 
         if (realMag > maxMag)
         {
@@ -43,6 +50,8 @@ public class MiscFuncsFPS
             stableVelocity.z *= (maxMag / realMag);
         }
 
+        if (stats.colliding)
         return stats.groundAngle * stableVelocity;
+            return stableVelocity;
     }
 }
