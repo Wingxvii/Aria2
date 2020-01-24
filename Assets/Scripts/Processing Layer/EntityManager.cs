@@ -45,10 +45,9 @@ public class EntityManager : MonoBehaviour
     //managers
     public GameObject FPSManagers;
     public GameObject RTSManagers;
-
+    public GameObject Debugger;
     private void Start()
     {
-        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(2));
         GameSceneController.Instance.gameStart = true;
         //add managers
         if (GameSceneController.Instance.type == PlayerType.FPS)
@@ -109,10 +108,6 @@ public class EntityManager : MonoBehaviour
         temp.transform.position = new Vector3(-20f, 0.5f, -10f);
         AllEntities.Add(temp);
         ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
-
-
-
-
     }
 
     //returns an avaliable entity from pool or newly instantiated, if none are avaliable
