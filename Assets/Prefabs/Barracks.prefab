@@ -661,7 +661,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 53eff9943c90fbe458fbbab133dee27d, type: 2}
+  - {fileID: 2100000, guid: 9ad68c5657ef72545ba04d290f67c7b4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -709,14 +709,12 @@ MonoBehaviour:
   id: 0
   type: 2
   currentHealth: 1
+  maxHealth: 1
   destructable: 1
-  selectedHalo: {fileID: 0}
   buildProcess: {fileID: 5113889428305574001}
   currentBuildTime: 0
-  canvas: {fileID: 7867981638764906359}
   flagObj: {fileID: 274030189064651138, guid: e7a791ce740bfd344b008af4444a1eaf, type: 3}
   flagActive: 0
-  spawnPoint: {fileID: 5682699947807424358}
 --- !u!54 &7215965813452036916
 Rigidbody:
   m_ObjectHideFlags: 0
