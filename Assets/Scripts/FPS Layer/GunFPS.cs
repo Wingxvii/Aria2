@@ -32,10 +32,27 @@ public class GunFPS : MonoBehaviour
     bool dtUpdated = false;
     Vector3 cameraSight;
 
+    public ParticleSystem shotFlash;
+    public bool playing = false;
+
     private void Awake()
     {
         clip = GetComponent<AmmoClipFPS>();
         bulletSpawns = GetComponentsInChildren<GunVectorFPS>();
+
+        shotFlash = GetComponentInChildren<ParticleSystem>();
+    }
+
+    public void StartPlaying()
+    {
+        playing = true;
+        shotFlash.Play();
+    }
+
+    public void StopPlaying()
+    {
+        playing = false;
+        shotFlash.Stop();
     }
 
     public void Fire(Transform camTransform, PlayerFPS sender)
@@ -46,11 +63,14 @@ public class GunFPS : MonoBehaviour
 
         while (clip.ammo.currentBullets > 0 && specs.firePause >= specs.fireRate)
         {
+            if (!playing)
+                StartPlaying();
             specs.firePause -= specs.fireRate;
 
             bool rayHit = false;
             Vector3 distanceNormal = Vector3.forward;
             RaycastHit closest;
+
             if (specs.snapToCameraTarget)
             {
                 RaycastHit[] rch = Physics.RaycastAll(new Ray(camTransform.position, camTransform.rotation * Vector3.forward), float.PositiveInfinity, ~PlayerFPS.playerLayer);
@@ -69,6 +89,8 @@ public class GunFPS : MonoBehaviour
                     distanceNormal = (closest.point - camTransform.position).normalized;
                 }
             }
+
+            StartPlaying();
 
             foreach(GunVectorFPS gv in bulletSpawns)
             {
@@ -92,6 +114,14 @@ public class GunFPS : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        if (playing)
+            StopPlaying();
+    }
+
+    
+
     public void Reload(int maxAvailable)
     {
         specs.cooldown = specs.reloadSpeed;
@@ -100,8 +130,12 @@ public class GunFPS : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (playing)
+            StopPlaying();
         if (!dtUpdated)
+        {
             specs.firePause = Mathf.Min(specs.firePause + Time.deltaTime, specs.fireRate);
+        }
         specs.cooldown = Mathf.Max(specs.cooldown - Time.deltaTime, 0f);
         dtUpdated = false;
     }

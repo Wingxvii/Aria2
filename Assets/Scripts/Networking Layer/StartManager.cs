@@ -18,9 +18,14 @@ public class StartManager : MonoBehaviour
     public void FPSStart()
     {
 
-        Debug.Break();
+        //Debug.Break();
         GameSceneController.Instance.IP = ipText.text;
-        GameSceneController.Instance.SwapScene(2);
         NetworkManager.ConnectToServer();
+        while (!NetworkManager.isConnected)
+        {
+
+        }
+
+        GameSceneController.Instance.SwapScene(2);
     }
 }

@@ -26,8 +26,10 @@ public class GameSceneController : MonoBehaviour
             gameStart = true;
 
         }
-        //single pattern ends here
+    //single pattern ends here
     #endregion
+
+    public int playerNumber = -1; 
 
     public bool gameStart = false;
     public int loadedScene = 1;

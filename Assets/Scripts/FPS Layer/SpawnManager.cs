@@ -25,16 +25,29 @@ public class SpawnManager : MonoBehaviour
     public Transform[] FPSspawnpoints;
     public Queue<int> freeSpawnPoints;
 
+    bool initialized = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        Initialize();
+
+    }
+
+    public void Initialize()
+    {
+        if (!initialized)
+        {
+            initialized = true;
+        }
+
         freeSpawnPoints = new Queue<int>();
         for (int i = 0; i < freeSpawnPoints.Count; ++i)
         {
             freeSpawnPoints.Enqueue(i);
         }
-
     }
+
 
     // Update is called once per frame
     void Update()

@@ -123,7 +123,7 @@ public class Turret : Entity
             {
                 case TurretState.Idle:
                     //search for shortest player
-                    foreach (Player player in EntityManager.Instance.ActivePlayers())
+                    foreach (PlayerFPS player in EntityManager.Instance.ActivePlayers())
                     {
                         dist = Vector3.Distance(player.transform.position, this.transform.position);
 
@@ -140,7 +140,7 @@ public class Turret : Entity
                     break;
                 case TurretState.IdleShooting:
                     //search for shortest player
-                    foreach (Player player in EntityManager.Instance.ActivePlayers())
+                    foreach (PlayerFPS player in EntityManager.Instance.ActivePlayers())
                     {
                         dist = Vector3.Distance(player.transform.position, this.transform.position);
                         if (dist < shortestDist)
@@ -220,7 +220,7 @@ public class Turret : Entity
                     break;
                 case TurretState.Recoil:
                     //search for shortest player
-                    foreach (Player player in EntityManager.Instance.ActivePlayers())
+                    foreach (PlayerFPS player in EntityManager.Instance.ActivePlayers())
                     {
                         dist = Vector3.Distance(player.transform.position, this.transform.position);
                         if (dist < shortestDist)

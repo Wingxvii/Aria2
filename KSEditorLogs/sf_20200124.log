@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 2020-01-24 08:01:23.5478 [DEBUG] Scene Fusion version 1.8.6-0
 2020-01-24 08:06:04.5932 [DEBUG] Scene Fusion version 1.8.6-0
 2020-01-24 08:06:10.8054 [DEBUG] Scene Fusion version 1.8.6-0
@@ -289,3 +290,36 @@ UnityEngine.EventSystems.EventSystem:Update()
 2020-01-24 08:29:37.1426 [DEBUG] Scene Fusion version 1.8.6-0
 2020-01-24 08:29:37.2891 [DEBUG] Play mode: True, sync in play mode: True
 2020-01-24 08:29:43.4477 [DEBUG] Play mode: False
+=======
+2020-01-24 08:00:29.0135 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:02:15.9245 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:02:16.1499 [DEBUG] Play mode: True, sync in play mode: False
+2020-01-24 08:02:24.9961 [DEBUG] Play mode: False
+2020-01-24 08:02:39.6243 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:02:39.7978 [DEBUG] Play mode: True, sync in play mode: False
+2020-01-24 08:02:45.4884 [DEBUG] Play mode: False
+2020-01-24 09:26:22.9559 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:28:45.7712 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:29:57.9641 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:32:59.4802 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:33:09.4792 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:33:55.9215 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:34:02.8669 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:34:08.5791 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:34:21.7779 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:34:30.3682 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:34:37.7750 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:34:43.3854 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:34:49.3258 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:35:35.1189 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:36:00.9684 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:37:14.8447 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:38:56.8978 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:40:10.6596 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:40:31.6888 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:41:38.9051 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:50:12.8211 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:52:39.3623 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 09:52:39.5026 [DEBUG] Play mode: True, sync in play mode: False
+2020-01-24 09:52:41.6796 [DEBUG] Play mode: False
+>>>>>>> Stashed changes

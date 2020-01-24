@@ -59,7 +59,7 @@ public class EntityManager : MonoBehaviour
 
         }
 
-
+        SpawnManager.Instance.Initialize();
 
         //create all lists
         AllEntities = new List<Entity>();
@@ -95,19 +95,39 @@ public class EntityManager : MonoBehaviour
         entitysMask += LayerMask.GetMask("Droid");
 
         //spawn players for debugging
-        Entity temp = GetNewEntity(EntityType.Player);
+        EntityType[] spawnType = new EntityType[3];
+        Entity temp;
 
-        temp.transform.position = new Vector3(-10f, 0.5f, -10f);
-        AllEntities.Add(temp);
-        ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
-        temp = GetNewEntity(EntityType.Player);
-        temp.transform.position = new Vector3(-15f, 0.5f, -10f);
-        AllEntities.Add(temp);
-        ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
-        temp = GetNewEntity(EntityType.Player);
-        temp.transform.position = new Vector3(-20f, 0.5f, -10f);
-        AllEntities.Add(temp);
-        ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
+        for (int i = 0; i < spawnType.Length; ++i)
+        {
+            spawnType[i] = (GameSceneController.Instance.playerNumber == i + 1) ? EntityType.Player : EntityType.Dummy;
+
+            temp = GetNewEntity(spawnType[i]);
+
+            //temp.transform.position = new Vector3(-10f, 0.5f, -10f);
+            AllEntities.Add(temp);
+            ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
+        }
+
+        //Entity temp = GetNewEntity(EntityType.Player);
+        //
+        //temp.transform.position = new Vector3(-10f, 0.5f, -10f);
+        //AllEntities.Add(temp);
+        //ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
+        //
+        //temp = GetNewEntity(EntityType.Player);
+        //temp.transform.position = new Vector3(-15f, 0.5f, -10f);
+        //AllEntities.Add(temp);
+        //ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
+        //
+        //temp = GetNewEntity(EntityType.Player);
+        //temp.transform.position = new Vector3(-20f, 0.5f, -10f);
+        //AllEntities.Add(temp);
+        //ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
+
+
+
+
     }
 
     //returns an avaliable entity from pool or newly instantiated, if none are avaliable

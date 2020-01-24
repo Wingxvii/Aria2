@@ -5,6 +5,13 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerStats
 {
+    public enum PlayerState
+    {
+        Alive = (1 << 0),
+        Shooting = (1 << 1),
+        Jumping = (1 << 2),
+    }
+
     public float acceleration = 1000f;
     public float airborneAcceleration = 100f;
     public float maxSpeed = 40f;
@@ -16,6 +23,7 @@ public class PlayerStats
     public Quaternion groundAngle { get; set; } = Quaternion.identity;
     public float groundAngleFloat { get; set; } = 0f;
     public bool colliding { get; set; } = false;
+    public int state = (int)PlayerState.Alive;
 }
 
 public enum MinorPlayerState
@@ -26,6 +34,7 @@ public enum MinorPlayerState
 
 public class PlayerFPS : Entity
 {
+
     PivotFPS[] pivots;
     GunFPS[] guns;
     int selectedGun = 0;
@@ -119,7 +128,12 @@ public class PlayerFPS : Entity
                 Vector3 vel = Quaternion.Inverse(stats.groundAngle) * rb.velocity;
                 vel.y = stats.jumpPower;
                 rb.velocity = stats.groundAngle * vel;
+                stats.state |= (int)PlayerStats.PlayerState.Jumping;
                 //Debug.Log("JOOMP");
+            }
+            else
+            {
+                stats.state &= ~(int)PlayerStats.PlayerState.Jumping;
             }
 
             //Debug.Log(FPSLayer.InputManager.Instance.move);
@@ -227,7 +241,7 @@ public class PlayerFPS : Entity
     //Use this to network damage being dealt
     public void SendDamage(int damage, Entity receiver)
     {
-
+        Netcode.NetworkManager.SendDamagePlayer(damage, this.id, receiver.id);
     }
 
     private void OnCollisionStay(Collision collision)
@@ -249,5 +263,54 @@ public class PlayerFPS : Entity
             }
         }
         //Debug.Log("STILL HERE");
+    }
+
+    public void SendUpdate(Vector3 pos, Vector3 rot, int state)
+    {
+        if (GameSceneController.Instance.type == PlayerType.FPS)
+        {
+            UniversalUpdate(pos, rot, state);
+
+        }
+        else if (GameSceneController.Instance.type == PlayerType.RTS)
+        {
+
+            UniversalUpdate(pos, rot, state);
+        }
+
+    }
+
+    void UniversalUpdate(Vector3 pos, Vector3 rot, int state)
+    {
+        rb.velocity = (pos - this.transform.position) * 10f;
+        //this.transform.rotation = Quaternion.Euler(new Vector3(0f, rot.y, 0f));
+        foreach (PivotFPS p in pivots)
+        {
+            p.RotateSelf(rot);
+        }
+        stats.state = state;
+
+
+        if ((state & (int)PlayerStats.PlayerState.Shooting) > 0)
+        {
+            if (!mainGun.playing)
+            {
+                mainGun.StartPlaying();
+            }
+        }
+        else
+        {
+            if (mainGun.playing)
+            {
+                mainGun.StopPlaying();
+            }
+        }
+
+        if ((state & (int)PlayerStats.PlayerState.Jumping) > 0)
+        {
+            Vector3 vel = rb.velocity;
+            vel.y = stats.jumpPower;
+            rb.velocity = vel;
+        }
     }
 }

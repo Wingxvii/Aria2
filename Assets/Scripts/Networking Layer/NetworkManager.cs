@@ -91,6 +91,8 @@ namespace Netcode
         private static IntPtr Client;
         private static int playerNumber = -1;
 
+        static public bool isConnected = false;
+
         #endregion
 
         int fixedTimeStep;
@@ -147,21 +149,21 @@ namespace Netcode
             if (dataState.p1.updated) {
                 dataState.p1.updated = false;
 
-                Player player = (Player)EntityManager.Instance.AllEntities[1];
+                PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[1];
                 player.SendUpdate(dataState.p1.position, dataState.p1.rotation, dataState.p1.state);
             }
             if (dataState.p2.updated)
             {
                 dataState.p2.updated = false;
 
-                Player player = (Player)EntityManager.Instance.AllEntities[2];
+                PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[2];
                 player.SendUpdate(dataState.p2.position, dataState.p2.rotation, dataState.p2.state);
             }
             if (dataState.p3.updated)
             {
                 dataState.p3.updated = false;
 
-                Player player = (Player)EntityManager.Instance.AllEntities[3];
+                PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[3];
                 player.SendUpdate(dataState.p3.position, dataState.p3.rotation, dataState.p3.state);
             }
 
@@ -184,6 +186,10 @@ namespace Netcode
 
         }
 
+        private void Update()
+        {
+             
+        }
 
         //called on data recieve action, then process
         static void PacketRecieved(int type, int sender, string data)
@@ -209,6 +215,8 @@ namespace Netcode
                         else {
                             GameSceneController.Instance.type = PlayerType.RTS;
                         }
+                        isConnected = true;
+                        GameSceneController.Instance.playerNumber = playerNumber;
                     }
                     else
                     {
