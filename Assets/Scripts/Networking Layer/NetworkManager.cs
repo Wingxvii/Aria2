@@ -95,6 +95,7 @@ namespace Netcode
 
         int fixedTimeStep;
         public static DataState dataState;
+        bool isConnected = false;
 
         void Awake()
         {

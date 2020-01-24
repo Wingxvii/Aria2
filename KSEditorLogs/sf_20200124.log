@@ -1,0 +1,291 @@
+2020-01-24 08:01:23.5478 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:06:04.5932 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:06:10.8054 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:06:14.6224 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:06:33.8900 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:06:58.5185 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:07:58.5358 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:08:26.7551 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:09:36.6531 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:11:06.6190 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:11:10.5426 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:11:15.2918 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:11:22.4358 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:11:57.0236 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:11:57.1911 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-24 08:12:00.2103 [DEBUG] Play mode: False
+2020-01-24 08:13:24.0758 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:13:24.2508 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-24 08:13:33.7173 [DEBUG] Play mode: False
+2020-01-24 08:14:16.3857 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:14:16.5632 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-24 08:14:56.1538 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:16:28.9087 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:16:40.9789 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:16:41.1476 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-24 08:17:07.3918 [DEBUG] Play mode: False
+2020-01-24 08:18:14.0192 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:19:02.3861 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:19:02.5781 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-24 08:19:34.9219 [DEBUG] Play mode: False
+2020-01-24 08:23:11.0799 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:23:11.2492 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-24 08:23:35.7189 [DEBUG] Play mode: False
+2020-01-24 08:24:15.8972 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:24:16.0613 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-24 08:24:23.5638 [DEBUG] Play mode: False
+2020-01-24 08:26:54.4236 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:27:02.3900 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:27:02.5120 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-24 08:27:03.6786 [ERROR] ArgumentException: SceneManager.SetActiveScene failed; invalid scene
+UnityEngine.SceneManagement.SceneManager.SetActiveScene (UnityEngine.SceneManagement.Scene scene) <0x1d4cd0aff00 + 0x00052> in <c254d6bddee24edb8742cd1c78b0db19>:0
+GameSceneController.SwapScene (System.Int32 scene) (at Assets/Scripts/Networking Layer/GameSceneController.cs:46)
+StartManager.RTSStart () (at Assets/Scripts/Networking Layer/StartManager.cs:14)
+UnityEngine.Events.InvokableCall.Invoke () (at C:/buildslave/unity/build/Runtime/Export/UnityEvent/UnityEvent.cs:166)
+UnityEngine.Events.UnityEvent.Invoke () (at C:/buildslave/unity/build/Runtime/Export/UnityEvent/UnityEvent/UnityEvent_0.cs:58)
+UnityEngine.UI.Button.Press () (at C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Button.cs:68)
+UnityEngine.UI.Button.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) (at C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Button.cs:110)
+UnityEngine.EventSystems.ExecuteEvents.Execute (UnityEngine.EventSystems.IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) (at C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/ExecuteEvents.cs:50)
+UnityEngine.EventSystems.ExecuteEvents.Execute[T] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.ExecuteEvents+EventFunction`1[T1] functor) (at C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/ExecuteEvents.cs:261)
+UnityEngine.EventSystems.EventSystem:Update()
+
+2020-01-24 08:27:17.7868 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:27:17.9224 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:17.9454 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:17.9463 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:17.9463 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:17.9473 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.0248 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.0248 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.0258 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.0258 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.0258 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.0627 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.0797 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.0926 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.1076 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.1295 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.1525 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.1644 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.1874 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.2113 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.2332 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.2542 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.2652 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.2901 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.3170 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.3292 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.3521 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.3651 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.3870 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.4099 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.4331 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.4581 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.4740 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.4880 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.5109 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.5379 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.5498 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.5758 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.5917 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.6047 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.6316 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.6446 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.6645 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.6925 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.7064 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.7354 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.7484 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.7693 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.7902 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.8052 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.8261 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.8471 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.8720 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.8929 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.9049 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.9278 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.9598 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.9727 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:19.9867 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:20.0077 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:20.0286 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:20.0495 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:20.0724 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:20.0944 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:20.1054 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:20.1303 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:20.1502 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:20.1702 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:20.1911 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:20.2137 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:20.2247 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:20.2456 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:147)
+
+2020-01-24 08:27:20.9878 [DEBUG] Play mode: False
+2020-01-24 08:27:25.1586 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:27:25.3003 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-24 08:27:26.2010 [ERROR] ArgumentException: SceneManager.SetActiveScene failed; scene 'GameScene' is not loaded and therefore cannot be set active
+UnityEngine.SceneManagement.SceneManager.SetActiveScene (UnityEngine.SceneManagement.Scene scene) <0x1d4886c1500 + 0x00052> in <c254d6bddee24edb8742cd1c78b0db19>:0
+GameSceneController.SwapScene (System.Int32 scene) (at Assets/Scripts/Networking Layer/GameSceneController.cs:48)
+StartManager.RTSStart () (at Assets/Scripts/Networking Layer/StartManager.cs:14)
+UnityEngine.Events.InvokableCall.Invoke () (at C:/buildslave/unity/build/Runtime/Export/UnityEvent/UnityEvent.cs:166)
+UnityEngine.Events.UnityEvent.Invoke () (at C:/buildslave/unity/build/Runtime/Export/UnityEvent/UnityEvent/UnityEvent_0.cs:58)
+UnityEngine.UI.Button.Press () (at C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Button.cs:68)
+UnityEngine.UI.Button.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) (at C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Button.cs:110)
+UnityEngine.EventSystems.ExecuteEvents.Execute (UnityEngine.EventSystems.IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) (at C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/ExecuteEvents.cs:50)
+UnityEngine.EventSystems.ExecuteEvents.Execute[T] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.ExecuteEvents+EventFunction`1[T1] functor) (at C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/ExecuteEvents.cs:261)
+UnityEngine.EventSystems.EventSystem:Update()
+
+2020-01-24 08:27:40.9281 [DEBUG] Play mode: False
+2020-01-24 08:28:10.4729 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:28:10.6587 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-24 08:28:15.4545 [DEBUG] Play mode: False
+2020-01-24 08:29:13.0842 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:29:25.1430 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:29:25.2794 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-24 08:29:28.0893 [DEBUG] Play mode: False
+2020-01-24 08:29:37.1426 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-24 08:29:37.2891 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-24 08:29:43.4477 [DEBUG] Play mode: False
