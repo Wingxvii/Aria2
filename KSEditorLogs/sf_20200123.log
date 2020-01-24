@@ -6698,3 +6698,2095 @@ Entity.Update () (at Assets/Scripts/Processing Layer/Entity.cs:78)
 2020-01-23 20:57:59.9579 [DEBUG] Scene Fusion version 1.8.6-0
 2020-01-23 20:58:00.1424 [DEBUG] Play mode: True, sync in play mode: True
 2020-01-23 20:58:08.6922 [DEBUG] Play mode: False
+2020-01-23 21:20:48.0557 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-23 21:20:56.4230 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-23 21:20:56.5686 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:56.6444 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-23 21:20:56.6604 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:56.7491 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:56.8434 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:56.9471 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:57.0518 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:57.1486 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:57.2483 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:57.3421 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:57.4512 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:57.5626 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:57.6673 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:57.7672 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:57.8650 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:57.9647 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:58.0624 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:58.1712 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:58.2619 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:58.3646 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:58.4674 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:58.5890 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:58.6858 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:58.7868 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:58.8855 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:58.9853 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:59.0811 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:59.1928 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:59.2865 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:59.3992 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:59.4820 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:59.6176 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:59.7134 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:59.8141 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:20:59.9541 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:00.0159 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:00.1106 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:00.2173 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:00.3031 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:00.4019 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:00.5136 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:00.6332 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:00.7319 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:00.8237 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:00.9274 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:01.0291 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:01.1259 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:01.2326 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:01.3343 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:01.4331 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:01.5238 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:01.6455 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:01.7481 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:01.8469 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:01.9466 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:02.0513 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:02.1424 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:02.2492 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:02.3489 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:02.4486 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:02.5474 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:02.6710 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:02.7678 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:02.8645 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:02.9652 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:03.0700 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:03.1687 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:03.2625 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:03.3732 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:03.4729 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:03.8711 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:03.9788 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:04.0875 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:04.1852 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:04.2920 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:04.3808 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:04.4815 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:04.5832 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:04.6829 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:04.7853 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:04.8850 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:04.9987 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:05.1100 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:05.2067 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:05.3106 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:05.4024 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:05.5031 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:05.6098 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:05.7056 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:05.8063 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:05.9080 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:06.0217 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:06.1284 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:06.2272 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:06.3249 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:06.4216 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:06.5293 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:06.6370 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:06.7273 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:06.8300 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:06.9238 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:07.0405 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:07.1492 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:07.2379 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:07.3437 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:07.4464 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:07.5461 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:07.6518 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:07.7401 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:07.8482 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:07.9479 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:08.0656 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:08.1673 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:08.2640 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:08.3677 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:08.4624 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:08.5712 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:08.6639 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:08.7676 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:08.8670 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:08.9697 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:09.0804 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:09.1802 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:09.2929 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:09.3816 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:09.4842 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:09.5827 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:09.6795 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:09.7854 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:09.8842 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:09.9894 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:10.1011 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:10.2038 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:10.3026 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:10.4073 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:10.5060 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:10.6077 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:10.7025 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:10.8023 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:10.9069 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:11.0043 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:11.1220 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:11.2217 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:11.3281 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:11.4185 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:11.5242 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:11.6219 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:11.7197 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:11.8284 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:11.9241 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:12.0234 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:12.1401 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:12.2448 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:12.3535 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:12.4388 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:12.5386 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:12.6557 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:12.7425 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:12.8602 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:12.9456 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:13.0406 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:13.1653 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:13.2620 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:13.3587 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:13.4684 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:13.5592 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:13.6589 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:13.7597 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:13.8634 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:13.9631 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:14.0613 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:14.1796 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:14.2819 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:14.3832 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:14.4810 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:14.5887 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:14.6814 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:14.7831 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:14.8868 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:14.9829 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:15.0816 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:15.2118 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:15.2985 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:15.4043 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:15.5010 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:15.6017 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:15.7064 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:15.8032 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:15.8989 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:16.0056 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:16.1010 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:16.2293 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:16.3275 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:16.4292 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:16.5190 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:16.6256 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:16.7253 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:16.8191 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:16.9198 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:17.0245 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:17.1229 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:17.2386 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:17.3473 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:17.4401 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:17.5438 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:17.6455 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:17.7383 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:17.8410 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:17.9407 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:18.0464 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:18.1472 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:18.2609 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:18.3726 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:18.4663 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:18.5691 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:18.6638 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:18.7675 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:18.8722 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:18.9630 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:19.0662 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:19.1649 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:19.2832 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:19.3859 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:19.4826 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:19.5904 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:19.6841 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:19.7858 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:19.8806 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:19.9843 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:20.0791 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:20.1818 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:20.3064 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:20.3982 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:20.5029 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:20.5992 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:20.7060 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:20.8066 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:20.9014 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:21.0062 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:21.1069 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:21.2105 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:21.3191 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:21.4189 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:21.5336 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:21.6253 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:21.7250 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:21.8268 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:21.9190 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:22.0228 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:22.1320 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:22.2253 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:22.3430 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:22.4478 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:22.5441 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:22.6449 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:22.7376 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:22.8493 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:22.9501 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:23.0438 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:23.1445 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:23.2393 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:23.3689 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:23.4667 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:23.5694 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:23.6587 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:23.7654 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:23.8612 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:23.9646 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:24.0602 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:24.1609 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:24.2592 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:24.3819 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:24.4806 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:24.5863 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:24.6827 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:24.7909 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:24.9006 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:24.9886 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:25.0792 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:25.1799 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:25.2846 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:25.4073 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:25.5140 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:25.9108 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:25.9886 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:26.0823 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:26.1798 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:26.2775 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:26.3803 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:26.4910 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:26.5967 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:26.6954 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:26.7991 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:415)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:182)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:132)
+
+2020-01-23 21:21:29.1599 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-23 21:21:29.3191 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:29.3470 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:29.3470 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:29.3480 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:29.3480 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:31.9682 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:31.9692 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:31.9692 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:31.9702 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:31.9712 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.0560 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.0570 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:32.0570 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.0580 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.0789 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.0896 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.1135 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:32.1385 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.1534 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.1684 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.1893 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.2113 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:32.2392 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.3260 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.3260 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.3270 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.3280 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:32.3698 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.3698 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.3708 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.3895 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.4184 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:32.4323 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.4593 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.4742 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.4912 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.5191 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:32.5301 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.5570 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.5720 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.5909 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.6158 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.6288 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:32.6508 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.6737 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.6966 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.7086 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.7335 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:32.7565 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.7694 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.7934 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.8233 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.8392 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:32.8512 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.8742 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.8941 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.9160 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:32.9370 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:32.9480 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:146)
+
+2020-01-23 21:21:33.8048 [DEBUG] Play mode: False
+2020-01-23 21:21:36.8532 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-23 21:21:36.9949 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:37.0597 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-23 21:21:37.0667 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:37.1475 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:37.2582 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:37.3549 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:37.4536 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:37.5558 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:37.6636 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:37.7543 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:37.8471 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:37.9667 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:38.0782 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:38.1764 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:38.6064 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:38.6393 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:38.7361 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:38.8408 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:38.9346 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:39.0462 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:39.1430 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:39.2646 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:39.3594 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:39.4611 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:39.5569 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:39.6652 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:39.7550 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:39.8557 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:39.9611 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:40.0678 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:40.1581 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:40.2867 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:40.3765 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:40.4832 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:40.5749 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:40.6757 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:40.7754 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:40.8861 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:40.9904 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:41.0812 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:41.1753 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:41.3020 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:41.3957 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:41.4971 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:41.5985 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:41.6958 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:41.7975 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:41.9052 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:42.0020 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:42.1037 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:42.1984 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:42.3161 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:42.4169 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:42.5186 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:42.6243 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:42.7161 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:42.8219 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:42.9136 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:43.0134 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:43.1157 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:43.2250 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:43.3387 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:43.4375 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:43.5421 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:43.6369 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:43.7388 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:43.8373 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:43.9361 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:44.0360 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:44.1437 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:44.2475 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:44.3542 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:44.4659 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:44.5597 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:44.6574 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:44.7767 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:44.8643 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:44.9603 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:45.0720 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:45.1628 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:45.3303 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:45.3872 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:45.4839 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:416)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:183)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:21:46.5041 [DEBUG] Play mode: False
+2020-01-23 21:23:01.7751 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-23 21:23:09.1535 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-23 21:23:09.3022 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-23 21:23:10.2154 [ERROR] NullReferenceException: Object reference not set to an instance of an object
+Netcode.NetworkManager.SendEntityPositions () (at Assets/Scripts/Networking Layer/NetworkManager.cs:419)
+Netcode.NetworkManager.TickUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:185)
+Netcode.NetworkManager.FixedUpdate () (at Assets/Scripts/Networking Layer/NetworkManager.cs:133)
+
+2020-01-23 21:24:10.9589 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-23 21:25:24.8796 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-23 21:25:33.8999 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-23 21:25:34.1034 [DEBUG] Play mode: True, sync in play mode: True
+2020-01-23 21:25:45.6709 [DEBUG] Play mode: False

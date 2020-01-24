@@ -79,7 +79,7 @@ namespace Netcode
         [DllImport("CNET.dll")]
         static extern void Connect(string str, IntPtr client);          //Connects to c++ Server
         [DllImport("CNET.dll")]
-        static extern void SendData(int type, string str, IntPtr client);          //Sends Message to all other clients    
+        static extern void SendData(int type, string str, bool useTCP, IntPtr client);          //Sends Message to all other clients    
         [DllImport("CNET.dll")]
         static extern void StartUpdating(IntPtr client);                //Starts updating
         [DllImport("CNET.dll")]
@@ -93,12 +93,13 @@ namespace Netcode
 
         #endregion
 
-        int fixedTimeStep = (int)(1f / Time.fixedDeltaTime);
-
+        int fixedTimeStep;
         public static DataState dataState;
 
         void Awake()
         {
+            fixedTimeStep = (int)(1f / Time.fixedDeltaTime);
+
             if (GameSceneController.Instance != null && GameSceneController.Instance.IP != "")
             {
                 ip = GameSceneController.Instance.IP;
@@ -179,7 +180,6 @@ namespace Netcode
 
         void TickUpdate()
         {
-            NetworkManager.SendEntityPositions();
 
         }
 
@@ -456,7 +456,7 @@ namespace Netcode
             }
 
 
-            SendData((int)PacketType.ENTITYDATA, dataToSend.ToString(), Client);
+            SendData((int)PacketType.ENTITYDATA, dataToSend.ToString(), false, Client);
 
         }
 
@@ -481,7 +481,7 @@ namespace Netcode
 
             //add object position z
             dataToSend.Append(entity.transform.position.z);
-            SendData((int)PacketType.BUILD, dataToSend.ToString(), Client);
+            SendData((int)PacketType.BUILD, dataToSend.ToString(), true, Client);
         }
 
         public static void SendGameData(int state)
@@ -490,7 +490,7 @@ namespace Netcode
 
             dataToSend.Append(state);
 
-            SendData((int)PacketType.GAMESTATE, dataToSend.ToString(), Client);
+            SendData((int)PacketType.GAMESTATE, dataToSend.ToString(), true, Client);
         }
 
         public static void SendKilledEntity(Entity entity)
@@ -501,7 +501,7 @@ namespace Netcode
             //add object id
             dataToSend.Append(entity.id);
 
-            SendData((int)PacketType.KILL, dataToSend.ToString(), Client);
+            SendData((int)PacketType.KILL, dataToSend.ToString(), true, Client);
         }
 
         //send damaged player
@@ -515,7 +515,7 @@ namespace Netcode
             dataToSend.Append(",");
             dataToSend.Append(culprit);
 
-            SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), Client);
+            SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client);
 
         }
 

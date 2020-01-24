@@ -49,7 +49,7 @@ public class EntityManager : MonoBehaviour
     private void Start()
     {
         SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(2));
-
+        GameSceneController.Instance.gameStart = true;
         //add managers
         if (GameSceneController.Instance.type == PlayerType.FPS)
         {
