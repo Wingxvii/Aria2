@@ -29,6 +29,7 @@ namespace FPSLayer
                 _previousMousePosition = Input.mousePosition;
                 WFEOF = new WaitForEndOfFrame();
                 StartCoroutine(FrameUpdate());
+			//	Cursor.visible = false;
             }
         }
         //single pattern ends here
