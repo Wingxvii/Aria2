@@ -432,7 +432,7 @@ namespace Netcode
             dataToSend.Append(playerFPS.transform.rotation.z);
             dataToSend.Append(",");               
             dataToSend.Append(playerFPS.stats.state);
-            dataToSend.Append(",");
+            //dataToSend.Append(",");
 
             SendData((int)PacketType.PLAYERDATA, dataToSend.ToString(), false, Client);
         }
@@ -472,7 +472,7 @@ namespace Netcode
                 dataToSend.Append(droid.transform.rotation.eulerAngles.y);
                 dataToSend.Append(",");
                 dataToSend.Append(droid.transform.rotation.eulerAngles.z);
-
+                dataToSend.Append(",");
             }
             foreach (Entity turret in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Turret])
             {
@@ -493,9 +493,10 @@ namespace Netcode
                 dataToSend.Append(turret.transform.rotation.eulerAngles.y);
                 dataToSend.Append(",");
                 dataToSend.Append(turret.transform.rotation.eulerAngles.z);
-
+                dataToSend.Append(",");
             }
 
+            dataToSend.Remove(dataToSend.Length - 1, 1);
 
             SendData((int)PacketType.ENTITYDATA, dataToSend.ToString(), false, Client);
 
