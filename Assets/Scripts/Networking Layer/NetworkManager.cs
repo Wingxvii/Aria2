@@ -415,6 +415,38 @@ namespace Netcode
         }
 
 
+        public static void SendPlayerInfo(PlayerFPS playerFPS)
+        {
+            StringBuilder dataToSend = new StringBuilder();
+
+            dataToSend.Append(playerFPS.transform.position.x);
+            dataToSend.Append(",");
+            dataToSend.Append(playerFPS.transform.position.y);
+            dataToSend.Append(",");
+            dataToSend.Append(playerFPS.transform.position.z);
+            dataToSend.Append(",");
+            dataToSend.Append(playerFPS.transform.rotation.x);
+            dataToSend.Append(",");               
+            dataToSend.Append(playerFPS.transform.rotation.y);
+            dataToSend.Append(",");               
+            dataToSend.Append(playerFPS.transform.rotation.z);
+            dataToSend.Append(",");               
+            dataToSend.Append(playerFPS.stats.state);
+            dataToSend.Append(",");
+
+            SendData((int)PacketType.PLAYERDATA, dataToSend.ToString(), false, Client);
+        }
+
+
+        public static void SendWeaponSwap(int weapon)
+        {
+            StringBuilder dataToSend = new StringBuilder();
+
+            dataToSend.Append(weapon);
+
+            SendData((int)PacketType.PLAYERDATA, dataToSend.ToString(), true, Client);
+        }
+
 
         //this sends all droid positions
         public static void SendEntityPositions()
@@ -523,6 +555,20 @@ namespace Netcode
             dataToSend.Append(damage);
             dataToSend.Append(",");
             dataToSend.Append(culprit);
+
+            SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client);
+
+        }
+
+        public static void SendDamageEnvironment(int damage, int victim, int player)
+        {
+            StringBuilder dataToSend = new StringBuilder();
+
+            dataToSend.Append(victim);
+            dataToSend.Append(",");
+            dataToSend.Append(damage);
+            dataToSend.Append(",");
+            dataToSend.Append(player);
 
             SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client);
 

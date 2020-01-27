@@ -148,6 +148,8 @@ public class PlayerFPS : Entity
             stats.groundAngle = Quaternion.FromToRotation(Vector3.up, Vector3.down);
             stats.groundAngleFloat = 180f;
             stats.colliding = false;
+
+            Netcode.NetworkManager.SendPlayerInfo(this);
         }
         else if (type == EntityType.Dummy)
         {
@@ -198,6 +200,8 @@ public class PlayerFPS : Entity
                             selectedGun += guns.Length;
                         mainGun = guns[selectedGun];
                         mainGun.gameObject.SetActive(true);
+
+                        Netcode.NetworkManager.SendWeaponSwap(selectedGun);
                     }
 
                     if (FPSLayer.InputManager.Instance.directSwap > 0 && FPSLayer.InputManager.Instance.directSwap <= guns.Length && FPSLayer.InputManager.Instance.directSwap - 1 != selectedGun)
@@ -206,6 +210,8 @@ public class PlayerFPS : Entity
                         selectedGun = FPSLayer.InputManager.Instance.directSwap - 1;
                         mainGun = guns[selectedGun];
                         mainGun.gameObject.SetActive(true);
+
+                        Netcode.NetworkManager.SendWeaponSwap(selectedGun);
                     }
 
                     if (FPSLayer.InputManager.Instance.shoot)
@@ -262,13 +268,13 @@ public class PlayerFPS : Entity
     //Use this to network damage being dealt
     public void SendDamage(int damage, Entity receiver)
     {
-        Netcode.NetworkManager.SendDamagePlayer(damage, this.id, receiver.id);
+        Netcode.NetworkManager.SendDamageEnvironment(damage, receiver.id, this.id);
     }
 
     private void OnCollisionStay(Collision collision)
     {
         //Debug.Log("COLLISION");
-        if (type == EntityType.Player)
+        if (type == EntityType.Player || type == EntityType.Dummy)
         {
             if (collision.contacts.Length > 0)
                 stats.colliding = true;
