@@ -14,7 +14,7 @@ public class PlayerStats
 
     public float acceleration = 1000f;
     public float airborneAcceleration = 100f;
-    public float maxSpeed = 40f;
+    public float maxSpeed = 10f;
     public float jumpPower = 2500f;
     public float maxWalkableAngle = 30f;
     public float friction = 500f;
