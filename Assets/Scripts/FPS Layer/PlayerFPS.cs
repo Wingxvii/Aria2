@@ -174,6 +174,29 @@ public class PlayerFPS : Entity
             }
 
             rb.velocity = MiscFuncsFPS.ApplyFriction(rb.velocity, in stats);
+
+            if (Netcode.NetworkManager.isConnected)
+            {
+                Netcode.EntityData ed;
+                switch(id)
+                {
+                    case 1:
+                        ed = Netcode.NetworkManager.dataState.p1;
+                        break;
+                    case 2:
+                        ed = Netcode.NetworkManager.dataState.p2;
+                        break;
+                    default:
+                        ed = Netcode.NetworkManager.dataState.p3;
+                        break;
+                }
+
+                if (ed.updated)
+                {
+                    rb.velocity = (ed.position - transform.position) / 10f;
+                    transform.position = ed.position;
+                }
+            }
         }
 
         //Debug.Log("FIXED");
@@ -240,6 +263,41 @@ public class PlayerFPS : Entity
         else if (type == EntityType.Dummy)
         {
             //Edit things via networking code here
+
+            if(Netcode.NetworkManager.isConnected)
+            {
+                Netcode.EntityData ed;
+                switch (id)
+                {
+                    case 1:
+                        ed = Netcode.NetworkManager.dataState.p1;
+                        break;
+                    case 2:
+                        ed = Netcode.NetworkManager.dataState.p2;
+                        break;
+                    default:
+                        ed = Netcode.NetworkManager.dataState.p3;
+                        break;
+                }
+
+                if (ed.updated)
+                {
+                    foreach (PivotFPS p in pivots)
+                    {
+                        p.RotateSelf(ed.rotation);
+                    }
+
+                    if (ed.weapon != selectedGun)
+                    {
+                        mainGun.gameObject.SetActive(false);
+                        selectedGun = ed.weapon;
+                        mainGun = guns[selectedGun];
+                        mainGun.gameObject.SetActive(true);
+                    }
+
+                    stats.state = ed.state;
+                }
+            }
         }
     }
 
