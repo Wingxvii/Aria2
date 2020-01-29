@@ -21,9 +21,14 @@ public class StartManager : MonoBehaviour
         //Debug.Break();
         GameSceneController.Instance.IP = ipText.text;
         NetworkManager.ConnectToServer();
-        while (!NetworkManager.isConnected)
+        //while (!NetworkManager.isConnected)
+        //{
+        //
+        //}
+        if (GameSceneController.Instance.playerNumber <= 0)
         {
-
+            GameSceneController.Instance.playerNumber = 1;
+            GameSceneController.Instance.type = PlayerType.FPS;
         }
 
         GameSceneController.Instance.SwapScene(2);
