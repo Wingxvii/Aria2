@@ -11,9 +11,8 @@ public class StartManager : MonoBehaviour
     public void RTSStart()
     {
         GameSceneController.Instance.IP = ipText.text;
-        GameSceneController.Instance.SwapScene(2);
         NetworkManager.ConnectToServer(GameSceneController.Instance.IP);
-
+        GameSceneController.Instance.SwapScene(2);
     }
     public void FPSStart()
     {
@@ -21,10 +20,10 @@ public class StartManager : MonoBehaviour
         //Debug.Break();
         GameSceneController.Instance.IP = ipText.text;
         NetworkManager.ConnectToServer(GameSceneController.Instance.IP);
-        while (!NetworkManager.isConnected)
-        {
-        
-        }
+        //while (!NetworkManager.isConnected)
+        //{
+        //
+        //}
         if (GameSceneController.Instance.playerNumber <= 0)
         {
             GameSceneController.Instance.playerNumber = 1;

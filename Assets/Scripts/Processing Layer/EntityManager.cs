@@ -49,10 +49,12 @@ public class EntityManager : MonoBehaviour
     private void Start()
     {
         GameSceneController.Instance.gameStart = true;
+        //Debug.Log("HELLO");
         //add managers
         if (GameSceneController.Instance.type == PlayerType.FPS)
         {
             if (!Netcode.NetworkManager.isConnected)
+                //Debug.Log("PROBLEM!");
                 GameSceneController.Instance.playerNumber = 1;
             Destroy(RTSManagers);
         }
@@ -60,6 +62,8 @@ public class EntityManager : MonoBehaviour
             Destroy(FPSManagers); 
 
         }
+
+
 
         SpawnManager.Instance.Initialize();
 

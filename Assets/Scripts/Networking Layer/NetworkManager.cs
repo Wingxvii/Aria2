@@ -116,9 +116,11 @@ namespace Netcode
 
         public static void ConnectToServer(string ipAddr)
         {
+            if (ipAddr != "")
+                ip = ipAddr;
             //client Init  
             Client = CreateClient();            
-            Connect(ipAddr, Client);
+            Connect(ip, Client);
             StartUpdating(Client);
             SetupPacketReception(PacketRecieved);
         }
