@@ -12,7 +12,7 @@ public class StartManager : MonoBehaviour
     {
         GameSceneController.Instance.IP = ipText.text;
         GameSceneController.Instance.SwapScene(2);
-        NetworkManager.ConnectToServer();
+        NetworkManager.ConnectToServer(GameSceneController.Instance.IP);
 
     }
     public void FPSStart()
@@ -20,11 +20,11 @@ public class StartManager : MonoBehaviour
 
         //Debug.Break();
         GameSceneController.Instance.IP = ipText.text;
-        NetworkManager.ConnectToServer();
-        //while (!NetworkManager.isConnected)
-        //{
-        //
-        //}
+        NetworkManager.ConnectToServer(GameSceneController.Instance.IP);
+        while (!NetworkManager.isConnected)
+        {
+        
+        }
         if (GameSceneController.Instance.playerNumber <= 0)
         {
             GameSceneController.Instance.playerNumber = 1;

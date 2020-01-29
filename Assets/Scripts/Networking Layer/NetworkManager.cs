@@ -114,7 +114,7 @@ namespace Netcode
 
         }
 
-        public static void ConnectToServer()
+        public static void ConnectToServer(string ipAddr)
         {
             //client Init  
             Client = CreateClient();            
