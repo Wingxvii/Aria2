@@ -118,7 +118,7 @@ namespace Netcode
         {
             //client Init  
             Client = CreateClient();            
-            Connect(ip, Client);
+            Connect(ipAddr, Client);
             StartUpdating(Client);
             SetupPacketReception(PacketRecieved);
         }
