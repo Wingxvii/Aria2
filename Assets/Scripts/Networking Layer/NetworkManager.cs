@@ -436,11 +436,14 @@ namespace Netcode
             dataToSend.Append(",");
             dataToSend.Append(playerFPS.transform.position.z);
             dataToSend.Append(",");
-            dataToSend.Append(playerFPS.transform.rotation.eulerAngles.x);
+            Vector3 sumAng = Vector3.zero;
+            for (int i = 0; i < playerFPS.pivots.Length; ++i)
+                sumAng += playerFPS.pivots[i].transform.localRotation.eulerAngles;
+            dataToSend.Append(sumAng.x);
             dataToSend.Append(",");               
-            dataToSend.Append(playerFPS.transform.rotation.eulerAngles.y);
+            dataToSend.Append(sumAng.y);
             dataToSend.Append(",");               
-            dataToSend.Append(playerFPS.transform.rotation.eulerAngles.z);
+            dataToSend.Append(sumAng.z);
             dataToSend.Append(",");               
             dataToSend.Append(playerFPS.stats.state);
             //dataToSend.Append(",");

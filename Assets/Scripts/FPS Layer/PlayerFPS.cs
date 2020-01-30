@@ -37,7 +37,7 @@ public enum MinorPlayerState
 public class PlayerFPS : Entity
 {
 
-    PivotFPS[] pivots;
+    public PivotFPS[] pivots { get; private set; }
     GunFPS[] guns;
     int selectedGun = 0;
     GunFPS mainGun;
