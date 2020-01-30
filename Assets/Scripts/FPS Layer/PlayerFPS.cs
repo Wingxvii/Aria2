@@ -357,11 +357,11 @@ public class PlayerFPS : Entity
             }
         }
 
-        if ((state & (int)PlayerStats.PlayerState.Jumping) > 0)
-        {
-            Vector3 vel = rb.velocity;
-            vel.y = stats.jumpPower;
-            rb.velocity = vel;
-        }
+        //if ((state & (int)PlayerStats.PlayerState.Jumping) > 0)
+        //{
+        //    Vector3 vel = rb.velocity;
+        //    vel.y = stats.jumpPower;
+        //    rb.velocity = vel;
+        //}
     }
 }
