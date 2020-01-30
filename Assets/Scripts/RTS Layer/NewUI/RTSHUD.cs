@@ -25,7 +25,7 @@ public class RTSHUD : MonoBehaviour
     [Header("UI Object References")]
     public GameObject actionQueue;
     public GameObject actionMenu;
-    public GameObject multiSelect;
+    public Multiselect multiSelect;
     public Image unitPortrait;
     public Text unitName;
     public Text unitHealth;
@@ -75,7 +75,7 @@ public class RTSHUD : MonoBehaviour
             if (RTSInput.InputManager.Instance.SelectedEntities.Count > 1) {
                 unitHealth.gameObject.SetActive(false);
                 multiSelect.gameObject.SetActive(true);
-                //TODO: Update Multiselect.
+                multiSelect.UpdateSelection();
                 actionQueue.gameObject.SetActive(false);
             }
             //Otherwise, do single select
@@ -114,7 +114,6 @@ public class RTSHUD : MonoBehaviour
             for (int i = 0; i < actionButtonPool.Count; ++i) {
                 actionButtonPool[i].buttonInfo = null;
             }
-            print(buildMenuButtons.Length);
             for (int i = 0; i < actionButtonPool.Count && i < buildMenuButtons.Length; ++i) {
                 actionButtonPool[i].buttonInfo = buildMenuButtons[i];
             }

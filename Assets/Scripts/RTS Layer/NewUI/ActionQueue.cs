@@ -11,7 +11,7 @@ public class ActionQueue : MonoBehaviour
     public Sprite droidFilledImage;
 
 
-    public Button m_currentActionSlot;
+    public Button currentActionSlot;
 
     public Button[] slots;
     private int maxActions = 6;
@@ -27,8 +27,8 @@ public class ActionQueue : MonoBehaviour
             Barracks barracks = ((Barracks)RTSInput.InputManager.Instance.PrimaryEntity);
             if (barracks.currentBuildTime > 0) progressFill.fillAmount = barracks.buildProcess.value;
             else progressFill.fillAmount = 0.0f;
-            if (progressFill.fillAmount > 0) m_currentActionSlot.image.sprite = droidFilledImage;
-            else m_currentActionSlot.image.sprite = emptySlotImage;
+            if (progressFill.fillAmount > 0) currentActionSlot.image.sprite = droidFilledImage;
+            else currentActionSlot.image.sprite = emptySlotImage;
             for (int i = 0; i < maxActions; ++i) {
                 slots[i].image.sprite = emptySlotImage;
             }

@@ -529,7 +529,7 @@ namespace RTSInput
                 if (SelectedEntities.Count > 1)
                 {
                     //here is where the selection UI happens
-                    SelectionUI.Instance.ProcessUI(true);
+                    //SelectionUI.Instance.ProcessUI(true);
                 }
 
                 selectionChanged = false;
@@ -638,7 +638,7 @@ namespace RTSInput
                 }
                 if (SelectedEntities.Count > 1)
                 {
-                    SelectionUI.Instance.ProcessUI(false);
+                    //SelectionUI.Instance.ProcessUI(false);
                 }
             }
             else
