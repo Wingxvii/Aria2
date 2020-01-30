@@ -80,7 +80,6 @@ namespace RTSInput
 
         public void ProcessUI(bool resetPage)
         {
-
             //resets
             if (resetPage) { currPage = 1; }
             foreach (GameObject button in buttonPool)

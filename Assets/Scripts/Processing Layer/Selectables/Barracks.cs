@@ -10,7 +10,7 @@ public class Barracks : Entity
     public float currentBuildTime = 0;
 
     public static float droidTrainTime = 5.0f;
-    public static int maxTrainingCap = 25;
+    public static int maxTrainingCap = 6;//Was 25, changed as that wouldn't fit on screen.
 
     private Canvas canvas;
 
