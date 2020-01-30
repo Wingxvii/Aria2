@@ -34,4 +34,15 @@ public class PivotFPS : MonoBehaviour
             transform.localRotation = Quaternion.Euler(angles);
         }
     }
+
+    public void StrictRotate(Vector3 rotAngles)
+    {
+        //Debug.Log(rotAngles);
+        //Debug.Log(transform.localRotation.eulerAngles);
+        transform.localRotation = Quaternion.Euler(
+            new Vector3(
+                rotX ? rotAngles.x * sensitivity.x : 0,
+                rotY ? rotAngles.y * sensitivity.y : 0,
+                rotZ ? rotAngles.z * sensitivity.z : 0));
+    }
 }

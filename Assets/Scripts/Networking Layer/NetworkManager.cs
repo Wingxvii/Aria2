@@ -152,21 +152,21 @@ namespace Netcode
                 dataState.p1.updated = false;
 
                 PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[1];
-                player.SendUpdate(dataState.p1.position, dataState.p1.rotation, dataState.p1.state);
+                player.SendUpdate(dataState.p1.position, dataState.p1.rotation, dataState.p1.state, dataState.p1.weapon);
             }
             if (dataState.p2.updated)
             {
                 dataState.p2.updated = false;
 
                 PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[2];
-                player.SendUpdate(dataState.p2.position, dataState.p2.rotation, dataState.p2.state);
+                player.SendUpdate(dataState.p2.position, dataState.p2.rotation, dataState.p2.state, dataState.p2.weapon);
             }
             if (dataState.p3.updated)
             {
                 dataState.p3.updated = false;
 
                 PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[3];
-                player.SendUpdate(dataState.p3.position, dataState.p3.rotation, dataState.p3.state);
+                player.SendUpdate(dataState.p3.position, dataState.p3.rotation, dataState.p3.state, dataState.p3.weapon);
             }
 
             //update damage
@@ -198,7 +198,7 @@ namespace Netcode
         {
             data.TrimEnd();
 
-            Debug.Log(data);
+            //Debug.Log(data);
 
             //parse the data
             string[] parsedData = data.Split(',');
@@ -227,8 +227,13 @@ namespace Netcode
                     }
                     break;
                 case PacketType.PLAYERDATA:
+                    if (sender == playerNumber)
+                    {
+                        break;
+                    }
                     if (parsedData.Length == 7)
                     {
+                        //Debug.Log("GOT DA DATA: " + sender);
                         //lock and update by sender
                         lock (dataState)
                         {
@@ -238,9 +243,9 @@ namespace Netcode
                                     dataState.p1.position.x = float.Parse(parsedData[0]);
                                     dataState.p1.position.y = float.Parse(parsedData[1]);
                                     dataState.p1.position.z = float.Parse(parsedData[2]);
-                                    dataState.p1.position.x = float.Parse(parsedData[3]);
-                                    dataState.p1.position.y = float.Parse(parsedData[4]);
-                                    dataState.p1.position.z = float.Parse(parsedData[5]);
+                                    dataState.p1.rotation.x = float.Parse(parsedData[3]);
+                                    dataState.p1.rotation.y = float.Parse(parsedData[4]);
+                                    dataState.p1.rotation.z = float.Parse(parsedData[5]);
                                     dataState.p1.state = int.Parse(parsedData[6]);
                                     dataState.p1.updated = true;
 
@@ -249,9 +254,9 @@ namespace Netcode
                                     dataState.p2.position.x = float.Parse(parsedData[0]);
                                     dataState.p2.position.y = float.Parse(parsedData[1]);
                                     dataState.p2.position.z = float.Parse(parsedData[2]);
-                                    dataState.p2.position.x = float.Parse(parsedData[3]);
-                                    dataState.p2.position.y = float.Parse(parsedData[4]);
-                                    dataState.p2.position.z = float.Parse(parsedData[5]);
+                                    dataState.p2.rotation.x = float.Parse(parsedData[3]);
+                                    dataState.p2.rotation.y = float.Parse(parsedData[4]);
+                                    dataState.p2.rotation.z = float.Parse(parsedData[5]);
                                     dataState.p2.state = int.Parse(parsedData[6]);
                                     dataState.p2.updated = true;
                                     break;
@@ -259,9 +264,9 @@ namespace Netcode
                                     dataState.p3.position.x = float.Parse(parsedData[0]);
                                     dataState.p3.position.y = float.Parse(parsedData[1]);
                                     dataState.p3.position.z = float.Parse(parsedData[2]);
-                                    dataState.p3.position.x = float.Parse(parsedData[3]);
-                                    dataState.p3.position.y = float.Parse(parsedData[4]);
-                                    dataState.p3.position.z = float.Parse(parsedData[5]);
+                                    dataState.p3.rotation.x = float.Parse(parsedData[3]);
+                                    dataState.p3.rotation.y = float.Parse(parsedData[4]);
+                                    dataState.p3.rotation.z = float.Parse(parsedData[5]);
                                     dataState.p3.state = int.Parse(parsedData[6]);
                                     dataState.p3.updated = true;
                                     break;
@@ -280,6 +285,10 @@ namespace Netcode
 
                 case PacketType.WEAPONSTATE:
                     //update state by sender type
+                    if (sender == playerNumber)
+                    {
+                        break;
+                    }
                     if (parsedData.Length == 1)
                     {
                         lock (dataState)
@@ -427,11 +436,11 @@ namespace Netcode
             dataToSend.Append(",");
             dataToSend.Append(playerFPS.transform.position.z);
             dataToSend.Append(",");
-            dataToSend.Append(playerFPS.transform.rotation.x);
+            dataToSend.Append(playerFPS.transform.rotation.eulerAngles.x);
             dataToSend.Append(",");               
-            dataToSend.Append(playerFPS.transform.rotation.y);
+            dataToSend.Append(playerFPS.transform.rotation.eulerAngles.y);
             dataToSend.Append(",");               
-            dataToSend.Append(playerFPS.transform.rotation.z);
+            dataToSend.Append(playerFPS.transform.rotation.eulerAngles.z);
             dataToSend.Append(",");               
             dataToSend.Append(playerFPS.stats.state);
             //dataToSend.Append(",");
