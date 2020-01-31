@@ -181,6 +181,20 @@ namespace Netcode
                 }
 
             }
+
+            while (dataState.KilledEntity.Count > 0)
+            {
+
+                dataState.KilledEntity.Dequeue();
+
+            }
+
+            while (dataState.BuildEntity.Count > 0)
+            {
+                Tuple<int, int, Vector3> tempTup = dataState.BuildEntity.Dequeue();
+                Entity temp = EntityManager.Instance.GetNewEntity((EntityType)tempTup.Item2);
+                temp.transform.position = tempTup.Item3;
+            }
         }
 
         void TickUpdate()
@@ -378,6 +392,7 @@ namespace Netcode
                     break;
                 case PacketType.BUILD:
                     if (parsedData.Length == 5) {
+                        Debug.Log("HIYA");
                         Vector3 pos = new Vector3(float.Parse(parsedData[2]), float.Parse(parsedData[3]), float.Parse(parsedData[4]));
 
                         Tuple<int, int, Vector3> temp = Tuple.Create(int.Parse(parsedData[0]), int.Parse(parsedData[1]), pos);
@@ -540,6 +555,8 @@ namespace Netcode
             //add object position z
             dataToSend.Append(entity.transform.position.z);
             SendData((int)PacketType.BUILD, dataToSend.ToString(), true, Client);
+
+            Debug.Log("BUILT");
         }
 
         public static void SendGameData(int state)
