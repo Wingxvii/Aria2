@@ -330,6 +330,8 @@ namespace Netcode
                         {
                             dataState.DamageDealt.Enqueue(temp);
                         }
+
+                        Debug.Log(parsedData[1] + ", " + parsedData[2]);
                     }
                     else {
                         Debug.LogWarning("Error: Invalid DAMAGEDEALT Parsed Array Size");
@@ -458,7 +460,7 @@ namespace Netcode
 
             dataToSend.Append(weapon);
 
-            SendData((int)PacketType.PLAYERDATA, dataToSend.ToString(), true, Client);
+            SendData((int)PacketType.WEAPONSTATE, dataToSend.ToString(), true, Client);
         }
 
 

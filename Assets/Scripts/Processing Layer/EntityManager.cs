@@ -143,7 +143,7 @@ public class EntityManager : MonoBehaviour
         {
             Entity returnEntity = DeactivatedEntitiesByType[(int)type].Dequeue();
             returnEntity.OnActivate();
-
+            
             NetworkManager.SendBuildEntity(returnEntity);
 
             return returnEntity;

@@ -364,4 +364,9 @@ public class PlayerFPS : Entity
         //    rb.velocity = vel;
         //}
     }
+
+    public override void OnDamage(int num, Entity culprit)
+    {
+        Netcode.NetworkManager.SendDamagePlayer(num, this.id, culprit.id);
+    }
 }
