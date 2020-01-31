@@ -149,7 +149,12 @@ public class EntityManager : MonoBehaviour
             return returnEntity;
         }
         else {
-            return CreateEntity(type);
+            Entity returnEntity = CreateEntity(type);
+
+            if (type != EntityType.Player && type != EntityType.Dummy)
+                NetworkManager.SendBuildEntity(returnEntity);
+
+            return returnEntity;
         }
     }
     //deactivates an entity: DO NOT USE
