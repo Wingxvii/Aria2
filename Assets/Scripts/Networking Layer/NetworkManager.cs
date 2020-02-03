@@ -34,6 +34,8 @@ namespace Netcode
         KILL = 7,
         //int, float
         GAMESTATE = 8,
+
+
     }
 
     public class EntityData {
@@ -191,9 +193,12 @@ namespace Netcode
 
             while (dataState.BuildEntity.Count > 0)
             {
-                Tuple<int, int, Vector3> tempTup = dataState.BuildEntity.Dequeue();
-                Entity temp = EntityManager.Instance.GetNewEntity((EntityType)tempTup.Item2);
-                temp.transform.position = tempTup.Item3;
+                if (GameSceneController.Instance.type == PlayerType.FPS)
+                {
+                    Tuple<int, int, Vector3> tempTup = dataState.BuildEntity.Dequeue();
+                    Entity temp = EntityManager.Instance.GetNewEntity((EntityType)tempTup.Item2);
+                    temp.transform.position = tempTup.Item3;
+                }
             }
         }
 
@@ -392,7 +397,7 @@ namespace Netcode
                     break;
                 case PacketType.BUILD:
                     if (parsedData.Length == 5) {
-                        Debug.Log("HIYA");
+                        //Debug.Log("HIYA");
                         Vector3 pos = new Vector3(float.Parse(parsedData[2]), float.Parse(parsedData[3]), float.Parse(parsedData[4]));
 
                         Tuple<int, int, Vector3> temp = Tuple.Create(int.Parse(parsedData[0]), int.Parse(parsedData[1]), pos);
