@@ -18,7 +18,7 @@ public class ActionQueue : MonoBehaviour
 
     private void Start()
     {
-        maxActions = Barracks.maxTrainingCap;
+        //maxActions = Barracks.maxTrainingCap;
     }
 
     private void Update()
