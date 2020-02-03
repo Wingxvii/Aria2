@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using Netcode;
 using UnityEngine;
 
 
@@ -229,5 +231,29 @@ public class Droid : Entity
         }
     }
 
+    public override void GetEntityString(ref StringBuilder dataToSend)
+    {
+        dataToSend.Append(id);
+        dataToSend.Append(",");
 
+        //send object positions
+        dataToSend.Append(transform.position.x);
+        dataToSend.Append(",");
+        dataToSend.Append(transform.position.y);
+        dataToSend.Append(",");
+        dataToSend.Append(transform.position.z);
+        dataToSend.Append(",");
+        dataToSend.Append(transform.rotation.eulerAngles.x);
+        dataToSend.Append(",");
+        dataToSend.Append(transform.rotation.eulerAngles.y);
+        dataToSend.Append(",");
+        dataToSend.Append(transform.rotation.eulerAngles.z);
+        dataToSend.Append(",");
+    }
+
+    public override void UpdateEntityStats(EntityData ed)
+    {
+        transform.position = ed.position;
+        transform.rotation = Quaternion.Euler(ed.rotation);
+    }
 }

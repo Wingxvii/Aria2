@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using Netcode;
 using UnityEngine;
 
 public enum TurretState
@@ -333,4 +335,35 @@ public class Turret : Entity
 
     }
 
+
+    public override void GetEntityString(ref StringBuilder dataToSend)
+    {
+        dataToSend.Append(id);
+        dataToSend.Append(",");
+
+        //send object positions
+        dataToSend.Append(transform.position.x);
+        dataToSend.Append(",");
+        dataToSend.Append(transform.position.y);
+        dataToSend.Append(",");
+        dataToSend.Append(transform.position.z);
+        dataToSend.Append(",");
+
+        dataToSend.Append(head.transform.rotation.eulerAngles.x);
+        dataToSend.Append(",");
+        dataToSend.Append(head.transform.rotation.eulerAngles.y);
+        dataToSend.Append(",");
+        dataToSend.Append(head.transform.rotation.eulerAngles.z);
+        dataToSend.Append(",");
+    }
+
+    public override void UpdateEntityStats(EntityData ed)
+    {
+        Vector3 localRot = head.transform.localRotation.eulerAngles;
+        localRot.x = ed.rotation.x;
+        head.transform.localRotation = Quaternion.Euler(localRot);
+        localRot = body.transform.localRotation.eulerAngles;
+        localRot.y = ed.rotation.y;
+        body.transform.localRotation = Quaternion.Euler(localRot);
+    }
 }

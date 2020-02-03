@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Netcode;
+using System;
+using System.Text;
 
 public enum EntityType
 {
@@ -203,4 +205,7 @@ public abstract class Entity : MonoBehaviour
     public virtual void BaseDeselected() { }
 
 
+    public virtual void GetEntityString(ref StringBuilder dataToSend) {  }
+
+    public virtual void UpdateEntityStats(EntityData ed) { }
 }

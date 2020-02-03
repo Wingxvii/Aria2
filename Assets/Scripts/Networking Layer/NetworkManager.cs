@@ -187,10 +187,11 @@ namespace Netcode
             {
                 if (kvp.Value.updated)
                 {
+                    //Debug.Log("UPDATING POSITION FOR " + kvp.Key);
                     kvp.Value.updated = false;
                     Entity temp = EntityManager.Instance.AllEntities[kvp.Key];
-                    temp.transform.position = kvp.Value.position;
-                    temp.transform.rotation = Quaternion.Euler(kvp.Value.rotation);
+                    //Debug.Log(kvp.Value.position + ", " + kvp.Value.rotation);
+                    temp.UpdateEntityStats(kvp.Value);
                 }
             }
 
@@ -226,6 +227,10 @@ namespace Netcode
                     Debug.Log(tempTup.Item3);
                     Entity temp = EntityManager.Instance.GetNewEntity((EntityType)tempTup.Item2);
                     temp.transform.position = tempTup.Item3;
+                }
+                else
+                {
+                    dataState.BuildEntity.Dequeue();
                 }
             }
         }
@@ -410,14 +415,14 @@ namespace Netcode
                                 else
                                 {
                                     //updating all data on existing data
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].position.x = float.Parse(parsedData[1 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].position.y = float.Parse(parsedData[2 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].position.z = float.Parse(parsedData[3 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].rotation.x = float.Parse(parsedData[4 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].rotation.y = float.Parse(parsedData[5 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].rotation.z = float.Parse(parsedData[6 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.x = float.Parse(parsedData[1 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.y = float.Parse(parsedData[2 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.z = float.Parse(parsedData[3 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.x = float.Parse(parsedData[4 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.y = float.Parse(parsedData[5 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.z = float.Parse(parsedData[6 + offset]);
 
-                                    dataState.entityUpdates[int.Parse(parsedData[0])].updated = true;
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].updated = true;
                                 }
                             }
                         }
@@ -533,45 +538,49 @@ namespace Netcode
 
             foreach (Entity droid in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Droid])
             {
+                droid.GetEntityString(ref dataToSend);
 
                 //send object id
-                dataToSend.Append(droid.id);
-                dataToSend.Append(",");
-
-                //send object positions
-                dataToSend.Append(droid.transform.position.x);
-                dataToSend.Append(",");
-                dataToSend.Append(droid.transform.position.y);
-                dataToSend.Append(",");
-                dataToSend.Append(droid.transform.position.z);
-                dataToSend.Append(",");
-                dataToSend.Append(droid.transform.rotation.eulerAngles.x);
-                dataToSend.Append(",");
-                dataToSend.Append(droid.transform.rotation.eulerAngles.y);
-                dataToSend.Append(",");
-                dataToSend.Append(droid.transform.rotation.eulerAngles.z);
-                dataToSend.Append(",");
+                //dataToSend.Append(droid.id);
+                //dataToSend.Append(",");
+                //
+                ////send object positions
+                //dataToSend.Append(droid.transform.position.x);
+                //dataToSend.Append(",");
+                //dataToSend.Append(droid.transform.position.y);
+                //dataToSend.Append(",");
+                //dataToSend.Append(droid.transform.position.z);
+                //dataToSend.Append(",");
+                //dataToSend.Append(droid.transform.rotation.eulerAngles.x);
+                //dataToSend.Append(",");
+                //dataToSend.Append(droid.transform.rotation.eulerAngles.y);
+                //dataToSend.Append(",");
+                //dataToSend.Append(droid.transform.rotation.eulerAngles.z);
+                //dataToSend.Append(",");
+                //Debug.Log("ENTITY SENT: DROID");
             }
             foreach (Entity turret in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Turret])
             {
+                turret.GetEntityString(ref dataToSend);
 
                 //send object id
-                dataToSend.Append(turret.id);
-                dataToSend.Append(",");
-
-                //send object positions
-                dataToSend.Append(turret.transform.position.x);
-                dataToSend.Append(",");
-                dataToSend.Append(turret.transform.position.y);
-                dataToSend.Append(",");
-                dataToSend.Append(turret.transform.position.z);
-                dataToSend.Append(",");
-                dataToSend.Append(turret.transform.rotation.eulerAngles.x);
-                dataToSend.Append(",");
-                dataToSend.Append(turret.transform.rotation.eulerAngles.y);
-                dataToSend.Append(",");
-                dataToSend.Append(turret.transform.rotation.eulerAngles.z);
-                dataToSend.Append(",");
+                //dataToSend.Append(turret.id);
+                //dataToSend.Append(",");
+                //
+                ////send object positions
+                //dataToSend.Append(turret.transform.position.x);
+                //dataToSend.Append(",");
+                //dataToSend.Append(turret.transform.position.y);
+                //dataToSend.Append(",");
+                //dataToSend.Append(turret.transform.position.z);
+                //dataToSend.Append(",");
+                //dataToSend.Append(turret.transform.rotation.eulerAngles.x);
+                //dataToSend.Append(",");
+                //dataToSend.Append(turret.transform.rotation.eulerAngles.y);
+                //dataToSend.Append(",");
+                //dataToSend.Append(turret.transform.rotation.eulerAngles.z);
+                //dataToSend.Append(",");
+                //Debug.Log("ENTITY SENT:TURRET");
             }
             if (dataToSend.Length > 0)
             {
