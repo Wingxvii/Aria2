@@ -212,7 +212,9 @@ public class PlayerFPS : Entity
             {
                 p.RotateSelf(FPSLayer.InputManager.Instance.rotate);
             }
-
+            //depricated
+            //@db8525830a6f6aabdd0265844dbee4d7e64cb4f1 (Baseline Firearms Rework)
+            /*
             switch(mps)
             {
                 case MinorPlayerState.None:
@@ -258,6 +260,7 @@ public class PlayerFPS : Entity
                         mps = MinorPlayerState.None;
                     break;
             }
+            */
             //Debug.Log("OOPDATE");
         }
         else if (type == EntityType.Dummy)
