@@ -75,7 +75,7 @@ public class PlayerFPS : Entity
         pivots = GetComponentsInChildren<PivotFPS>();
         mainCam = GetComponentInChildren<Camera>();
 
-        mainGun = guns[0];
+        //mainGun = guns[0];
 
         foreach (Collider c in colliders)
         {
@@ -240,16 +240,16 @@ public class PlayerFPS : Entity
                             Netcode.NetworkManager.SendWeaponSwap(selectedGun);
                     }
 
-                    if (FPSLayer.InputManager.Instance.shoot)
-                        mainGun.Fire(mainCam.transform, this);
+                    //if (FPSLayer.InputManager.Instance.shoot)
+                       // mainGun.Fire(mainCam.transform, this);
 
-                    if (FPSLayer.InputManager.Instance.reload)
-                    {
-                        int ammoType = (int)mainGun.specs.gunType;
-                        mps = MinorPlayerState.Reloading;
-                        mainGun.Reload(remainingAmmunition[ammoType]);
-                        remainingAmmunition[ammoType] = Mathf.Max(0, remainingAmmunition[ammoType] - mainGun.clip.ammo.maxBulletCount);
-                    }
+                    //if (FPSLayer.InputManager.Instance.reload)
+                    //{
+                    //    int ammoType = (int)mainGun.specs.gunType;
+                   ///     mps = MinorPlayerState.Reloading;
+                  //      mainGun.Reload(remainingAmmunition[ammoType]);
+                  //      remainingAmmunition[ammoType] = Mathf.Max(0, remainingAmmunition[ammoType] - mainGun.clip.ammo.maxBulletCount);
+                  //  }
 
                     break;
 
