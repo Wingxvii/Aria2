@@ -67,6 +67,9 @@ public class EntityManager : MonoBehaviour
 
         SpawnManager.Instance.Initialize();
 
+        //create all lists
+        ActiveEntitiesByType = new List<List<Entity>>();
+        DeactivatedEntitiesByType = new List<Queue<Entity>>();
 
         if (AllEntities.Count > 0)
         {
