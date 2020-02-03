@@ -196,6 +196,7 @@ namespace Netcode
                 if (GameSceneController.Instance.type == PlayerType.FPS)
                 {
                     Tuple<int, int, Vector3> tempTup = dataState.BuildEntity.Dequeue();
+                    Debug.Log(tempTup.Item3);
                     Entity temp = EntityManager.Instance.GetNewEntity((EntityType)tempTup.Item2);
                     temp.transform.position = tempTup.Item3;
                 }

@@ -143,17 +143,11 @@ public class EntityManager : MonoBehaviour
         {
             Entity returnEntity = DeactivatedEntitiesByType[(int)type].Dequeue();
             returnEntity.OnActivate();
-            
-            if (GameSceneController.Instance.type == PlayerType.RTS)
-                NetworkManager.SendBuildEntity(returnEntity);
 
             return returnEntity;
         }
         else {
             Entity returnEntity = CreateEntity(type);
-
-            if (GameSceneController.Instance.type == PlayerType.RTS && type != EntityType.Player && type != EntityType.Dummy)
-                NetworkManager.SendBuildEntity(returnEntity);
 
             return returnEntity;
         }

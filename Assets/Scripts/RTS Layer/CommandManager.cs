@@ -31,6 +31,9 @@ namespace RTSInput
                 Entity newEntity = EntityManager.Instance.GetNewEntity(type);
 
                 newEntity.transform.position = position;
+
+                if (GameSceneController.Instance.type == PlayerType.RTS)
+                    Netcode.NetworkManager.SendBuildEntity(newEntity);
             }
         }
 
