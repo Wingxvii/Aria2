@@ -552,7 +552,8 @@ namespace Netcode
                 dataToSend.Append(",");
             }
 
-            dataToSend.Remove(dataToSend.Length - 1, 1);
+            if (dataToSend.Length > 0)
+                dataToSend.Remove(dataToSend.Length - 1, 1);
 
             SendData((int)PacketType.ENTITYDATA, dataToSend.ToString(), false, Client);
 
