@@ -63,7 +63,7 @@ public class EntityManager : MonoBehaviour
 
         }
 
-
+        SpawnManager.Instance.Initialize();
 
         SpawnManager.Instance.Initialize();
 

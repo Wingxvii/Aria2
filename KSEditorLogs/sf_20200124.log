@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 2020-01-24 08:01:23.5478 [DEBUG] Scene Fusion version 1.8.6-0
 2020-01-24 08:06:04.5932 [DEBUG] Scene Fusion version 1.8.6-0
 2020-01-24 08:06:10.8054 [DEBUG] Scene Fusion version 1.8.6-0
@@ -291,6 +292,8 @@ UnityEngine.EventSystems.EventSystem:Update()
 2020-01-24 08:29:37.2891 [DEBUG] Play mode: True, sync in play mode: True
 2020-01-24 08:29:43.4477 [DEBUG] Play mode: False
 =======
+=======
+>>>>>>> Stashed changes
 2020-01-24 08:00:29.0135 [DEBUG] Scene Fusion version 1.8.6-0
 2020-01-24 08:02:15.9245 [DEBUG] Scene Fusion version 1.8.6-0
 2020-01-24 08:02:16.1499 [DEBUG] Play mode: True, sync in play mode: False
@@ -322,6 +325,7 @@ UnityEngine.EventSystems.EventSystem:Update()
 2020-01-24 09:52:39.3623 [DEBUG] Scene Fusion version 1.8.6-0
 2020-01-24 09:52:39.5026 [DEBUG] Play mode: True, sync in play mode: False
 2020-01-24 09:52:41.6796 [DEBUG] Play mode: False
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 2020-01-24 10:00:40.4682 [DEBUG] Scene Fusion version 1.8.6-0
 2020-01-24 10:18:43.7211 [DEBUG] Scene Fusion version 1.8.6-0
@@ -745,3 +749,5 @@ GunFPS.LateUpdate () (at Assets/Scripts/FPS Layer/GunFPS.cs:134)
 2020-01-24 10:53:34.2960 [DEBUG] Scene Fusion version 1.8.6-0
 2020-01-24 10:53:34.4551 [DEBUG] Play mode: True, sync in play mode: False
 2020-01-24 10:53:51.6196 [DEBUG] Play mode: False
+=======
+>>>>>>> Stashed changes
