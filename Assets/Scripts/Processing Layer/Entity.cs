@@ -66,7 +66,7 @@ public abstract class Entity : MonoBehaviour
 
         }
         //set id
-        id = ++idtracker;
+        id = idtracker++;
         indexedList.Add(this);
         BaseStart();
     }
@@ -207,5 +207,8 @@ public abstract class Entity : MonoBehaviour
 
     public virtual void GetEntityString(ref StringBuilder dataToSend) {  }
 
-    public virtual void UpdateEntityStats(EntityData ed) { }
+    public virtual void UpdateEntityStats(EntityData ed) {
+        
+        
+    }
 }

@@ -183,20 +183,22 @@ namespace Netcode
                 player.SendUpdate(dataState.p3.position, dataState.p3.rotation, dataState.p3.state, dataState.p3.weapon);
             }
 
+            Debug.Log(dataState.entityUpdates.Count);
             foreach (KeyValuePair<int, EntityData> kvp in dataState.entityUpdates)
             {
                 if (kvp.Value.updated)
                 {
-                    //Debug.Log("UPDATING POSITION FOR " + kvp.Key);
+                    Debug.Log("UPDATING POSITION FOR " + kvp.Key);
                     kvp.Value.updated = false;
                     Entity temp = EntityManager.Instance.AllEntities[kvp.Key];
+                    Debug.Log(temp.name);
                     //Debug.Log(kvp.Value.position + ", " + kvp.Value.rotation);
                     temp.UpdateEntityStats(kvp.Value);
                 }
             }
 
-            if (dataState.entityUpdates.Count > 0)
-                dataState.entityUpdates.Clear();
+            //if (dataState.entityUpdates.Count > 0)
+            //    dataState.entityUpdates.Clear();
 
             //update damage
             while (dataState.DamageDealt.Count > 0)
@@ -397,32 +399,42 @@ namespace Netcode
 
                         if (GameSceneController.Instance.type == PlayerType.FPS)
                         {
-                            for (int counter = 0; counter < parsedData.Length / 7; counter++)
+                            lock (dataState)
                             {
-                                int offset = counter * 7;
-                                if (!dataState.entityUpdates.ContainsKey(int.Parse(parsedData[0 + offset])))
+                                for (int counter = 0; counter < parsedData.Length / 7; counter++)
                                 {
+                                    int offset = counter * 7;
+                                    if (!dataState.entityUpdates.ContainsKey(int.Parse(parsedData[0 + offset])))
+                                    {
+                                        Debug.Log("ONE: " + parsedData[0 + offset]);
 
-                                    //create entity data
-                                    EntityData tempEntity = new EntityData();
-                                    tempEntity.position = new Vector3(float.Parse(parsedData[1 + offset]), float.Parse(parsedData[2 + offset]), float.Parse(parsedData[3 + offset]));
-                                    tempEntity.rotation = new Vector3(float.Parse(parsedData[4 + offset]), float.Parse(parsedData[5 + offset]), float.Parse(parsedData[6 + offset]));
-                                    tempEntity.updated = true;
+                                        //create entity data
+                                        EntityData tempEntity = new EntityData();
+                                        tempEntity.position = new Vector3(float.Parse(parsedData[1 + offset]), float.Parse(parsedData[2 + offset]), float.Parse(parsedData[3 + offset]));
+                                        tempEntity.rotation = new Vector3(float.Parse(parsedData[4 + offset]), float.Parse(parsedData[5 + offset]), float.Parse(parsedData[6 + offset]));
+                                        tempEntity.updated = true;
 
-                                    //add to map
-                                    dataState.entityUpdates.Add(int.Parse(parsedData[0 + offset]), tempEntity);
-                                }
-                                else
-                                {
-                                    //updating all data on existing data
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.x = float.Parse(parsedData[1 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.y = float.Parse(parsedData[2 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.z = float.Parse(parsedData[3 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.x = float.Parse(parsedData[4 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.y = float.Parse(parsedData[5 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.z = float.Parse(parsedData[6 + offset]);
+                                        //add to map
+                                        dataState.entityUpdates.Add(int.Parse(parsedData[0 + offset]), tempEntity);
+                                    }
+                                    else
+                                    {
+                                        EntityData ed;
+                                        Debug.Log("SEVERAL: " + parsedData[0 + offset]);
 
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].updated = true;
+                                        if (!dataState.entityUpdates.TryGetValue(int.Parse(parsedData[0 + offset]), out ed))
+                                            Debug.Break();
+
+                                        //updating all data on existing data
+                                        dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.x = float.Parse(parsedData[1 + offset]);
+                                        dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.y = float.Parse(parsedData[2 + offset]);
+                                        dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.z = float.Parse(parsedData[3 + offset]);
+                                        dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.x = float.Parse(parsedData[4 + offset]);
+                                        dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.y = float.Parse(parsedData[5 + offset]);
+                                        dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.z = float.Parse(parsedData[6 + offset]);
+
+                                        dataState.entityUpdates[int.Parse(parsedData[0 + offset])].updated = true;
+                                    }
                                 }
                             }
                         }
@@ -441,7 +453,11 @@ namespace Netcode
                         Vector3 pos = new Vector3(float.Parse(parsedData[2]), float.Parse(parsedData[3]), float.Parse(parsedData[4]));
 
                         Tuple<int, int, Vector3> temp = Tuple.Create(int.Parse(parsedData[0]), int.Parse(parsedData[1]), pos);
-                        dataState.BuildEntity.Enqueue(temp);
+
+                        lock (dataState)
+                        {
+                            dataState.BuildEntity.Enqueue(temp);
+                        }
                     }
                     else
                     {
@@ -454,7 +470,10 @@ namespace Netcode
 
                     if (parsedData.Length == 1)
                     {
-                        dataState.KilledEntity.Enqueue(int.Parse(parsedData[0]));
+                        lock (dataState)
+                        {
+                            dataState.KilledEntity.Enqueue(int.Parse(parsedData[0]));
+                        }
                     }
                     else
                     {
@@ -466,7 +485,10 @@ namespace Netcode
 
                     if (parsedData.Length == 1)
                     {
-                        dataState.GameState = int.Parse(parsedData[0]);
+                        lock (dataState)
+                        {
+                            dataState.GameState = int.Parse(parsedData[0]);
+                        }
                     }
                     else
                     {
@@ -587,6 +609,8 @@ namespace Netcode
                 dataToSend.Remove(dataToSend.Length - 1, 1);
             }
 
+            Debug.Log(dataToSend);
+
             if (!SendData((int)PacketType.ENTITYDATA, dataToSend.ToString(), false, Client))
             {
                 Debug.Log(GetError(Client));
@@ -684,5 +708,9 @@ namespace Netcode
 
         }
 
+        public void SwapBuffers()
+        {
+
+        }
     }
 }

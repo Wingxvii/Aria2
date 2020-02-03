@@ -67,10 +67,6 @@ public class EntityManager : MonoBehaviour
 
         SpawnManager.Instance.Initialize();
 
-        //create all lists
-        AllEntities = new List<Entity>();
-        ActiveEntitiesByType = new List<List<Entity>>();
-        DeactivatedEntitiesByType = new List<Queue<Entity>>();
 
         if (AllEntities.Count > 0)
         {
@@ -111,7 +107,7 @@ public class EntityManager : MonoBehaviour
             temp = GetNewEntity(spawnType[i]);
 
             //temp.transform.position = new Vector3(-10f, 0.5f, -10f);
-            AllEntities.Add(temp);
+            //AllEntities.Add(temp);
             ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
         }
 

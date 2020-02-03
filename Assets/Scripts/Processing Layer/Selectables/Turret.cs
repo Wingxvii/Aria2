@@ -365,5 +365,7 @@ public class Turret : Entity
         localRot = body.transform.localRotation.eulerAngles;
         localRot.y = ed.rotation.y;
         body.transform.localRotation = Quaternion.Euler(localRot);
+
+        Debug.Log("BEAUTIFUL! " + id);
     }
 }
