@@ -143,6 +143,13 @@ public class EntityManager : MonoBehaviour
             NetworkManager.SendEntityPositions();
     }
 
+    private void FixedUpdate()
+    {
+        if (ActiveEntitiesByType[(int)EntityType.Turret].Count + ActiveEntitiesByType[(int)EntityType.Droid].Count > 0
+            && GameSceneController.Instance.type == PlayerType.RTS)
+            NetworkManager.SendEntityPositions();
+    }
+
     //returns an avaliable entity from pool or newly instantiated, if none are avaliable
     public Entity GetNewEntity(EntityType type) {
 
