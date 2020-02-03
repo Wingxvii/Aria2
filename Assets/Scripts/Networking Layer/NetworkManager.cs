@@ -35,7 +35,9 @@ namespace Netcode
         //int, float
         GAMESTATE = 8,
 
+        PLAYERDAMAGE = 9,
 
+        TURRETDATA = 10
     }
 
     public class EntityData {
@@ -170,6 +172,20 @@ namespace Netcode
                 PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[3];
                 player.SendUpdate(dataState.p3.position, dataState.p3.rotation, dataState.p3.state, dataState.p3.weapon);
             }
+
+            foreach(KeyValuePair<int, EntityData> kvp in dataState.entityUpdates)
+            {
+                if (kvp.Value.updated)
+                {
+                    kvp.Value.updated = false;
+                    Entity temp = EntityManager.Instance.AllEntities[kvp.Key];
+                    temp.transform.position = kvp.Value.position;
+                    temp.transform.rotation = Quaternion.Euler(kvp.Value.rotation);
+                }
+            }
+
+            if (dataState.entityUpdates.Count > 0)
+                dataState.entityUpdates.Clear();
 
             //update damage
             while (dataState.DamageDealt.Count > 0) {
@@ -360,32 +376,35 @@ namespace Netcode
                 case PacketType.ENTITYDATA:
                     if (parsedData.Length >= 7) {
 
-                        for (int counter = 0; counter < parsedData.Length / 7; counter++)
+                        if (GameSceneController.Instance.type == PlayerType.FPS)
                         {
-                            int offset = counter * 7;
-                            if (!dataState.entityUpdates.ContainsKey(int.Parse(parsedData[0 + offset])))
+                            for (int counter = 0; counter < parsedData.Length / 7; counter++)
                             {
+                                int offset = counter * 7;
+                                if (!dataState.entityUpdates.ContainsKey(int.Parse(parsedData[0 + offset])))
+                                {
 
-                                //create entity data
-                                EntityData tempEntity = new EntityData();
-                                tempEntity.position = new Vector3(float.Parse(parsedData[1+ offset]), float.Parse(parsedData[2+ offset]), float.Parse(parsedData[3+ offset]));
-                                tempEntity.rotation = new Vector3(float.Parse(parsedData[4+ offset]), float.Parse(parsedData[5+ offset]), float.Parse(parsedData[6+ offset]));
-                                tempEntity.updated = true;
+                                    //create entity data
+                                    EntityData tempEntity = new EntityData();
+                                    tempEntity.position = new Vector3(float.Parse(parsedData[1 + offset]), float.Parse(parsedData[2 + offset]), float.Parse(parsedData[3 + offset]));
+                                    tempEntity.rotation = new Vector3(float.Parse(parsedData[4 + offset]), float.Parse(parsedData[5 + offset]), float.Parse(parsedData[6 + offset]));
+                                    tempEntity.updated = true;
 
-                                //add to map
-                                dataState.entityUpdates.Add(int.Parse(parsedData[0+ offset]), tempEntity);
-                            }
-                            else
-                            {
-                                //updating all data on existing data
-                                dataState.entityUpdates[int.Parse(parsedData[0+ offset])+ offset].position.x = float.Parse(parsedData[1+ offset]);
-                                dataState.entityUpdates[int.Parse(parsedData[0+ offset])+ offset].position.y = float.Parse(parsedData[2+ offset]);
-                                dataState.entityUpdates[int.Parse(parsedData[0+ offset])+ offset].position.z = float.Parse(parsedData[3+ offset]);
-                                dataState.entityUpdates[int.Parse(parsedData[0+ offset])+ offset].rotation.x = float.Parse(parsedData[4+ offset]);
-                                dataState.entityUpdates[int.Parse(parsedData[0+ offset])+ offset].rotation.y = float.Parse(parsedData[5+ offset]);
-                                dataState.entityUpdates[int.Parse(parsedData[0+ offset])+ offset].rotation.z = float.Parse(parsedData[6+ offset]);
+                                    //add to map
+                                    dataState.entityUpdates.Add(int.Parse(parsedData[0 + offset]), tempEntity);
+                                }
+                                else
+                                {
+                                    //updating all data on existing data
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].position.x = float.Parse(parsedData[1 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].position.y = float.Parse(parsedData[2 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].position.z = float.Parse(parsedData[3 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].rotation.x = float.Parse(parsedData[4 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].rotation.y = float.Parse(parsedData[5 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].rotation.z = float.Parse(parsedData[6 + offset]);
 
-                                dataState.entityUpdates[int.Parse(parsedData[0])].updated = true;
+                                    dataState.entityUpdates[int.Parse(parsedData[0])].updated = true;
+                                }
                             }
                         }
                     }
