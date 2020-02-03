@@ -82,15 +82,19 @@ namespace Netcode
         [DllImport(DLL_NAME)]
         static extern void DeleteClient(IntPtr client);                 //Destroys a client
         [DllImport(DLL_NAME)]
-        static extern void Connect(string str, IntPtr client);          //Connects to c++ Server
+        static extern bool Connect(string str, IntPtr client);          //Connects to c++ Server
         [DllImport(DLL_NAME)]
-        static extern void SendData(int type, string str, bool useTCP, IntPtr client);          //Sends Message to all other clients    
+        static extern bool SendData(int type, string str, bool useTCP, IntPtr client);          //Sends Message to all other clients    
         [DllImport(DLL_NAME)]
         static extern void StartUpdating(IntPtr client);                //Starts updating
         [DllImport(DLL_NAME)]
         static extern void SetupPacketReception(Action<int, int, string> action); //recieve packets from server
         [DllImport(DLL_NAME)]
         static extern int GetPlayerNumber(IntPtr client);
+        [DllImport(DLL_NAME)]
+        static extern int GetError(IntPtr client);
+        [DllImport(DLL_NAME)]
+        static extern int GetErrorLoc(IntPtr client);
 
         public static string ip;
         private static IntPtr Client;
@@ -112,7 +116,8 @@ namespace Netcode
             {
                 ip = GameSceneController.Instance.IP;
             }
-            else {
+            else
+            {
                 ip = "127.0.0.1";
             }
             dataState = new DataState();
@@ -124,8 +129,11 @@ namespace Netcode
             if (ipAddr != "")
                 ip = ipAddr;
             //client Init  
-            Client = CreateClient();            
-            Connect(ip, Client);
+            Client = CreateClient();
+            if (!Connect(ip, Client))
+            {
+                Debug.Log(GetError(Client));
+            }
             StartUpdating(Client);
             SetupPacketReception(PacketRecieved);
         }
@@ -153,7 +161,8 @@ namespace Netcode
 
 
             //update players
-            if (dataState.p1.updated) {
+            if (dataState.p1.updated)
+            {
                 dataState.p1.updated = false;
 
                 PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[1];
@@ -174,7 +183,7 @@ namespace Netcode
                 player.SendUpdate(dataState.p3.position, dataState.p3.rotation, dataState.p3.state, dataState.p3.weapon);
             }
 
-            foreach(KeyValuePair<int, EntityData> kvp in dataState.entityUpdates)
+            foreach (KeyValuePair<int, EntityData> kvp in dataState.entityUpdates)
             {
                 if (kvp.Value.updated)
                 {
@@ -189,7 +198,8 @@ namespace Netcode
                 dataState.entityUpdates.Clear();
 
             //update damage
-            while (dataState.DamageDealt.Count > 0) {
+            while (dataState.DamageDealt.Count > 0)
+            {
 
                 //rts damage calculation
                 if (playerNumber == 0)
@@ -203,8 +213,6 @@ namespace Netcode
 
             while (dataState.KilledEntity.Count > 0)
             {
-
-
 
                 dataState.KilledEntity.Dequeue();
 
@@ -229,7 +237,7 @@ namespace Netcode
 
         private void Update()
         {
-             
+
         }
 
         //called on data recieve action, then process
@@ -253,7 +261,8 @@ namespace Netcode
                         {
                             GameSceneController.Instance.type = PlayerType.FPS;
                         }
-                        else {
+                        else
+                        {
                             GameSceneController.Instance.type = PlayerType.RTS;
                         }
                         isConnected = true;
@@ -277,7 +286,7 @@ namespace Netcode
                         lock (dataState)
                         {
                             switch (sender)
-                                {
+                            {
                                 case 1:
                                     dataState.p1.position.x = float.Parse(parsedData[0]);
                                     dataState.p1.position.y = float.Parse(parsedData[1]);
@@ -312,8 +321,8 @@ namespace Netcode
                                 default:
                                     Debug.Log("Error: PLAYERDATA Sender Invalid");
 
-                                break;
-                                }
+                                    break;
+                            }
                         }
                     }
                     else
@@ -372,12 +381,14 @@ namespace Netcode
 
                         Debug.Log(parsedData[1] + ", " + parsedData[2]);
                     }
-                    else {
+                    else
+                    {
                         Debug.LogWarning("Error: Invalid DAMAGEDEALT Parsed Array Size");
                     }
                     break;
                 case PacketType.ENTITYDATA:
-                    if (parsedData.Length >= 7) {
+                    if (parsedData.Length >= 7)
+                    {
 
                         if (GameSceneController.Instance.type == PlayerType.FPS)
                         {
@@ -398,16 +409,15 @@ namespace Netcode
                                 }
                                 else
                                 {
-        
                                     //updating all data on existing data
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.x = float.Parse(parsedData[1 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.y = float.Parse(parsedData[2 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.z = float.Parse(parsedData[3 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.x = float.Parse(parsedData[4 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.y = float.Parse(parsedData[5 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.z = float.Parse(parsedData[6 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].position.x = float.Parse(parsedData[1 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].position.y = float.Parse(parsedData[2 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].position.z = float.Parse(parsedData[3 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].rotation.x = float.Parse(parsedData[4 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].rotation.y = float.Parse(parsedData[5 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].rotation.z = float.Parse(parsedData[6 + offset]);
 
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].updated = true;
+                                    dataState.entityUpdates[int.Parse(parsedData[0])].updated = true;
                                 }
                             }
                         }
@@ -420,7 +430,8 @@ namespace Netcode
 
                     break;
                 case PacketType.BUILD:
-                    if (parsedData.Length == 5) {
+                    if (parsedData.Length == 5)
+                    {
                         //Debug.Log("HIYA");
                         Vector3 pos = new Vector3(float.Parse(parsedData[2]), float.Parse(parsedData[3]), float.Parse(parsedData[4]));
 
@@ -436,7 +447,8 @@ namespace Netcode
                     break;
                 case PacketType.KILL:
 
-                    if (parsedData.Length == 1) {
+                    if (parsedData.Length == 1)
+                    {
                         dataState.KilledEntity.Enqueue(int.Parse(parsedData[0]));
                     }
                     else
@@ -486,15 +498,18 @@ namespace Netcode
             for (int i = 0; i < playerFPS.pivots.Length; ++i)
                 sumAng += playerFPS.pivots[i].transform.localRotation.eulerAngles;
             dataToSend.Append(sumAng.x);
-            dataToSend.Append(",");               
+            dataToSend.Append(",");
             dataToSend.Append(sumAng.y);
-            dataToSend.Append(",");               
+            dataToSend.Append(",");
             dataToSend.Append(sumAng.z);
-            dataToSend.Append(",");               
+            dataToSend.Append(",");
             dataToSend.Append(playerFPS.stats.state);
             //dataToSend.Append(",");
 
-            SendData((int)PacketType.PLAYERDATA, dataToSend.ToString(), false, Client);
+            if (!SendData((int)PacketType.PLAYERDATA, dataToSend.ToString(), false, Client))
+            {
+                Debug.Log(GetError(Client));
+            }
         }
 
 
@@ -504,7 +519,10 @@ namespace Netcode
 
             dataToSend.Append(weapon);
 
-            SendData((int)PacketType.WEAPONSTATE, dataToSend.ToString(), true, Client);
+            if (!SendData((int)PacketType.WEAPONSTATE, dataToSend.ToString(), true, Client))
+            {
+                Debug.Log(GetError(Client));
+            }
         }
 
 
@@ -555,11 +573,15 @@ namespace Netcode
                 dataToSend.Append(turret.transform.rotation.eulerAngles.z);
                 dataToSend.Append(",");
             }
-
             if (dataToSend.Length > 0)
+            {
                 dataToSend.Remove(dataToSend.Length - 1, 1);
+            }
 
-            SendData((int)PacketType.ENTITYDATA, dataToSend.ToString(), false, Client);
+            if (!SendData((int)PacketType.ENTITYDATA, dataToSend.ToString(), false, Client))
+            {
+                Debug.Log(GetError(Client));
+            }
 
         }
 
@@ -584,7 +606,10 @@ namespace Netcode
 
             //add object position z
             dataToSend.Append(entity.transform.position.z);
-            SendData((int)PacketType.BUILD, dataToSend.ToString(), true, Client);
+            if (!SendData((int)PacketType.BUILD, dataToSend.ToString(), true, Client))
+            {
+                Debug.Log(GetError(Client));
+            }
 
             Debug.Log("BUILT");
         }
@@ -595,7 +620,10 @@ namespace Netcode
 
             dataToSend.Append(state);
 
-            SendData((int)PacketType.GAMESTATE, dataToSend.ToString(), true, Client);
+            if (!SendData((int)PacketType.GAMESTATE, dataToSend.ToString(), true, Client))
+            {
+                Debug.Log(GetError(Client));
+            }
         }
 
         public static void SendKilledEntity(Entity entity)
@@ -606,7 +634,10 @@ namespace Netcode
             //add object id
             dataToSend.Append(entity.id);
 
-            SendData((int)PacketType.KILL, dataToSend.ToString(), true, Client);
+            if (!SendData((int)PacketType.KILL, dataToSend.ToString(), true, Client))
+            {
+                Debug.Log(GetError(Client));
+            }
         }
 
         //send damaged player
@@ -620,7 +651,10 @@ namespace Netcode
             dataToSend.Append(",");
             dataToSend.Append(culprit);
 
-            SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client);
+            if (!SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client))
+            {
+                Debug.Log(GetError(Client));
+            }
 
         }
 
@@ -634,7 +668,10 @@ namespace Netcode
             dataToSend.Append(",");
             dataToSend.Append(player);
 
-            SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client);
+            if (!SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client))
+            {
+                Debug.Log(GetError(Client));
+            }
 
         }
 
