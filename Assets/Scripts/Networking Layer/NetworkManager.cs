@@ -75,20 +75,21 @@ namespace Netcode
     {
         #region Netcode
 
+        const string DLL_NAME = "Network_Plugin";
         //net code
-        [DllImport("CNET.dll")]
+        [DllImport(DLL_NAME)]
         static extern IntPtr CreateClient();                            //Creates a client
-        [DllImport("CNET.dll")]
+        [DllImport(DLL_NAME)]
         static extern void DeleteClient(IntPtr client);                 //Destroys a client
-        [DllImport("CNET.dll")]
+        [DllImport(DLL_NAME)]
         static extern void Connect(string str, IntPtr client);          //Connects to c++ Server
-        [DllImport("CNET.dll")]
+        [DllImport(DLL_NAME)]
         static extern void SendData(int type, string str, bool useTCP, IntPtr client);          //Sends Message to all other clients    
-        [DllImport("CNET.dll")]
+        [DllImport(DLL_NAME)]
         static extern void StartUpdating(IntPtr client);                //Starts updating
-        [DllImport("CNET.dll")]
+        [DllImport(DLL_NAME)]
         static extern void SetupPacketReception(Action<int, int, string> action); //recieve packets from server
-        [DllImport("CNET.dll")]
+        [DllImport(DLL_NAME)]
         static extern int GetPlayerNumber(IntPtr client);
 
         public static string ip;
