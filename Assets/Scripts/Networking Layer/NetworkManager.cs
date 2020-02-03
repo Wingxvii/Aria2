@@ -132,7 +132,7 @@ namespace Netcode
             Client = CreateClient();
             if (!Connect(ip, Client))
             {
-                Debug.Log(GetError(Client));
+                Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
             }
             StartUpdating(Client);
             SetupPacketReception(PacketRecieved);
@@ -535,7 +535,7 @@ namespace Netcode
 
             if (!SendData((int)PacketType.PLAYERDATA, dataToSend.ToString(), false, Client))
             {
-                Debug.Log(GetError(Client));
+                Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
             }
         }
 
@@ -548,7 +548,7 @@ namespace Netcode
 
             if (!SendData((int)PacketType.WEAPONSTATE, dataToSend.ToString(), true, Client))
             {
-                Debug.Log(GetError(Client));
+                Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
             }
         }
 
@@ -613,7 +613,7 @@ namespace Netcode
 
             if (!SendData((int)PacketType.ENTITYDATA, dataToSend.ToString(), false, Client))
             {
-                Debug.Log(GetError(Client));
+                Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
             }
 
         }
@@ -641,7 +641,7 @@ namespace Netcode
             dataToSend.Append(entity.transform.position.z);
             if (!SendData((int)PacketType.BUILD, dataToSend.ToString(), true, Client))
             {
-                Debug.Log(GetError(Client));
+                Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
             }
 
             Debug.Log("BUILT");
@@ -655,7 +655,7 @@ namespace Netcode
 
             if (!SendData((int)PacketType.GAMESTATE, dataToSend.ToString(), true, Client))
             {
-                Debug.Log(GetError(Client));
+                Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
             }
         }
 
@@ -669,7 +669,7 @@ namespace Netcode
 
             if (!SendData((int)PacketType.KILL, dataToSend.ToString(), true, Client))
             {
-                Debug.Log(GetError(Client));
+                Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
             }
         }
 
@@ -686,7 +686,7 @@ namespace Netcode
 
             if (!SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client))
             {
-                Debug.Log(GetError(Client));
+                Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
             }
 
         }
@@ -703,7 +703,7 @@ namespace Netcode
 
             if (!SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client))
             {
-                Debug.Log(GetError(Client));
+                Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
             }
 
         }

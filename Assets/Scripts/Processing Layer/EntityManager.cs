@@ -71,6 +71,14 @@ public class EntityManager : MonoBehaviour
         ActiveEntitiesByType = new List<List<Entity>>();
         DeactivatedEntitiesByType = new List<Queue<Entity>>();
 
+
+
+        //create a list per type
+        for (int counter = 0; counter < (int)EntityType.TOTAL; counter++) {
+            ActiveEntitiesByType.Add(new List<Entity>());
+            DeactivatedEntitiesByType.Add(new Queue<Entity>());
+        }
+
         if (AllEntities.Count > 0)
         {
             foreach (Entity entity in AllEntities)
@@ -82,12 +90,6 @@ public class EntityManager : MonoBehaviour
             }
         }
 
-
-        //create a list per type
-        for (int counter = 0; counter < (int)EntityType.TOTAL; counter++) {
-            ActiveEntitiesByType.Add(new List<Entity>());
-            DeactivatedEntitiesByType.Add(new Queue<Entity>());
-        }
 
         //create Layermasks
         staticsMask = LayerMask.GetMask("Background");
