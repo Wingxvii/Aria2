@@ -135,6 +135,13 @@ public class EntityManager : MonoBehaviour
 
 
     }
+    
+    private void FixedUpdate()
+    {
+        if (ActiveEntitiesByType[(int)EntityType.Turret].Count + ActiveEntitiesByType[(int)EntityType.Droid].Count > 0
+            && GameSceneController.Instance.type == PlayerType.RTS)
+            NetworkManager.SendEntityPositions();
+    }
 
     private void FixedUpdate()
     {

@@ -75,21 +75,26 @@ namespace Netcode
     {
         #region Netcode
 
+        const string DLL_NAME = "Network_Plugin";
         //net code
-        [DllImport("CNET.dll")]
+        [DllImport(DLL_NAME)]
         static extern IntPtr CreateClient();                            //Creates a client
-        [DllImport("CNET.dll")]
+        [DllImport(DLL_NAME)]
         static extern void DeleteClient(IntPtr client);                 //Destroys a client
-        [DllImport("CNET.dll")]
-        static extern void Connect(string str, IntPtr client);          //Connects to c++ Server
-        [DllImport("CNET.dll")]
-        static extern void SendData(int type, string str, bool useTCP, IntPtr client);          //Sends Message to all other clients    
-        [DllImport("CNET.dll")]
+        [DllImport(DLL_NAME)]
+        static extern bool Connect(string str, IntPtr client);          //Connects to c++ Server
+        [DllImport(DLL_NAME)]
+        static extern bool SendData(int type, string str, bool useTCP, IntPtr client);          //Sends Message to all other clients    
+        [DllImport(DLL_NAME)]
         static extern void StartUpdating(IntPtr client);                //Starts updating
-        [DllImport("CNET.dll")]
+        [DllImport(DLL_NAME)]
         static extern void SetupPacketReception(Action<int, int, string> action); //recieve packets from server
-        [DllImport("CNET.dll")]
+        [DllImport(DLL_NAME)]
         static extern int GetPlayerNumber(IntPtr client);
+        [DllImport(DLL_NAME)]
+        static extern int GetError(IntPtr client);
+        [DllImport(DLL_NAME)]
+        static extern int GetErrorLoc(IntPtr client);
 
         public static string ip;
         private static IntPtr Client;
@@ -123,8 +128,11 @@ namespace Netcode
             if (ipAddr != "")
                 ip = ipAddr;
             //client Init  
-            Client = CreateClient();            
-            Connect(ip, Client);
+            Client = CreateClient();
+            if (!Connect(ip, Client))
+            {
+                Debug.Log(GetError(Client));
+            }
             StartUpdating(Client);
             SetupPacketReception(PacketRecieved);
         }
@@ -491,7 +499,10 @@ namespace Netcode
             dataToSend.Append(playerFPS.stats.state);
             //dataToSend.Append(",");
 
-            SendData((int)PacketType.PLAYERDATA, dataToSend.ToString(), false, Client);
+            if(!SendData((int)PacketType.PLAYERDATA, dataToSend.ToString(), false, Client))
+            {
+                Debug.Log(GetError(Client));
+            }
         }
 
 
@@ -501,7 +512,10 @@ namespace Netcode
 
             dataToSend.Append(weapon);
 
-            SendData((int)PacketType.WEAPONSTATE, dataToSend.ToString(), true, Client);
+            if(!SendData((int)PacketType.WEAPONSTATE, dataToSend.ToString(), true, Client))
+            {
+                Debug.Log(GetError(Client));
+            }
         }
 
 
@@ -552,11 +566,15 @@ namespace Netcode
                 dataToSend.Append(turret.transform.rotation.eulerAngles.z);
                 dataToSend.Append(",");
             }
-
             if (dataToSend.Length > 0)
+            {
                 dataToSend.Remove(dataToSend.Length - 1, 1);
+            }
 
-            SendData((int)PacketType.ENTITYDATA, dataToSend.ToString(), false, Client);
+            if(!SendData((int)PacketType.ENTITYDATA, dataToSend.ToString(), false, Client))
+            {
+                Debug.Log(GetError(Client));
+            }
 
         }
 
@@ -581,7 +599,10 @@ namespace Netcode
 
             //add object position z
             dataToSend.Append(entity.transform.position.z);
-            SendData((int)PacketType.BUILD, dataToSend.ToString(), true, Client);
+            if(!SendData((int)PacketType.BUILD, dataToSend.ToString(), true, Client))
+            {
+                Debug.Log(GetError(Client));
+            }
 
             Debug.Log("BUILT");
         }
@@ -592,7 +613,10 @@ namespace Netcode
 
             dataToSend.Append(state);
 
-            SendData((int)PacketType.GAMESTATE, dataToSend.ToString(), true, Client);
+            if(!SendData((int)PacketType.GAMESTATE, dataToSend.ToString(), true, Client))
+            {
+                Debug.Log(GetError(Client));
+            }
         }
 
         public static void SendKilledEntity(Entity entity)
@@ -603,7 +627,10 @@ namespace Netcode
             //add object id
             dataToSend.Append(entity.id);
 
-            SendData((int)PacketType.KILL, dataToSend.ToString(), true, Client);
+            if(!SendData((int)PacketType.KILL, dataToSend.ToString(), true, Client))
+            {
+                Debug.Log(GetError(Client));
+            }
         }
 
         //send damaged player
@@ -617,7 +644,10 @@ namespace Netcode
             dataToSend.Append(",");
             dataToSend.Append(culprit);
 
-            SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client);
+            if(!SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client))
+            {
+                Debug.Log(GetError(Client));
+            }
 
         }
 
@@ -631,7 +661,10 @@ namespace Netcode
             dataToSend.Append(",");
             dataToSend.Append(player);
 
-            SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client);
+            if(!SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client))
+            {
+                Debug.Log(GetError(Client));
+            }
 
         }
 
