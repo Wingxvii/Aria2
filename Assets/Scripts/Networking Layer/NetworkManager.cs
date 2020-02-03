@@ -395,15 +395,16 @@ namespace Netcode
                                 }
                                 else
                                 {
+        
                                     //updating all data on existing data
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].position.x = float.Parse(parsedData[1 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].position.y = float.Parse(parsedData[2 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].position.z = float.Parse(parsedData[3 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].rotation.x = float.Parse(parsedData[4 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].rotation.y = float.Parse(parsedData[5 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset]) + offset].rotation.z = float.Parse(parsedData[6 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.x = float.Parse(parsedData[1 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.y = float.Parse(parsedData[2 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.z = float.Parse(parsedData[3 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.x = float.Parse(parsedData[4 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.y = float.Parse(parsedData[5 + offset]);
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.z = float.Parse(parsedData[6 + offset]);
 
-                                    dataState.entityUpdates[int.Parse(parsedData[0])].updated = true;
+                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].updated = true;
                                 }
                             }
                         }
