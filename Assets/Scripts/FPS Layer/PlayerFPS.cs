@@ -277,7 +277,7 @@ public class PlayerFPS : Entity
     public void SendDamage(int damage, Entity receiver)
     {
         if (Netcode.NetworkManager.isConnected)
-            Netcode.NetworkManager.SendDamageEnvironment(damage, receiver.id, this.id);
+            Netcode.NetworkManager.SendDamage(damage, this.id, receiver.id);
     }
 
     private void OnCollisionStay(Collision collision)
@@ -367,6 +367,6 @@ public class PlayerFPS : Entity
 
     public override void OnDamage(int num, Entity culprit)
     {
-        Netcode.NetworkManager.SendDamagePlayer(num, this.id, culprit.id);
+        Netcode.NetworkManager.SendDamage(num, this.id, culprit.id);
     }
 }

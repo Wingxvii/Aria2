@@ -676,7 +676,7 @@ namespace Netcode
         }
 
         //send damaged player
-        public static void SendDamagePlayer(int damage, int player, int culprit)
+        public static void SendDamage(int damage, int player, int culprit)
         {
             StringBuilder dataToSend = new StringBuilder();
 
@@ -690,24 +690,6 @@ namespace Netcode
             {
                 Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
             }
-
-        }
-
-        public static void SendDamageEnvironment(int damage, int victim, int player)
-        {
-            StringBuilder dataToSend = new StringBuilder();
-
-            dataToSend.Append(victim);
-            dataToSend.Append(",");
-            dataToSend.Append(damage);
-            dataToSend.Append(",");
-            dataToSend.Append(player);
-
-            if (!SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client))
-            {
-                Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
-            }
-
         }
 
         public void SwapBuffers()
