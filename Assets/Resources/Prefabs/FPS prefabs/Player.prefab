@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2838327897029629426}
   - component: {fileID: 2838327897029629427}
   - component: {fileID: 2838327897029629436}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -96,46 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c1ce4fb46143f46bc5cb5224c934f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearColorMode: 0
-  backgroundColorHDR: {r: 0.025, g: 0.07, b: 0.19, a: 0}
-  clearDepth: 1
-  volumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  volumeAnchorOverride: {fileID: 0}
-  antialiasing: 0
-  SMAAQuality: 2
-  dithering: 0
-  stopNaNs: 0
-  physicalParameters:
-    m_Iso: 200
-    m_ShutterSpeed: 0.005
-    m_Aperture: 16
-    m_BladeCount: 5
-    m_Curvature: {x: 2, y: 11}
-    m_BarrelClipping: 0.25
-    m_Anamorphism: 0
-  flipYMode: 0
-  fullscreenPassthrough: 0
-  allowDynamicResolution: 0
-  customRenderingSettings: 0
-  invertFaceCulling: 0
-  probeLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPathCustomFrameSettings:
-    bitDatas:
-      data1: 69284264935197
-      data2: 4539628424389459968
-    lodBias: 1
-    lodBiasMode: 0
-    maximumLODLevel: 0
-    maximumLODLevelMode: 0
-  renderingPathCustomFrameSettingsOverrideMask:
-    mask:
-      data1: 0
-      data2: 0
-  defaultFrameSettings: 0
   m_Version: 5
   m_ObsoleteRenderingPath: 0
   m_ObsoleteFrameSettings:
@@ -183,6 +143,51 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+  clearColorMode: 0
+  backgroundColorHDR: {r: 0.025, g: 0.07, b: 0.19, a: 0}
+  clearDepth: 1
+  volumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  volumeAnchorOverride: {fileID: 0}
+  antialiasing: 0
+  SMAAQuality: 2
+  dithering: 0
+  stopNaNs: 0
+  taaSharpenStrength: 0.6
+  physicalParameters:
+    m_Iso: 200
+    m_ShutterSpeed: 0.005
+    m_Aperture: 16
+    m_BladeCount: 5
+    m_Curvature: {x: 2, y: 11}
+    m_BarrelClipping: 0.25
+    m_Anamorphism: 0
+  flipYMode: 0
+  fullscreenPassthrough: 0
+  allowDynamicResolution: 0
+  customRenderingSettings: 0
+  invertFaceCulling: 0
+  probeLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  hasPersistentHistory: 0
+  m_RenderingPathCustomFrameSettings:
+    bitDatas:
+      data1: 69284264935197
+      data2: 4539628424389459968
+    lodBias: 1
+    lodBiasMode: 0
+    lodBiasQualityLevel: 0
+    maximumLODLevel: 0
+    maximumLODLevelMode: 0
+    maximumLODLevelQualityLevel: 0
+    materialQuality: 0
+  renderingPathCustomFrameSettingsOverrideMask:
+    mask:
+      data1: 0
+      data2: 0
+  defaultFrameSettings: 0
 --- !u!1 &4720113361411090935
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +199,7 @@ GameObject:
   - component: {fileID: 4720113361411090928}
   - component: {fileID: 4720113361411090930}
   - component: {fileID: 4720113361411090929}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +274,7 @@ GameObject:
   - component: {fileID: 4720113362156529417}
   - component: {fileID: 4720113362156529416}
   - component: {fileID: 4720113362156529423}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Gun 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,6 +318,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -390,9 +396,9 @@ GameObject:
   - component: {fileID: 4720113362179397654}
   - component: {fileID: 4720113362179397653}
   - component: {fileID: 4720113362179397676}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -435,6 +441,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -489,7 +496,7 @@ MonoBehaviour:
   type: 5
   currentHealth: 1
   maxHealth: 1
-  destructable: 0
+  destructable: 1
   remainingAmmunition: c8000000f401000050000000
   stats:
     acceleration: 100
@@ -500,6 +507,7 @@ MonoBehaviour:
     friction: 50
     aerialDrag: 0
     state: 1
+    disableManualControl: 0
 --- !u!114 &4720113362179397654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,7 +562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4720113362189049745}
   - component: {fileID: 4720113362189049746}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +608,7 @@ GameObject:
   - component: {fileID: 4720113362485604290}
   - component: {fileID: 4720113362485604289}
   - component: {fileID: 4720113362485604288}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Gun 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -644,6 +652,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -715,7 +724,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4720113362612124032}
   - component: {fileID: 4720113362612124033}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +767,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4720113362658912420}
   - component: {fileID: 4720113362658912421}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -803,7 +812,7 @@ GameObject:
   - component: {fileID: 4720113362697104079}
   - component: {fileID: 4720113362697104078}
   - component: {fileID: 4720113362697104077}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -903,7 +912,7 @@ GameObject:
   - component: {fileID: 4720113363189581721}
   - component: {fileID: 4720113363189581720}
   - component: {fileID: 4720113363189581727}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Gun 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -947,6 +956,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1018,7 +1028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4720113363310705883}
   - component: {fileID: 4720113363310705876}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

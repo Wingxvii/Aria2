@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using Netcode;
 using UnityEngine;
 
 
@@ -191,7 +193,7 @@ public class Droid : Entity
     }
     public override void IssueAttack(Entity attackee)
     {
-        if (attackee.type == EntityType.Player)
+        if (attackee.type == EntityType.Player || attackee.type == EntityType.Dummy)
         {
             state = DroidState.TargetAttacking;
             attackPoint = attackee;
@@ -209,13 +211,14 @@ public class Droid : Entity
     {
         if (currentCoolDown <= 0.0f)
         {
-            attackPoint.OnDamage(attackDamage, this);
+            NetworkManager.SendEnvironmentalDamage(attackDamage, attackPoint.id, this.id);
+            //attackPoint.OnDamage(attackDamage, this);
             currentCoolDown = coolDown;
         }
     }
     private void OnTriggerStay(Collider other)
     {
-        if (GameSceneController.Instance.type == PlayerType.RTS && other.tag == "Entity" && other.gameObject.GetComponent<Entity>().type == EntityType.Player)
+        if (GameSceneController.Instance.type == PlayerType.RTS && other.tag == "Player" && (other.gameObject.GetComponent<Entity>().type == EntityType.Player || other.gameObject.GetComponent<Entity>().type == EntityType.Dummy))
         {
             if (state != DroidState.AttackMoving && state != DroidState.Moving && state != DroidState.TargetAttacking)
             {
@@ -229,5 +232,29 @@ public class Droid : Entity
         }
     }
 
+    public override void GetEntityString(ref StringBuilder dataToSend)
+    {
+        dataToSend.Append(id);
+        dataToSend.Append(",");
 
+        //send object positions
+        dataToSend.Append(transform.position.x);
+        dataToSend.Append(",");
+        dataToSend.Append(transform.position.y);
+        dataToSend.Append(",");
+        dataToSend.Append(transform.position.z);
+        dataToSend.Append(",");
+        dataToSend.Append(transform.rotation.eulerAngles.x);
+        dataToSend.Append(",");
+        dataToSend.Append(transform.rotation.eulerAngles.y);
+        dataToSend.Append(",");
+        dataToSend.Append(transform.rotation.eulerAngles.z);
+        dataToSend.Append(",");
+    }
+
+    public override void UpdateEntityStats(EntityData ed)
+    {
+        transform.position = ed.position;
+        transform.rotation = Quaternion.Euler(ed.rotation);
+    }
 }

@@ -24,6 +24,8 @@ public class PlayerStats
     public float groundAngleFloat { get; set; } = 0f;
     public bool colliding { get; set; } = false;
     public int state = (int)PlayerState.Alive;
+
+    public bool disableManualControl = false;
 }
 
 public enum MinorPlayerState
@@ -35,7 +37,7 @@ public enum MinorPlayerState
 public class PlayerFPS : Entity
 {
 
-    PivotFPS[] pivots;
+    public PivotFPS[] pivots { get; private set; }
     GunFPS[] guns;
     int selectedGun = 0;
     GunFPS mainGun;
@@ -156,46 +158,26 @@ public class PlayerFPS : Entity
         {
             //Edit things via networking code here
 
-            if (GameSceneController.Instance.type == PlayerType.RTS && Input.GetKey(KeyCode.D) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
+            if (!stats.disableManualControl)
             {
-                rb.velocity += new Vector3(1 * stats.acceleration * Time.fixedDeltaTime / 3, 0, 0);
-            }
-            if (GameSceneController.Instance.type == PlayerType.RTS && Input.GetKey(KeyCode.A) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
-            {
-                rb.velocity += new Vector3(1 * -stats.acceleration * Time.fixedDeltaTime / 3, 0, 0);
-            }
-            if (GameSceneController.Instance.type == PlayerType.RTS && Input.GetKey(KeyCode.W) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
-            {
-                rb.velocity += new Vector3(0, 0, 1 * stats.acceleration * Time.fixedDeltaTime / 3);
-            }
-            if (GameSceneController.Instance.type == PlayerType.RTS && Input.GetKey(KeyCode.S) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
-            {
-                rb.velocity += new Vector3(0, 0, 1 * -stats.acceleration * Time.fixedDeltaTime / 3);
-            }
-
-            rb.velocity = MiscFuncsFPS.ApplyFriction(rb.velocity, in stats);
-
-            if (Netcode.NetworkManager.isConnected)
-            {
-                Netcode.EntityData ed;
-                switch(id)
+                if (GameSceneController.Instance.type == PlayerType.RTS && Input.GetKey(KeyCode.D) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
                 {
-                    case 1:
-                        ed = Netcode.NetworkManager.dataState.p1;
-                        break;
-                    case 2:
-                        ed = Netcode.NetworkManager.dataState.p2;
-                        break;
-                    default:
-                        ed = Netcode.NetworkManager.dataState.p3;
-                        break;
+                    rb.velocity += new Vector3(1 * stats.acceleration * Time.fixedDeltaTime / 3, 0, 0);
+                }
+                if (GameSceneController.Instance.type == PlayerType.RTS && Input.GetKey(KeyCode.A) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
+                {
+                    rb.velocity += new Vector3(1 * -stats.acceleration * Time.fixedDeltaTime / 3, 0, 0);
+                }
+                if (GameSceneController.Instance.type == PlayerType.RTS && Input.GetKey(KeyCode.W) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
+                {
+                    rb.velocity += new Vector3(0, 0, 1 * stats.acceleration * Time.fixedDeltaTime / 3);
+                }
+                if (GameSceneController.Instance.type == PlayerType.RTS && Input.GetKey(KeyCode.S) && ResourceManager.ResourceConstants.RTSPLAYERDEBUGMODE)
+                {
+                    rb.velocity += new Vector3(0, 0, 1 * -stats.acceleration * Time.fixedDeltaTime / 3);
                 }
 
-                if (ed.updated)
-                {
-                    rb.velocity = (ed.position - transform.position) / 10f;
-                    transform.position = ed.position;
-                }
+                rb.velocity = MiscFuncsFPS.ApplyFriction(rb.velocity, in stats);
             }
         }
 
@@ -266,41 +248,6 @@ public class PlayerFPS : Entity
         else if (type == EntityType.Dummy)
         {
             //Edit things via networking code here
-
-            if(Netcode.NetworkManager.isConnected)
-            {
-                Netcode.EntityData ed;
-                switch (id)
-                {
-                    case 1:
-                        ed = Netcode.NetworkManager.dataState.p1;
-                        break;
-                    case 2:
-                        ed = Netcode.NetworkManager.dataState.p2;
-                        break;
-                    default:
-                        ed = Netcode.NetworkManager.dataState.p3;
-                        break;
-                }
-
-                if (ed.updated)
-                {
-                    foreach (PivotFPS p in pivots)
-                    {
-                        p.RotateSelf(ed.rotation);
-                    }
-
-                    if (ed.weapon != selectedGun)
-                    {
-                        mainGun.gameObject.SetActive(false);
-                        selectedGun = ed.weapon;
-                        mainGun = guns[selectedGun];
-                        mainGun.gameObject.SetActive(true);
-                    }
-
-                    stats.state = ed.state;
-                }
-            }
         }
     }
 
@@ -321,6 +268,7 @@ public class PlayerFPS : Entity
     public override void OnDeath()
     {
         ResetValues();
+        Debug.Log("U DEAD");
     }
 
     protected override void BaseOnDestory()
@@ -333,13 +281,14 @@ public class PlayerFPS : Entity
     public void SendDamage(int damage, Entity receiver)
     {
         if (Netcode.NetworkManager.isConnected)
-            Netcode.NetworkManager.SendDamageEnvironment(damage, receiver.id, this.id);
+            Netcode.NetworkManager.SendDamage(damage, this.id, receiver.id);
+        receiver.OnDamage(damage, this);
     }
 
     private void OnCollisionStay(Collision collision)
     {
         //Debug.Log("COLLISION");
-        if (type == EntityType.Player || type == EntityType.Dummy)
+        if (type == EntityType.Player || (type == EntityType.Dummy && !stats.disableManualControl))
         {
             if (collision.contacts.Length > 0)
                 stats.colliding = true;
@@ -357,31 +306,46 @@ public class PlayerFPS : Entity
         //Debug.Log("STILL HERE");
     }
 
-    public void SendUpdate(Vector3 pos, Vector3 rot, int state)
+    public void SendUpdate(Vector3 pos, Vector3 rot, int state, int weapon)
     {
         if (GameSceneController.Instance.type == PlayerType.FPS)
         {
-            UniversalUpdate(pos, rot, state);
+            UniversalUpdate(pos, rot, state, weapon);
 
         }
         else if (GameSceneController.Instance.type == PlayerType.RTS)
         {
 
-            UniversalUpdate(pos, rot, state);
+            UniversalUpdate(pos, rot, state, weapon);
         }
 
     }
 
-    void UniversalUpdate(Vector3 pos, Vector3 rot, int state)
+    void UniversalUpdate(Vector3 pos, Vector3 rot, int state, int weapon)
     {
-        rb.velocity = (pos - this.transform.position) * 10f;
+        //Debug.Log(pos + " , " + rot + ", " + state);
+        if (!stats.disableManualControl)
+        {
+            stats.disableManualControl = true;
+            rb.useGravity = false;
+        }
+        //Debug.Log("UPDATED");
+        rb.velocity = (pos - this.transform.position) / Time.fixedDeltaTime * 0.1f;
+        transform.position = pos;
         //this.transform.rotation = Quaternion.Euler(new Vector3(0f, rot.y, 0f));
         foreach (PivotFPS p in pivots)
         {
-            p.RotateSelf(rot);
+            p.StrictRotate(rot);
         }
         stats.state = state;
 
+        if (weapon != selectedGun)
+        {
+            mainGun.gameObject.SetActive(false);
+            selectedGun = weapon;
+            mainGun = guns[selectedGun];
+            mainGun.gameObject.SetActive(true);
+        }
 
         if ((state & (int)PlayerStats.PlayerState.Shooting) > 0)
         {
@@ -398,11 +362,36 @@ public class PlayerFPS : Entity
             }
         }
 
-        if ((state & (int)PlayerStats.PlayerState.Jumping) > 0)
+        //if ((state & (int)PlayerStats.PlayerState.Jumping) > 0)
+        //{
+        //    Vector3 vel = rb.velocity;
+        //    vel.y = stats.jumpPower;
+        //    rb.velocity = vel;
+        //}
+    }
+
+    public override void OnDamage(int num)
+    {
+        if (destructable)
         {
-            Vector3 vel = rb.velocity;
-            vel.y = stats.jumpPower;
-            rb.velocity = vel;
+            currentHealth -= num;
+        }
+        if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.FPS)
+        {
+            OnDeath();
+        }
+    }
+
+    public override void OnDamage(int num, Entity culprit)
+    {
+        Debug.Log("DAMAGE: " + num);
+        if (destructable)
+        {
+            currentHealth -= num;
+        }
+        if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.FPS)
+        {
+            OnDeath();
         }
     }
 }

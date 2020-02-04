@@ -505,7 +505,9 @@ namespace RTSInput
 
         //check the activity of all objects
         private void CheckActivity() {
-            foreach (Entity obj in InputManager.Instance.SelectedEntities) {
+            for (int counter = InputManager.Instance.SelectedEntities.Count-1; counter >= 0; counter--) {
+                Entity obj = InputManager.Instance.SelectedEntities[counter];
+
                 if (!obj.gameObject.activeSelf) {
                     //remove if not active
                     InputManager.Instance.SelectedEntities.Remove(obj);

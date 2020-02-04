@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using Netcode;
 using UnityEngine;
 
 public enum TurretState
@@ -162,7 +164,9 @@ public class Turret : Entity
                             muzzle.Play();
                             if (HitPlayer())
                             {
-                                attackPoint.OnDamage(attackDamage, this);
+                                Debug.Log("Hit Player");
+                                NetworkManager.SendEnvironmentalDamage(attackDamage, attackPoint.id, this.id);
+                                //attackPoint.OnDamage(attackDamage, this);
                             }
                             currentAmno--;
                             state = TurretState.Recoil;
@@ -198,7 +202,8 @@ public class Turret : Entity
 
                             if (HitPlayer())
                             {
-                                attackPoint.OnDamage(attackDamage, this);
+                                    NetworkManager.SendEnvironmentalDamage(attackDamage, attackPoint.id, this.id);
+                                    //attackPoint.OnDamage(attackDamage, this);
                             }
                             currentAmno--;
                             state = TurretState.Recoil;
@@ -279,8 +284,8 @@ public class Turret : Entity
                 Vector3 newDir = Vector3.RotateTowards(head.transform.forward, targetDir, step, 0.0f);
 
                 // Move our position a step closer to the target.
-                head.transform.rotation = Quaternion.LookRotation(newDir);
                 body.transform.rotation = Quaternion.LookRotation(new Vector3(newDir.x, 0, newDir.z).normalized);
+                head.transform.rotation = Quaternion.LookRotation(newDir);
 
             }
 
@@ -306,6 +311,9 @@ public class Turret : Entity
 
     private bool HitPlayer()
     {
+        Debug.Log("Hiting Player");
+
+
         if (Physics.Raycast(head.transform.position, head.transform.forward, out hit, maxRange, turretLayerMask))
         {
             Entity hitEntity = hit.transform.GetComponent<Entity>();
@@ -318,7 +326,7 @@ public class Turret : Entity
                 hitWall.OnDamage(attackDamage, this);
                 return false;
             }
-            else if (hit.transform.gameObject.tag == "Entity" && hitEntity.type == EntityType.Player)
+            else if (hit.transform.gameObject.tag == "Player" && (hitEntity.type == EntityType.Player || hitEntity.type == EntityType.Dummy))
             {
                 return true;
             }
@@ -333,4 +341,37 @@ public class Turret : Entity
 
     }
 
+
+    public override void GetEntityString(ref StringBuilder dataToSend)
+    {
+        dataToSend.Append(id);
+        dataToSend.Append(",");
+
+        //send object positions
+        dataToSend.Append(transform.position.x);
+        dataToSend.Append(",");
+        dataToSend.Append(transform.position.y);
+        dataToSend.Append(",");
+        dataToSend.Append(transform.position.z);
+        dataToSend.Append(",");
+
+        dataToSend.Append(head.transform.rotation.eulerAngles.x);
+        dataToSend.Append(",");
+        dataToSend.Append(head.transform.rotation.eulerAngles.y);
+        dataToSend.Append(",");
+        dataToSend.Append(head.transform.rotation.eulerAngles.z);
+        dataToSend.Append(",");
+    }
+
+    public override void UpdateEntityStats(EntityData ed)
+    {
+        Vector3 localRot = head.transform.localRotation.eulerAngles;
+        localRot.x = ed.rotation.x;
+        head.transform.localRotation = Quaternion.Euler(localRot);
+        localRot = body.transform.localRotation.eulerAngles;
+        localRot.y = ed.rotation.y;
+        body.transform.localRotation = Quaternion.Euler(localRot);
+
+        Debug.Log("BEAUTIFUL! " + id);
+    }
 }

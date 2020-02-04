@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Netcode;
+using System;
+using System.Text;
 
 public enum EntityType
 {
@@ -64,7 +66,7 @@ public abstract class Entity : MonoBehaviour
 
         }
         //set id
-        id = ++idtracker;
+        id = idtracker++;
         indexedList.Add(this);
         BaseStart();
     }
@@ -112,12 +114,8 @@ public abstract class Entity : MonoBehaviour
         BaseDeselected();
         if (isRTS)
         {
-
             selected = false;
             selectedHalo.enabled = false;
-        }
-        else {
-            Debug.LogError("Selection is disabled");
         }
     }
 
@@ -145,7 +143,7 @@ public abstract class Entity : MonoBehaviour
         {
             currentHealth -= num;
         }
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.RTS)
         {
             OnDeath();
         }
@@ -156,7 +154,7 @@ public abstract class Entity : MonoBehaviour
         {
             currentHealth -= num;
         }
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.RTS)
         {
             OnDeath();
         }
@@ -203,4 +201,10 @@ public abstract class Entity : MonoBehaviour
     public virtual void BaseDeselected() { }
 
 
+    public virtual void GetEntityString(ref StringBuilder dataToSend) {  }
+
+    public virtual void UpdateEntityStats(EntityData ed) {
+        
+        
+    }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2265905861989699836}
   m_Layer: 0
   m_Name: Gun 2
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,6 +57,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -100,6 +101,8 @@ MonoBehaviour:
     autofire: 1
     gunType: 1
     snapToCameraTarget: 1
+  shotFlash: {fileID: 0}
+  playing: 0
 --- !u!114 &2265905861989699836
 MonoBehaviour:
   m_ObjectHideFlags: 0

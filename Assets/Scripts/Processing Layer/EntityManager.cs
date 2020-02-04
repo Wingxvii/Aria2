@@ -63,14 +63,21 @@ public class EntityManager : MonoBehaviour
 
         }
 
-
+        SpawnManager.Instance.Initialize();
 
         SpawnManager.Instance.Initialize();
 
         //create all lists
-        AllEntities = new List<Entity>();
         ActiveEntitiesByType = new List<List<Entity>>();
         DeactivatedEntitiesByType = new List<Queue<Entity>>();
+
+
+
+        //create a list per type
+        for (int counter = 0; counter < (int)EntityType.TOTAL; counter++) {
+            ActiveEntitiesByType.Add(new List<Entity>());
+            DeactivatedEntitiesByType.Add(new Queue<Entity>());
+        }
 
         if (AllEntities.Count > 0)
         {
@@ -83,12 +90,6 @@ public class EntityManager : MonoBehaviour
             }
         }
 
-
-        //create a list per type
-        for (int counter = 0; counter < (int)EntityType.TOTAL; counter++) {
-            ActiveEntitiesByType.Add(new List<Entity>());
-            DeactivatedEntitiesByType.Add(new Queue<Entity>());
-        }
 
         //create Layermasks
         staticsMask = LayerMask.GetMask("Background");
@@ -111,7 +112,7 @@ public class EntityManager : MonoBehaviour
             temp = GetNewEntity(spawnType[i]);
 
             //temp.transform.position = new Vector3(-10f, 0.5f, -10f);
-            AllEntities.Add(temp);
+            //AllEntities.Add(temp);
             ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
         }
 
@@ -135,6 +136,13 @@ public class EntityManager : MonoBehaviour
 
 
     }
+    
+    private void FixedUpdate()
+    {
+        if (ActiveEntitiesByType[(int)EntityType.Turret].Count + ActiveEntitiesByType[(int)EntityType.Droid].Count > 0
+            && GameSceneController.Instance.type == PlayerType.RTS)
+            NetworkManager.SendEntityPositions();
+    }
 
     //returns an avaliable entity from pool or newly instantiated, if none are avaliable
     public Entity GetNewEntity(EntityType type) {
@@ -144,12 +152,12 @@ public class EntityManager : MonoBehaviour
             Entity returnEntity = DeactivatedEntitiesByType[(int)type].Dequeue();
             returnEntity.OnActivate();
 
-            NetworkManager.SendBuildEntity(returnEntity);
-
             return returnEntity;
         }
         else {
-            return CreateEntity(type);
+            Entity returnEntity = CreateEntity(type);
+
+            return returnEntity;
         }
     }
     //deactivates an entity: DO NOT USE
