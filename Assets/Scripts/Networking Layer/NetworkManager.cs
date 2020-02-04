@@ -497,6 +497,25 @@ namespace Netcode
                     }
                     break;
 
+                case PacketType.PLAYERDAMAGE:
+
+                    if (parsedData.Length == 3)
+                    {
+                        Tuple<int, int> temp = Tuple.Create(int.Parse(parsedData[1]), int.Parse(parsedData[2]));
+
+                        lock (dataState)
+                        {
+                            dataState.DamageDealt.Enqueue(temp);
+                        }
+
+                        Debug.Log(parsedData[1] + ", " + parsedData[2]);
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Error: Invalid DAMAGEDEALT Parsed Array Size");
+                    }
+                    break;
+
                 default:
                     Debug.LogWarning("Error: Invalid Datatype recieved:" + type.ToString());
 
@@ -684,6 +703,22 @@ namespace Netcode
             dataToSend.Append(damage);
             dataToSend.Append(",");
             dataToSend.Append(victim);
+
+            if (!SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client))
+            {
+                Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
+            }
+        }
+
+        public static void SendEnvironmentalDamage(int damage, int victim, int damager)
+        {
+            StringBuilder dataToSend = new StringBuilder();
+
+            dataToSend.Append(victim);
+            dataToSend.Append(",");
+            dataToSend.Append(damage);
+            dataToSend.Append(",");
+            dataToSend.Append(damager);
 
             if (!SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client))
             {
