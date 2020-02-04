@@ -164,7 +164,7 @@ public class Turret : Entity
                             muzzle.Play();
                             if (HitPlayer())
                             {
-                                NetworkManager.SendDamage(attackDamage, this.id, attackPoint.id);
+                                NetworkManager.SendDamage(attackDamage, attackPoint.id, this.id);
                                 //attackPoint.OnDamage(attackDamage, this);
                             }
                             currentAmno--;
@@ -201,7 +201,7 @@ public class Turret : Entity
 
                             if (HitPlayer())
                             {
-                                    NetworkManager.SendDamage(attackDamage, this.id, attackPoint.id);
+                                    NetworkManager.SendDamage(attackDamage, attackPoint.id, this.id);
                                     //attackPoint.OnDamage(attackDamage, this);
                             }
                             currentAmno--;

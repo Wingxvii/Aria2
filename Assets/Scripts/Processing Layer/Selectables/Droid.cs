@@ -211,7 +211,7 @@ public class Droid : Entity
     {
         if (currentCoolDown <= 0.0f)
         {
-            NetworkManager.SendDamage(attackDamage, this.id, attackPoint.id);
+            NetworkManager.SendDamage(attackDamage, attackPoint.id, this.id);
             //attackPoint.OnDamage(attackDamage, this);
             currentCoolDown = coolDown;
         }

@@ -675,15 +675,15 @@ namespace Netcode
         }
 
         //send damaged player
-        public static void SendDamage(int damage, int player, int culprit)
+        public static void SendDamage(int damage, int damager, int victim)
         {
             StringBuilder dataToSend = new StringBuilder();
 
-            dataToSend.Append(player);
+            dataToSend.Append(damager);
             dataToSend.Append(",");
             dataToSend.Append(damage);
             dataToSend.Append(",");
-            dataToSend.Append(culprit);
+            dataToSend.Append(victim);
 
             if (!SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client))
             {
