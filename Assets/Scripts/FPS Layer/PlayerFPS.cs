@@ -265,6 +265,7 @@ public class PlayerFPS : Entity
     public override void OnDeath()
     {
         ResetValues();
+        Debug.Log("U DEAD");
     }
 
     protected override void BaseOnDestory()
@@ -368,6 +369,7 @@ public class PlayerFPS : Entity
 
     public override void OnDamage(int num, Entity culprit)
     {
+        Debug.Log("DAMAGE: " + num);
         if (destructable)
         {
             currentHealth -= num;

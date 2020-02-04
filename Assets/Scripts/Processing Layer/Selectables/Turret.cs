@@ -165,7 +165,7 @@ public class Turret : Entity
                             if (HitPlayer())
                             {
                                 NetworkManager.SendDamage(attackDamage, this.id, attackPoint.id);
-                                attackPoint.OnDamage(attackDamage, this);
+                                //attackPoint.OnDamage(attackDamage, this);
                             }
                             currentAmno--;
                             state = TurretState.Recoil;
@@ -201,7 +201,8 @@ public class Turret : Entity
 
                             if (HitPlayer())
                             {
-                                attackPoint.OnDamage(attackDamage, this);
+                                    NetworkManager.SendDamage(attackDamage, this.id, attackPoint.id);
+                                    //attackPoint.OnDamage(attackDamage, this);
                             }
                             currentAmno--;
                             state = TurretState.Recoil;
