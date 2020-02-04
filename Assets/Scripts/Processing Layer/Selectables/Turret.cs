@@ -281,8 +281,8 @@ public class Turret : Entity
                 Vector3 newDir = Vector3.RotateTowards(head.transform.forward, targetDir, step, 0.0f);
 
                 // Move our position a step closer to the target.
-                head.transform.rotation = Quaternion.LookRotation(newDir);
                 body.transform.rotation = Quaternion.LookRotation(new Vector3(newDir.x, 0, newDir.z).normalized);
+                head.transform.rotation = Quaternion.LookRotation(newDir);
 
             }
 
