@@ -203,18 +203,21 @@ namespace Netcode
             //update damage
             while (dataState.DamageDealt.Count > 0)
             {
-
+                //Debug.Log("WAITING...");
                 //rts damage calculation
-                if (playerNumber == 0)
+                if (GameSceneController.Instance.type == PlayerType.RTS)
                 {
+                    //Debug.Log("NO!");
                     Tuple<int, int> damage = dataState.DamageDealt.Dequeue();
 
                     EntityManager.Instance.AllEntities[damage.Item2].OnDamage(damage.Item1);
                 }
                 else
                 {
+                    //Debug.Log("YEAH!");
                     Tuple<int, int> damage = dataState.DamageDealt.Dequeue();
-
+                    //Debug.Log("PLAYER NUMBER: " + GetPlayerNumber(Client));
+                    //Debug.Log(EntityManager.Instance.AllEntities[GetPlayerNumber(Client)].name);
                     EntityManager.Instance.AllEntities[GetPlayerNumber(Client)].OnDamage(damage.Item1);
                 }
             }

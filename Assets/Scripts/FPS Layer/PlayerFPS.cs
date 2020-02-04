@@ -367,6 +367,18 @@ public class PlayerFPS : Entity
         //}
     }
 
+    public override void OnDamage(int num)
+    {
+        if (destructable)
+        {
+            currentHealth -= num;
+        }
+        if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.FPS)
+        {
+            OnDeath();
+        }
+    }
+
     public override void OnDamage(int num, Entity culprit)
     {
         Debug.Log("DAMAGE: " + num);
