@@ -114,12 +114,8 @@ public abstract class Entity : MonoBehaviour
         BaseDeselected();
         if (isRTS)
         {
-
             selected = false;
             selectedHalo.enabled = false;
-        }
-        else {
-            Debug.LogError("Selection is disabled");
         }
     }
 
@@ -147,7 +143,7 @@ public abstract class Entity : MonoBehaviour
         {
             currentHealth -= num;
         }
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.RTS)
         {
             OnDeath();
         }

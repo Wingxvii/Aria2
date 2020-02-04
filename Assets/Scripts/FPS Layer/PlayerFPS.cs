@@ -368,6 +368,13 @@ public class PlayerFPS : Entity
 
     public override void OnDamage(int num, Entity culprit)
     {
-        Netcode.NetworkManager.SendDamage(num, this.id, culprit.id);
+        if (destructable)
+        {
+            currentHealth -= num;
+        }
+        if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.FPS)
+        {
+            OnDeath();
+        }
     }
 }
