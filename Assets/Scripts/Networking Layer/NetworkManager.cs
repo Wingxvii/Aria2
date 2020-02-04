@@ -188,7 +188,7 @@ namespace Netcode
             {
                 if (kvp.Value.updated)
                 {
-                    Debug.Log("UPDATING POSITION FOR " + kvp.Key);
+                    Debug.Log("UPDATING POSITION FOR " + kvp.Key + "/" + EntityManager.Instance.AllEntities.Count);
                     kvp.Value.updated = false;
                     Entity temp = EntityManager.Instance.AllEntities[kvp.Key];
                     Debug.Log(temp.name);
@@ -458,6 +458,8 @@ namespace Netcode
                         {
                             dataState.BuildEntity.Enqueue(temp);
                         }
+
+                        Debug.Log("BUILT: " + parsedData[0]);
                     }
                     else
                     {

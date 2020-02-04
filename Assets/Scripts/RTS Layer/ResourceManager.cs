@@ -225,6 +225,8 @@ public class ResourceManager : MonoBehaviour
                     Droid temp = (Droid)EntityManager.Instance.GetNewEntity(EntityType.Droid);
                     temp.gameObject.transform.position = home.position;
                     temp.IssueLocation(rally);
+                    if (GameSceneController.Instance.type == PlayerType.RTS)
+                        Netcode.NetworkManager.SendBuildEntity(temp);
                     break;
                 default:
                     Debug.Log("ERROR: DROID TYPE INVALID");
