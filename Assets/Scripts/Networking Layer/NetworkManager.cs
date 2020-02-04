@@ -205,13 +205,18 @@ namespace Netcode
             {
 
                 //rts damage calculation
-                //if (playerNumber == 0)
-                //{
+                if (playerNumber == 0)
+                {
                     Tuple<int, int> damage = dataState.DamageDealt.Dequeue();
 
                     EntityManager.Instance.AllEntities[damage.Item2].OnDamage(damage.Item1);
-                //}
+                }
+                else
+                {
+                    Tuple<int, int> damage = dataState.DamageDealt.Dequeue();
 
+                    EntityManager.Instance.AllEntities[GetPlayerNumber(Client)].OnDamage(damage.Item1);
+                }
             }
 
             while (dataState.KilledEntity.Count > 0)
