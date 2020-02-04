@@ -193,7 +193,7 @@ public class Droid : Entity
     }
     public override void IssueAttack(Entity attackee)
     {
-        if (attackee.type == EntityType.Player)
+        if (attackee.type == EntityType.Player || attackee.type == EntityType.Dummy)
         {
             state = DroidState.TargetAttacking;
             attackPoint = attackee;
@@ -218,7 +218,7 @@ public class Droid : Entity
     }
     private void OnTriggerStay(Collider other)
     {
-        if (GameSceneController.Instance.type == PlayerType.RTS && other.tag == "Entity" && other.gameObject.GetComponent<Entity>().type == EntityType.Player)
+        if (GameSceneController.Instance.type == PlayerType.RTS && other.tag == "Player" && (other.gameObject.GetComponent<Entity>().type == EntityType.Player || other.gameObject.GetComponent<Entity>().type == EntityType.Dummy))
         {
             if (state != DroidState.AttackMoving && state != DroidState.Moving && state != DroidState.TargetAttacking)
             {

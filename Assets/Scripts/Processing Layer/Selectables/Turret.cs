@@ -164,6 +164,7 @@ public class Turret : Entity
                             muzzle.Play();
                             if (HitPlayer())
                             {
+                                Debug.Log("Hit Player");
                                 NetworkManager.SendEnvironmentalDamage(attackDamage, attackPoint.id, this.id);
                                 //attackPoint.OnDamage(attackDamage, this);
                             }
@@ -310,6 +311,9 @@ public class Turret : Entity
 
     private bool HitPlayer()
     {
+        Debug.Log("Hiting Player");
+
+
         if (Physics.Raycast(head.transform.position, head.transform.forward, out hit, maxRange, turretLayerMask))
         {
             Entity hitEntity = hit.transform.GetComponent<Entity>();
@@ -322,7 +326,7 @@ public class Turret : Entity
                 hitWall.OnDamage(attackDamage, this);
                 return false;
             }
-            else if (hit.transform.gameObject.tag == "Entity" && hitEntity.type == EntityType.Player)
+            else if (hit.transform.gameObject.tag == "Player" && (hitEntity.type == EntityType.Player || hitEntity.type == EntityType.Dummy))
             {
                 return true;
             }

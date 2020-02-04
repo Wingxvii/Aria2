@@ -13,6 +13,8 @@ public class StartManager : MonoBehaviour
         GameSceneController.Instance.IP = ipText.text;
         NetworkManager.ConnectToServer(GameSceneController.Instance.IP);
         GameSceneController.Instance.SwapScene(2);
+        GameSceneController.Instance.type = PlayerType.RTS;
+
     }
     public void FPSStart()
     {

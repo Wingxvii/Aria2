@@ -286,9 +286,9 @@ GameObject:
   - component: {fileID: 7413754255273287847}
   - component: {fileID: 7413754255273287844}
   - component: {fileID: 7413754255273287837}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Dummy
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -331,6 +331,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -396,6 +397,7 @@ MonoBehaviour:
     friction: 500
     aerialDrag: 0
     state: 1
+    disableManualControl: 0
 --- !u!114 &7413754255273287847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,7 +454,7 @@ GameObject:
   - component: {fileID: 7413754255766409854}
   - component: {fileID: 7413754255766409855}
   - component: {fileID: 7413754255766409852}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -549,7 +551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7413754256360506474}
   - component: {fileID: 7413754256360506469}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,10 +598,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7413754256360506474}
     m_Modifications:
-    - target: {fileID: 4860980200632401359, guid: 5ac25e1d0ca576545835600376313c25,
+    - target: {fileID: 4860980200530691410, guid: 5ac25e1d0ca576545835600376313c25,
         type: 3}
-      propertyPath: m_Name
-      value: Gun 1
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4860980200632401356, guid: 5ac25e1d0ca576545835600376313c25,
         type: 3}
@@ -656,6 +658,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4860980200632401359, guid: 5ac25e1d0ca576545835600376313c25,
+        type: 3}
+      propertyPath: m_Name
+      value: Gun 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860980200632401359, guid: 5ac25e1d0ca576545835600376313c25,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ac25e1d0ca576545835600376313c25, type: 3}
 --- !u!4 &7413754255233245119 stripped
@@ -671,10 +683,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7413754256360506474}
     m_Modifications:
+    - target: {fileID: 2670614420701488051, guid: 32c365985acbb8742861f1744e3611f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2670614421333482921, guid: 32c365985acbb8742861f1744e3611f5,
         type: 3}
       propertyPath: m_Name
       value: Gun 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670614421333482921, guid: 32c365985acbb8742861f1744e3611f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2670614421333482922, guid: 32c365985acbb8742861f1744e3611f5,
         type: 3}
@@ -751,6 +773,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2265905861989699834, guid: c17e5196b3c53a64c9db2850e426f279,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2265905861989699835, guid: c17e5196b3c53a64c9db2850e426f279,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -805,6 +832,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265905862151477143, guid: c17e5196b3c53a64c9db2850e426f279,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c17e5196b3c53a64c9db2850e426f279, type: 3}

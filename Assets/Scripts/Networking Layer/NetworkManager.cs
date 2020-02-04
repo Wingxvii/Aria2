@@ -629,7 +629,7 @@ namespace Netcode
                 dataToSend.Remove(dataToSend.Length - 1, 1);
             }
 
-            Debug.Log(dataToSend);
+            //Debug.Log(dataToSend);
 
             if (!SendData((int)PacketType.ENTITYDATA, dataToSend.ToString(), false, Client))
             {
@@ -720,7 +720,7 @@ namespace Netcode
             dataToSend.Append(",");
             dataToSend.Append(damager);
 
-            if (!SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client))
+            if (!SendData((int)PacketType.PLAYERDAMAGE, dataToSend.ToString(), true, Client))
             {
                 Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
             }
