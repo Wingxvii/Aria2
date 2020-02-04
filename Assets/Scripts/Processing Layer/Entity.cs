@@ -158,7 +158,7 @@ public abstract class Entity : MonoBehaviour
         {
             currentHealth -= num;
         }
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.RTS)
         {
             OnDeath();
         }

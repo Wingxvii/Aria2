@@ -216,9 +216,8 @@ namespace Netcode
 
             while (dataState.KilledEntity.Count > 0)
             {
-
-                dataState.KilledEntity.Dequeue();
-
+                if (GameSceneController.Instance.type == PlayerType.FPS)
+                    EntityManager.Instance.AllEntities[dataState.KilledEntity.Dequeue()].OnDeActivate();
             }
 
             while (dataState.BuildEntity.Count > 0)

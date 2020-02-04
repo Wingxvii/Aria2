@@ -278,6 +278,7 @@ public class PlayerFPS : Entity
     {
         if (Netcode.NetworkManager.isConnected)
             Netcode.NetworkManager.SendDamage(damage, this.id, receiver.id);
+        receiver.OnDamage(damage, this);
     }
 
     private void OnCollisionStay(Collision collision)
