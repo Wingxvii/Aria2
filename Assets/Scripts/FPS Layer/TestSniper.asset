@@ -17,7 +17,7 @@ MonoBehaviour:
     accReduc: 0
     dmg: 50
     RoF: 0.5
-    clip: 10
+    clip: 5
     projNum: 1
     gunShot: {fileID: 0}
     barrelPos1: {fileID: 0}
