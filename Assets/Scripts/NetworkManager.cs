@@ -106,10 +106,12 @@ namespace Netcode
 
         int fixedTimeStep;
         public static DataState dataState;
+        public static FirearmHandler[] firearms = new FirearmHandler[3];
         //bool isConnected = false;
 
         void Awake()
         {
+            //firearms = new FirearmHandler[3];
             fixedTimeStep = (int)(1f / Time.fixedDeltaTime);
 
             if (GameSceneController.Instance != null && GameSceneController.Instance.IP != "")
@@ -166,21 +168,33 @@ namespace Netcode
                 dataState.p1.updated = false;
 
                 PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[1];
-                player.SendUpdate(dataState.p1.position, dataState.p1.rotation, dataState.p1.state, dataState.p1.weapon);
+                if (player.type == EntityType.Dummy)
+                {
+                    firearms[0].NetworkingUpdate(dataState.p1.state);
+                    player.SendUpdate(dataState.p1.position, dataState.p1.rotation, dataState.p1.state);
+                }
             }
             if (dataState.p2.updated)
             {
                 dataState.p2.updated = false;
 
                 PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[2];
-                player.SendUpdate(dataState.p2.position, dataState.p2.rotation, dataState.p2.state, dataState.p2.weapon);
+                if (player.type == EntityType.Dummy)
+                {
+                    firearms[1].NetworkingUpdate(dataState.p2.state);
+                    player.SendUpdate(dataState.p2.position, dataState.p2.rotation, dataState.p2.state);
+                }
             }
             if (dataState.p3.updated)
             {
                 dataState.p3.updated = false;
 
                 PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[3];
-                player.SendUpdate(dataState.p3.position, dataState.p3.rotation, dataState.p3.state, dataState.p3.weapon);
+                if (player.type == EntityType.Dummy)
+                {
+                    firearms[2].NetworkingUpdate(dataState.p3.state);
+                    player.SendUpdate(dataState.p3.position, dataState.p3.rotation, dataState.p3.state);
+                }
             }
 
             Debug.Log(dataState.entityUpdates.Count);

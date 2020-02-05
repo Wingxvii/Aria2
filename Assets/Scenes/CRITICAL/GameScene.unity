@@ -1380,7 +1380,7 @@ MonoBehaviour:
     m_Bits: 63488
   droidPrefab: {fileID: 4037481489312127328, guid: 4ef75879c87c1124c9f1ababa0166f0e,
     type: 3}
-  playerPrefab: {fileID: 7413754255273287845, guid: 8922e99898efa994c86d2ce153442601,
+  playerPrefab: {fileID: 4720113362179397652, guid: f0ad8c456ae01f44d99f9aed69661744,
     type: 3}
   wallPrefab: {fileID: 5312696359181907221, guid: 291c3751be750c543bea7848f2ee38bf,
     type: 3}

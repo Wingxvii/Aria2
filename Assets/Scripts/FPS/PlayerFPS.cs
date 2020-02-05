@@ -306,22 +306,24 @@ public class PlayerFPS : Entity
         //Debug.Log("STILL HERE");
     }
 
-    public void SendUpdate(Vector3 pos, Vector3 rot, int state, int weapon)
+    //public void SendUpdate(Vector3 pos, Vector3 rot, int state, int weapon)
+    public void SendUpdate(Vector3 pos, Vector3 rot, int state)
     {
         if (GameSceneController.Instance.type == PlayerType.FPS)
         {
-            UniversalUpdate(pos, rot, state, weapon);
+            UniversalUpdate(pos, rot, state);
 
         }
         else if (GameSceneController.Instance.type == PlayerType.RTS)
         {
 
-            UniversalUpdate(pos, rot, state, weapon);
+            UniversalUpdate(pos, rot, state);
         }
 
     }
 
-    void UniversalUpdate(Vector3 pos, Vector3 rot, int state, int weapon)
+    //void UniversalUpdate(Vector3 pos, Vector3 rot, int state, int weapon)
+    void UniversalUpdate(Vector3 pos, Vector3 rot, int state)
     {
         //Debug.Log(pos + " , " + rot + ", " + state);
         if (!stats.disableManualControl)
@@ -339,13 +341,13 @@ public class PlayerFPS : Entity
         }
         stats.state = state;
 
-        if (weapon != selectedGun)
-        {
-            mainGun.gameObject.SetActive(false);
-            selectedGun = weapon;
-            mainGun = guns[selectedGun];
-            mainGun.gameObject.SetActive(true);
-        }
+        //if (weapon != selectedGun)
+        //{
+        //    mainGun.gameObject.SetActive(false);
+        //    selectedGun = weapon;
+        //    mainGun = guns[selectedGun];
+        //    mainGun.gameObject.SetActive(true);
+        //}
 
         if ((state & (int)PlayerStats.PlayerState.Shooting) > 0)
         {
