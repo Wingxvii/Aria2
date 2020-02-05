@@ -170,7 +170,7 @@ namespace Netcode
                 PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[1];
                 if (player.type == EntityType.Dummy)
                 {
-                    firearms[0].NetworkingUpdate(dataState.p1.state);
+                    firearms[0].NetworkingUpdate(dataState.p1.weapon);
                     player.SendUpdate(dataState.p1.position, dataState.p1.rotation, dataState.p1.state);
                 }
             }
@@ -181,7 +181,7 @@ namespace Netcode
                 PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[2];
                 if (player.type == EntityType.Dummy)
                 {
-                    firearms[1].NetworkingUpdate(dataState.p2.state);
+                    firearms[1].NetworkingUpdate(dataState.p2.weapon);
                     player.SendUpdate(dataState.p2.position, dataState.p2.rotation, dataState.p2.state);
                 }
             }
@@ -192,7 +192,7 @@ namespace Netcode
                 PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[3];
                 if (player.type == EntityType.Dummy)
                 {
-                    firearms[2].NetworkingUpdate(dataState.p3.state);
+                    firearms[2].NetworkingUpdate(dataState.p3.weapon);
                     player.SendUpdate(dataState.p3.position, dataState.p3.rotation, dataState.p3.state);
                 }
             }

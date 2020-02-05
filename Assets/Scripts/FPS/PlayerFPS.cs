@@ -349,20 +349,20 @@ public class PlayerFPS : Entity
         //    mainGun.gameObject.SetActive(true);
         //}
 
-        if ((state & (int)PlayerStats.PlayerState.Shooting) > 0)
-        {
-            if (!mainGun.playing)
-            {
-                mainGun.StartPlaying();
-            }
-        }
-        else
-        {
-            if (mainGun.playing)
-            {
-                mainGun.StopPlaying();
-            }
-        }
+        //if ((state & (int)PlayerStats.PlayerState.Shooting) > 0)
+        //{
+        //    if (!mainGun.playing)
+        //    {
+        //        mainGun.StartPlaying();
+        //    }
+        //}
+        //else
+        //{
+        //    if (mainGun.playing)
+        //    {
+        //        mainGun.StopPlaying();
+        //    }
+        //}
 
         //if ((state & (int)PlayerStats.PlayerState.Jumping) > 0)
         //{

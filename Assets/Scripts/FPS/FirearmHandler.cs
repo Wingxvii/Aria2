@@ -88,8 +88,12 @@ public class FirearmHandler : MonoBehaviour
 
     public void NetworkingUpdate(int weapon)
     {
-        activeGun = slots[weapon];
-        updateWeapon();
+        if (activeGun != slots[weapon])
+        {
+            Debug.Log(weapon);
+            activeGun = slots[weapon];
+            updateWeapon();
+        }
     }
 
 	void reload()
