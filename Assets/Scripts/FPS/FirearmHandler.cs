@@ -90,7 +90,7 @@ public class FirearmHandler : MonoBehaviour
     {
         if (activeGun != slots[weapon])
         {
-            Debug.Log(weapon);
+            //Debug.Log(weapon);
             activeGun = slots[weapon];
             updateWeapon();
         }

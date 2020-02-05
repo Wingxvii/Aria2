@@ -507,6 +507,7 @@ MonoBehaviour:
     aerialDrag: 0
     state: 1
     disableManualControl: 0
+  playerGun: {fileID: 1579262126802258333}
 --- !u!114 &4720113362179397654
 MonoBehaviour:
   m_ObjectHideFlags: 0

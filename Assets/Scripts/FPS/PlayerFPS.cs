@@ -55,6 +55,8 @@ public class PlayerFPS : Entity
 
     public static LayerMask playerLayer { get; private set; }
 
+    public FirearmHandler playerGun;
+
     private void Awake()
     {
         BaseAwake();
@@ -306,24 +308,22 @@ public class PlayerFPS : Entity
         //Debug.Log("STILL HERE");
     }
 
-    //public void SendUpdate(Vector3 pos, Vector3 rot, int state, int weapon)
-    public void SendUpdate(Vector3 pos, Vector3 rot, int state)
+    public void SendUpdate(Vector3 pos, Vector3 rot, int state, int weapon)
     {
         if (GameSceneController.Instance.type == PlayerType.FPS)
         {
-            UniversalUpdate(pos, rot, state);
+            UniversalUpdate(pos, rot, state, weapon);
 
         }
         else if (GameSceneController.Instance.type == PlayerType.RTS)
         {
 
-            UniversalUpdate(pos, rot, state);
+            UniversalUpdate(pos, rot, state, weapon);
         }
 
     }
 
-    //void UniversalUpdate(Vector3 pos, Vector3 rot, int state, int weapon)
-    void UniversalUpdate(Vector3 pos, Vector3 rot, int state)
+    void UniversalUpdate(Vector3 pos, Vector3 rot, int state, int weapon)
     {
         //Debug.Log(pos + " , " + rot + ", " + state);
         if (!stats.disableManualControl)
@@ -340,6 +340,8 @@ public class PlayerFPS : Entity
             p.StrictRotate(rot);
         }
         stats.state = state;
+
+        playerGun.NetworkingUpdate(weapon);
 
         //if (weapon != selectedGun)
         //{
