@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Placeholder
   m_EditorClassIdentifier: 
   gunStats:
-    accuracy: 0
+    accuracy: 1
     accReduc: 0
     dmg: 0
     RoF: 0
