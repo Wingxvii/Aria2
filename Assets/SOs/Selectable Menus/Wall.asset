@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eac33c0383d32844989b08c008628a6, type: 3}
+  m_Name: Wall
+  m_EditorClassIdentifier: 
+  name: Wall
+  unitPortrait: {fileID: 21300000, guid: 79bf5608544ccbc4fb576423df3a45ed, type: 3}
+  useActionQueue: 0
+  actions: []
