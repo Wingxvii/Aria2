@@ -63,7 +63,8 @@ public abstract class Entity : MonoBehaviour
         }
         else if (GameSceneController.Instance.type == PlayerType.FPS) {
             //clean up unwanted items
-
+            canvasTransform = this.transform.Find("Canvas").GetComponent<RectTransform>();
+            Destroy(canvasTransform);
         }
         //set id
         id = idtracker++;
