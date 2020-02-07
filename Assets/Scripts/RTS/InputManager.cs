@@ -151,8 +151,8 @@ namespace RTSInput
             //check activity
             CheckActivity();
 
-            //handle selection changes
-            HandleSelectionChanges();
+            //handle selection changes #depricated in commit e27ca50f5208e5b2c054ff258cac52ef5b323323
+            //HandleSelectionChanges();
 
             //check validity of current blueprint
             CheckValidity();
@@ -524,6 +524,7 @@ namespace RTSInput
         //handles changes in selection
         private void HandleSelectionChanges()
         {
+
             //if flag is activated do operations
             if (selectionChanged)
             {

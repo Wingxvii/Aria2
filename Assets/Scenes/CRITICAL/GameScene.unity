@@ -231,7 +231,7 @@ MonoBehaviour:
   gameStart: 1
   loadedScene: 1
   IP: 
-  type: 2
+  type: 0
   gameState: 0
 --- !u!4 &574309900
 Transform:
@@ -309,7 +309,7 @@ PrefabInstance:
     - target: {fileID: 7294929357667836661, guid: 291c3751be750c543bea7848f2ee38bf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 3.56
       objectReference: {fileID: 0}
     - target: {fileID: 7294929357667836661, guid: 291c3751be750c543bea7848f2ee38bf,
         type: 3}
