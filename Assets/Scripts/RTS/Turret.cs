@@ -92,10 +92,7 @@ public class Turret : Entity
     protected override void BaseFixedUpdate()
     {
 
-        if (GameSceneController.Instance.type == PlayerType.FPS)
-        {
-        }
-        else if (GameSceneController.Instance.type == PlayerType.RTS)
+    if (GameSceneController.Instance.type == PlayerType.RTS)
         {
 
 
@@ -267,32 +264,20 @@ public class Turret : Entity
     }
     protected override void BaseUpdate()
     {
-        if (GameSceneController.Instance.type == PlayerType.FPS)
+        Vector3 targetDir = new Vector3(faceingPoint.x - head.transform.position.x, faceingPoint.y - head.transform.position.y, faceingPoint.z - head.transform.position.z);
+
+        // The step size is equal to speed times frame time.
+        float step = rotateSpeed * Time.deltaTime;
+
+        Vector3 newDir = Vector3.RotateTowards(head.transform.forward, targetDir, step, 0.0f);
+
+        // Move our position a step closer to the target.
+        body.transform.rotation = Quaternion.LookRotation(new Vector3(newDir.x, 0, newDir.z).normalized);
+        head.transform.rotation = Quaternion.LookRotation(newDir);
+
+        if (reloadTimer >= 0.0f)
         {
-        }
-        else if (GameSceneController.Instance.type == PlayerType.RTS)
-        {
-
-
-            if (state != TurretState.Idle)
-            {
-                Vector3 targetDir = new Vector3(faceingPoint.x - head.transform.position.x, faceingPoint.y - head.transform.position.y, faceingPoint.z - head.transform.position.z);
-
-                // The step size is equal to speed times frame time.
-                float step = rotateSpeed * Time.deltaTime;
-
-                Vector3 newDir = Vector3.RotateTowards(head.transform.forward, targetDir, step, 0.0f);
-
-                // Move our position a step closer to the target.
-                body.transform.rotation = Quaternion.LookRotation(new Vector3(newDir.x, 0, newDir.z).normalized);
-                head.transform.rotation = Quaternion.LookRotation(newDir);
-
-            }
-
-            if (reloadTimer >= 0.0f)
-            {
-                reloadTimer -= Time.deltaTime;
-            }
+            reloadTimer -= Time.deltaTime;
         }
     }
     public override void IssueAttack(Entity attackee)
@@ -365,13 +350,6 @@ public class Turret : Entity
 
     public override void UpdateEntityStats(EntityData ed)
     {
-        Vector3 localRot = head.transform.localRotation.eulerAngles;
-        localRot.x = ed.rotation.x;
-        head.transform.localRotation = Quaternion.Euler(localRot);
-        localRot = body.transform.localRotation.eulerAngles;
-        localRot.y = ed.rotation.y;
-        body.transform.localRotation = Quaternion.Euler(localRot);
-
-        Debug.Log("BEAUTIFUL! " + id);
+        faceingPoint = ed.rotation;
     }
 }
