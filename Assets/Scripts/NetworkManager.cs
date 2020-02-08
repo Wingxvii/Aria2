@@ -216,101 +216,102 @@ namespace Netcode
             }
             #endregion
 
-            if (isConnected) { 
-            //update players
-            if (dataState.p1.updated)
+            if (isConnected)
             {
-                dataState.p1.updated = false;
-
-                PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[1];
-                if (player.type == EntityType.Dummy)
+                //update players
+                if (dataState.p1.updated)
                 {
-                    firearms[0].NetworkingUpdate(dataState.p1.weapon);
-                    player.SendUpdate(dataState.p1.position, dataState.p1.rotation, dataState.p1.state, dataState.p1.weapon);
+                    dataState.p1.updated = false;
+
+                    PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[1];
+                    if (player.type == EntityType.Dummy)
+                    {
+                        firearms[0].NetworkingUpdate(dataState.p1.weapon);
+                        player.SendUpdate(dataState.p1.position, dataState.p1.rotation, dataState.p1.state, dataState.p1.weapon);
+                    }
                 }
-            }
-            if (dataState.p2.updated)
-            {
-                dataState.p2.updated = false;
-
-                PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[2];
-                if (player.type == EntityType.Dummy)
+                if (dataState.p2.updated)
                 {
-                    firearms[1].NetworkingUpdate(dataState.p2.weapon);
-                    player.SendUpdate(dataState.p2.position, dataState.p2.rotation, dataState.p2.state, dataState.p2.weapon);
+                    dataState.p2.updated = false;
+
+                    PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[2];
+                    if (player.type == EntityType.Dummy)
+                    {
+                        firearms[1].NetworkingUpdate(dataState.p2.weapon);
+                        player.SendUpdate(dataState.p2.position, dataState.p2.rotation, dataState.p2.state, dataState.p2.weapon);
+                    }
                 }
-            }
-            if (dataState.p3.updated)
-            {
-                dataState.p3.updated = false;
-
-                PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[3];
-                if (player.type == EntityType.Dummy)
+                if (dataState.p3.updated)
                 {
-                    player.SendUpdate(dataState.p3.position, dataState.p3.rotation, dataState.p3.state, dataState.p3.weapon);
+                    dataState.p3.updated = false;
+
+                    PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[3];
+                    if (player.type == EntityType.Dummy)
+                    {
+                        player.SendUpdate(dataState.p3.position, dataState.p3.rotation, dataState.p3.state, dataState.p3.weapon);
+                    }
                 }
-            }
 
-            Debug.Log(dataState.entityUpdates.Count);
-            foreach (KeyValuePair<int, EntityData> kvp in dataState.entityUpdates)
-            {
-                if (kvp.Value.updated)
+                foreach (KeyValuePair<int, EntityData> kvp in dataState.entityUpdates)
                 {
-                    Debug.Log("UPDATING POSITION FOR " + kvp.Key + "/" + EntityManager.Instance.AllEntities.Count);
-                    kvp.Value.updated = false;
-                    Entity temp = EntityManager.Instance.AllEntities[kvp.Key];
-                    Debug.Log(temp.name);
-                    //Debug.Log(kvp.Value.position + ", " + kvp.Value.rotation);
-                    temp.UpdateEntityStats(kvp.Value);
+                    if (kvp.Value.updated)
+                    {
+                        Debug.Log("UPDATING POSITION FOR " + kvp.Key + "/" + EntityManager.Instance.AllEntities.Count);
+                        kvp.Value.updated = false;
+                        Entity temp = EntityManager.Instance.AllEntities[kvp.Key];
+                        Debug.Log(temp.name);
+                        //Debug.Log(kvp.Value.position + ", " + kvp.Value.rotation);
+                        temp.UpdateEntityStats(kvp.Value);
+                    }
                 }
-            }
 
-            //if (dataState.entityUpdates.Count > 0)
-            //    dataState.entityUpdates.Clear();
+                //if (dataState.entityUpdates.Count > 0)
+                //    dataState.entityUpdates.Clear();
 
-            //update damage
-            while (dataState.DamageDealt.Count > 0)
-            {
-                //Debug.Log("WAITING...");
-                //rts damage calculation
-                if (GameSceneController.Instance.type == PlayerType.RTS)
+                //update damage
+                while (dataState.DamageDealt.Count > 0)
                 {
-                    //Debug.Log("NO!");
-                    Tuple<int, int> damage = dataState.DamageDealt.Dequeue();
+                    //Debug.Log("WAITING...");
+                    //rts damage calculation
+                    if (GameSceneController.Instance.type == PlayerType.RTS)
+                    {
+                        //Debug.Log("NO!");
+                        Tuple<int, int> damage = dataState.DamageDealt.Dequeue();
 
-                    EntityManager.Instance.AllEntities[damage.Item2].OnDamage(damage.Item1);
+                        EntityManager.Instance.AllEntities[damage.Item2].OnDamage(damage.Item1);
+                    }
+                    else
+                    {
+                        //Debug.Log("YEAH!");
+                        Tuple<int, int> damage = dataState.DamageDealt.Dequeue();
+                        //Debug.Log("PLAYER NUMBER: " + GetPlayerNumber(Client));
+                        //Debug.Log(EntityManager.Instance.AllEntities[GetPlayerNumber(Client)].name);
+                        EntityManager.Instance.AllEntities[GetPlayerNumber(Client)].OnDamage(damage.Item1);
+                    }
                 }
-                else
+
+                while (dataState.KilledEntity.Count > 0)
                 {
-                    //Debug.Log("YEAH!");
-                    Tuple<int, int> damage = dataState.DamageDealt.Dequeue();
-                    //Debug.Log("PLAYER NUMBER: " + GetPlayerNumber(Client));
-                    //Debug.Log(EntityManager.Instance.AllEntities[GetPlayerNumber(Client)].name);
-                    EntityManager.Instance.AllEntities[GetPlayerNumber(Client)].OnDamage(damage.Item1);
+                    if (GameSceneController.Instance.type == PlayerType.FPS)
+                        EntityManager.Instance.AllEntities[dataState.KilledEntity.Dequeue()].OnDeActivate();
                 }
-            }
 
-            while (dataState.KilledEntity.Count > 0)
-            {
-                if (GameSceneController.Instance.type == PlayerType.FPS)
-                    EntityManager.Instance.AllEntities[dataState.KilledEntity.Dequeue()].OnDeActivate();
-            }
-
-            while (dataState.BuildEntity.Count > 0)
-            {
-                if (GameSceneController.Instance.type == PlayerType.FPS)
+                while (dataState.BuildEntity.Count > 0)
                 {
-                    Tuple<int, int, Vector3> tempTup = dataState.BuildEntity.Dequeue();
+                    if (GameSceneController.Instance.type == PlayerType.FPS)
+                    {
+                        Tuple<int, int, Vector3> tempTup = dataState.BuildEntity.Dequeue();
 
-                    Entity temp = EntityManager.Instance.GetNewEntity((EntityType)tempTup.Item2);
-                    temp.transform.position = tempTup.Item3;
-                    temp.IssueBuild();
+                        Entity temp = EntityManager.Instance.GetNewEntity((EntityType)tempTup.Item2);
+                        temp.transform.position = tempTup.Item3;
+                        temp.IssueBuild();
 
-                }else
-                {
-                    dataState.BuildEntity.Dequeue();
+                    }
+                    else
+                    {
+                        dataState.BuildEntity.Dequeue();
+                    }
                 }
-            }
             }
         }
 
@@ -418,7 +419,7 @@ namespace Netcode
                     RecieveKill(sender, parsedData);
                     break;
 
-                case PacketType.GAMESTATE:
+                case PacketType.GAME_STATE:
                     RecieveGamestate(sender, parsedData);
                     break;
 
@@ -458,7 +459,8 @@ namespace Netcode
 
         #region Reception
         //recieve data types
-        public static void RecieveInit(int sender, string[] parsedData) {
+        public static void RecieveInit(int sender, string[] parsedData)
+        {
             if (parsedData.Length == 2)
             {
                 //init player gametype based on init data reception
@@ -482,7 +484,8 @@ namespace Netcode
 
         }
 
-        public static void RecieveMessage(int sender, string[] parsedData) {
+        public static void RecieveMessage(int sender, string[] parsedData)
+        {
             Debug.Log("Player " + sender.ToString() + ": " + parsedData[0]);
         }
 
@@ -539,6 +542,7 @@ namespace Netcode
             }
 
         }
+
         public static void RecieveWeapon(int sender, string[] parsedData)
         {
             //update state by sender type
@@ -577,6 +581,7 @@ namespace Netcode
 
 
         }
+
         public static void RecieveDamage(int sender, string[] parsedData)
         {
             if (parsedData.Length == 3)
@@ -595,6 +600,7 @@ namespace Netcode
                 Debug.LogWarning("Error: Invalid DAMAGEDEALT Parsed Array Size");
             }
         }
+
         public static void RecieveBuild(int sender, string[] parsedData)
         {
             if (parsedData.Length == 5)
@@ -616,6 +622,7 @@ namespace Netcode
                 Debug.LogWarning("Error: Invalid BUILD Parsed Array Size");
             }
         }
+
         public static void RecieveGamestate(int sender, string[] parsedData)
         {
             if (parsedData.Length == 1)
@@ -646,7 +653,6 @@ namespace Netcode
             }
 
         }
-
         #endregion
 
 
@@ -674,13 +680,12 @@ namespace Netcode
                 dataToSend.Append(playerFPS.stats.state);
                 //dataToSend.Append(",");
 
-                if (!SendData((int)PacketType.PLAYERDATA, dataToSend.ToString(), false, Client))
+                if (!SendData((int)PacketType.PLAYER_DATA, dataToSend.ToString(), false, Client))
                 {
                     Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
                 }
             }
         }
-
 
         public static void SendWeaponSwap(int weapon)
         {
@@ -691,13 +696,12 @@ namespace Netcode
 
                 dataToSend.Append(weapon);
 
-                if (!SendData((int)PacketType.WEAPONSTATE, dataToSend.ToString(), true, Client))
+                if (!SendData((int)PacketType.WEAPON_STATE, dataToSend.ToString(), true, Client))
                 {
                     Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
                 }
             }
         }
-
 
         //this sends all droid positions
         public static void SendEntityPositions()
@@ -764,12 +768,12 @@ namespace Netcode
         {
             if (isConnected)
             {
-
                 StringBuilder dataToSend = new StringBuilder();
 
-            if (!SendData((int)PacketType.GAME_STATE, dataToSend.ToString(), true, Client))
-            {
-                Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
+                if (!SendData((int)PacketType.GAME_STATE, dataToSend.ToString(), true, Client))
+                {
+                    Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
+                }
             }
         }
 
@@ -802,9 +806,10 @@ namespace Netcode
                 dataToSend.Append(",");
                 dataToSend.Append(victim);
 
-            if (!SendData((int)PacketType.DAMAGE_DEALT, dataToSend.ToString(), true, Client))
-            {
-                Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
+                if (!SendData((int)PacketType.DAMAGE_DEALT, dataToSend.ToString(), true, Client))
+                {
+                    Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
+                }
             }
         }
 
@@ -820,9 +825,10 @@ namespace Netcode
                 dataToSend.Append(",");
                 dataToSend.Append(damager);
 
-            if (!SendData((int)PacketType.PLAYER_DAMAGE, dataToSend.ToString(), true, Client))
-            {
-                Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
+                if (!SendData((int)PacketType.PLAYER_DAMAGE, dataToSend.ToString(), true, Client))
+                {
+                    Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
+                }
             }
         }
     }
