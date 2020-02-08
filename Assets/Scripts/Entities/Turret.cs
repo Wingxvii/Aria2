@@ -14,7 +14,7 @@ public enum TurretState
     Reloading,
 }
 
-public class Turret : Entity
+public class Turret : Building
 {
     public TurretState state = TurretState.Idle;
     public float visionRange = 30.0f;
@@ -52,7 +52,6 @@ public class Turret : Entity
     public int fixedTimeStep;
     private float buildTimer = 0.0f;
 
-
     protected override void BaseStart()
     {
         fixedTimeStep = (int)(1f / Time.fixedDeltaTime);
@@ -62,6 +61,13 @@ public class Turret : Entity
         if (!muzzle){muzzle = GetComponentInChildren<ParticleSystem>();}
         currentHealth = 500;
         maxHealth = 500;
+
+        //add upgrade
+        if (ResourceManager.Instance.buildingHealth)
+        {
+            IncreaseBuildingHealth();
+        }
+
 
         positionUpdated = false;
         changedToIdle = false;
@@ -288,12 +294,6 @@ public class Turret : Entity
         attackPoint = attackee;
     }
 
-    public override void IssueBuild()
-    {
-        ready = false;
-        StartCoroutine(BuildCoroutine());
-    }
-
     public void Reload()
     {
         reloadTimer += reloadRate;
@@ -354,22 +354,10 @@ public class Turret : Entity
         dataToSend.Append(",");
     }
 
+
     public override void UpdateEntityStats(EntityData ed)
     {
         faceingPoint = ed.rotation;
-    }
-
-    IEnumerator BuildCoroutine()
-    {
-        Animation anim = this.GetComponent<Animation>();
-
-        //play build animation
-        anim.Play();
-
-        while (anim.isPlaying) {
-            yield return 0;
-        }
-        ready = true;
     }
 
 }

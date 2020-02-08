@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using RTSInput;
 
 public class ActionMenuButton : MonoBehaviour
 {
@@ -32,22 +33,25 @@ public class ActionMenuButton : MonoBehaviour
     public void OnClick() {
         switch (buttonInfo.actionType) {
             case ActionButton.ActionType.BUILD:
-                RTSInput.InputManager.Instance.OnBuildPrefabs(buttonInfo.argument);
+                InputManager.Instance.OnBuildPrefabs(buttonInfo.argument);
                 break;
             case ActionButton.ActionType.DO_TRAIN:
-                RTSInput.InputManager.Instance.OnTrainBarracks();
+                InputManager.Instance.OnTrainBarracks();
                 break;
             case ActionButton.ActionType.DO_ATTACK:
-                RTSInput.InputManager.Instance.OnSelectAttack();
+                InputManager.Instance.OnSelectAttack();
                 break;
             case ActionButton.ActionType.DO_MOVE:
-                RTSInput.InputManager.Instance.OnSelectMove();
+                InputManager.Instance.OnSelectMove();
                 break;
             case ActionButton.ActionType.DO_RALLY:
-                RTSInput.InputManager.Instance.OnRally();
+                InputManager.Instance.OnRally();
                 break;
             case ActionButton.ActionType.DO_RELOAD:
-                RTSInput.InputManager.Instance.OnReload();
+                InputManager.Instance.OnReload();
+                break;
+            case ActionButton.ActionType.DO_UPGRADE:
+                ScienceManager.Instance.CallResearch(buttonInfo.argument);
                 break;
         }
     }

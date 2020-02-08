@@ -6632,6 +6632,7 @@ GameObject:
   - component: {fileID: 7295444141309362686}
   - component: {fileID: 7295444141309362687}
   - component: {fileID: 7295444141309362560}
+  - component: {fileID: 7295444141309362564}
   m_Layer: 0
   m_Name: RTS Manager
   m_TagString: Untagged
@@ -6639,6 +6640,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7295444141309362564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7295444141309362563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2366e21280f7174eb35ebde383291ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7295444141309362686
 MonoBehaviour:
   m_ObjectHideFlags: 0

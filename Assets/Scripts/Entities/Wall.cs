@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wall : Entity
+public class Wall : Building
 {
     public ParticleSystem Wallhit;
 
@@ -13,32 +13,19 @@ public class Wall : Entity
 
         currentHealth = 500;
         maxHealth = 500;
+
+        //add upgrade
+        if (ResourceManager.Instance.buildingHealth)
+        {
+            IncreaseBuildingHealth();
+        }
+
     }
 
     public void WallIsHit(Vector3 hitPoint)
     {
         Wallhit.transform.position = hitPoint;
         Wallhit.Play();
-    }
-
-    public override void IssueBuild()
-    {
-        ready = false;
-        StartCoroutine(BuildCoroutine());
-    }
-
-    IEnumerator BuildCoroutine()
-    {
-        Animation anim = this.GetComponent<Animation>();
-
-        //play build animation
-        anim.Play();
-
-        while (anim.isPlaying)
-        {
-            yield return 0;
-        }
-        ready = true;
     }
 
 }

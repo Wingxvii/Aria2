@@ -82,12 +82,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3083703331551410316}
-  - component: {fileID: 3627323602426230000}
-  - component: {fileID: 7972102638358988636}
   - component: {fileID: 1457302401027158099}
   - component: {fileID: 6835856077854676429}
   - component: {fileID: 2265924013750738571}
   - component: {fileID: 3600485139958480800}
+  - component: {fileID: 5094779550812181481}
   m_Layer: 16
   m_Name: Science Building
   m_TagString: Entity
@@ -111,53 +110,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3627323602426230000
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 929845155177562363}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7972102638358988636
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 929845155177562363}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!65 &1457302401027158099
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -205,6 +157,8 @@ MonoBehaviour:
   maxHealth: 600
   destructable: 1
   ready: 1
+  healthUpgradeIncrease: 300
+  buildProcess: {fileID: 0}
 --- !u!122 &3600485139958480800
 Halo:
   m_ObjectHideFlags: 0
@@ -217,6 +171,22 @@ Halo:
     serializedVersion: 2
     rgba: 4278254847
   m_Size: 5
+--- !u!111 &5094779550812181481
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929845155177562363}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 8b529307b12cf0f4c81e33a09de2728d, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 8b529307b12cf0f4c81e33a09de2728d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &3485978097516131045
 GameObject:
   m_ObjectHideFlags: 0

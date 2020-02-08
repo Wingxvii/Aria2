@@ -252,10 +252,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   type: 4
-  currentHealth: 1
-  maxHealth: 1
+  currentHealth: 500
+  maxHealth: 500
   destructable: 1
   ready: 1
+  healthUpgradeIncrease: 250
   state: 0
   visionRange: 30
   maxRange: 50
@@ -267,7 +268,6 @@ MonoBehaviour:
   attackDamage: 5
   reloadTimer: 0
   currentAmno: 10
-  buildTime: 1
   rotateSpeed: 2
   faceingPoint: {x: 0, y: 0, z: 0}
   head: {fileID: 8884248750197795924}

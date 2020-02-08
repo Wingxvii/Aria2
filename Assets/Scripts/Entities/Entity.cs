@@ -49,8 +49,6 @@ public abstract class Entity : MonoBehaviour
 
     private void Start()
     {
-        
-
         if (GameSceneController.Instance.type == PlayerType.RTS)
         {
             //clean up unwanted items
@@ -207,7 +205,8 @@ public abstract class Entity : MonoBehaviour
     public virtual void IssueAttack(Entity attackee) { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
     public virtual void CallAction(int action) { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
     public virtual void IssueBuild() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
-
+    public virtual void IncreaseBuildingHealth() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    
     public virtual void BaseActivation() {}
     public virtual void BaseDeactivation() { }
 

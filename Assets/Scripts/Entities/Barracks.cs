@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Barracks : Entity
+public class Barracks : Building
 {
     public Slider buildProcess;
     public Queue<float> buildTimes;
@@ -19,12 +19,18 @@ public class Barracks : Entity
 
     private Transform spawnPoint;
 
-
     //inherited function realizations
     protected override void BaseStart()
     {
         currentHealth = 1000;
         maxHealth = 1000;
+
+        //add upgrade
+        if (ResourceManager.Instance.buildingHealth) {
+            IncreaseBuildingHealth();
+        }
+        
+
         type = EntityType.Barracks;
 
         canvas = GetComponentInChildren<Canvas>();
@@ -97,13 +103,6 @@ public class Barracks : Entity
         flagObj.transform.position = new Vector3(location.x, location.y + 2.5f, location.z);
         flagActive = true;
     }
-
-    public override void IssueBuild()
-    {
-        ready = false;
-        StartCoroutine(BuildCoroutine());
-    }
-
     public override void BaseActivation()
     {
         ResourceManager.Instance.numBarracksActive++;
@@ -152,19 +151,4 @@ public class Barracks : Entity
             OnTrainRequest();
         }
     }
-
-    IEnumerator BuildCoroutine()
-    {
-        Animation anim = this.GetComponent<Animation>();
-
-        //play build animation
-        anim.Play();
-
-        while (anim.isPlaying)
-        {
-            yield return 0;
-        }
-        ready = true;
-    }
-
 }

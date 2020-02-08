@@ -741,10 +741,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   type: 2
-  currentHealth: 1
-  maxHealth: 1
+  currentHealth: 1000
+  maxHealth: 1000
   destructable: 1
   ready: 1
+  healthUpgradeIncrease: 500
   buildProcess: {fileID: 5113889428305574001}
   currentBuildTime: 0
   flagObj: {fileID: 274030189064651138, guid: e7a791ce740bfd344b008af4444a1eaf, type: 3}

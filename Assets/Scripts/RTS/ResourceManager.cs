@@ -31,6 +31,10 @@ public class ResourceManager : MonoBehaviour
         public const int COST_SCIENCE = 500;
         public const int TRICKLERATE = 4;
         public const int FRAMETICK = 1;
+        public const int PLAYERKILLEDMONEY = 1000;
+
+
+
 
         public const float DROIDTRAINTIME = 5.0f;
 
@@ -63,6 +67,12 @@ public class ResourceManager : MonoBehaviour
     public Text creditText;
     public Text supplyText;
     public Text time;
+
+    public bool doubleBounties = false;
+    public bool buildingHealth = false;
+    public bool resourceTrickle = false;
+    public bool fasterTraining = false;
+    public bool droidStronger = false;
 
     public float timeElapsed;
 
@@ -104,7 +114,10 @@ public class ResourceManager : MonoBehaviour
             }
             else
             {
-                credits += 4;
+                credits += 2;
+                if (resourceTrickle) {
+                    credits += 1;
+                }
             }
 
         }
@@ -197,7 +210,13 @@ public class ResourceManager : MonoBehaviour
         {
             case EntityType.Droid:
                 ResourceManager.Instance.supplyCurrent++;
-                return 5f;
+                if (fasterTraining)
+                {
+                    return 3f;
+                }
+                else {
+                    return 5f;
+                }
             default:
                 Debug.Log("ERROR: DROID TYPE INVALID");
                 return -1f;
@@ -247,7 +266,13 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-
+    public void KilledPlayer() {
+        //double player killed money
+        if (doubleBounties) {
+            credits += ResourceConstants.PLAYERKILLEDMONEY;
+        }
+        credits += ResourceConstants.PLAYERKILLEDMONEY;
+    }
 
     public void UpdateSupply()
     {

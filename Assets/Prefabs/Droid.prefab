@@ -692,12 +692,15 @@ MonoBehaviour:
   currentHealth: 1
   maxHealth: 1
   destructable: 1
+  ready: 1
   maxSpeed: 5
   minSpeed: 2
   state: 0
   journeyAccuracy: 5
   attackDamage: 5
+  strongAttack: 8
   coolDown: 1
+  lowCoolDown: 0.8
   currentCoolDown: 0
   visualRange: 20
   rotateSpeed: 0
@@ -716,7 +719,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!122 &8539590370312802865
 Halo:
@@ -1191,6 +1194,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

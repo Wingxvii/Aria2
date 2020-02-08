@@ -28,7 +28,9 @@ public class Droid : Entity
     public float journeyAccuracy = 5.0f;
 
     public int attackDamage = 5;
+    public int strongAttack = 8;
     public float coolDown = 1.0f;
+    public float lowCoolDown = 0.8f;
     public float currentCoolDown = 0.0f;
 
     public float visualRange = 20.0f;
@@ -48,6 +50,13 @@ public class Droid : Entity
 
         maxHealth = 100;
         currentHealth = 100;
+
+        //add upgrade
+        if (ResourceManager.Instance.droidStronger)
+        {
+            IncreaseBuildingHealth();
+        }
+
     }
 
     // Update is called once per frame
@@ -211,9 +220,17 @@ public class Droid : Entity
     {
         if (currentCoolDown <= 0.0f)
         {
-            NetworkManager.SendEnvironmentalDamage(attackDamage, attackPoint.id, this.id);
-            //attackPoint.OnDamage(attackDamage, this);
-            currentCoolDown = coolDown;
+            if (ResourceManager.Instance.droidStronger)
+            {
+                NetworkManager.SendEnvironmentalDamage(attackDamage, attackPoint.id, this.id);
+                currentCoolDown = coolDown;
+
+            }
+            else {
+                NetworkManager.SendEnvironmentalDamage(strongAttack, attackPoint.id, this.id);
+                currentCoolDown = lowCoolDown;
+
+            }
         }
     }
     private void OnTriggerStay(Collider other)
@@ -232,6 +249,11 @@ public class Droid : Entity
         }
     }
 
+    public override void IncreaseBuildingHealth() {
+        currentHealth += 100;
+        maxHealth += 100;
+        maxSpeed += 2.0f;
+    }
     public override void GetEntityString(ref StringBuilder dataToSend)
     {
         dataToSend.Append(id);
