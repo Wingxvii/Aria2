@@ -10,6 +10,7 @@ namespace RTSInput
         Turret,
         Barracks,
         Wall,
+        Science,
         MovementCursor,
         AttackCursor,
         RallyCursor,
@@ -75,6 +76,7 @@ namespace RTSInput
         public GameObject turretBlueprint;
         public GameObject barracksBlueprint;   
         public GameObject wallBlueprint;
+        public GameObject scienceBlueprint;
         public GameObject moveCursorBlueprint;
         public GameObject attackCursorBlueprint;
         public GameObject rallyBlueprint;
@@ -103,6 +105,8 @@ namespace RTSInput
             barracksBlueprint.SetActive(false);
             wallBlueprint = Instantiate(wallBlueprint);
             wallBlueprint.SetActive(false);
+            scienceBlueprint = Instantiate(scienceBlueprint);
+            scienceBlueprint.SetActive(false);
             moveCursorBlueprint = Instantiate(moveCursorBlueprint);
             moveCursorBlueprint.SetActive(false);
             attackCursorBlueprint = Instantiate(attackCursorBlueprint);
@@ -225,7 +229,7 @@ namespace RTSInput
             {
                 #region Prefab Logic
                 //check for prefab placeable
-                if (currentEvent == MouseEvent.Turret || currentEvent == MouseEvent.Wall || currentEvent == MouseEvent.Barracks)
+                if (currentEvent == MouseEvent.Turret || currentEvent == MouseEvent.Wall || currentEvent == MouseEvent.Barracks || currentEvent == MouseEvent.Science)
                 {
                     if (activeBlueprint != null && activeBlueprint.GetComponent<ShellPlacement>().placeable)
                     {
@@ -570,6 +574,14 @@ namespace RTSInput
                 if (InputManager.Instance.currentEvent != MouseEvent.Wall) { barracksBlueprint.SetActive(false); }
 
             }
+            if (scienceBlueprint.activeSelf)
+            {
+                //check for activity
+                if (activeBlueprint != wallBlueprint) { wallBlueprint.SetActive(false); }
+                //check for mouse status validity
+                if (InputManager.Instance.currentEvent != MouseEvent.Science) { barracksBlueprint.SetActive(false); }
+
+            }
             if (moveCursorBlueprint.activeSelf)
             {
                 //check for activity
@@ -616,6 +628,11 @@ namespace RTSInput
                     currentEvent = MouseEvent.Wall;
                     wallBlueprint.SetActive(true);
                     activeBlueprint = wallBlueprint;
+                    break;
+                case 4:
+                    currentEvent = MouseEvent.Science;
+                    scienceBlueprint.SetActive(true);
+                    activeBlueprint = scienceBlueprint;
                     break;
                 default:
                     Debug.LogError("Error: Invalid Type for building blueprint");

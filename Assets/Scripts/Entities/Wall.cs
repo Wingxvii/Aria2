@@ -13,7 +13,6 @@ public class Wall : Entity
 
         currentHealth = 500;
         maxHealth = 500;
-        base.BaseStart();
     }
 
     public void WallIsHit(Vector3 hitPoint)

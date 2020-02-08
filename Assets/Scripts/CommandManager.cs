@@ -27,7 +27,7 @@ namespace RTSInput
 
         //builds a entity from a blueprint
         public void Build(Vector3 position, EntityType type) {
-            if (type == EntityType.Barracks || type == EntityType.Turret || type == EntityType.Wall) {
+            if (type == EntityType.Barracks || type == EntityType.Turret || type == EntityType.Wall || type == EntityType.Science) {
                 Entity newEntity = EntityManager.Instance.GetNewEntity(type);
 
                 newEntity.transform.position = position;

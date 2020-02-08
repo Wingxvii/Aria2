@@ -15,7 +15,7 @@ public enum EntityType
     Turret,
     Player,
     Dummy,
-    
+    Science,
     
     TOTAL,
 }

@@ -13,6 +13,7 @@ public class ActionButton : ScriptableObject
         DO_ATTACK,
         DO_RALLY,
         DO_RELOAD,
+        DO_UPGRADE,
     }
 
     public ActionType actionType;

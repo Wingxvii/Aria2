@@ -28,6 +28,7 @@ public class ResourceManager : MonoBehaviour
         public const int COST_DROIDS = 200;
         public const int COST_TURRET = 400;
         public const int COST_WALL = 250;
+        public const int COST_SCIENCE = 500;
         public const int TRICKLERATE = 4;
         public const int FRAMETICK = 1;
 
@@ -148,6 +149,14 @@ public class ResourceManager : MonoBehaviour
                 }
                 return false;
                 break;
+            case EntityType.Science:
+                if (credits >= ResourceConstants.COST_SCIENCE)
+                {
+                    credits -= ResourceConstants.COST_SCIENCE;
+                    return true;
+                }
+                return false;
+                break;
 
             default:
                 Debug.Log("PURCHACE ERROR");
@@ -171,6 +180,9 @@ public class ResourceManager : MonoBehaviour
                 break;
             case EntityType.Wall:
                 credits += ResourceConstants.COST_WALL;
+                break;
+            case EntityType.Science:
+                credits += ResourceConstants.COST_SCIENCE;
                 break;
             default:
                 Debug.Log("REFUND ERROR");

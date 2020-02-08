@@ -41,6 +41,7 @@ public class EntityManager : MonoBehaviour
     public GameObject barracksPrefab;
     public GameObject turretPrefab;
     public GameObject controllablePlayerPrefab;
+    public GameObject sciencePrefab;
 
     //managers
     public GameObject FPSManagers;
@@ -49,7 +50,6 @@ public class EntityManager : MonoBehaviour
     private void Start()
     {
         GameSceneController.Instance.gameStart = true;
-        //Debug.Log("HELLO");
         //add managers
         if (GameSceneController.Instance.type == PlayerType.FPS)
         {
@@ -75,8 +75,6 @@ public class EntityManager : MonoBehaviour
         //create all lists
         ActiveEntitiesByType = new List<List<Entity>>();
         DeactivatedEntitiesByType = new List<Queue<Entity>>();
-
-
 
         //create a list per type
         for (int counter = 0; counter < (int)EntityType.TOTAL; counter++) {
@@ -105,6 +103,7 @@ public class EntityManager : MonoBehaviour
         entitysMask += LayerMask.GetMask("Barracks");
         entitysMask += LayerMask.GetMask("Turret");
         entitysMask += LayerMask.GetMask("Droid");
+        entitysMask += LayerMask.GetMask("Science");
 
         //spawn players for debugging
         EntityType[] spawnType = new EntityType[3];
@@ -120,25 +119,6 @@ public class EntityManager : MonoBehaviour
             //AllEntities.Add(temp);
             ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
         }
-
-        //Entity temp = GetNewEntity(EntityType.Player);
-        //
-        //temp.transform.position = new Vector3(-10f, 0.5f, -10f);
-        //AllEntities.Add(temp);
-        //ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
-        //
-        //temp = GetNewEntity(EntityType.Player);
-        //temp.transform.position = new Vector3(-15f, 0.5f, -10f);
-        //AllEntities.Add(temp);
-        //ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
-        //
-        //temp = GetNewEntity(EntityType.Player);
-        //temp.transform.position = new Vector3(-20f, 0.5f, -10f);
-        //AllEntities.Add(temp);
-        //ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
-
-
-
 
     }
     
@@ -217,6 +197,10 @@ public class EntityManager : MonoBehaviour
                 break;
             case EntityType.Wall:
                 returnValue = Instantiate(wallPrefab).GetComponent<Entity>();
+
+                break;
+            case EntityType.Science:
+                returnValue = Instantiate(sciencePrefab).GetComponent<Entity>();
 
                 break;
             default:

@@ -1199,9 +1199,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3501842615071486198}
+  - component: {fileID: 632210439}
   m_Layer: 5
   m_Name: UI Persistant
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1230,6 +1231,18 @@ RectTransform:
   m_AnchoredPosition: {x: -940.4, y: 490}
   m_SizeDelta: {x: 99.2, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &632210439
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3501842615071486201}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3501842615100457487
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,7 +1477,7 @@ GameObject:
   - component: {fileID: 3501842615204192731}
   m_Layer: 5
   m_Name: RTS_HUD Canvas
-  m_TagString: Ground
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1567,6 +1580,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8bbbae05a6d735f4fbec52200f096b9c, type: 2}
   - {fileID: 11400000, guid: f9c0496fd279e4a488fb9cafedb23189, type: 2}
   - {fileID: 11400000, guid: dc392ec12f7f3b345860449d203c849b, type: 2}
+  - {fileID: 11400000, guid: 28adecdbac27b9f47948d793c6f06faf, type: 2}
   menus:
   - selectable: 2
     info: {fileID: 11400000, guid: b6411a0b8cabc4b4bb0e55d5097fee83, type: 2}
@@ -1580,6 +1594,8 @@ MonoBehaviour:
     info: {fileID: 11400000, guid: c7e9c92e11e0eb24aa12c48bbd504703, type: 2}
   - selectable: 6
     info: {fileID: 11400000, guid: d1f646447a5405f41aae842e0ca279cb, type: 2}
+  - selectable: 7
+    info: {fileID: 11400000, guid: 71ee9f66417bbd54693d995e893fee54, type: 2}
   actionQueue: {fileID: 6420665988645702953}
   actionMenu: {fileID: 6420665988433870921}
   multiSelect: {fileID: 6420665988356376902}
@@ -4088,7 +4104,7 @@ GameObject:
   - component: {fileID: 3501842616421945297}
   m_Layer: 5
   m_Name: UI MainBar
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5255,7 +5271,7 @@ GameObject:
   - component: {fileID: 3501842616949097708}
   m_Layer: 5
   m_Name: Timer
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5715,7 +5731,7 @@ GameObject:
   - component: {fileID: 4983639495018998410}
   m_Layer: 5
   m_Name: Supply
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5865,7 +5881,7 @@ GameObject:
   - component: {fileID: 4983639495325096309}
   m_Layer: 5
   m_Name: Credit Display
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6092,7 +6108,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000091552734, y: 0.00006912649}
+  m_AnchoredPosition: {x: 0.000091552734, y: -0.0000076293945}
   m_SizeDelta: {x: 608.00024, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6420665987284314229
@@ -6146,7 +6162,7 @@ GameObject:
   - component: {fileID: 6420665987582870155}
   m_Layer: 5
   m_Name: MainArea
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6196,7 +6212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.13725491, g: 0.15294118, b: 0.22352943, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6367,7 +6383,7 @@ GameObject:
   - component: {fileID: 6420665987903324116}
   m_Layer: 5
   m_Name: Health
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6444,7 +6460,7 @@ GameObject:
   - component: {fileID: 6420665987955727058}
   m_Layer: 5
   m_Name: UnitName
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6625,8 +6641,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6420665988287999495}
   m_HandleRect: {fileID: 6420665988287999494}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6828,7 +6844,7 @@ GameObject:
   - component: {fileID: 6420665988356376902}
   m_Layer: 5
   m_Name: MultiSelect
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7032,9 +7048,10 @@ GameObject:
   - component: {fileID: 6420665988433870922}
   - component: {fileID: 6420665988433870924}
   - component: {fileID: 6420665988433870923}
+  - component: {fileID: 1113473478}
   m_Layer: 5
   m_Name: ActionMenu
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7090,6 +7107,34 @@ MonoBehaviour:
   m_Spacing: {x: 4, y: 4}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &1113473478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6420665988433870921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6420665988645702953
 GameObject:
   m_ObjectHideFlags: 0
@@ -7103,7 +7148,7 @@ GameObject:
   - component: {fileID: 6420665988645702952}
   m_Layer: 5
   m_Name: ActionQueue
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7338,7 +7383,7 @@ GameObject:
   - component: {fileID: 6420665988843255354}
   m_Layer: 5
   m_Name: UnitPicture
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7384,7 +7429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
