@@ -123,7 +123,6 @@ namespace RTSInput
             {
                 staticPosition = hit.point;
             }
-
             if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.entitysMask))
             {
                 HitObject = hit.collider.gameObject.GetComponent<Entity>();
@@ -163,63 +162,66 @@ namespace RTSInput
             {
                 activeBlueprint.GetComponent<Transform>().position = new Vector3(InputManager.Instance.staticPosition.x, InputManager.Instance.staticPosition.y + activeBlueprint.GetComponent<Transform>().localScale.y, InputManager.Instance.staticPosition.z);
             }
-
         }
 
         //handles selection box
         private void HandleSelectionBox()
         {
-            //handle box init behaviour
-            if (Input.GetMouseButtonDown(0) && boxActive == false && currentEvent == MouseEvent.None)
+            if (!EventSystem.current.IsPointerOverGameObject())
             {
-                boxStart = Input.mousePosition;
-                boxActive = true;
-            }
-            //handle box drag updates
-            else if (Input.GetMouseButton(0) && boxActive)
-            {
-                if (Mathf.Abs(boxStart.x - Input.mousePosition.x) > BoxThreshold || Mathf.Abs(boxStart.y - Input.mousePosition.y) > BoxThreshold)
+                //handle box init behaviour
+                if (Input.GetMouseButtonDown(0) && boxActive == false && currentEvent == MouseEvent.None)
                 {
-                    boxEnd = Input.mousePosition;
+                    boxStart = Input.mousePosition;
+                    boxActive = true;
                 }
-                else
+                //handle box drag updates
+                else if (Input.GetMouseButton(0) && boxActive)
                 {
-                    boxEnd = Vector2.zero;
-                }
-            }
-            //handle box release
-            if (Input.GetMouseButtonUp(0) && boxActive)
-            {
-                foreach (Entity obj in EntityManager.Instance.AllEntities)
-                {
-                    Vector3 screenPoint = Camera.main.WorldToScreenPoint(obj.GetComponent<Transform>().position);
-
-                    if (screenPoint.x >= Mathf.Min(boxStart.x, Input.mousePosition.x) &&
-                        screenPoint.x <= Mathf.Max(boxStart.x, Input.mousePosition.x) &&
-                        screenPoint.y >= Mathf.Min(boxStart.y, Input.mousePosition.y) &&
-                        screenPoint.y <= Mathf.Max(boxStart.y, Input.mousePosition.y) && !SelectedEntities.Contains(obj) &&
-                        obj.gameObject.activeSelf)
+                    if (Mathf.Abs(boxStart.x - Input.mousePosition.x) > BoxThreshold || Mathf.Abs(boxStart.y - Input.mousePosition.y) > BoxThreshold)
                     {
-                        //Debug.Log(obj.name);
-                        SelectedEntities.Add(obj);
-                        obj.GetComponent<Entity>().OnSelect();
-                        selectionChanged = true;
+                        boxEnd = Input.mousePosition;
+                    }
+                    else
+                    {
+                        boxEnd = Vector2.zero;
                     }
                 }
-                SwitchPrimarySelected();
-
-                boxStart = Vector2.zero;
-                boxEnd = Vector2.zero;
-                boxActive = false;
-
             }
+
+            //handle box release
+            if (Input.GetMouseButtonUp(0) && boxActive)
+                {
+                    foreach (Entity obj in EntityManager.Instance.AllEntities)
+                    {
+                        Vector3 screenPoint = Camera.main.WorldToScreenPoint(obj.GetComponent<Transform>().position);
+
+                        if (screenPoint.x >= Mathf.Min(boxStart.x, Input.mousePosition.x) &&
+                            screenPoint.x <= Mathf.Max(boxStart.x, Input.mousePosition.x) &&
+                            screenPoint.y >= Mathf.Min(boxStart.y, Input.mousePosition.y) &&
+                            screenPoint.y <= Mathf.Max(boxStart.y, Input.mousePosition.y) && !SelectedEntities.Contains(obj) &&
+                            obj.gameObject.activeSelf)
+                        {
+                            //Debug.Log(obj.name);
+                            SelectedEntities.Add(obj);
+                            obj.GetComponent<Entity>().OnSelect();
+                            selectionChanged = true;
+                        }
+                    }
+                    SwitchPrimarySelected();
+
+                    boxStart = Vector2.zero;
+                    boxEnd = Vector2.zero;
+                    boxActive = false;
+
+                }
         }
 
         //handles left mouse input
         private void HandleLeftMouseClicks()
         {
             //check if anything events need to be handled
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
             {
                 #region Prefab Logic
                 //check for prefab placeable

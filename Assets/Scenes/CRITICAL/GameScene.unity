@@ -231,7 +231,7 @@ MonoBehaviour:
   gameStart: 1
   loadedScene: 1
   IP: 
-  type: 0
+  type: 1
   gameState: 0
 --- !u!4 &574309900
 Transform:
@@ -247,6 +247,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &632210437 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3501842615071486201, guid: 611a0886e8ede334aac146bfda4e20dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1065021299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &632210439
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632210437}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &683400370
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +551,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3501842615071486201, guid: 611a0886e8ede334aac146bfda4e20dd,
+        type: 3}
+      propertyPath: m_TagString
+      value: UI
+      objectReference: {fileID: 0}
     - target: {fileID: 3501842615204192724, guid: 611a0886e8ede334aac146bfda4e20dd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -642,6 +665,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RTS_HUD Canvas (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501842615204192728, guid: 611a0886e8ede334aac146bfda4e20dd,
+        type: 3}
+      propertyPath: m_TagString
+      value: UI
       objectReference: {fileID: 0}
     - target: {fileID: 6420665988287999494, guid: 611a0886e8ede334aac146bfda4e20dd,
         type: 3}

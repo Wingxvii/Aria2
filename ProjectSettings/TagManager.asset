@@ -12,6 +12,7 @@ TagManager:
   - Animation
   - Weapon
   - SelectableObject
+  - UI
   layers:
   - Default
   - TransparentFX
