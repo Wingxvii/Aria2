@@ -18,27 +18,83 @@ namespace Netcode
         //FPS DATA TYPES
 
         //2vec3 + int
-        PLAYERDATA = 2,
+        PLAYER_DATA = 2,
         //int
-        WEAPONSTATE = 3,
+        WEAPON_STATE = 3,
         //int
-        DAMAGEDEALT = 4,
+        DAMAGE_DEALT = 4,
 
+        // fps, dmg, target
         //RTS DATA TYPES
 
         //vec4[0-100]
-        ENTITYDATA = 5,
+        ENTITY_DATA = 5,
         //2int + vec3
         BUILD = 6,
         //int
         KILL = 7,
         //int, float
-        GAMESTATE = 8,
+        GAME_STATE = 8,
 
-        PLAYERDAMAGE = 9,
+        PLAYER_DAMAGE = 9,
+        // fps, dir, source, dmg
 
-        TURRETDATA = 10
+        TURRET_DATA = 10
     }
+
+    struct packet_init
+    {
+        int playerID;
+    };
+
+    struct packet_msg
+    {
+        string message;
+    };
+
+    struct packet_entity
+    {
+        float posX;
+        float posY;
+        float posZ;
+        float rotX;
+        float rotY;
+        float rotZ;
+        int state;
+    };
+
+    struct packet_weapon
+    {
+        int weapon;
+    };
+
+    struct packet_damage
+    {
+        int playerID;
+        bool dir;
+        int entity;
+        float damage;
+    };
+
+    struct packet_build
+    {
+        int id;
+        int type;
+        float posX;
+        float posY;
+        float posZ;
+    };
+
+    struct packet_kill
+    {
+        int id;
+    };
+
+    struct packet_state
+    {
+        int state;
+    };
+
 
     public class EntityData {
         public Vector3 position = new Vector3();
@@ -78,17 +134,17 @@ namespace Netcode
         const string DLL_NAME = "Network_Plugin";
         //net code
         [DllImport(DLL_NAME)]
-        static extern IntPtr CreateClient();                            //Creates a client
+        static extern IntPtr CreateClient();                                            //Creates a client
         [DllImport(DLL_NAME)]
-        static extern void DeleteClient(IntPtr client);                 //Destroys a client
+        static extern void DeleteClient(IntPtr client);                                 //Destroys a client
         [DllImport(DLL_NAME)]
-        static extern bool Connect(string str, IntPtr client);          //Connects to c++ Server
+        static extern bool Connect(string str, IntPtr client);                          //Connects to c++ Server
         [DllImport(DLL_NAME)]
-        static extern bool SendData(int type, string str, bool useTCP, IntPtr client);          //Sends Message to all other clients    
+        static extern bool SendData(int type, string str, bool useTCP, IntPtr client);  //Sends Message to all other clients    
         [DllImport(DLL_NAME)]
-        static extern void StartUpdating(IntPtr client);                //Starts updating
+        static extern void StartUpdating(IntPtr client);                                //Starts updating
         [DllImport(DLL_NAME)]
-        static extern void SetupPacketReception(Action<int, int, string> action); //recieve packets from server
+        static extern void SetupPacketReception(Action<int, int, string> action);       //recieve packets from server
         [DllImport(DLL_NAME)]
         static extern int GetPlayerNumber(IntPtr client);
         [DllImport(DLL_NAME)]
@@ -288,7 +344,7 @@ namespace Netcode
 
                     }
                     break;
-                case PacketType.PLAYERDATA:
+                case PacketType.PLAYER_DATA:
                     if (sender == playerNumber)
                     {
                         break;
@@ -345,7 +401,7 @@ namespace Netcode
                     }
                     break;
 
-                case PacketType.WEAPONSTATE:
+                case PacketType.WEAPON_STATE:
                     //update state by sender type
                     if (sender == playerNumber)
                     {
@@ -382,7 +438,7 @@ namespace Netcode
                     }
 
                     break;
-                case PacketType.DAMAGEDEALT:
+                case PacketType.DAMAGE_DEALT:
 
                     if (parsedData.Length == 3)
                     {
@@ -400,7 +456,7 @@ namespace Netcode
                         Debug.LogWarning("Error: Invalid DAMAGEDEALT Parsed Array Size");
                     }
                     break;
-                case PacketType.ENTITYDATA:
+                case PacketType.ENTITY_DATA:
                     if (parsedData.Length >= 7)
                     {
 
@@ -490,7 +546,7 @@ namespace Netcode
                     }
                     break;
 
-                case PacketType.GAMESTATE:
+                case PacketType.GAME_STATE:
 
                     if (parsedData.Length == 1)
                     {
@@ -505,7 +561,7 @@ namespace Netcode
                     }
                     break;
 
-                case PacketType.PLAYERDAMAGE:
+                case PacketType.PLAYER_DAMAGE:
 
                     if (parsedData.Length == 3)
                     {
@@ -561,7 +617,7 @@ namespace Netcode
             dataToSend.Append(playerFPS.stats.state);
             //dataToSend.Append(",");
 
-            if (!SendData((int)PacketType.PLAYERDATA, dataToSend.ToString(), false, Client))
+            if (!SendData((int)PacketType.PLAYER_DATA, dataToSend.ToString(), false, Client))
             {
                 Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
             }
@@ -574,7 +630,7 @@ namespace Netcode
 
             dataToSend.Append(weapon);
 
-            if (!SendData((int)PacketType.WEAPONSTATE, dataToSend.ToString(), true, Client))
+            if (!SendData((int)PacketType.WEAPON_STATE, dataToSend.ToString(), true, Client))
             {
                 Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
             }
@@ -639,7 +695,7 @@ namespace Netcode
 
             //Debug.Log(dataToSend);
 
-            if (!SendData((int)PacketType.ENTITYDATA, dataToSend.ToString(), false, Client))
+            if (!SendData((int)PacketType.ENTITY_DATA, dataToSend.ToString(), false, Client))
             {
                 Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
             }
@@ -681,7 +737,7 @@ namespace Netcode
 
             dataToSend.Append(state);
 
-            if (!SendData((int)PacketType.GAMESTATE, dataToSend.ToString(), true, Client))
+            if (!SendData((int)PacketType.GAME_STATE, dataToSend.ToString(), true, Client))
             {
                 Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
             }
@@ -712,7 +768,7 @@ namespace Netcode
             dataToSend.Append(",");
             dataToSend.Append(victim);
 
-            if (!SendData((int)PacketType.DAMAGEDEALT, dataToSend.ToString(), true, Client))
+            if (!SendData((int)PacketType.DAMAGE_DEALT, dataToSend.ToString(), true, Client))
             {
                 Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
             }
@@ -728,7 +784,7 @@ namespace Netcode
             dataToSend.Append(",");
             dataToSend.Append(damager);
 
-            if (!SendData((int)PacketType.PLAYERDAMAGE, dataToSend.ToString(), true, Client))
+            if (!SendData((int)PacketType.PLAYER_DAMAGE, dataToSend.ToString(), true, Client))
             {
                 Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
             }
