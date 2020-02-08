@@ -23,6 +23,7 @@ public class Turret : Entity
     public float shortestDist;
     public ParticleSystem muzzle;
 
+
     //stats
     public float reloadRate = 5.0f;
     public float recoilRate = 0.5f;
@@ -31,7 +32,6 @@ public class Turret : Entity
 
     public float reloadTimer = 0.0f;
     public int currentAmno = 10;
-
     //rotation
     public float rotateSpeed;
     public Vector3 faceingPoint = new Vector3(0, 0, 0);
@@ -50,6 +50,7 @@ public class Turret : Entity
     public bool changedToIdle = false;
 
     public int fixedTimeStep;
+    private float buildTimer = 0.0f;
 
 
     protected override void BaseStart()
@@ -67,8 +68,6 @@ public class Turret : Entity
 
         turretLayerMask = LayerMask.GetMask("Player");
         turretLayerMask += LayerMask.GetMask("Wall");
-
-
     }
 
     void TickUpdate()
@@ -92,10 +91,7 @@ public class Turret : Entity
     protected override void BaseFixedUpdate()
     {
 
-        if (GameSceneController.Instance.type == PlayerType.FPS)
-        {
-        }
-        else if (GameSceneController.Instance.type == PlayerType.RTS)
+    if (GameSceneController.Instance.type == PlayerType.RTS)
         {
 
 
@@ -267,32 +263,20 @@ public class Turret : Entity
     }
     protected override void BaseUpdate()
     {
-        if (GameSceneController.Instance.type == PlayerType.FPS)
+        Vector3 targetDir = new Vector3(faceingPoint.x - head.transform.position.x, faceingPoint.y - head.transform.position.y, faceingPoint.z - head.transform.position.z);
+
+        // The step size is equal to speed times frame time.
+        float step = rotateSpeed * Time.deltaTime;
+
+        Vector3 newDir = Vector3.RotateTowards(head.transform.forward, targetDir, step, 0.0f);
+
+        // Move our position a step closer to the target.
+        body.transform.rotation = Quaternion.LookRotation(new Vector3(newDir.x, 0, newDir.z).normalized);
+        head.transform.rotation = Quaternion.LookRotation(newDir);
+
+        if (reloadTimer >= 0.0f)
         {
-        }
-        else if (GameSceneController.Instance.type == PlayerType.RTS)
-        {
-
-
-            if (state != TurretState.Idle)
-            {
-                Vector3 targetDir = new Vector3(faceingPoint.x - head.transform.position.x, faceingPoint.y - head.transform.position.y, faceingPoint.z - head.transform.position.z);
-
-                // The step size is equal to speed times frame time.
-                float step = rotateSpeed * Time.deltaTime;
-
-                Vector3 newDir = Vector3.RotateTowards(head.transform.forward, targetDir, step, 0.0f);
-
-                // Move our position a step closer to the target.
-                body.transform.rotation = Quaternion.LookRotation(new Vector3(newDir.x, 0, newDir.z).normalized);
-                head.transform.rotation = Quaternion.LookRotation(newDir);
-
-            }
-
-            if (reloadTimer >= 0.0f)
-            {
-                reloadTimer -= Time.deltaTime;
-            }
+            reloadTimer -= Time.deltaTime;
         }
     }
     public override void IssueAttack(Entity attackee)
@@ -303,6 +287,13 @@ public class Turret : Entity
         }
         attackPoint = attackee;
     }
+
+    public override void IssueBuild()
+    {
+        ready = false;
+        StartCoroutine(BuildCoroutine());
+    }
+
     public void Reload()
     {
         reloadTimer += reloadRate;
@@ -365,13 +356,20 @@ public class Turret : Entity
 
     public override void UpdateEntityStats(EntityData ed)
     {
-        Vector3 localRot = head.transform.localRotation.eulerAngles;
-        localRot.x = ed.rotation.x;
-        head.transform.localRotation = Quaternion.Euler(localRot);
-        localRot = body.transform.localRotation.eulerAngles;
-        localRot.y = ed.rotation.y;
-        body.transform.localRotation = Quaternion.Euler(localRot);
-
-        Debug.Log("BEAUTIFUL! " + id);
+        faceingPoint = ed.rotation;
     }
+
+    IEnumerator BuildCoroutine()
+    {
+        Animation anim = this.GetComponent<Animation>();
+
+        //play build animation
+        anim.Play();
+
+        while (anim.isPlaying) {
+            yield return 0;
+        }
+        ready = true;
+    }
+
 }

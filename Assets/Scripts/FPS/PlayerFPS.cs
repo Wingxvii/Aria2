@@ -55,6 +55,8 @@ public class PlayerFPS : Entity
 
     public static LayerMask playerLayer { get; private set; }
 
+    public FirearmHandler playerGun;
+
     private void Awake()
     {
         BaseAwake();
@@ -151,8 +153,7 @@ public class PlayerFPS : Entity
             stats.groundAngleFloat = 180f;
             stats.colliding = false;
 
-            if (Netcode.NetworkManager.isConnected)
-                Netcode.NetworkManager.SendPlayerInfo(this);
+            Netcode.NetworkManager.SendPlayerInfo(this);
         }
         else if (type == EntityType.Dummy)
         {
@@ -280,8 +281,7 @@ public class PlayerFPS : Entity
     //Use this to network damage being dealt
     public void SendDamage(int damage, Entity receiver)
     {
-        if (Netcode.NetworkManager.isConnected)
-            Netcode.NetworkManager.SendDamage(damage, this.id, receiver.id);
+        Netcode.NetworkManager.SendDamage(damage, this.id, receiver.id);
         receiver.OnDamage(damage, this);
     }
 
@@ -339,28 +339,30 @@ public class PlayerFPS : Entity
         }
         stats.state = state;
 
-        if (weapon != selectedGun)
-        {
-            mainGun.gameObject.SetActive(false);
-            selectedGun = weapon;
-            mainGun = guns[selectedGun];
-            mainGun.gameObject.SetActive(true);
-        }
+        playerGun.NetworkingUpdate(weapon);
 
-        if ((state & (int)PlayerStats.PlayerState.Shooting) > 0)
-        {
-            if (!mainGun.playing)
-            {
-                mainGun.StartPlaying();
-            }
-        }
-        else
-        {
-            if (mainGun.playing)
-            {
-                mainGun.StopPlaying();
-            }
-        }
+        //if (weapon != selectedGun)
+        //{
+        //    mainGun.gameObject.SetActive(false);
+        //    selectedGun = weapon;
+        //    mainGun = guns[selectedGun];
+        //    mainGun.gameObject.SetActive(true);
+        //}
+
+        //if ((state & (int)PlayerStats.PlayerState.Shooting) > 0)
+        //{
+        //    if (!mainGun.playing)
+        //    {
+        //        mainGun.StartPlaying();
+        //    }
+        //}
+        //else
+        //{
+        //    if (mainGun.playing)
+        //    {
+        //        mainGun.StopPlaying();
+        //    }
+        //}
 
         //if ((state & (int)PlayerStats.PlayerState.Jumping) > 0)
         //{

@@ -33,6 +33,7 @@ public abstract class Entity : MonoBehaviour
     public int currentHealth = 1;
     public int maxHealth = 1;
     public bool destructable = false;
+    public bool ready = true;
 
     //RTS BEHAVIOURS
     #region RTS
@@ -63,7 +64,8 @@ public abstract class Entity : MonoBehaviour
         }
         else if (GameSceneController.Instance.type == PlayerType.FPS) {
             //clean up unwanted items
-
+            canvasTransform = this.transform.Find("Canvas").GetComponent<RectTransform>();
+            Destroy(canvasTransform.gameObject);
         }
         //set id
         id = idtracker++;
@@ -74,22 +76,33 @@ public abstract class Entity : MonoBehaviour
     //updates
     private void Update()
     {
-        if (isRTS)
-            healthBar.value = (float)currentHealth / (float)maxHealth;
-        BaseUpdate();
+        if (ready)
+        {
+            if (isRTS)
+            {
+                healthBar.value = (float)currentHealth / (float)maxHealth;
+            }
+            BaseUpdate();
+        }
     }
     private void FixedUpdate()
     {
-        BaseFixedUpdate();
+        if (ready)
+        {
+            BaseFixedUpdate();
+        }
     }
 
     private void LateUpdate()
     {
-        if (isRTS)
+        if (ready)
         {
-            canvasTransform.eulerAngles = new Vector3(90, 0, 0);
+            if (isRTS)
+            {
+                canvasTransform.eulerAngles = new Vector3(90, 0, 0);
+            }
+            BaseLateUpdate();
         }
-        BaseLateUpdate();
     }
 
 
@@ -193,6 +206,7 @@ public abstract class Entity : MonoBehaviour
     public virtual void IssueAttack(Vector3 location) { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
     public virtual void IssueAttack(Entity attackee) { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
     public virtual void CallAction(int action) { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
+    public virtual void IssueBuild() { Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString()); }
 
     public virtual void BaseActivation() {}
     public virtual void BaseDeactivation() { }

@@ -54,11 +54,16 @@ public class EntityManager : MonoBehaviour
         if (GameSceneController.Instance.type == PlayerType.FPS)
         {
             if (!Netcode.NetworkManager.isConnected)
-                //Debug.Log("PROBLEM!");
+            {
                 GameSceneController.Instance.playerNumber = 1;
+            }
             Destroy(RTSManagers);
         }
         else if (GameSceneController.Instance.type == PlayerType.RTS) {
+            if (!Netcode.NetworkManager.isConnected)
+            {
+                GameSceneController.Instance.playerNumber = 0;
+            }
             Destroy(FPSManagers); 
 
         }

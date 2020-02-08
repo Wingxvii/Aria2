@@ -8,8 +8,8 @@ public class FirearmHandler : MonoBehaviour
 {
 	public GunStats gunStats;
 	//Scriptable Object required variables
-	public Firearms guns;
-	public Firearms slot1, slot2, slot3;
+	public Firearms activeGun;
+	public Firearms[] slots;
 
 	public Camera PV;
 	public Transform ammoHUD;
@@ -25,53 +25,74 @@ public class FirearmHandler : MonoBehaviour
 	private float currentAcc;
 	private float timeToNextShot;
 
-	// Start is called before the first frame update
-	void Start()
+    int parentPlayer = -1;
+
+    // Start is called before the first frame update
+    void Start()
     {
 		updateWeapon();
 
 		reload();
 
+        parentPlayer = GetComponentInParent<PlayerFPS>().id;
 
+        Debug.Log(parentPlayer - 1);
+        Netcode.NetworkManager.firearms[parentPlayer - 1] = this;
     }
 
   
     void Update()
     {
-		if (Input.GetKeyDown(KeyCode.R))
-		{
-			reload();
-		}
-		if (Input.GetKey(KeyCode.Mouse0) && Time.time >= timeToNextShot)
-			{
-			timeToNextShot = Time.time + 1f /gunStats.RoF;
-			if (remainingClip > 0)
-			{
-				fire();
-			}
-			else
-			{
-				dryFire();
-			}
-			
-		}
-		if (Input.GetKeyDown(KeyCode.Alpha1))
-		{
-			guns = slot1;
-			updateWeapon();
-		}
-		if (Input.GetKeyDown(KeyCode.Alpha2))
-		{
-			guns = slot2;
-			updateWeapon();
-		}
-		if (Input.GetKeyDown(KeyCode.Alpha3))
-		{
-			guns = slot3;
-			updateWeapon();
-		}
+        if (PV != null)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                reload();
+            }
+            if (Input.GetKey(KeyCode.Mouse0) && Time.time >= timeToNextShot)
+            {
+                timeToNextShot = Time.time + 1f / gunStats.RoF;
+                if (remainingClip > 0)
+                {
+                    fire();
+                }
+                else
+                {
+                    dryFire();
+                }
 
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                activeGun = slots[0];
+                updateWeapon();
+                Netcode.NetworkManager.SendWeaponSwap(0);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                activeGun = slots[1];
+                updateWeapon();
+                Netcode.NetworkManager.SendWeaponSwap(1);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                activeGun = slots[2];
+                updateWeapon();
+                Netcode.NetworkManager.SendWeaponSwap(2);
+            }
+        }
 	}
+
+    public void NetworkingUpdate(int weapon)
+    {
+        if (activeGun != slots[weapon])
+        {
+            //Debug.Log(weapon);
+            activeGun = slots[weapon];
+            updateWeapon();
+        }
+    }
+
 	void reload()
 	{
 		remainingClip = gunStats.clip;
@@ -79,7 +100,7 @@ public class FirearmHandler : MonoBehaviour
 	}
 	void updateWeapon()
 	{
-		gunStats = guns.gunStats;
+		gunStats = activeGun.gunStats;
 		reload();
 	}
 	void fire()

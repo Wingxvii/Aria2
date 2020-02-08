@@ -22,4 +22,24 @@ public class Wall : Entity
         Wallhit.Play();
     }
 
+    public override void IssueBuild()
+    {
+        ready = false;
+        StartCoroutine(BuildCoroutine());
+    }
+
+    IEnumerator BuildCoroutine()
+    {
+        Animation anim = this.GetComponent<Animation>();
+
+        //play build animation
+        anim.Play();
+
+        while (anim.isPlaying)
+        {
+            yield return 0;
+        }
+        ready = true;
+    }
+
 }
