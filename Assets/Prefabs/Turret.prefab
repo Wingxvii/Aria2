@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 6304387413709053227}
   - component: {fileID: 5272284993896799570}
   - component: {fileID: -7796573466222358650}
+  - component: {fileID: 1193599671746469272}
   m_Layer: 14
   m_Name: Turret
   m_TagString: Entity
@@ -254,6 +255,7 @@ MonoBehaviour:
   currentHealth: 1
   maxHealth: 1
   destructable: 1
+  ready: 1
   state: 0
   visionRange: 30
   maxRange: 50
@@ -265,6 +267,7 @@ MonoBehaviour:
   attackDamage: 5
   reloadTimer: 0
   currentAmno: 10
+  buildTime: 1
   rotateSpeed: 2
   faceingPoint: {x: 0, y: 0, z: 0}
   head: {fileID: 8884248750197795924}
@@ -301,6 +304,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!111 &1193599671746469272
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508097730102920826}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: cfa5fb31e1eedc04e91ae63e73226689, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: cfa5fb31e1eedc04e91ae63e73226689, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &5643998181816298562
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +417,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6714337260541880640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7137126729306813963}

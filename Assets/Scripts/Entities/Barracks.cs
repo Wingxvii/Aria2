@@ -98,6 +98,12 @@ public class Barracks : Entity
         flagActive = true;
     }
 
+    public override void IssueBuild()
+    {
+        ready = false;
+        StartCoroutine(BuildCoroutine());
+    }
+
     public override void BaseActivation()
     {
         ResourceManager.Instance.numBarracksActive++;
@@ -145,6 +151,20 @@ public class Barracks : Entity
         if (action == 1) {
             OnTrainRequest();
         }
+    }
+
+    IEnumerator BuildCoroutine()
+    {
+        Animation anim = this.GetComponent<Animation>();
+
+        //play build animation
+        anim.Play();
+
+        while (anim.isPlaying)
+        {
+            yield return 0;
+        }
+        ready = true;
     }
 
 }

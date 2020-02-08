@@ -23,6 +23,7 @@ public class Turret : Entity
     public float shortestDist;
     public ParticleSystem muzzle;
 
+
     //stats
     public float reloadRate = 5.0f;
     public float recoilRate = 0.5f;
@@ -31,7 +32,6 @@ public class Turret : Entity
 
     public float reloadTimer = 0.0f;
     public int currentAmno = 10;
-
     //rotation
     public float rotateSpeed;
     public Vector3 faceingPoint = new Vector3(0, 0, 0);
@@ -50,6 +50,7 @@ public class Turret : Entity
     public bool changedToIdle = false;
 
     public int fixedTimeStep;
+    private float buildTimer = 0.0f;
 
 
     protected override void BaseStart()
@@ -67,8 +68,6 @@ public class Turret : Entity
 
         turretLayerMask = LayerMask.GetMask("Player");
         turretLayerMask += LayerMask.GetMask("Wall");
-
-
     }
 
     void TickUpdate()
@@ -288,6 +287,13 @@ public class Turret : Entity
         }
         attackPoint = attackee;
     }
+
+    public override void IssueBuild()
+    {
+        ready = false;
+        StartCoroutine(BuildCoroutine());
+    }
+
     public void Reload()
     {
         reloadTimer += reloadRate;
@@ -352,4 +358,18 @@ public class Turret : Entity
     {
         faceingPoint = ed.rotation;
     }
+
+    IEnumerator BuildCoroutine()
+    {
+        Animation anim = this.GetComponent<Animation>();
+
+        //play build animation
+        anim.Play();
+
+        while (anim.isPlaying) {
+            yield return 0;
+        }
+        ready = true;
+    }
+
 }
