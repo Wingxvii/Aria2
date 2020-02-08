@@ -56,7 +56,6 @@ public class Droid : Entity
         {
             IncreaseBuildingHealth();
         }
-
     }
 
     // Update is called once per frame

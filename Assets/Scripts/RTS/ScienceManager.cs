@@ -95,7 +95,49 @@ namespace RTSInput
 
         public void CallResearch(int num)
         {
-            switch (num) {
+            Slider slider = InputManager.Instance.PrimaryEntity.GetComponent<Science>().researchProgress;
+            if (!slider.gameObject.activeSelf && !CheckResearched(num) && ResourceManager.Instance.RequestResearch(num))
+            {
+                slider.gameObject.SetActive(true);
+                switch (num)
+                {
+                    case 0:
+                        StartCoroutine(ResearchCoroutine(10.0f, slider, num));
+                        break;
+                    case 1:
+                        StartCoroutine(ResearchCoroutine(10.0f, slider, num));
+                        break;
+                    case 2:
+                        StartCoroutine(ResearchCoroutine(20.0f, slider, num));
+                        break;
+                    case 3:
+                        StartCoroutine(ResearchCoroutine(20.0f, slider, num));
+                        break;
+                    case 4:
+                        StartCoroutine(ResearchCoroutine(25.0f, slider, num));
+                        break;
+                    case 5:
+                        Debug.Log("FOG NOT YET IMPLEMENTED");
+
+                        break;
+                    default:
+                        Debug.LogWarning("Unrecognized Research");
+                        break;
+                }
+            }
+            else if (slider.gameObject.activeSelf)
+            {
+                Debug.Log("Current Research Center is Busy");
+            }
+            else if (CheckResearched(num)) {
+                Debug.Log("Already Researched");
+            }
+        }
+
+        public void FinishResearch(int num)
+        {
+            switch (num)
+            {
                 case 0:
                     DoubleBounties();
                     break;
@@ -119,11 +161,33 @@ namespace RTSInput
                     Debug.LogWarning("Unrecognized Research");
                     break;
             }
-
-            Debug.Log("Research Called: " + num);
         }
 
-        IEnumerator ResearchCoroutine(float timer, Slider progress)
+        public bool CheckResearched(int num) {
+            switch (num)
+            {
+                case 0:
+                    if (ResourceManager.Instance.doubleBounties) { return true; } else { return false; }
+                case 1:
+                    if (ResourceManager.Instance.buildingHealth) { return true; } else { return false; }
+                case 2:
+                    if (ResourceManager.Instance.resourceTrickle) { return true; } else { return false; }
+                case 3:
+                    if (ResourceManager.Instance.fasterTraining) { return true; } else { return false; }
+                case 4:
+                    if (ResourceManager.Instance.droidStronger) { return true; } else { return false; }
+                case 5:
+                    Debug.Log("FOG NOT YET IMPLEMENTED");
+                    return false;
+                    break;
+                default:
+                    Debug.LogWarning("Unrecognized Research Check");
+                    return false;
+            }
+        }
+
+
+        IEnumerator ResearchCoroutine(float timer, Slider progress, int researchNum)
         {
             float startTime = 0.0f;
 
@@ -132,11 +196,10 @@ namespace RTSInput
                 startTime += Time.deltaTime;
                 progress.value = startTime / timer;
 
-
-
                 yield return 0;
             }
-            progress.value = 1;
+            FinishResearch(researchNum);
+            progress.gameObject.SetActive(false);
         }
 
     }

@@ -6413,7 +6413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ef8c68bade09b41aca258d42a632f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastTab: 0
+  lastTab: 2
   movementSettingsFoldout: 1
   zoomingSettingsFoldout: 0
   rotationSettingsFoldout: 1
@@ -6432,8 +6432,8 @@ MonoBehaviour:
   panningSpeed: 5
   mouseRotationSpeed: 100
   autoHeight: 0
-  maxHeight: 50
-  minHeight: 30
+  maxHeight: 80
+  minHeight: 20
   heightDampening: 5
   keyboardZoomingSensitivity: 2
   scrollWheelZoomingSensitivity: 100
@@ -6605,6 +6605,11 @@ MonoBehaviour:
   creditText: {fileID: 1424966557}
   supplyText: {fileID: 1191147846}
   time: {fileID: 1161962438}
+  doubleBounties: 0
+  buildingHealth: 0
+  resourceTrickle: 0
+  fasterTraining: 0
+  droidStronger: 0
   timeElapsed: 0
 --- !u!4 &7295444141309362562
 Transform:

@@ -33,7 +33,12 @@ public class ResourceManager : MonoBehaviour
         public const int FRAMETICK = 1;
         public const int PLAYERKILLEDMONEY = 1000;
 
-
+        public const int COST_RES1 = 1000;
+        public const int COST_RES2 = 1000;
+        public const int COST_RES3 = 1000;
+        public const int COST_RES4 = 1000;
+        public const int COST_RES5 = 1000;
+        public const int COST_RES6 = 1000;
 
 
         public const float DROIDTRAINTIME = 5.0f;
@@ -192,6 +197,7 @@ public class ResourceManager : MonoBehaviour
                 credits += ResourceConstants.COST_TURRET;
                 break;
             case EntityType.Wall:
+                break;
                 credits += ResourceConstants.COST_WALL;
                 break;
             case EntityType.Science:
@@ -220,6 +226,81 @@ public class ResourceManager : MonoBehaviour
             default:
                 Debug.Log("ERROR: DROID TYPE INVALID");
                 return -1f;
+        }
+    }
+
+    public bool RequestResearch(int num) {
+
+        switch (num)
+        {
+            case 0:
+                if (credits > ResourceConstants.COST_RES1)
+                {
+                    credits -= ResourceConstants.COST_RES1;
+                    return true;
+                }
+                else {
+                    Debug.Log("NOT ENOUGH CREDITS");
+                    return false;
+                }
+                break;
+            case 1:
+                if (credits > ResourceConstants.COST_RES2)
+                {
+                    credits -= ResourceConstants.COST_RES2;
+                    return true;
+                }
+                else
+                {
+                    Debug.Log("NOT ENOUGH CREDITS");
+                    return false;
+                }
+                break;
+            case 2:
+                if (credits > ResourceConstants.COST_RES3)
+                {
+                    credits -= ResourceConstants.COST_RES3;
+                    return true;
+                }
+                else
+                {
+                    Debug.Log("NOT ENOUGH CREDITS");
+                    return false;
+                }
+                break;
+            case 3:
+                if (credits > ResourceConstants.COST_RES4)
+                {
+                    credits -= ResourceConstants.COST_RES4;
+                    return true;
+                }
+                else
+                {
+                    Debug.Log("NOT ENOUGH CREDITS");
+                    return false;
+                }
+                break;
+            case 4:
+                if (credits > ResourceConstants.COST_RES5)
+                {
+                    credits -= ResourceConstants.COST_RES5;
+                    return true;
+                }
+                else
+                {
+                    Debug.Log("NOT ENOUGH CREDITS");
+                    return false;
+                }
+                break;
+            case 5:
+                Debug.Log("FOG NOT YET IMPLEMENTED");
+                return false;
+
+                break;
+            default:
+                Debug.LogWarning("Unrecognized Research");
+                return false;
+                break;
         }
     }
 
