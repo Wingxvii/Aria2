@@ -309,9 +309,9 @@ namespace RTS_Cam
             if (!limitMap)
                 return;
                 
-            m_Transform.position = new Vector3(Mathf.Clamp(m_Transform.position.x, -limitX, limitX),
+            m_Transform.position = new Vector3(Mathf.Clamp(m_Transform.position.x, -180, 50),
                 m_Transform.position.y,
-                Mathf.Clamp(m_Transform.position.z, -limitY, limitY));
+                Mathf.Clamp(m_Transform.position.z, 0, 125));
         }
 
         /// <summary>
@@ -337,13 +337,7 @@ namespace RTS_Cam
         /// <returns></returns>
         private float DistanceToGround()
         {
-            Ray ray = new Ray(m_Transform.position, Vector3.down);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, groundMaskFixed))
-                return (hit.point - m_Transform.position).magnitude;
-
-
-            return 0f;
+            return this.transform.position.y;
         }
 
         #endregion
