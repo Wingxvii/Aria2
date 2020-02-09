@@ -281,7 +281,7 @@ public class PlayerFPS : Entity
     //Use this to network damage being dealt
     public void SendDamage(int damage, Entity receiver)
     {
-        Netcode.NetworkManager.SendDamage(damage, this.id, receiver.id);
+        Netcode.NetworkManager.SendDamage(this.id, false, receiver.id, damage);
         receiver.OnDamage(damage, this);
     }
 
