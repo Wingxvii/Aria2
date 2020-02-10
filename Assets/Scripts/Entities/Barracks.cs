@@ -100,6 +100,7 @@ public class Barracks : Building
 
     public override void IssueLocation(Vector3 location)
     {
+        
         flagObj.transform.position = new Vector3(location.x, location.y + 2.5f, location.z);
         flagActive = true;
     }

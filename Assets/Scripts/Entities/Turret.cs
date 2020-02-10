@@ -137,7 +137,7 @@ public class Turret : Building
                             attackPoint = player;
                         }
                     }
-                    if (shortestDist < maxRange)
+                    if (shortestDist < visionRange)
                     {
                         state = TurretState.IdleShooting;
                     }

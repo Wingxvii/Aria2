@@ -95,8 +95,9 @@ public class EntityManager : MonoBehaviour
 
 
         //create Layermasks
-        staticsMask = LayerMask.GetMask("Background");
+        staticsMask = LayerMask.GetMask("Buildable");
         staticsMask += LayerMask.GetMask("StaticsMask");
+        staticsMask += LayerMask.GetMask("Ground");
 
         entitysMask = LayerMask.GetMask("Wall");
         entitysMask += LayerMask.GetMask("Player");

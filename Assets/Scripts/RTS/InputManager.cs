@@ -16,6 +16,12 @@ namespace RTSInput
         RallyCursor,
     }
 
+    public enum StaticTag {
+        Ground,
+        Buildable,
+        Other,
+    }
+
     public class InputManager : MonoBehaviour
     {
         #region SingletonCode
@@ -63,6 +69,8 @@ namespace RTSInput
 
         //cast mouse position on static game map
         public Vector3 staticPosition;
+        public StaticTag staticTag;
+
         //currently hit object, if any
         public Entity HitObject;
 
@@ -126,6 +134,19 @@ namespace RTSInput
             if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.staticsMask))
             {
                 staticPosition = hit.point;
+
+                if (hit.collider.CompareTag("Ground"))
+                {
+                    staticTag = StaticTag.Ground;
+                }
+                else if (hit.collider.CompareTag("Buildable"))
+                {
+                    staticTag = StaticTag.Buildable;
+                }
+                else {
+                    staticTag = StaticTag.Other;
+                }
+
             }
             if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.entitysMask))
             {
@@ -413,7 +434,7 @@ namespace RTSInput
                             }
                         }
                     }
-                    else if(SelectedEntities.Count > 0)
+                    else if(SelectedEntities.Count > 0 && staticTag == StaticTag.Ground)
                     {
                         //give every object their default commands
                         foreach (Entity obj in SelectedEntities)

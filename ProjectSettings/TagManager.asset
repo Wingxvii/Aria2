@@ -13,6 +13,7 @@ TagManager:
   - Weapon
   - SelectableObject
   - UI
+  - Buildable
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - Background
+  - Buildable
   - StaticObject
   - Barracks
   - Droid
@@ -31,7 +32,7 @@ TagManager:
   - Turret
   - Wall
   - Science
-  - 
+  - Ground
   - 
   - 
   - 
