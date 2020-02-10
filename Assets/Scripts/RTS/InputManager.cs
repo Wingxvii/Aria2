@@ -122,6 +122,12 @@ namespace RTSInput
             if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.staticsMask))
             {
                 staticPosition = hit.point;
+
+                //Snap
+                PlacementGrid grid = null;
+                if (hit.transform.gameObject.TryGetComponent(out grid)) {
+                    staticPosition = grid.Snap(staticPosition);
+                }
             }
 
             if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.entitysMask))
@@ -159,10 +165,11 @@ namespace RTSInput
 
 
             //bind prefab object to mouse
-            if (activeBlueprint != null && activeBlueprint.activeSelf)
-            {
-                activeBlueprint.GetComponent<Transform>().position = new Vector3(InputManager.Instance.staticPosition.x, InputManager.Instance.staticPosition.y + activeBlueprint.GetComponent<Transform>().localScale.y, InputManager.Instance.staticPosition.z);
-            }
+            //Moved to ShellPlacement
+            //if (activeBlueprint != null && activeBlueprint.activeSelf)
+            //{
+            //    activeBlueprint.GetComponent<Transform>().position = new Vector3(InputManager.Instance.staticPosition.x, InputManager.Instance.staticPosition.y + activeBlueprint.GetComponent<Transform>().localScale.y, InputManager.Instance.staticPosition.z);
+            //}
 
         }
 

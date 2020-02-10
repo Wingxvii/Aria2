@@ -30,8 +30,11 @@ public class ShellPlacement : MonoBehaviour
             placeable = true;
             selfRenderer.material = green;
         }
-    }
 
+        //Get new position based on mouse position
+        transform.position = new Vector3(RTSInput.InputManager.Instance.staticPosition.x, RTSInput.InputManager.Instance.staticPosition.y + transform.localScale.y, RTSInput.InputManager.Instance.staticPosition.z);
+
+    }
 
     private void OnTriggerEnter(Collider collision)
     {
