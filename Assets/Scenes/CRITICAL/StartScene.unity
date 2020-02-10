@@ -340,10 +340,10 @@ MonoBehaviour:
   slot3: {fileID: 1546596988}
   slot4: {fileID: 539708181}
   readyStatus: {fileID: 801695610}
-  readyButton: {fileID: 0}
-  sendButton: {fileID: 0}
-  rtsButton: {fileID: 0}
-  fpsButton: {fileID: 0}
+  readyButton: {fileID: 1362459394}
+  sendButton: {fileID: 755560743}
+  rtsButton: {fileID: 1943431282}
+  fpsButton: {fileID: 1057404448}
   Ready: 0
 --- !u!1 &85851324
 GameObject:

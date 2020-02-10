@@ -46,6 +46,9 @@ public class StartManager : MonoBehaviour
 
     private PlayerType tempRole = PlayerType.Spectator;
 
+    public float countdownSeconds = 5.0f;
+
+
     private void Start()
     {
         readyButton.interactable = false;
@@ -118,7 +121,7 @@ public class StartManager : MonoBehaviour
         else {
             Ready = false;
         }
-
+            
         NetworkManager.OnReady(Ready);
     }
 
@@ -128,16 +131,18 @@ public class StartManager : MonoBehaviour
     }
 
     public void StartCount() { 
-    
+        
     }
 
     public void StopCount() { 
-    
+        
     }
 
     private void Update()
     {
         //update roles
+
+
     }
 
     public void recieveMessage(string messsage) { 

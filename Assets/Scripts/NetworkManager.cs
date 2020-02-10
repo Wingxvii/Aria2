@@ -1213,8 +1213,8 @@ namespace Netcode
          *  Action that starts the countdown state. When all users are loaded, countdown begins for player 
          * 
          */
-        public static void StartCountdown() { 
-            
+        public static void StartCountdown() {
+            StartManager.Instance.StartCount();
         }
         /*
          * StopCountdown
@@ -1222,8 +1222,20 @@ namespace Netcode
          *  Action that stops, and resets the countdown state.
          * 
          */
-        public static void StopCountdown() { 
-            
+        public static void StopCountdown() {
+            StartManager.Instance.StopCount();
+
+        }
+
+        /*
+        * LoadGame
+        * @desc
+        *  Action call to let client know when they should start loading
+        * 
+        */
+
+        public static void LoadGame() {
+            StartManager.Instance.LoadGame();
         }
 
         /*
