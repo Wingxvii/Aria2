@@ -2,7 +2,7 @@
 using UnityEngine;
 
 public enum PlayerType { 
-    RTS = 0,
+    RTS,
     FPS,
     Spectator
 }
@@ -23,8 +23,6 @@ public class GameSceneController : MonoBehaviour
             {
                 _instance = this;
             }
-            gameStart = true;
-
         }
     //single pattern ends here
     #endregion
@@ -33,7 +31,6 @@ public class GameSceneController : MonoBehaviour
 
     public bool gameStart = false;
     public int loadedScene = 1;
-    public string IP = "";
     public PlayerType type;
     public int gameState = 0;
 

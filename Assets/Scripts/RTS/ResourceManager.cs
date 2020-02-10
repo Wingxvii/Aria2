@@ -61,7 +61,7 @@ public class ResourceManager : MonoBehaviour
     }
 
 
-    public GameState gameState = GameState.Running;
+    public GameState gameState = GameState.Preparing;
 
     public int credits = 0;
     public int totalSupply = 0;
@@ -86,10 +86,12 @@ public class ResourceManager : MonoBehaviour
     {
         credits = 1000;
         timeElapsed = 600;
+        gameState = GameState.Preparing;
     }
 
     private void Update()
     {
+        if (GameSceneController.Instance.gameStart) { gameState = GameState.Running; }
         if (gameState == GameState.Running)
         {
             timeElapsed -= Time.deltaTime;
@@ -100,12 +102,7 @@ public class ResourceManager : MonoBehaviour
             }
         }
     }
-
-    public void StartGame()
-    {
-        gameState = GameState.Running;
-    }
-
+    
     // Update is called once per frame
     void FixedUpdate()
     {

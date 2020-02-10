@@ -99,6 +99,13 @@ namespace Netcode
         public int state;
     };
 
+    //container for user data storage
+    public class UsersData {
+        public string username = "Nameless";
+        public bool readyStatus = false;
+        public PlayerType type = PlayerType.Spectator;
+    }
+
 
     public class EntityData
     {
@@ -202,24 +209,17 @@ namespace Netcode
         int fixedTimeStep;
         public static DataState dataState;
         public static FirearmHandler[] firearms = new FirearmHandler[3];
-
+        public static List<UsersData> allUsers;  
         void Awake()
         {
             //firearms = new FirearmHandler[3];
             fixedTimeStep = (int)(1f / Time.fixedDeltaTime);
 
-            if (GameSceneController.Instance != null && GameSceneController.Instance.IP != "")
-            {
-                ip = GameSceneController.Instance.IP;
-            }
-            else
-            {
-                ip = "127.0.0.1";
-            }
             dataState = new DataState();
-
+            allUsers = new List<UsersData>();
         }
 
+        /*
         public static void ConnectToServer(string ipAddr)
         {
             if (ipAddr != "")
@@ -241,8 +241,8 @@ namespace Netcode
             SetupPacketReceptionBuild(PacketReceivedBuild);
             SetupPacketReceptionKill(PacketReceivedKill);
         }
-
-
+        */
+        /*
         // NEW JOIN GAME FUNCTION! @JOHN
         public static void JoinGame(int id)
         {
@@ -266,6 +266,8 @@ namespace Netcode
                 }
             }
         }
+
+            */
 
         // Update is called once per frame
         void FixedUpdate()
@@ -408,12 +410,6 @@ namespace Netcode
             {
 
             }
-
-            private void Update()
-            {
-
-            }
-
             //called on data recieve action, then process
             //static void PacketRecieved(int type, int sender, string data)
             //{
@@ -497,6 +493,9 @@ namespace Netcode
                 GameSceneController.Instance.playerNumber = index;
             }
 
+
+            
+        /*
             // Received Joined Game from Server @JOHN
             static void PacketReceivedJoin(int sender, packet_join packet)
             {
@@ -518,6 +517,8 @@ namespace Netcode
                     Debug.Log("Join Error: " + packet.type + " , " + packet.playerID);
                 }
             }
+            */
+
 
             static void PacketReceivedMsg(int sender, packet_msg packet)
             {
@@ -1074,5 +1075,203 @@ namespace Netcode
                 //        }
                 //    }
             }
+
+
+
+        #region LobbyFunctions
+
+        /*
+         * ConnectToServer
+         * @desc 
+         *  Connects to the TCP server. 
+         * @param
+         *  string: ip of the server
+         * 
+         */
+        public static void ConnectToServer(string ip) {}
+
+        /*
+        * ConnectToServer
+        * @desc 
+        *  Connects to the TCP server. 
+        * @param
+        *  string: ip of the server
+        *  string: username of the player connecting
+        * 
+        */
+        public static void ConnectToServer(string ip, string username){}
+
+
+        /*
+         * OnConencted
+         * @desc
+         *  Action returning if connection was successful
+         * @param
+         *  bool: success or failure
+         * 
+         */
+        public static void OnConnected(bool success)
+        {
+            StartManager.Instance.OnConnected(success);
         }
+
+        /*
+         * SelectRole
+         * @desc
+         *  Sends role request to server
+         * @param
+         *  PlayerType: Selected role
+         */
+        public static void SelectRole(PlayerType type) { }
+
+        /*
+         * OnRoleSelected
+         * @desc
+         *  Action that recieves if role is avaliable
+         * @param
+         *  bool: if role request was successful
+         */
+        public static void OnRoleSelected(bool success) {
+            StartManager.Instance.OnRoleSelected(success);
+        }
+
+        /*
+         * RoleUpdate
+         * @desc
+         *  Action that updates the connected player data in the lobby (ONLY CALLED BEFORE GAME STARTS)
+         * @param
+         *  int: slot index of the player(1-4)
+         *  bool: wether player is ready
+         *  int: type of player's gamemode
+         *  string: username of player
+         */
+        public static void RoleUpdate(int slotNum, bool readyStatus, int type, string userName) {
+            if (!GameSceneController.Instance.gameStart)
+            {
+                while (slotNum > allUsers.Count)
+                {
+                    allUsers.Add(new UsersData());
+                }
+
+                //update ready status
+                if (allUsers[slotNum - 1].readyStatus != readyStatus) {
+                    allUsers[slotNum - 1].readyStatus = readyStatus;
+
+                    if (readyStatus)
+                    {
+                        RecieveMessage("User " + userName + " is Ready.");
+                    }
+                    else {
+                        RecieveMessage("User " + userName + " Unreadied.");
+                    }
+                }
+
+                //update type status
+                if (allUsers[slotNum - 1].type != (PlayerType)type)
+                {
+                    allUsers[slotNum - 1].type = (PlayerType)type;
+
+                    if ((PlayerType)type == PlayerType.FPS)
+                    {
+                        RecieveMessage("User " + userName + " is now FPS.");
+                    }
+                    else if ((PlayerType)type == PlayerType.RTS)
+                    {
+                        RecieveMessage("User " + userName + " is now RTS.");
+                    }
+                    else {
+                        RecieveMessage("User " + userName + " is now SPECTATOR.");
+                    }
+                }
+
+
+                allUsers[slotNum - 1].username = userName;
+            }
+            else {
+                Debug.LogWarning("Warning: Attempted role update while in game.");
+            }
+        }
+        public static void RoleUpdate(int slotNum, bool readyStatus, int type)
+        {
+            RoleUpdate(slotNum, readyStatus, type, "Nameless");
+        }
+
+        /*
+         * OnReady
+         * @desc
+         *  Call the server to update the readyness of the player. Once all connected players are ready, the game starts, up to a maximum of 4. If game countdown is 
+         * @param
+         *  bool: the ready status of the player
+         * 
+         */
+        public static void OnReady(bool ready) { }
+
+
+        /*
+         * StartCountdown
+         * @desc
+         *  Action that starts the countdown state. When all users are loaded, countdown begins for player 
+         * 
+         */
+        public static void StartCountdown() { 
+            
+        }
+        /*
+         * StopCountdown
+         * @desc
+         *  Action that stops, and resets the countdown state.
+         * 
+         */
+        public static void StopCountdown() { 
+            
+        }
+
+        /*
+         * OnLoaded
+         * @desc
+         *  Tells the server that this player has finished loading the game scene, allowing the next player to load.
+         * 
+         */
+        public static void OnLoaded() { }
+
+
+        /*
+         * GameReady
+         * @desc
+         *  Action that is called when all users have finished loading
+         * 
+         */ 
+        public static void GameReady() {
+            GameSceneController.Instance.gameStart = true;
+        }
+
+        /*
+        * SendMessage
+        * @desc
+        *   Sends a message to every connected client
+        * @param
+        *   string: string of message to send
+        *   
+        */
+        public static void SendMessage(string message)
+        {
+     
+
+        }
+
+        /*
+         * RecieveMessage
+         * @desc
+         *  Action that relays recieved message to startManager
+         * @param
+         *  string: message contents
+         * 
+         */
+        public static void RecieveMessage(string message) {
+            StartManager.Instance.recieveMessage(message);
+        }
+
+
+        #endregion
     }
+}
