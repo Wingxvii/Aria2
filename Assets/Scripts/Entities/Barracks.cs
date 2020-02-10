@@ -55,36 +55,37 @@ public class Barracks : Building
 
     protected override void BaseUpdate()
     {
-
-        //add to queue
-        if (currentBuildTime <= 0 && buildTimes.Count > 0)
+        if (GameSceneController.Instance.type == PlayerType.RTS)
         {
-            buildProcess.gameObject.SetActive(true);
-            currentBuildTime += buildTimes.Dequeue();
-        }
-        //tick queue
-        else if (currentBuildTime > 0)
-        {
-            buildProcess.value = currentBuildTime / droidTrainTime;
-            currentBuildTime -= Time.deltaTime;
-            if (currentBuildTime <= 0)
+            //add to queue
+            if (currentBuildTime <= 0 && buildTimes.Count > 0)
             {
-                if (flagActive)
+                buildProcess.gameObject.SetActive(true);
+                currentBuildTime += buildTimes.Dequeue();
+            }
+            //tick queue
+            else if (currentBuildTime > 0)
+            {
+                buildProcess.value = currentBuildTime / droidTrainTime;
+                currentBuildTime -= Time.deltaTime;
+                if (currentBuildTime <= 0)
                 {
-                    ResourceManager.Instance.QueueFinished(spawnPoint, EntityType.Droid, flagObj.transform.position);
-                }
-                else
-                {
-                    ResourceManager.Instance.QueueFinished(spawnPoint, EntityType.Droid);
+                    if (flagActive)
+                    {
+                        ResourceManager.Instance.QueueFinished(spawnPoint, EntityType.Droid, flagObj.transform.position);
+                    }
+                    else
+                    {
+                        ResourceManager.Instance.QueueFinished(spawnPoint, EntityType.Droid);
+                    }
                 }
             }
+            //queue ended
+            else if (currentBuildTime <= 0)
+            {
+                buildProcess.gameObject.SetActive(false);
+            }
         }
-        //queue ended
-        else if (currentBuildTime <= 0)
-        {
-            buildProcess.gameObject.SetActive(false);
-        }
-
     }
 
     public override void BaseSelected()
