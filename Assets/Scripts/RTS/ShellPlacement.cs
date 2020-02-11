@@ -26,9 +26,14 @@ public class ShellPlacement : MonoBehaviour
     void Update()
     {
         //checks for placeability
-        if (collisionCount == 0) {
+        if (collisionCount == 0 && RTSInput.InputManager.Instance.staticTag == RTSInput.StaticTag.Buildable)
+        {
             placeable = true;
             selfRenderer.material = green;
+        }
+        else {
+            selfRenderer.material = red;
+            placeable = false;
         }
     }
 
@@ -36,8 +41,6 @@ public class ShellPlacement : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         collisionCount++;
-        selfRenderer.material = red;
-        placeable = false;
     }
 
     public void OnTriggerExit(Collider collision)

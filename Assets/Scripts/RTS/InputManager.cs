@@ -16,6 +16,12 @@ namespace RTSInput
         RallyCursor,
     }
 
+    public enum StaticTag {
+        Ground,
+        Buildable,
+        Other,
+    }
+
     public class InputManager : MonoBehaviour
     {
         #region SingletonCode
@@ -63,6 +69,8 @@ namespace RTSInput
 
         //cast mouse position on static game map
         public Vector3 staticPosition;
+        public StaticTag staticTag;
+
         //currently hit object, if any
         public Entity HitObject;
 
@@ -120,51 +128,69 @@ namespace RTSInput
         // Update is called once per frame
         void Update()
         {
-            #region Raycast
-            //raycast the mouse
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.staticsMask))
+            //[FPS]update input only if game is currently running
+            if (ResourceManager.Instance.gameState == ResourceManager.GameState.Running)
             {
-                staticPosition = hit.point;
-            }
-            if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.entitysMask))
-            {
-                HitObject = hit.collider.gameObject.GetComponent<Entity>();
-            }
-            else
-            {
-                HitObject = null;
-            }
-            //check to see if anything gets hit
+                #region Raycast
+                //raycast the mouse
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.staticsMask))
+                {
+                    staticPosition = hit.point;
 
-            #endregion
+                    if (hit.collider.CompareTag("Ground"))
+                    {
+                        staticTag = StaticTag.Ground;
+                    }
+                    else if (hit.collider.CompareTag("Buildable"))
+                    {
+                        staticTag = StaticTag.Buildable;
+                    }
+                    else
+                    {
+                        staticTag = StaticTag.Other;
+                    }
 
-            //handle selection box first
-            HandleSelectionBox();
+                }
+                if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.entitysMask))
+                {
+                    HitObject = hit.collider.gameObject.GetComponent<Entity>();
+                }
+                else
+                {
+                    HitObject = null;
+                }
+                //check to see if anything gets hit
 
-            //handle left mouse click events
-            HandleLeftMouseClicks();
+                #endregion
 
-            //handle right mouse click events
-            HandleRightMouseClicks();
+                //handle selection box first
+                HandleSelectionBox();
 
-            //handle key press
-            HandleKeys();
+                //handle left mouse click events
+                HandleLeftMouseClicks();
 
-            //check activity
-            CheckActivity();
+                //handle right mouse click events
+                HandleRightMouseClicks();
 
-            //handle selection changes #depricated in commit e27ca50f5208e5b2c054ff258cac52ef5b323323
-            //HandleSelectionChanges();
+                //handle key press
+                HandleKeys();
 
-            //check validity of current blueprint
-            CheckValidity();
+                //check activity
+                CheckActivity();
+
+                //handle selection changes #depricated in commit e27ca50f5208e5b2c054ff258cac52ef5b323323
+                //HandleSelectionChanges();
+
+                //check validity of current blueprint
+                CheckValidity();
 
 
-            //bind prefab object to mouse
-            if (activeBlueprint != null && activeBlueprint.activeSelf)
-            {
-                activeBlueprint.GetComponent<Transform>().position = new Vector3(InputManager.Instance.staticPosition.x, InputManager.Instance.staticPosition.y + activeBlueprint.GetComponent<Transform>().localScale.y, InputManager.Instance.staticPosition.z);
+                //bind prefab object to mouse
+                if (activeBlueprint != null && activeBlueprint.activeSelf)
+                {
+                    activeBlueprint.GetComponent<Transform>().position = new Vector3(InputManager.Instance.staticPosition.x, InputManager.Instance.staticPosition.y + activeBlueprint.GetComponent<Transform>().localScale.y, InputManager.Instance.staticPosition.z);
+                }
             }
         }
 
@@ -413,7 +439,7 @@ namespace RTSInput
                             }
                         }
                     }
-                    else if(SelectedEntities.Count > 0)
+                    else if(SelectedEntities.Count > 0 && staticTag == StaticTag.Ground)
                     {
                         //give every object their default commands
                         foreach (Entity obj in SelectedEntities)
