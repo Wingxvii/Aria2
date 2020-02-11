@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Netcode;
-
+using System.Text;
 
 public class StartManager : MonoBehaviour
 {
@@ -24,18 +24,15 @@ public class StartManager : MonoBehaviour
     //single pattern ends here
     #endregion
 
-
     public InputField ipText;
     public InputField chatText;
     public InputField username;
 
     public Text connectionStatus;
     public Text chatLog;
-    public Text slot1;
-    public Text slot2;
-    public Text slot3;
-    public Text slot4;
+    public Text[] slots;
     public Text readyStatus;
+    public Text readyButtonText;
 
     public Button readyButton;
     public Button sendButton;
@@ -45,9 +42,10 @@ public class StartManager : MonoBehaviour
     public bool Ready = false;
 
     private PlayerType tempRole = PlayerType.Spectator;
+    public bool rolesUpdated = false;
 
     public float countdownSeconds = 5.0f;
-
+    public bool countdown = false;
 
     private void Start()
     {
@@ -56,6 +54,10 @@ public class StartManager : MonoBehaviour
         rtsButton.interactable = false;
         fpsButton.interactable = false;
         GameSceneController.Instance.type = PlayerType.Spectator;
+
+        foreach (Text slot in slots) {
+            slot.gameObject.SetActive(false);
+        }
 
     }
 
@@ -83,6 +85,10 @@ public class StartManager : MonoBehaviour
         }
         else {
             connectionStatus.text = "Connection Status: Unable to Connect";
+            sendButton.interactable = false;
+            rtsButton.interactable = false;
+            fpsButton.interactable = false;
+            readyButton.interactable = false;
         }
     }
 
@@ -117,11 +123,17 @@ public class StartManager : MonoBehaviour
         if (Ready == false)
         {
             Ready = true;
+            readyButtonText.text = "Unready";
+            readyStatus.text = "Status: Ready";
+
         }
         else {
             Ready = false;
+            StopCount();
+            readyButtonText.text = "Ready!";
+            readyStatus.text = "Status: Not Ready";
         }
-            
+
         NetworkManager.OnReady(Ready);
     }
 
@@ -130,23 +142,66 @@ public class StartManager : MonoBehaviour
         GameSceneController.Instance.SwapScene(2);
     }
 
-    public void StartCount() { 
-        
+    public void StartCount() {
+        countdown = true;
+        rtsButton.interactable = false;
+        fpsButton.interactable = false;
+
     }
 
-    public void StopCount() { 
-        
+    public void StopCount() {
+        countdown = false;
+        countdownSeconds = 5.0f;
+        rtsButton.interactable = true;
+        fpsButton.interactable = true;
     }
 
     private void Update()
     {
+        //countdown
+        if (countdown) {
+            countdownSeconds -= Time.deltaTime;
+            if (countdownSeconds < 0.0f) { countdownSeconds = 0.0f; }
+            
+            readyStatus.text = "Status: Game Starting in " + ((int)countdownSeconds).ToString() + " Seconds";
+        }
+
         //update roles
+        if (rolesUpdated) {
+            for(int counter = 0; counter < NetworkManager.allUsers.Count; counter++) {
+                StringBuilder output = new StringBuilder();
 
+                output.Append(NetworkManager.allUsers[counter].username);
+                output.Append(" - ");
+                if (NetworkManager.allUsers[counter].type == PlayerType.FPS) { output.Append("FPS - "); }
+                else if (NetworkManager.allUsers[counter].type == PlayerType.FPS) { output.Append("RTS - "); }
+                else { output.Append("Spectator - "); }
 
+                if (NetworkManager.allUsers[counter].readyStatus)
+                {
+                    output.Append("Ready");
+                }
+                else {
+                    output.Append("Not Ready");
+                }
+
+                //set as slot
+                if (slots.Length > counter)
+                {
+                    slots[counter].text = output.ToString();
+                }
+                else {
+                    Debug.LogWarning("More than allowed slots of players tried to connect");
+                }
+            }
+            rolesUpdated = false;
+        }
     }
 
-    public void recieveMessage(string messsage) { 
-        
+    public void recieveMessage(string messsage) {
+        chatLog.text += "\n";
+        chatLog.text += messsage;
+
     }
 
     public void sendMessage() {

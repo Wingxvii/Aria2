@@ -1148,6 +1148,8 @@ namespace Netcode
         public static void RoleUpdate(int slotNum, bool readyStatus, int type, string userName) {
             if (!GameSceneController.Instance.gameStart)
             {
+                StartManager.Instance.rolesUpdated = true;
+
                 while (slotNum > allUsers.Count)
                 {
                     allUsers.Add(new UsersData());
@@ -1260,7 +1262,8 @@ namespace Netcode
         /*
         * SendMessage
         * @desc
-        *   Sends a message to every connected client
+        *   Sends a message to every connected client, including self.
+        *   Format needs to be: "[Username]: [message]"
         * @param
         *   string: string of message to send
         *   
@@ -1275,6 +1278,7 @@ namespace Netcode
          * RecieveMessage
          * @desc
          *  Action that relays recieved message to startManager
+         *  Format needs to be: "[Username]: [message]"
          * @param
          *  string: message contents
          * 
