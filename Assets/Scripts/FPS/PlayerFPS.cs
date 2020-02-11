@@ -45,7 +45,7 @@ public class PlayerFPS : Entity
     int spawnPointNum = -1;
     Collider[] colliders;
     Rigidbody rb;
-    Camera mainCam;
+    public Camera mainCam { get; private set; }
 
     public int[] remainingAmmunition = new int[(int)GunType.TOTAL];
 

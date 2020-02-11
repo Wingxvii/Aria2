@@ -30,8 +30,18 @@ namespace Netcode
         // entity built
         BUILD,
         // entity killed
-        KILL
+        DEATH
     };
+
+    enum PlayerMask
+    {
+        SERVER = 1 << 0,
+        CLIENT1 = 1 << 1,
+        CLIENT2 = 1 << 2,
+        CLIENT3 = 1 << 3,
+        CLIENT4 = 1 << 4,
+    }
+
 
     struct packet_init
     {
@@ -190,6 +200,12 @@ namespace Netcode
         static extern int GetError(IntPtr client);
         [DllImport(DLL_NAME)]
         static extern int GetErrorLoc(IntPtr client);
+        [DllImport(DLL_NAME)]
+        static extern void SetupTextReception(Action<string> action);
+
+
+        [DllImport(DLL_NAME)]
+        static extern bool SendDataPacket(IntPtr ptr, int length, bool TCP);
 
         public static string ip;
         private static IntPtr Client;
@@ -202,6 +218,10 @@ namespace Netcode
         int fixedTimeStep;
         public static DataState dataState;
         public static FirearmHandler[] firearms = new FirearmHandler[3];
+
+        static byte[] sendByteArray = new byte[5000];
+        static byte[] tcpByteArray = new byte[5000];
+        static byte[] udpByteArray = new byte[5000];
 
         void Awake()
         {
@@ -217,7 +237,217 @@ namespace Netcode
                 ip = "127.0.0.1";
             }
             dataState = new DataState();
+        }
 
+        #region packingData
+        static void PackData(ref byte[] bytes, ref int loc, bool data)
+        {
+            BitConverter.GetBytes(data).CopyTo(bytes, loc);
+            loc += Marshal.SizeOf(data);
+        }
+        static void PackData(ref byte[] bytes, ref int loc, int data)
+        {
+            BitConverter.GetBytes(data).CopyTo(bytes, loc);
+            loc += Marshal.SizeOf(data);
+        }
+        static void PackData(ref byte[] bytes, ref int loc, float data)
+        {
+            BitConverter.GetBytes(data).CopyTo(bytes, loc);
+            loc += Marshal.SizeOf(data);
+        }
+        static void PackData(ref byte[] bytes, ref int loc, string data)
+        {
+            
+            data.ToCharArray().CopyTo(bytes, loc);
+            loc += data.Length;
+            bytes[loc] = (byte)0;
+            loc += 1;
+        }
+
+        static int InitialOffset = 4;
+
+        static void SendIntPtr(byte[] bytes, int length, bool TCP)
+        {
+            BitConverter.GetBytes(length).CopyTo(bytes, 0);
+
+            IntPtr ptr = Marshal.AllocCoTaskMem(length);
+
+            Marshal.Copy(bytes, 0, ptr, length);
+
+            //SenddataFunc
+            SendDataPacket(ptr, length, TCP);
+
+            Marshal.FreeCoTaskMem(ptr);
+        }
+        #endregion
+
+        public static void SendPacketMsg(string message)
+        {
+            if(message != "")
+            {
+                int loc = InitialOffset;
+                int Receiver = 0;
+
+                Receiver = (~(int)PlayerMask.SERVER);
+                
+                PackData(ref sendByteArray, ref loc, Receiver);
+                PackData(ref sendByteArray, ref loc, (int)PacketType.MESSAGE);
+                PackData(ref sendByteArray, ref loc, GetPlayerNumber(Client));
+                PackData(ref sendByteArray, ref loc, message);
+
+                SendIntPtr(sendByteArray, loc, true);
+            }
+        }
+
+        public static void SendPacketState(int state)
+        {
+            if (state >= 0 && state <= 10)
+            {
+                int loc = InitialOffset;
+                int Receiver = 0;
+
+                Receiver = (~0);
+
+                PackData(ref sendByteArray, ref loc, Receiver);
+                PackData(ref sendByteArray, ref loc, (int)PacketType.STATE);
+                PackData(ref sendByteArray, ref loc, GetPlayerNumber(Client));
+                PackData(ref sendByteArray, ref loc, state);
+
+                SendIntPtr(sendByteArray, loc, true);
+            }
+        }
+
+        public static void SendPacketEntities()
+        {
+            int loc = InitialOffset;
+            int Receiver = 0;
+
+            Receiver = ~((1 << GameSceneController.Instance.playerNumber) & (int)PlayerMask.SERVER);
+
+            PackData(ref sendByteArray, ref loc, Receiver);
+            PackData(ref sendByteArray, ref loc, (int)PacketType.ENTITY);
+
+            if (GameSceneController.Instance.type == PlayerType.RTS)
+            {
+                foreach (Droid droid in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Droid])
+                {
+                    PackData(ref sendByteArray, ref loc, droid.id);
+                    PackData(ref sendByteArray, ref loc, (int)droid.state);
+                    PackData(ref sendByteArray, ref loc, droid.transform.position.x);
+                    PackData(ref sendByteArray, ref loc, droid.transform.position.y);
+                    PackData(ref sendByteArray, ref loc, droid.transform.position.z);
+                    PackData(ref sendByteArray, ref loc, droid.transform.rotation.x);
+                    PackData(ref sendByteArray, ref loc, droid.transform.rotation.y);
+                    PackData(ref sendByteArray, ref loc, droid.transform.rotation.z);
+                }
+
+                foreach (Turret turret in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Turret])
+                {
+                    PackData(ref sendByteArray, ref loc, turret.id);
+                    PackData(ref sendByteArray, ref loc, (int)turret.state);
+                    PackData(ref sendByteArray, ref loc, turret.transform.position.x);
+                    PackData(ref sendByteArray, ref loc, turret.transform.position.y);
+                    PackData(ref sendByteArray, ref loc, turret.transform.position.z);
+                    PackData(ref sendByteArray, ref loc, turret.head.transform.localRotation.x);
+                    PackData(ref sendByteArray, ref loc, turret.body.transform.localRotation.y);
+                    PackData(ref sendByteArray, ref loc, turret.transform.rotation.z);
+                }
+            }
+            else if(GameSceneController.Instance.type == PlayerType.FPS)
+            {
+                PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[playerNumber];
+                PackData(ref sendByteArray, ref loc, player.id);
+                PackData(ref sendByteArray, ref loc, player.stats.state);
+                PackData(ref sendByteArray, ref loc, player.transform.position.x);
+                PackData(ref sendByteArray, ref loc, player.transform.position.y);
+                PackData(ref sendByteArray, ref loc, player.transform.position.z);
+                PackData(ref sendByteArray, ref loc, player.mainCam.transform.localRotation.x);
+                PackData(ref sendByteArray, ref loc, player.mainCam.transform.localRotation.y);
+                PackData(ref sendByteArray, ref loc, player.mainCam.transform.rotation.z);
+            }
+            else
+            {
+                return;
+            }
+
+            SendIntPtr(sendByteArray, loc, false);
+        }
+
+        
+        public static void SendPacketDamage(int senderID, int receiverID, float damage)
+        {
+            if (damage >= 0)
+            {
+                int loc = InitialOffset;
+                int Receiver = 0;
+
+                Receiver = (~(int)PlayerMask.SERVER);
+
+                PackData(ref sendByteArray, ref loc, Receiver);
+                PackData(ref sendByteArray, ref loc, (int)PacketType.DAMAGE);
+                PackData(ref sendByteArray, ref loc, senderID);
+                PackData(ref sendByteArray, ref loc, receiverID);
+                PackData(ref sendByteArray, ref loc, damage);
+
+                SendIntPtr(sendByteArray, loc, true);
+            }
+        }
+
+        public static void SendPacketWeapon(int weapon)
+        {
+            if (weapon >= 0)
+            {
+                int loc = InitialOffset;
+                int Receiver = 0;
+
+                Receiver = ~((1 << GameSceneController.Instance.playerNumber) & (int)PlayerMask.SERVER);
+
+                PackData(ref sendByteArray, ref loc, Receiver);
+                PackData(ref sendByteArray, ref loc, (int)PacketType.WEAPON);
+                PackData(ref sendByteArray, ref loc, GetPlayerNumber(Client));
+                PackData(ref sendByteArray, ref loc, weapon);
+
+                SendIntPtr(sendByteArray, loc, true);
+            }
+        }
+
+        public static void SendPacketBuild(int ID, int type, Vector3 pos)
+        {
+            if (ID >= 0 && type >= 0)
+            {
+                int loc = InitialOffset;
+                int Receiver = 0;
+
+                Receiver = (~(int)PlayerMask.SERVER);
+
+                PackData(ref sendByteArray, ref loc, Receiver);
+                PackData(ref sendByteArray, ref loc, (int)PacketType.BUILD);
+                PackData(ref sendByteArray, ref loc, ID);
+                PackData(ref sendByteArray, ref loc, type);
+                PackData(ref sendByteArray, ref loc, pos.x);
+                PackData(ref sendByteArray, ref loc, pos.y);
+                PackData(ref sendByteArray, ref loc, pos.z);
+
+                SendIntPtr(sendByteArray, loc, true);
+            }
+        }
+
+        public static void SendPacketDeath(int ID, int killerID)
+        {
+            if (ID >= 0)
+            {
+                int loc = InitialOffset;
+                int Receiver = 0;
+
+                Receiver = (~(int)PlayerMask.SERVER);
+
+                PackData(ref sendByteArray, ref loc, Receiver);
+                PackData(ref sendByteArray, ref loc, (int)PacketType.DEATH);
+                PackData(ref sendByteArray, ref loc, ID);
+                PackData(ref sendByteArray, ref loc, killerID);
+
+                SendIntPtr(sendByteArray, loc, true);
+            }
         }
 
         public static void ConnectToServer(string ipAddr)
@@ -240,11 +470,17 @@ namespace Netcode
             SetupPacketReceptionWeapon(PacketReceivedWeapon);
             SetupPacketReceptionBuild(PacketReceivedBuild);
             SetupPacketReceptionKill(PacketReceivedKill);
+
+            SetupTextReception(TextReceived);
         }
 
+        static void TextReceived(string text)
+        {
+            Debug.Log(text);
+        }
 
-        // NEW JOIN GAME FUNCTION! @JOHN
-        public static void JoinGame(int id)
+            // NEW JOIN GAME FUNCTION! @JOHN
+            public static void JoinGame(int id)
         {
             if (isConnected)
             {
