@@ -152,7 +152,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 261943
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -621,6 +621,7 @@ MonoBehaviour:
   currentHealth: 1
   maxHealth: 1
   destructable: 0
+  ready: 1
   remainingAmmunition: c8000000f401000050000000
   stats:
     acceleration: 100
