@@ -231,7 +231,7 @@ MonoBehaviour:
   gameStart: 1
   loadedScene: 1
   IP: 
-  type: 2
+  type: 1
   gameState: 0
 --- !u!4 &574309900
 Transform:
@@ -837,7 +837,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219984178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.32, z: 0}
+  m_LocalPosition: {x: 2.34, y: 1.07, z: -0.173}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 683400371}
@@ -1388,8 +1388,9 @@ MonoBehaviour:
     type: 3}
   turretPrefab: {fileID: 5508097730102920826, guid: 529508816a634614b898583372ae9b5c,
     type: 3}
-  controllablePlayerPrefab: {fileID: 4720113362179397652, guid: 470af53b1795a1a45b7214d01ff6ef09,
+  controllablePlayerPrefab: {fileID: 2070961771461345977, guid: de479b74e35487c7e98a49cc1bbf930b,
     type: 3}
+  sciencePrefab: {fileID: 0}
   FPSManagers: {fileID: 1824440532}
   RTSManagers: {fileID: 7295444142334338898}
   Debugger: {fileID: 0}
@@ -6587,6 +6588,11 @@ MonoBehaviour:
   creditText: {fileID: 1424966557}
   supplyText: {fileID: 1191147846}
   time: {fileID: 1161962438}
+  doubleBounties: 0
+  buildingHealth: 0
+  resourceTrickle: 0
+  fasterTraining: 0
+  droidStronger: 0
   timeElapsed: 0
 --- !u!114 &7295444141309362561
 MonoBehaviour:
@@ -6675,6 +6681,7 @@ MonoBehaviour:
   selectedTypeFlag: 0
   selectionChanged: 0
   staticPosition: {x: 0, y: 0, z: 0}
+  staticTag: 0
   HitObject: {fileID: 0}
   activeBlueprint: {fileID: 0}
   turretBlueprint: {fileID: 1436627955740270682, guid: 59f234e42d154974f9442df9747bfa4a,
@@ -6683,6 +6690,7 @@ MonoBehaviour:
     type: 3}
   wallBlueprint: {fileID: 2943965205063777523, guid: 8f40839140d57484d963bc133282dd5d,
     type: 3}
+  scienceBlueprint: {fileID: 0}
   moveCursorBlueprint: {fileID: 2683152570318193574, guid: 8934e153b9e7c384e8f9576c8e84713e,
     type: 3}
   attackCursorBlueprint: {fileID: 2683152570318193574, guid: 6a8aa18d98588eb4caf5b6a50144c5a5,
