@@ -153,7 +153,7 @@ public class PlayerFPS : Entity
             stats.groundAngleFloat = 180f;
             stats.colliding = false;
 
-            Netcode.NetworkManager.SendPlayerInfo(this);
+            Netcode.NetworkManager.SendPacketEntities();
         }
         else if (type == EntityType.Dummy)
         {
@@ -281,7 +281,7 @@ public class PlayerFPS : Entity
     //Use this to network damage being dealt
     public void SendDamage(int damage, Entity receiver)
     {
-        Netcode.NetworkManager.SendDamage(this.id, false, receiver.id, damage);
+        Netcode.NetworkManager.SendPacketDamage(this.id, receiver.id, damage);
         receiver.OnDamage(damage, this);
     }
 

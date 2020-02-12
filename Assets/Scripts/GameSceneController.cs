@@ -2,9 +2,9 @@
 using UnityEngine;
 
 public enum PlayerType { 
+    Spectator,
     RTS,
-    FPS,
-    Spectator
+    FPS
 }
 
 public class GameSceneController : MonoBehaviour

@@ -188,7 +188,8 @@ public abstract class Entity : MonoBehaviour
     public virtual void OnDeath()
     {
         //deactivate
-        NetworkManager.SendKilledEntity(this);
+        int killerID = 0; // NEED UPDATE @PROGRAMMER
+        NetworkManager.SendPacketDeath(this.id, killerID);
         OnDeActivate();
     }
     

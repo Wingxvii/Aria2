@@ -26,19 +26,27 @@ namespace RTSInput
         #region commandFunctions
 
         //builds a entity from a blueprint
-        public void Build(Vector3 position, EntityType type) {
-            if (type == EntityType.Barracks || type == EntityType.Turret || type == EntityType.Wall || type == EntityType.Science) {
+        public void Build(Vector3 position, EntityType type)
+        {
+            if (type == EntityType.Barracks || type == EntityType.Turret || type == EntityType.Wall || type == EntityType.Science)
+            {
                 Entity newEntity = EntityManager.Instance.GetNewEntity(type);
 
                 newEntity.transform.position = position;
                 newEntity.IssueBuild();
                 if (GameSceneController.Instance.type == PlayerType.RTS)
-                    Netcode.NetworkManager.SendBuildEntity(newEntity);
+                    Netcode.NetworkManager.SendPacketBuild(
+                        newEntity.id, (int)newEntity.type, 
+                        new Vector3(
+                            newEntity.transform.position.x,
+                            newEntity.transform.position.y,
+                            newEntity.transform.position.z));
             }
         }
 
         //gives unit a movement command
-        public void IssueLocation(Entity source, Vector3 position){
+        public void IssueLocation(Entity source, Vector3 position)
+        {
             if (source.type == EntityType.Droid || source.type == EntityType.Barracks)
             {
                 source.IssueLocation(position);
@@ -64,7 +72,8 @@ namespace RTSInput
         }
 
 
-        public void CallAction(Entity source, int action) {
+        public void CallAction(Entity source, int action)
+        {
             if (source.type == EntityType.Barracks || source.type == EntityType.Turret)
             {
                 source.CallAction(action);

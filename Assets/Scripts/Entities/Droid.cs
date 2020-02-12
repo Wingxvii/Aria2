@@ -221,12 +221,12 @@ public class Droid : Entity
         {
             if (ResourceManager.Instance.droidStronger)
             {
-                NetworkManager.SendEnvironmentalDamage(attackDamage, attackPoint.id, this.id);
+                NetworkManager.SendPacketDamage(this.id, attackPoint.id, attackDamage);
                 currentCoolDown = coolDown;
 
             }
             else {
-                NetworkManager.SendEnvironmentalDamage(strongAttack, attackPoint.id, this.id);
+                NetworkManager.SendPacketDamage(this.id, attackPoint.id, strongAttack);
                 currentCoolDown = lowCoolDown;
 
             }

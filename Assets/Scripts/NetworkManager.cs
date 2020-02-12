@@ -11,8 +11,10 @@ namespace Netcode
     {
         // initialization connection
         INIT = 0,
-        // Join the Game
-        JOIN,
+        // Ready
+        TYPE,
+        READY,
+        // LOADED, // Game State = game loaded
         // single string
         MESSAGE,
         // game state
@@ -42,6 +44,14 @@ namespace Netcode
         CLIENT4 = 1 << 4,
     }
 
+    enum GameState
+    {
+        LOBBY = 0,
+        TIMER,
+        LOAD,
+        GAME,
+        ENDGAME
+    }
 
     struct packet_init
     {
@@ -110,12 +120,12 @@ namespace Netcode
     };
 
     //container for user data storage
-    public class UsersData {
+    public class UsersData
+    {
         public string username = "Nameless";
         public bool readyStatus = false;
         public PlayerType type = PlayerType.Spectator;
     }
-
 
     public class EntityData
     {
@@ -160,7 +170,7 @@ namespace Netcode
         [DllImport(DLL_NAME)]
         static extern void DeleteClient(IntPtr client);                                 //Destroys a client
         [DllImport(DLL_NAME)]
-        static extern bool Connect(string str, IntPtr client);                          //Connects to c++ Server
+        static extern bool Connect(string ipAddr, IntPtr client);                          //Connects to c++ Server
         [DllImport(DLL_NAME)]
         static extern bool SendDataInit(packet_init pkt, bool useTCP, IntPtr client);  //Sends Message to all other clients    
         [DllImport(DLL_NAME)]
@@ -181,8 +191,8 @@ namespace Netcode
         static extern bool SendDataKill(packet_kill pkt, bool useTCP, IntPtr client);
         [DllImport(DLL_NAME)]
         static extern void StartUpdating(IntPtr client);                                //Starts updating
-        [DllImport(DLL_NAME)]
-        static extern void SetupPacketReception(Action<int, string> action);       //recieve packets from server
+        //[DllImport(DLL_NAME)]
+        //static extern void SetupPacketReception(Action<int, string> action);       //recieve packets from server
         [DllImport(DLL_NAME)]
         static extern void SetupPacketReceptionInit(Action<int, packet_init> action);
         [DllImport(DLL_NAME)]
@@ -211,10 +221,14 @@ namespace Netcode
         static extern void SetupTextReception(Action<string> action);
 
 
+
         [DllImport(DLL_NAME)]
         static extern bool SendDataPacket(IntPtr ptr, int length, bool TCP);
+        [DllImport(DLL_NAME)]
+        static extern void SetupPacketReception(Action<IntPtr, int, bool> action);
 
-        public static string ip;
+
+        public static string ip = "127.0.0.1";
         private static IntPtr Client;
         private static int playerNumber = -1;
 
@@ -230,7 +244,7 @@ namespace Netcode
         static byte[] tcpByteArray = new byte[5000];
         static byte[] udpByteArray = new byte[5000];
 
-        public static List<UsersData> allUsers;  
+        public static List<UsersData> allUsers;
         void Awake()
         {
             //firearms = new FirearmHandler[3];
@@ -238,6 +252,16 @@ namespace Netcode
 
             dataState = new DataState();
             allUsers = new List<UsersData>();
+
+            // Client Init  
+            Client = CreateClient();
+        }
+
+        #region packingData
+        static void PackData(ref byte[] bytes, ref int loc, bool data)
+        {
+            BitConverter.GetBytes(data).CopyTo(bytes, loc);
+            loc += Marshal.SizeOf(data);
         }
         static void PackData(ref byte[] bytes, ref int loc, int data)
         {
@@ -249,15 +273,376 @@ namespace Netcode
             BitConverter.GetBytes(data).CopyTo(bytes, loc);
             loc += Marshal.SizeOf(data);
         }
-        static void PackData(ref byte[] bytes, ref int loc, string data)
+        static void PackData(ref byte[] bytes, ref int loc, char data)
         {
-            
-            data.ToCharArray().CopyTo(bytes, loc);
-            loc += data.Length;
-            bytes[loc] = (byte)0;
-            loc += 1;
+            BitConverter.GetBytes(data).CopyTo(bytes, loc);
+            loc += Marshal.SizeOf(data);
         }
 
+        static void PackData(ref byte[] bytes, ref int loc, string data)
+        {
+            PackData(ref bytes, ref loc, data.Length);
+
+            for (int i = 0; i < data.Length; ++i)
+            {
+                PackData(ref bytes, ref loc, data[i]);
+            }
+        }
+
+        static int InitialOffset = 16;
+
+        static void SendIntPtr(byte[] bytes, int length, bool TCP, int receiver, int packetType)
+        {
+            int playerID = GameSceneController.Instance.playerNumber;
+            BitConverter.GetBytes(length).CopyTo(bytes, 0);
+            BitConverter.GetBytes(receiver).CopyTo(bytes, 4);
+            BitConverter.GetBytes(packetType).CopyTo(bytes, 8);
+            BitConverter.GetBytes(playerID).CopyTo(bytes, 12);
+
+            IntPtr ptr = Marshal.AllocCoTaskMem(length);
+
+            Marshal.Copy(bytes, 0, ptr, length);
+
+            //SendDataFunc
+            SendDataPacket(ptr, length, TCP);
+
+            Marshal.FreeCoTaskMem(ptr);
+        }
+        #endregion
+
+        #region ByteSender
+
+        public static void SendPacketInit(int index, string username)
+        {
+            int loc = InitialOffset;
+            int Receiver = 0;
+
+            Receiver = (~0);
+
+            PackData(ref sendByteArray, ref loc, index);
+            PackData(ref sendByteArray, ref loc, username);
+
+            SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.INIT);
+        }
+
+        public static void SendPacketInit(int index)
+        {
+            int loc = InitialOffset;
+            int Receiver = 0;
+
+            Receiver = (int)PlayerMask.SERVER;
+
+            PackData(ref sendByteArray, ref loc, index);
+
+            SendIntPtr(sendByteArray, loc, false, Receiver, (int)PacketType.INIT);
+        }
+
+        public static void SendPacketMsg(string message)
+        {
+            if (message != "")
+            {
+                int loc = InitialOffset;
+                int Receiver = 0;
+
+                Receiver = (~(int)PlayerMask.SERVER);
+
+                PackData(ref sendByteArray, ref loc, message);
+
+                SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.MESSAGE);
+            }
+        }
+
+        public static void SendPacketType(PlayerType type)
+        {
+            if (type > 0)
+            {
+                int loc = InitialOffset;
+                int Receiver = (int)PlayerMask.SERVER;
+
+                PackData(ref sendByteArray, ref loc, (int)type);
+
+                SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.TYPE);
+            }
+        }
+
+        public static void SendPacketReady(bool ready)
+        {
+            int loc = InitialOffset;
+            int Receiver = (~0);
+
+            PackData(ref sendByteArray, ref loc, ready);
+
+            SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.READY);
+        }
+
+        public static void SendPacketState(int state)
+        {
+            if (state >= 0 && state <= 10)
+            {
+                int loc = InitialOffset;
+                int Receiver = 0;
+
+                Receiver = (~0);
+
+                PackData(ref sendByteArray, ref loc, state);
+
+                SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.STATE);
+            }
+        }
+
+        public static void SendPacketEntities()
+        {
+            int loc = InitialOffset;
+            int Receiver = 0;
+
+            Receiver = ~((1 << GameSceneController.Instance.playerNumber));
+
+            if (GameSceneController.Instance.type == PlayerType.RTS)
+            {
+                foreach (Droid droid in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Droid])
+                {
+                    PackData(ref sendByteArray, ref loc, droid.id);
+                    PackData(ref sendByteArray, ref loc, (int)droid.state);
+                    PackData(ref sendByteArray, ref loc, droid.transform.position.x);
+                    PackData(ref sendByteArray, ref loc, droid.transform.position.y);
+                    PackData(ref sendByteArray, ref loc, droid.transform.position.z);
+                    PackData(ref sendByteArray, ref loc, droid.transform.rotation.x);
+                    PackData(ref sendByteArray, ref loc, droid.transform.rotation.y);
+                    PackData(ref sendByteArray, ref loc, droid.transform.rotation.z);
+                }
+
+                foreach (Turret turret in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Turret])
+                {
+                    PackData(ref sendByteArray, ref loc, turret.id);
+                    PackData(ref sendByteArray, ref loc, (int)turret.state);
+                    PackData(ref sendByteArray, ref loc, turret.transform.position.x);
+                    PackData(ref sendByteArray, ref loc, turret.transform.position.y);
+                    PackData(ref sendByteArray, ref loc, turret.transform.position.z);
+                    PackData(ref sendByteArray, ref loc, turret.head.transform.localRotation.x);
+                    PackData(ref sendByteArray, ref loc, turret.body.transform.localRotation.y);
+                    PackData(ref sendByteArray, ref loc, turret.transform.rotation.z);
+                }
+            }
+            else if (GameSceneController.Instance.type == PlayerType.FPS)
+            {
+                PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[playerNumber];
+                PackData(ref sendByteArray, ref loc, player.id);
+                PackData(ref sendByteArray, ref loc, player.stats.state);
+                PackData(ref sendByteArray, ref loc, player.transform.position.x);
+                PackData(ref sendByteArray, ref loc, player.transform.position.y);
+                PackData(ref sendByteArray, ref loc, player.transform.position.z);
+                PackData(ref sendByteArray, ref loc, player.mainCam.transform.localRotation.x);
+                PackData(ref sendByteArray, ref loc, player.mainCam.transform.localRotation.y);
+                PackData(ref sendByteArray, ref loc, player.mainCam.transform.rotation.z);
+            }
+            else
+            {
+                return;
+            }
+
+            SendIntPtr(sendByteArray, loc, false, Receiver, (int)PacketType.ENTITY);
+        }
+
+
+        public static void SendPacketDamage(int senderID, int receiverID, float damage)
+        {
+            if (damage >= 0)
+            {
+                int loc = InitialOffset;
+                int Receiver = 0;
+
+                Receiver = (~(int)PlayerMask.SERVER);
+
+                PackData(ref sendByteArray, ref loc, senderID);
+                PackData(ref sendByteArray, ref loc, receiverID);
+                PackData(ref sendByteArray, ref loc, damage);
+
+                SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.DAMAGE);
+            }
+        }
+
+        public static void SendPacketWeapon(int weapon)
+        {
+            if (weapon >= 0)
+            {
+                int loc = InitialOffset;
+                int Receiver = 0;
+
+                Receiver = ~((1 << GameSceneController.Instance.playerNumber) & (int)PlayerMask.SERVER);
+
+                PackData(ref sendByteArray, ref loc, weapon);
+
+                SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.WEAPON);
+            }
+        }
+
+        public static void SendPacketBuild(int ID, int type, Vector3 pos)
+        {
+            if (ID >= 0 && type >= 0)
+            {
+                int loc = InitialOffset;
+                int Receiver = 0;
+
+                Receiver = (~(int)PlayerMask.SERVER);
+
+                PackData(ref sendByteArray, ref loc, ID);
+                PackData(ref sendByteArray, ref loc, type);
+                PackData(ref sendByteArray, ref loc, pos.x);
+                PackData(ref sendByteArray, ref loc, pos.y);
+                PackData(ref sendByteArray, ref loc, pos.z);
+
+                SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.BUILD);
+            }
+        }
+
+        public static void SendPacketDeath(int ID, int killerID)
+        {
+            if (ID >= 0)
+            {
+                int loc = InitialOffset;
+                int Receiver = 0;
+
+                Receiver = (~(int)PlayerMask.SERVER);
+
+                PackData(ref sendByteArray, ref loc, ID);
+                PackData(ref sendByteArray, ref loc, killerID);
+
+                SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.DEATH);
+            }
+        }
+        #endregion
+
+        #region ReceivingPackets
+        static void UnpackBool(ref byte[] byteArray, ref int loc, ref bool output)
+        {
+            output = BitConverter.ToBoolean(byteArray, loc);
+            loc += Marshal.SizeOf(output);
+        }
+
+        static void UnpackInt(ref byte[] byteArray, ref int loc, ref int output)
+        {
+            output = BitConverter.ToInt32(byteArray, loc);
+            loc += Marshal.SizeOf(output);
+        }
+
+        static void UnpackFloat(ref byte[] byteArray, ref int loc, ref float output)
+        {
+            output = BitConverter.ToSingle(byteArray, loc);
+            loc += Marshal.SizeOf(output);
+        }
+        static void UnpackChar(ref byte[] byteArray, ref int loc, ref char output)
+        {
+            output = BitConverter.ToChar(byteArray, loc);
+            loc += Marshal.SizeOf(output);
+        }
+
+        static void UnpackString(ref byte[] byteArray, ref int loc, ref string output)
+        {
+            int strLen = 0;
+            UnpackInt(ref byteArray, ref loc, ref strLen);
+            strLen += loc;
+
+            while (loc < strLen)
+            {
+                char c = '0';
+                UnpackChar(ref byteArray, ref loc, ref c);
+                output += c;
+            }
+        }
+
+        static void receivePacket(IntPtr ptr, int length, bool TCP)
+        {
+            if (TCP)
+            {
+                Marshal.Copy(ptr, tcpByteArray, 0, length);
+                deconstructPacket(ref tcpByteArray, length);
+            }
+            else
+            {
+                Marshal.Copy(ptr, udpByteArray, 0, length);
+                deconstructPacket(ref tcpByteArray, length);
+            }
+
+        }
+
+        static void deconstructPacket(ref byte[] bytes, int length)
+        {
+
+            int type = BitConverter.ToInt32(bytes, 8);
+            int sender = BitConverter.ToInt32(bytes, 12);
+            int loc = 16;
+
+            switch (type)
+            {
+                case (int)PacketType.INIT:
+                    if (sender == -1)
+                    {
+                        int index = 0;
+                        UnpackInt(ref bytes, ref loc, ref index);
+                        PacketReceivedInit(sender, index);
+                    }
+                    else
+                    {
+                        string user = "";
+                        UnpackString(ref bytes, ref loc, ref user);
+                        PacketReceivedInit(sender, user);
+                    }
+                    break;
+                case (int)PacketType.TYPE:
+                    int playerType = 0;
+                    UnpackInt(ref bytes, ref loc, ref playerType);
+                    if (sender == GameSceneController.Instance.playerNumber)
+                    {
+                        PacketReceivedType(playerType);
+                    }
+                    else
+                    {
+                        PacketReceivedType(sender, playerType);
+                    }
+                    break;
+                case (int)PacketType.READY:
+                    bool ready = false;
+                    UnpackBool(ref bytes, ref loc, ref ready);
+                    PacketReceivedReady(sender, ready);
+                    break;
+                case (int)PacketType.MESSAGE:
+                    string message = "";
+                    UnpackString(ref bytes, ref loc, ref message);
+                    PacketReceivedMsg(sender, message);
+                    break;
+                case (int)PacketType.STATE:
+                    int state = 0;
+                    UnpackInt(ref bytes, ref loc, ref state);
+                    PacketReceivedState(sender, state);
+                    break;
+                case (int)PacketType.ENTITY:
+                    PacketReceivedEntity(ref bytes, ref loc, length);
+                    break;
+                case (int)PacketType.DAMAGE:
+
+                    break;
+                case (int)PacketType.WEAPON:
+                    int weapon = 0;
+                    UnpackInt(ref bytes, ref loc, ref weapon);
+                    PacketReceivedWeapon(sender, weapon);
+                    break;
+                case (int)PacketType.BUILD:
+                    PacketReceivedBuild(ref bytes, ref loc);
+                    break;
+                case (int)PacketType.DEATH:
+                    int id = 0;
+                    int killerID = 0;
+                    UnpackInt(ref bytes, ref loc, ref id);
+                    UnpackInt(ref bytes, ref loc, ref killerID);
+                    PacketReceivedDeath(id, killerID);
+                    break;
+            }
+        }
+
+        #endregion
+
+
+        /*
         public static void ConnectToServer(string ipAddr)
         {
             if (ipAddr != "")
@@ -270,7 +655,7 @@ namespace Netcode
             }
             StartUpdating(Client);
             SetupPacketReceptionInit(PacketReceivedInit);
-            SetupPacketReceptionJoin(PacketReceivedJoin);
+            //SetupPacketReceptionJoin(PacketReceivedJoin);
             SetupPacketReceptionMsg(PacketReceivedMsg);
             SetupPacketReceptionState(PacketReceivedState);
             SetupPacketReceptionEntity(PacketReceivedEntity);
@@ -279,7 +664,7 @@ namespace Netcode
             SetupPacketReceptionBuild(PacketReceivedBuild);
             SetupPacketReceptionKill(PacketReceivedKill);
 
-            SetupTextReception(TextReceived);
+            //SetupTextReception(TextReceived);
         }
 
 
@@ -306,8 +691,7 @@ namespace Netcode
                 }
             }
         }
-
-            */
+        */
 
         // Update is called once per frame
         void FixedUpdate()
@@ -398,9 +782,9 @@ namespace Netcode
                     {
                         //Debug.Log("YEAH!");
                         Tuple<int, int> damage = dataState.DamageDealt.Dequeue();
-                        //Debug.Log("PLAYER NUMBER: " + GetPlayerNumber(Client));
-                        //Debug.Log(EntityManager.Instance.AllEntities[GetPlayerNumber(Client)].name);
-                        EntityManager.Instance.AllEntities[GetPlayerNumber(Client)].OnDamage(damage.Item1);
+                        //Debug.Log("PLAYER NUMBER: " + GameSceneController.Instance.playerNumber);
+                        //Debug.Log(EntityManager.Instance.AllEntities[GameSceneController.Instance.playerNumber].name);
+                        EntityManager.Instance.AllEntities[GameSceneController.Instance.playerNumber].OnDamage(damage.Item1);
                     }
                 }
 
@@ -446,534 +830,529 @@ namespace Netcode
                 }
             }
         }
-            void TickUpdate()
+        void TickUpdate() { }
+
+        #region PacketReception
+        static void PacketReceivedInit(int sender, int index)
+        {
+            isConnected = true;
+            GameSceneController.Instance.playerNumber = index;
+            SendPacketInit(GameSceneController.Instance.playerNumber);
+        }
+
+        static void PacketReceivedInit(int sender, string username)
+        {
+            allUsers[sender].username = username;
+        }
+
+        static void PacketReceivedType(int type)
+        {
+            OnRoleSelected(type);
+        }
+
+        static void PacketReceivedType(int sender, int type)
+        {
+            if (allUsers[sender].type != (PlayerType)type)
             {
+                allUsers[sender].type = (PlayerType)type;
 
-            }
-            //called on data recieve action, then process
-            //static void PacketRecieved(int type, int sender, string data)
-            //{
-            //    data.TrimEnd();
-
-            //    //Debug.Log(data);
-
-            //    //parse the data
-            //    string[] parsedData = data.Split(',');
-
-            //    switch ((PacketType)type)
-            //    {
-            //        case PacketType.INIT:
-            //            RecieveInit(sender, parsedData);
-            //            break;
-            //        case PacketType.PLAYER_DATA:
-            //            if (sender == playerNumber)
-            //            {
-            //                break;
-            //            }
-            //            ReceivePlayer(sender);
-            //            break;
-
-            //        case PacketType.WEAPON_STATE:
-            //            RecieveWeapon(sender, parsedData);
-            //            break;
-            //        case PacketType.MESSAGE:
-            //            RecieveMessage(sender, parsedData);
-            //            break;
-            //        case PacketType.DAMAGE_DEALT:
-            //            RecieveDamage(sender, parsedData);
-
-            //            break;
-            //        case PacketType.ENTITY_DATA:
-            //            RecieveEntity(sender, parsedData);
-
-            //            break;
-            //        case PacketType.BUILD:
-            //            RecieveBuild(sender, parsedData);
-
-            //            break;
-            //        case PacketType.KILL:
-            //            RecieveKill(sender, parsedData);
-            //            break;
-
-            //        case PacketType.GAME_STATE:
-            //            RecieveGamestate(sender, parsedData);
-            //            break;
-
-            //        case PacketType.PLAYER_DAMAGE:
-
-            //            if (parsedData.Length == 3)
-            //            {
-            //                Tuple<int, int> temp = Tuple.Create(int.Parse(parsedData[1]), int.Parse(parsedData[2]));
-
-            //                lock (dataState)
-            //                {
-            //                    dataState.DamageDealt.Enqueue(temp);
-            //                }
-
-            //                Debug.Log(parsedData[1] + ", " + parsedData[2]);
-            //            }
-            //            else
-            //            {
-            //                Debug.LogWarning("Error: Invalid DAMAGEDEALT Parsed Array Size");
-            //            }
-            //            break;
-
-            //        default:
-            //            Debug.LogWarning("Error: Invalid Datatype recieved:" + type.ToString());
-
-            //            break;
-            //    }
-            //}
-
-            static void PacketReceivedInit(int sender, packet_init packet)
-            {
-                int index = packet.index;
-
-                isConnected = true;
-                GameSceneController.Instance.playerNumber = index;
-            }
-
-
-            
-        /*
-            // Received Joined Game from Server @JOHN
-            static void PacketReceivedJoin(int sender, packet_join packet)
-            {
-                //PlayerType type = packet.type;
-                int ID = packet.playerID;
-
-                GameSceneController.Instance.playerNumber = ID;
-                if (ID == 0 && packet.type == PlayerType.RTS)
+                if ((PlayerType)type == PlayerType.FPS)
                 {
-                    GameSceneController.Instance.type = packet.type;
-
+                    RecieveMessage("User " + allUsers[sender].username + " is now FPS.");
                 }
-                else if (ID != 0 && packet.type == PlayerType.FPS)
+                else if ((PlayerType)type == PlayerType.RTS)
                 {
-                    GameSceneController.Instance.type = packet.type;
+                    RecieveMessage("User " + allUsers[sender].username + " is now RTS.");
                 }
                 else
                 {
-                    Debug.Log("Join Error: " + packet.type + " , " + packet.playerID);
+                    RecieveMessage("User " + allUsers[sender].username + " is now SPECTATOR.");
                 }
             }
-            */
+        }
 
-
-            static void PacketReceivedMsg(int sender, packet_msg packet)
+        static void PacketReceivedReady(int sender, bool ready)
+        {
+            if (allUsers[sender].readyStatus != ready)
             {
-                string msg = packet.message;
-                Debug.Log("Player " + sender.ToString() + ": " + msg);
-            }
+                allUsers[sender].readyStatus = ready;
 
-            static void PacketReceivedState(int sender, packet_state packet)
-            {
-                lock (dataState)
+                if (ready)
                 {
-                    dataState.GameState = packet.state;
+                    RecieveMessage("User " + allUsers[sender].username + " is Ready.");
                 }
-            }
-
-            // NEEDS UPDATE @PROGRAMMERS
-            static void PacketReceivedEntity(int sender, packet_entity packet)
-            {
-                entity e = packet.entities[0];
-                float posX = e.posX;
-                float posY = e.posY;
-                float posZ = e.posZ;
-                float rotX = e.rotX;
-                float rotY = e.rotY;
-                float rotZ = e.rotZ;
-                int state = e.state;
-            }
-
-            // NEEDS UPDATE @PROGRAMMERS
-            static void PacketReceivedDamage(int sender, packet_damage packet)
-            {
-                int ID = packet.playerID;
-                bool direction = packet.dir; // 0 = Damage to RTS Entity , 1 = Damage to FPS playerID
-                int entity = packet.entity;
-                float damage = packet.damage;
-            }
-
-            // Example FROM:VICTOR
-            static void PacketReceivedWeapon(int sender, packet_weapon packet)
-            {
-                int state = packet.weapon;
-
-                //update state by sender type
-                if (sender == playerNumber)
+                else
                 {
-                    return;
+                    RecieveMessage("User " + allUsers[sender].username + " Unreadied.");
                 }
+            }
+        }
+
+        static void PacketReceivedMsg(int sender, string msg)
+        {
+            Debug.Log("Player " + sender.ToString() + ": " + msg);
+            RecieveMessage(msg);
+        }
+
+        static void PacketReceivedState(int sender, int state)
+        {
+            lock (dataState)
+            {
+                switch (state)
+                {
+                    case (int)GameState.LOBBY:
+                        if (dataState.GameState == (int)(GameState.TIMER))
+                        {
+                            StopCountdown();
+                        }
+                        break;
+                    case (int)GameState.TIMER:
+                        StartCountdown();
+                        break;
+                    case (int)GameState.LOAD:
+                        LoadGame();
+                        break;
+                    case (int)GameState.GAME:
+                        GameReady();
+                        break;
+                }
+                dataState.GameState = state;
+            }
+        }
+
+        static void PacketReceivedEntity(ref byte[] bytes, ref int loc, int length)
+        {
+            while (loc < length)
+            {
+                int id = 0;
+                int state = 0;
+                float posX = 0.0f;
+                float posY = 0.0f;
+                float posZ = 0.0f;
+                float rotX = 0.0f;
+                float rotY = 0.0f;
+                float rotZ = 0.0f;
+                UnpackInt(ref bytes, ref loc, ref id);
+                UnpackInt(ref bytes, ref loc, ref state);
+                UnpackFloat(ref bytes, ref loc, ref posX);
+                UnpackFloat(ref bytes, ref loc, ref posY);
+                UnpackFloat(ref bytes, ref loc, ref posZ);
+                UnpackFloat(ref bytes, ref loc, ref rotX);
+                UnpackFloat(ref bytes, ref loc, ref rotY);
+                UnpackFloat(ref bytes, ref loc, ref rotZ);
+
+                // EntityManager.Instance.AllEntities[id];
+            }
+        }
+
+        // NEEDS UPDATE @PROGRAMMERS
+        static void PacketReceivedDamage(int sender, packet_damage packet)
+        {
+            int ID = packet.playerID;
+            bool direction = packet.dir; // 0 = Damage to RTS Entity , 1 = Damage to FPS playerID
+            int entity = packet.entity;
+            float damage = packet.damage;
+        }
+
+        static void PacketReceivedWeapon(int sender, int weapon)
+        {
+            //update state by sender type
+            if (sender == playerNumber)
+            {
+                return;
+            }
+            lock (dataState)
+            {
+                switch (sender)
+                {
+                    case 1:
+                        dataState.p1.weapon = weapon;
+                        dataState.p1.updated = true;
+                        break;
+                    case 2:
+                        dataState.p2.weapon = weapon;
+                        dataState.p2.updated = true;
+                        break;
+                    case 3:
+                        dataState.p2.weapon = weapon;
+                        dataState.p3.updated = true;
+                        break;
+                    default:
+                        Debug.Log("Error: WEAPONSTATE Sender Invalid");
+                        break;
+                }
+            }
+        }
+
+        static void PacketReceivedBuild(ref byte[] bytes, ref int loc)
+        {
+            int ID = 0;
+            int type = 0;
+            float posX = 0;
+            float posY = 0;
+            float posZ = 0;
+            UnpackInt(ref bytes, ref loc, ref ID);
+            UnpackInt(ref bytes, ref loc, ref type);
+            UnpackFloat(ref bytes, ref loc, ref posX);
+            UnpackFloat(ref bytes, ref loc, ref posY);
+            UnpackFloat(ref bytes, ref loc, ref posZ);
+
+            lock (dataState)
+            {
+                Tuple<int, int, Vector3> temp = Tuple.Create(ID, type, new Vector3(posX, posY, posZ));
+                dataState.BuildEntity.Enqueue(temp);
+            }
+        }
+
+        static void PacketReceivedDeath(int id, int killerID)
+        {
+            lock (dataState)
+            {
+                dataState.KilledEntity.Enqueue(id);
+            }
+        }
+
+        //call c++ cleanup
+        private void OnDestroy()
+        {
+            //clean up client
+            DeleteClient(Client);
+        }
+        #endregion
+
+        // Old Reception
+        #region OldReception
+        //recieve data types
+        /*public static void RecieveInit(int sender, string[] parsedData)
+        {
+            if (parsedData.Length == 2)
+            {
+                //init player gametype based on init data reception
+                playerNumber = Convert.ToInt32(parsedData[0]);
+                if (playerNumber != 0)
+                {
+                    GameSceneController.Instance.type = PlayerType.FPS;
+                }
+                else
+                {
+                    GameSceneController.Instance.type = PlayerType.RTS;
+                }
+                isConnected = true;
+                GameSceneController.Instance.playerNumber = playerNumber;
+            }
+            else
+            {
+                Debug.LogWarning("Error: Invalid INIT Parsed Array Size");
+
+            }
+
+        }
+        */
+
+        //public static void RecieveMessage(int sender, string[] parsedData)
+        //{
+        //    Debug.Log("Player " + sender.ToString() + ": " + parsedData[0]);
+        //}
+        /*
+        public static void ReceivePlayer(int sender, string[] parsedData)
+        {
+
+            if (parsedData.Length == 7)
+            {
+                //Debug.Log("GOT DA DATA: " + sender);
+                //lock and update by sender
                 lock (dataState)
                 {
                     switch (sender)
                     {
                         case 1:
-                            dataState.p1.weapon = state;
+                            dataState.p1.position.x = float.Parse(parsedData[0]);
+                            dataState.p1.position.y = float.Parse(parsedData[1]);
+                            dataState.p1.position.z = float.Parse(parsedData[2]);
+                            dataState.p1.rotation.x = float.Parse(parsedData[3]);
+                            dataState.p1.rotation.y = float.Parse(parsedData[4]);
+                            dataState.p1.rotation.z = float.Parse(parsedData[5]);
+                            dataState.p1.state = int.Parse(parsedData[6]);
                             dataState.p1.updated = true;
+
                             break;
                         case 2:
-                            dataState.p2.weapon = state;
+                            dataState.p2.position.x = float.Parse(parsedData[0]);
+                            dataState.p2.position.y = float.Parse(parsedData[1]);
+                            dataState.p2.position.z = float.Parse(parsedData[2]);
+                            dataState.p2.rotation.x = float.Parse(parsedData[3]);
+                            dataState.p2.rotation.y = float.Parse(parsedData[4]);
+                            dataState.p2.rotation.z = float.Parse(parsedData[5]);
+                            dataState.p2.state = int.Parse(parsedData[6]);
                             dataState.p2.updated = true;
                             break;
                         case 3:
-                            dataState.p2.weapon = state;
+                            dataState.p3.position.x = float.Parse(parsedData[0]);
+                            dataState.p3.position.y = float.Parse(parsedData[1]);
+                            dataState.p3.position.z = float.Parse(parsedData[2]);
+                            dataState.p3.rotation.x = float.Parse(parsedData[3]);
+                            dataState.p3.rotation.y = float.Parse(parsedData[4]);
+                            dataState.p3.rotation.z = float.Parse(parsedData[5]);
+                            dataState.p3.state = int.Parse(parsedData[6]);
                             dataState.p3.updated = true;
                             break;
                         default:
-                            Debug.Log("Error: WEAPONSTATE Sender Invalid");
+                            Debug.Log("Error: PLAYERDATA Sender Invalid");
+
                             break;
                     }
                 }
             }
-
-            static void PacketReceivedBuild(int sender, packet_build packet)
+            else
             {
-                int ID = packet.id;
-                int type = packet.type;
-                float posX = packet.posX;
-                float posY = packet.posY;
-                float posZ = packet.posZ;
-
-                lock (dataState)
-                {
-                    Tuple<int, int, Vector3> temp = Tuple.Create(ID, type, new Vector3(posX, posY, posZ));
-                    dataState.BuildEntity.Enqueue(temp);
-                }
+                Debug.LogWarning("Error: Invalid PLAYERDATA Parsed Array Size");
             }
+        }
 
-            static void PacketReceivedKill(int sender, packet_kill packet)
-            {
-                lock (dataState)
-                {
-                    dataState.KilledEntity.Enqueue(packet.id);
-                }
-            }
-
-            //call c++ cleanup
-            private void OnDestroy()
-            {
-                //clean up client
-                DeleteClient(Client);
-            }
-
-
-            #region Reception
-            //recieve data types
-            /*public static void RecieveInit(int sender, string[] parsedData)
-            {
-                if (parsedData.Length == 2)
-                {
-                    //init player gametype based on init data reception
-                    playerNumber = Convert.ToInt32(parsedData[0]);
-                    if (playerNumber != 0)
-                    {
-                        GameSceneController.Instance.type = PlayerType.FPS;
-                    }
-                    else
-                    {
-                        GameSceneController.Instance.type = PlayerType.RTS;
-                    }
-                    isConnected = true;
-                    GameSceneController.Instance.playerNumber = playerNumber;
-                }
-                else
-                {
-                    Debug.LogWarning("Error: Invalid INIT Parsed Array Size");
-
-                }
-
-            }
-            */
-
-            //public static void RecieveMessage(int sender, string[] parsedData)
-            //{
-            //    Debug.Log("Player " + sender.ToString() + ": " + parsedData[0]);
-            //}
-
-            public static void ReceivePlayer(int sender, string[] parsedData)
+        public static void RecieveEntity(int sender, string[] parsedData)
+        {
+            if (parsedData.Length >= 7)
             {
 
-                if (parsedData.Length == 7)
+                if (GameSceneController.Instance.type == PlayerType.FPS)
                 {
-                    //Debug.Log("GOT DA DATA: " + sender);
-                    //lock and update by sender
                     lock (dataState)
                     {
-                        switch (sender)
+                        for (int counter = 0; counter < parsedData.Length / 7; counter++)
                         {
-                            case 1:
-                                dataState.p1.position.x = float.Parse(parsedData[0]);
-                                dataState.p1.position.y = float.Parse(parsedData[1]);
-                                dataState.p1.position.z = float.Parse(parsedData[2]);
-                                dataState.p1.rotation.x = float.Parse(parsedData[3]);
-                                dataState.p1.rotation.y = float.Parse(parsedData[4]);
-                                dataState.p1.rotation.z = float.Parse(parsedData[5]);
-                                dataState.p1.state = int.Parse(parsedData[6]);
-                                dataState.p1.updated = true;
-
-                                break;
-                            case 2:
-                                dataState.p2.position.x = float.Parse(parsedData[0]);
-                                dataState.p2.position.y = float.Parse(parsedData[1]);
-                                dataState.p2.position.z = float.Parse(parsedData[2]);
-                                dataState.p2.rotation.x = float.Parse(parsedData[3]);
-                                dataState.p2.rotation.y = float.Parse(parsedData[4]);
-                                dataState.p2.rotation.z = float.Parse(parsedData[5]);
-                                dataState.p2.state = int.Parse(parsedData[6]);
-                                dataState.p2.updated = true;
-                                break;
-                            case 3:
-                                dataState.p3.position.x = float.Parse(parsedData[0]);
-                                dataState.p3.position.y = float.Parse(parsedData[1]);
-                                dataState.p3.position.z = float.Parse(parsedData[2]);
-                                dataState.p3.rotation.x = float.Parse(parsedData[3]);
-                                dataState.p3.rotation.y = float.Parse(parsedData[4]);
-                                dataState.p3.rotation.z = float.Parse(parsedData[5]);
-                                dataState.p3.state = int.Parse(parsedData[6]);
-                                dataState.p3.updated = true;
-                                break;
-                            default:
-                                Debug.Log("Error: PLAYERDATA Sender Invalid");
-
-                                break;
-                        }
-                    }
-                }
-                else
-                {
-                    Debug.LogWarning("Error: Invalid PLAYERDATA Parsed Array Size");
-                }
-            }
-
-            public static void RecieveEntity(int sender, string[] parsedData)
-            {
-                if (parsedData.Length >= 7)
-                {
-
-                    if (GameSceneController.Instance.type == PlayerType.FPS)
-                    {
-                        lock (dataState)
-                        {
-                            for (int counter = 0; counter < parsedData.Length / 7; counter++)
+                            int offset = counter * 7;
+                            if (!dataState.entityUpdates.ContainsKey(int.Parse(parsedData[0 + offset])))
                             {
-                                int offset = counter * 7;
-                                if (!dataState.entityUpdates.ContainsKey(int.Parse(parsedData[0 + offset])))
-                                {
-                                    Debug.Log("ONE: " + parsedData[0 + offset]);
+                                Debug.Log("ONE: " + parsedData[0 + offset]);
 
-                                    //create entity data
-                                    EntityData tempEntity = new EntityData();
-                                    tempEntity.position = new Vector3(float.Parse(parsedData[1 + offset]), float.Parse(parsedData[2 + offset]), float.Parse(parsedData[3 + offset]));
-                                    tempEntity.rotation = new Vector3(float.Parse(parsedData[4 + offset]), float.Parse(parsedData[5 + offset]), float.Parse(parsedData[6 + offset]));
-                                    tempEntity.updated = true;
+                                //create entity data
+                                EntityData tempEntity = new EntityData();
+                                tempEntity.position = new Vector3(float.Parse(parsedData[1 + offset]), float.Parse(parsedData[2 + offset]), float.Parse(parsedData[3 + offset]));
+                                tempEntity.rotation = new Vector3(float.Parse(parsedData[4 + offset]), float.Parse(parsedData[5 + offset]), float.Parse(parsedData[6 + offset]));
+                                tempEntity.updated = true;
 
-                                    //add to map
-                                    dataState.entityUpdates.Add(int.Parse(parsedData[0 + offset]), tempEntity);
-                                }
-                                else
-                                {
-                                    EntityData ed;
-                                    Debug.Log("SEVERAL: " + parsedData[0 + offset]);
+                                //add to map
+                                dataState.entityUpdates.Add(int.Parse(parsedData[0 + offset]), tempEntity);
+                            }
+                            else
+                            {
+                                EntityData ed;
+                                Debug.Log("SEVERAL: " + parsedData[0 + offset]);
 
-                                    if (!dataState.entityUpdates.TryGetValue(int.Parse(parsedData[0 + offset]), out ed))
-                                        Debug.Break();
+                                if (!dataState.entityUpdates.TryGetValue(int.Parse(parsedData[0 + offset]), out ed))
+                                    Debug.Break();
 
-                                    //updating all data on existing data
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.x = float.Parse(parsedData[1 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.y = float.Parse(parsedData[2 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.z = float.Parse(parsedData[3 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.x = float.Parse(parsedData[4 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.y = float.Parse(parsedData[5 + offset]);
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.z = float.Parse(parsedData[6 + offset]);
+                                //updating all data on existing data
+                                dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.x = float.Parse(parsedData[1 + offset]);
+                                dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.y = float.Parse(parsedData[2 + offset]);
+                                dataState.entityUpdates[int.Parse(parsedData[0 + offset])].position.z = float.Parse(parsedData[3 + offset]);
+                                dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.x = float.Parse(parsedData[4 + offset]);
+                                dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.y = float.Parse(parsedData[5 + offset]);
+                                dataState.entityUpdates[int.Parse(parsedData[0 + offset])].rotation.z = float.Parse(parsedData[6 + offset]);
 
-                                    dataState.entityUpdates[int.Parse(parsedData[0 + offset])].updated = true;
-                                }
+                                dataState.entityUpdates[int.Parse(parsedData[0 + offset])].updated = true;
                             }
                         }
                     }
                 }
-                else
-                {
-                    Debug.LogWarning("Error: Invalid ENTITYDATA Parsed Array Size");
-                }
-
+            }
+            else
+            {
+                Debug.LogWarning("Error: Invalid ENTITYDATA Parsed Array Size");
             }
 
-            //public static void RecieveWeapon(int sender, string[] parsedData)
-            //{
-            //    //update state by sender type
-            //    if (sender == playerNumber)
+        }
+
+        //public static void RecieveWeapon(int sender, string[] parsedData)
+        //{
+        //    //update state by sender type
+        //    if (sender == playerNumber)
+        //    {
+        //        return;
+        //    }
+        //    if (parsedData.Length == 1)
+        //    {
+        //        lock (dataState)
+        //        {
+        //            switch (sender)
+        //            {
+        //                case 1:
+        //                    dataState.p1.weapon = int.Parse(parsedData[0]);
+        //                    dataState.p1.updated = true;
+        //                    break;
+        //                case 2:
+        //                    dataState.p2.weapon = int.Parse(parsedData[0]);
+        //                    dataState.p2.updated = true;
+        //                    break;
+        //                case 3:
+        //                    dataState.p2.weapon = int.Parse(parsedData[0]);
+        //                    dataState.p3.updated = true;
+        //                    break;
+        //                default:
+        //                    Debug.Log("Error: WEAPONSTATE Sender Invalid");
+        //                    break;
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Debug.LogWarning("Error: Invalid WEAPONSTATE Parsed Array Size:" + parsedData.Length);
+        //    }
+
+
+        //}
+
+        public static void RecieveDamage(int sender, string[] parsedData)
+        {
+            if (parsedData.Length == 3)
+            {
+                Tuple<int, int> temp = Tuple.Create(int.Parse(parsedData[1]), int.Parse(parsedData[2]));
+
+                lock (dataState)
+                {
+                    dataState.DamageDealt.Enqueue(temp);
+                }
+
+                Debug.Log(parsedData[1] + ", " + parsedData[2]);
+            }
+            else
+            {
+                Debug.LogWarning("Error: Invalid DAMAGEDEALT Parsed Array Size");
+            }
+        }
+        */
+
+        /*public static void RecieveBuild(int sender, string[] parsedData)
+        {
+            if (parsedData.Length == 5)
+            {
+                //Debug.Log("HIYA");
+                Vector3 pos = new Vector3(float.Parse(parsedData[2]), float.Parse(parsedData[3]), float.Parse(parsedData[4]));
+
+                Tuple<int, int, Vector3> temp = Tuple.Create(int.Parse(parsedData[0]), int.Parse(parsedData[1]), pos);
+
+                lock (dataState)
+                {
+                    dataState.BuildEntity.Enqueue(temp);
+                }
+
+                Debug.Log("BUILT: " + parsedData[0]);
+            }
+            else
+            {
+                Debug.LogWarning("Error: Invalid BUILD Parsed Array Size");
+            }
+        }*/
+
+        /*
+        public static void RecieveGamestate(int sender, string[] parsedData)
+        {
+            if (parsedData.Length == 1)
+            {
+                lock (dataState)
+                {
+                    dataState.GameState = int.Parse(parsedData[0]);
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Error: Invalid GAMESTATE Parsed Array Size");
+            }
+        }
+        */
+
+        /*
+        public static void RecieveKill(int sender, string[] parsedData)
+        {
+            if (parsedData.Length == 1)
+            {
+                lock (dataState)
+                {
+                    dataState.KilledEntity.Enqueue(int.Parse(parsedData[0]));
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Error: Invalid KILL Parsed Array Size");
+            }
+
+        }*/
+        #endregion
+
+        #region OldSendData
+        /*
+        // Old
+        public static void SendPlayerInfo(PlayerFPS playerFPS)
+        {
+            //    if (isConnected)
             //    {
-            //        return;
-            //    }
-            //    if (parsedData.Length == 1)
-            //    {
-            //        lock (dataState)
+            //        StringBuilder dataToSend = new StringBuilder();
+
+            //        dataToSend.Append(playerFPS.transform.position.x);
+            //        dataToSend.Append(",");
+            //        dataToSend.Append(playerFPS.transform.position.y);
+            //        dataToSend.Append(",");
+            //        dataToSend.Append(playerFPS.transform.position.z);
+            //        dataToSend.Append(",");
+            //        Vector3 sumAng = Vector3.zero;
+            //        for (int i = 0; i < playerFPS.pivots.Length; ++i)
+            //            sumAng += playerFPS.pivots[i].transform.localRotation.eulerAngles;
+            //        dataToSend.Append(sumAng.x);
+            //        dataToSend.Append(",");
+            //        dataToSend.Append(sumAng.y);
+            //        dataToSend.Append(",");
+            //        dataToSend.Append(sumAng.z);
+            //        dataToSend.Append(",");
+            //        dataToSend.Append(playerFPS.stats.state);
+            //        //dataToSend.Append(",");
+
+            //        if (!SendData((int)PacketType.PLAYER_DATA, dataToSend.ToString(), false, Client))
             //        {
-            //            switch (sender)
-            //            {
-            //                case 1:
-            //                    dataState.p1.weapon = int.Parse(parsedData[0]);
-            //                    dataState.p1.updated = true;
-            //                    break;
-            //                case 2:
-            //                    dataState.p2.weapon = int.Parse(parsedData[0]);
-            //                    dataState.p2.updated = true;
-            //                    break;
-            //                case 3:
-            //                    dataState.p2.weapon = int.Parse(parsedData[0]);
-            //                    dataState.p3.updated = true;
-            //                    break;
-            //                default:
-            //                    Debug.Log("Error: WEAPONSTATE Sender Invalid");
-            //                    break;
-            //            }
+            //            Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
             //        }
             //    }
-            //    else
-            //    {
-            //        Debug.LogWarning("Error: Invalid WEAPONSTATE Parsed Array Size:" + parsedData.Length);
-            //    }
+        }
 
-
-            //}
-
-            public static void RecieveDamage(int sender, string[] parsedData)
+        public static void SendWeaponSwap(int w)
+        {
+            if (isConnected)
             {
-                if (parsedData.Length == 3)
+                packet_weapon weapon = new packet_weapon
                 {
-                    Tuple<int, int> temp = Tuple.Create(int.Parse(parsedData[1]), int.Parse(parsedData[2]));
+                    weapon = w
+                };
 
-                    lock (dataState)
-                    {
-                        dataState.DamageDealt.Enqueue(temp);
-                    }
-
-                    Debug.Log(parsedData[1] + ", " + parsedData[2]);
-                }
-                else
+                if (!SendDataWeapon(weapon, true, Client))
                 {
-                    Debug.LogWarning("Error: Invalid DAMAGEDEALT Parsed Array Size");
+                    Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
                 }
             }
+        }
 
-            /*public static void RecieveBuild(int sender, string[] parsedData)
+        //this sends all entity data
+        public static void SendEntities()
+        {
+            if (isConnected)
             {
-                if (parsedData.Length == 5)
+                packet_entity entitiesP = new packet_entity();
+                // Example
+                entitiesP.entities[0] = new entity
                 {
-                    //Debug.Log("HIYA");
-                    Vector3 pos = new Vector3(float.Parse(parsedData[2]), float.Parse(parsedData[3]), float.Parse(parsedData[4]));
+                    posX = 0.0f,
+                    posY = 0.0f,
+                    posZ = 0.0f,
+                    rotX = 0.0f,
+                    rotY = 0.0f,
+                    rotZ = 0.0f,
+                    state = 0
+                };
 
-                    Tuple<int, int, Vector3> temp = Tuple.Create(int.Parse(parsedData[0]), int.Parse(parsedData[1]), pos);
-
-                    lock (dataState)
+                // NEED UPDATE @PROGRAMMERS
+                foreach (Entity entity in EntityManager.Instance.AllEntities)
+                {
+                    entitiesP.entities[entity.id] = new entity
                     {
-                        dataState.BuildEntity.Enqueue(temp);
-                    }
-
-                    Debug.Log("BUILT: " + parsedData[0]);
-                }
-                else
-                {
-                    Debug.LogWarning("Error: Invalid BUILD Parsed Array Size");
-                }
-            }*/
-
-            /*
-            public static void RecieveGamestate(int sender, string[] parsedData)
-            {
-                if (parsedData.Length == 1)
-                {
-                    lock (dataState)
-                    {
-                        dataState.GameState = int.Parse(parsedData[0]);
-                    }
-                }
-                else
-                {
-                    Debug.LogWarning("Error: Invalid GAMESTATE Parsed Array Size");
-                }
-            }
-            */
-
-            /*
-            public static void RecieveKill(int sender, string[] parsedData)
-            {
-                if (parsedData.Length == 1)
-                {
-                    lock (dataState)
-                    {
-                        dataState.KilledEntity.Enqueue(int.Parse(parsedData[0]));
-                    }
-                }
-                else
-                {
-                    Debug.LogWarning("Error: Invalid KILL Parsed Array Size");
-                }
-
-            }*/
-            #endregion
-
-            // Old
-            public static void SendPlayerInfo(PlayerFPS playerFPS)
-            {
-                //    if (isConnected)
-                //    {
-                //        StringBuilder dataToSend = new StringBuilder();
-
-                //        dataToSend.Append(playerFPS.transform.position.x);
-                //        dataToSend.Append(",");
-                //        dataToSend.Append(playerFPS.transform.position.y);
-                //        dataToSend.Append(",");
-                //        dataToSend.Append(playerFPS.transform.position.z);
-                //        dataToSend.Append(",");
-                //        Vector3 sumAng = Vector3.zero;
-                //        for (int i = 0; i < playerFPS.pivots.Length; ++i)
-                //            sumAng += playerFPS.pivots[i].transform.localRotation.eulerAngles;
-                //        dataToSend.Append(sumAng.x);
-                //        dataToSend.Append(",");
-                //        dataToSend.Append(sumAng.y);
-                //        dataToSend.Append(",");
-                //        dataToSend.Append(sumAng.z);
-                //        dataToSend.Append(",");
-                //        dataToSend.Append(playerFPS.stats.state);
-                //        //dataToSend.Append(",");
-
-                //        if (!SendData((int)PacketType.PLAYER_DATA, dataToSend.ToString(), false, Client))
-                //        {
-                //            Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
-                //        }
-                //    }
-            }
-
-            public static void SendWeaponSwap(int w)
-            {
-                if (isConnected)
-                {
-                    packet_weapon weapon = new packet_weapon
-                    {
-                        weapon = w
-                    };
-
-                    if (!SendDataWeapon(weapon, true, Client))
-                    {
-                        Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
-                    }
-                }
-            }
-
-            //this sends all entity data
-            public static void SendEntities()
-            {
-                if (isConnected)
-                {
-                    packet_entity entitiesP = new packet_entity();
-                    // Example
-                    entitiesP.entities[0] = new entity
-                    {
+                        // Need link
                         posX = 0.0f,
                         posY = 0.0f,
                         posZ = 0.0f,
@@ -982,141 +1361,127 @@ namespace Netcode
                         rotZ = 0.0f,
                         state = 0
                     };
-
-                    // NEED UPDATE @PROGRAMMERS
-                    foreach (Entity entity in EntityManager.Instance.AllEntities)
-                    {
-                        entitiesP.entities[entity.id] = new entity
-                        {
-                            // Need link
-                            posX = 0.0f,
-                            posY = 0.0f,
-                            posZ = 0.0f,
-                            rotX = 0.0f,
-                            rotY = 0.0f,
-                            rotZ = 0.0f,
-                            state = 0
-                        };
-                    }
-
-                    //StringBuilder dataToSend = new StringBuilder();
-
-                    //foreach (Entity droid in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Droid])
-                    //{
-                    //    droid.GetEntityString(ref dataToSend);
-                    //}
-                    //foreach (Entity turret in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Turret])
-                    //{
-                    //    turret.GetEntityString(ref dataToSend);
-                    //}
-                    //if (dataToSend.Length > 0)
-                    //{
-                    //    dataToSend.Remove(dataToSend.Length - 1, 1);
-                    //}
-
-                    //Debug.Log(dataToSend);
-
-                    if (!SendDataEntity(entitiesP, false, Client))
-                    {
-                        Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
-                    }
                 }
-            }
 
-            public static void SendBuildEntity(Entity entity)
-            {
-                if (isConnected)
+                //StringBuilder dataToSend = new StringBuilder();
+
+                //foreach (Entity droid in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Droid])
+                //{
+                //    droid.GetEntityString(ref dataToSend);
+                //}
+                //foreach (Entity turret in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Turret])
+                //{
+                //    turret.GetEntityString(ref dataToSend);
+                //}
+                //if (dataToSend.Length > 0)
+                //{
+                //    dataToSend.Remove(dataToSend.Length - 1, 1);
+                //}
+
+                //Debug.Log(dataToSend);
+
+                if (!SendDataEntity(entitiesP, false, Client))
                 {
-                    packet_build build = new packet_build
-                    {
-                        id = entity.id,
-                        type = (int)entity.type,
-                        posX = entity.transform.position.x,
-                        posY = entity.transform.position.y,
-                        posZ = entity.transform.position.z
-                    };
-                    if (!SendDataBuild(build, true, Client))
-                    {
-                        Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
-                    }
-
-                    Debug.Log("BUILT");
+                    Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
                 }
             }
+        }
 
-            public static void SendGameData(int s)
+        public static void SendBuildEntity(Entity entity)
+        {
+            if (isConnected)
             {
-                if (isConnected)
+                packet_build build = new packet_build
                 {
-                    packet_state state = new packet_state
-                    {
-                        state = s
-                    };
-
-                    if (!SendDataState(state, true, Client))
-                    {
-                        Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
-                    }
-                }
-            }
-
-            public static void SendKilledEntity(Entity entity)
-            {
-                if (isConnected)
+                    id = entity.id,
+                    type = (int)entity.type,
+                    posX = entity.transform.position.x,
+                    posY = entity.transform.position.y,
+                    posZ = entity.transform.position.z
+                };
+                if (!SendDataBuild(build, true, Client))
                 {
-                    packet_kill kill = new packet_kill
-                    {
-                        id = entity.id
-                    };
-
-                    if (!SendDataKill(kill, true, Client))
-                    {
-                        Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
-                    }
+                    Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
                 }
-            }
 
-            // Send Damage
-            public static void SendDamage(int fpsPlayer, bool direction, int entity, float dmg)
+                Debug.Log("BUILT");
+            }
+        }
+
+        public static void SendGameData(int s)
+        {
+            if (isConnected)
             {
-                if (isConnected)
+                packet_state state = new packet_state
                 {
-                    packet_damage damage = new packet_damage
-                    {
-                        playerID = fpsPlayer,
-                        dir = direction,
-                        entity = entity,
-                        damage = dmg
-                    };
+                    state = s
+                };
 
-                    if (!SendDataDamage(damage, true, Client))
-                    {
-                        Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
-                    }
+                if (!SendDataState(state, true, Client))
+                {
+                    Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
                 }
             }
+        }
 
-            // Old NEED UPDATE TO USE THE FUNCTION ABOVE ^ @PROGRAMMERS
-            public static void SendEnvironmentalDamage(int damage, int victim, int damager)
+        public static void SendKilledEntity(Entity entity)
+        {
+            if (isConnected)
             {
-                //    if (isConnected)
-                //    {
-                //        StringBuilder dataToSend = new StringBuilder();
+                packet_kill kill = new packet_kill
+                {
+                    id = entity.id
+                };
 
-                //        dataToSend.Append(victim);
-                //        dataToSend.Append(",");
-                //        dataToSend.Append(damage);
-                //        dataToSend.Append(",");
-                //        dataToSend.Append(damager);
-
-                //        if (!SendData((int)PacketType.PLAYER_DAMAGE, dataToSend.ToString(), true, Client))
-                //        {
-                //            Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
-                //        }
-                //    }
+                if (!SendDataKill(kill, true, Client))
+                {
+                    Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
+                }
             }
+        }
 
+        // Send Damage
+        public static void SendDamage(int fpsPlayer, bool direction, int entity, float dmg)
+        {
+            if (isConnected)
+            {
+                packet_damage damage = new packet_damage
+                {
+                    playerID = fpsPlayer,
+                    dir = direction,
+                    entity = entity,
+                    damage = dmg
+                };
 
+                if (!SendDataDamage(damage, true, Client))
+                {
+                    Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
+                }
+            }
+        }
+
+        // Old NEED UPDATE TO USE THE FUNCTION ABOVE ^ @PROGRAMMERS
+        public static void SendEnvironmentalDamage(int damage, int victim, int damager)
+        {
+            //    if (isConnected)
+            //    {
+            //        StringBuilder dataToSend = new StringBuilder();
+
+            //        dataToSend.Append(victim);
+            //        dataToSend.Append(",");
+            //        dataToSend.Append(damage);
+            //        dataToSend.Append(",");
+            //        dataToSend.Append(damager);
+
+            //        if (!SendData((int)PacketType.PLAYER_DAMAGE, dataToSend.ToString(), true, Client))
+            //        {
+            //            Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
+            //        }
+            //    }
+        }
+
+            */
+        #endregion
 
         #region LobbyFunctions
 
@@ -1128,7 +1493,25 @@ namespace Netcode
          *  string: ip of the server
          * 
          */
-        public static void ConnectToServer(string ip) {}
+        public static void ConnectToServer(string ipAddr)
+        {
+            if (ipAddr != "")
+            {
+                ip = ipAddr;
+            }
+            // Client Connections
+            if (!Connect(ip, Client))
+            {
+                Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
+                OnConnected(false);
+            }
+            else
+            {
+                OnConnected(true);
+            }
+            SendPacketInit(GameSceneController.Instance.playerNumber, "Nameless");
+            SetupPacketReception(receivePacket);
+        }
 
         /*
         * ConnectToServer
@@ -1139,7 +1522,25 @@ namespace Netcode
         *  string: username of the player connecting
         * 
         */
-        public static void ConnectToServer(string ip, string username){}
+        public static void ConnectToServer(string ipAddr, string username)
+        {
+            if (ipAddr != "")
+            {
+                ip = ipAddr;
+            }
+            // Client Connections
+            if (!Connect(ip, Client))
+            {
+                Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
+                OnConnected(false);
+            }
+            else
+            {
+                OnConnected(true);
+            }
+            SendPacketInit(GameSceneController.Instance.playerNumber, username);
+            SetupPacketReception(receivePacket);
+        }
 
 
         /*
@@ -1162,7 +1563,10 @@ namespace Netcode
          * @param
          *  PlayerType: Selected role
          */
-        public static void SelectRole(PlayerType type) { }
+        public static void SelectRole(PlayerType type)
+        {
+            SendPacketType(type);
+        }
 
         /*
          * OnRoleSelected
@@ -1171,8 +1575,9 @@ namespace Netcode
          * @param
          *  bool: if role request was successful
          */
-        public static void OnRoleSelected(bool success) {
-            StartManager.Instance.OnRoleSelected(success);
+        public static void OnRoleSelected(int role)
+        {
+            //StartManager.Instance.OnRoleSelected(success);
         }
 
         /*
@@ -1185,7 +1590,8 @@ namespace Netcode
          *  int: type of player's gamemode
          *  string: username of player
          */
-        public static void RoleUpdate(int slotNum, bool readyStatus, int type, string userName) {
+        public static void RoleUpdate(int slotNum, bool readyStatus, int type, string userName)
+        {
             if (!GameSceneController.Instance.gameStart)
             {
                 StartManager.Instance.rolesUpdated = true;
@@ -1196,14 +1602,16 @@ namespace Netcode
                 }
 
                 //update ready status
-                if (allUsers[slotNum - 1].readyStatus != readyStatus) {
+                if (allUsers[slotNum - 1].readyStatus != readyStatus)
+                {
                     allUsers[slotNum - 1].readyStatus = readyStatus;
 
                     if (readyStatus)
                     {
                         RecieveMessage("User " + userName + " is Ready.");
                     }
-                    else {
+                    else
+                    {
                         RecieveMessage("User " + userName + " Unreadied.");
                     }
                 }
@@ -1221,7 +1629,8 @@ namespace Netcode
                     {
                         RecieveMessage("User " + userName + " is now RTS.");
                     }
-                    else {
+                    else
+                    {
                         RecieveMessage("User " + userName + " is now SPECTATOR.");
                     }
                 }
@@ -1229,7 +1638,8 @@ namespace Netcode
 
                 allUsers[slotNum - 1].username = userName;
             }
-            else {
+            else
+            {
                 Debug.LogWarning("Warning: Attempted role update while in game.");
             }
         }
@@ -1246,7 +1656,10 @@ namespace Netcode
          *  bool: the ready status of the player
          * 
          */
-        public static void OnReady(bool ready) { }
+        public static void OnReady(bool ready)
+        {
+            SendPacketReady(ready);
+        }
 
 
         /*
@@ -1255,7 +1668,8 @@ namespace Netcode
          *  Action that starts the countdown state. When all users are loaded, countdown begins for player 
          * 
          */
-        public static void StartCountdown() {
+        public static void StartCountdown()
+        {
             StartManager.Instance.StartCount();
         }
         /*
@@ -1264,9 +1678,9 @@ namespace Netcode
          *  Action that stops, and resets the countdown state.
          * 
          */
-        public static void StopCountdown() {
+        public static void StopCountdown()
+        {
             StartManager.Instance.StopCount();
-
         }
 
         /*
@@ -1276,7 +1690,8 @@ namespace Netcode
         * 
         */
 
-        public static void LoadGame() {
+        public static void LoadGame()
+        {
             StartManager.Instance.LoadGame();
         }
 
@@ -1286,7 +1701,10 @@ namespace Netcode
          *  Tells the server that this player has finished loading the game scene, allowing the next player to load.
          * 
          */
-        public static void OnLoaded() { }
+        public static void OnLoaded()
+        {
+            SendPacketState((int)GameState.LOAD);
+        }
 
 
         /*
@@ -1294,8 +1712,9 @@ namespace Netcode
          * @desc
          *  Action that is called when all users have finished loading
          * 
-         */ 
-        public static void GameReady() {
+         */
+        public static void GameReady()
+        {
             GameSceneController.Instance.gameStart = true;
         }
 
@@ -1310,8 +1729,7 @@ namespace Netcode
         */
         public static void SendMessage(string message)
         {
-     
-
+            SendPacketMsg(message);
         }
 
         /*
@@ -1323,7 +1741,8 @@ namespace Netcode
          *  string: message contents
          * 
          */
-        public static void RecieveMessage(string message) {
+        public static void RecieveMessage(string message)
+        {
             StartManager.Instance.recieveMessage(message);
         }
 

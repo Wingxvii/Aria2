@@ -129,6 +129,6 @@ public class Player : Entity
 
     public override void OnDamage(int dmg, Entity entity)
     {
-        NetworkManager.SendDamage(this.id, false, entity.id, dmg);
+        NetworkManager.SendPacketDamage(this.id, entity.id, dmg);
     }
 }
