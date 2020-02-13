@@ -14,11 +14,11 @@ public class ActionQueue : MonoBehaviour
     public Button currentActionSlot;
 
     public Button[] slots;
-    private int maxActions = 7;
+    private int maxActions = 6;
 
     private void Start()
     {
-        maxActions = Barracks.maxTrainingCap;
+        maxActions = slots.Length;
     }
 
     private void Update()
@@ -29,10 +29,10 @@ public class ActionQueue : MonoBehaviour
             else progressFill.fillAmount = 0.0f;
             if (progressFill.fillAmount > 0) currentActionSlot.image.sprite = droidFilledImage;
             else currentActionSlot.image.sprite = emptySlotImage;
-            for (int i = 0; i < maxActions; ++i) {
+            for (int i = 0; i < slots.Length; ++i) {
                 slots[i].image.sprite = emptySlotImage;
             }
-            for (int i = 0; i < barracks.buildTimes.Count; ++i) {
+            for (int i = 0; i < barracks.buildTimes.Count && i < slots.Length; ++i) {
                 slots[i].image.sprite = droidFilledImage;
             }
         }

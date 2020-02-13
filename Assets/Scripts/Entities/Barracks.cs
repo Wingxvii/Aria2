@@ -11,7 +11,7 @@ public class Barracks : Building
     public float currentBuildTime = 0;
 
     public static float droidTrainTime = 5.0f;
-    public static int maxTrainingCap = 7;
+    public static int maxTrainingCap = 6;
 
     private Canvas canvas;
 
