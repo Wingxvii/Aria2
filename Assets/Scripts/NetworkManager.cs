@@ -263,28 +263,29 @@ namespace Netcode
         }
 
         #region packingData
-        static void PackData(ref byte[] bytes, ref int loc, bool data)
+        public static void PackData(ref byte[] bytes, ref int loc, bool data)
         {
             BitConverter.GetBytes(data).CopyTo(bytes, loc);
             loc += Marshal.SizeOf(data);
         }
-        static void PackData(ref byte[] bytes, ref int loc, int data)
+        public static void PackData(ref byte[] bytes, ref int loc, int data)
         {
             BitConverter.GetBytes(data).CopyTo(bytes, loc);
             loc += Marshal.SizeOf(data);
         }
-        static void PackData(ref byte[] bytes, ref int loc, float data)
+        public static void PackData(ref byte[] bytes, ref int loc, float data)
         {
             BitConverter.GetBytes(data).CopyTo(bytes, loc);
             loc += Marshal.SizeOf(data);
         }
-        static void PackData(ref byte[] bytes, ref int loc, char data)
+        public static void PackData(ref byte[] bytes, ref int loc, char data)
         {
-            BitConverter.GetBytes(data).CopyTo(bytes, loc);
+            //BitConverter.GetBytes(data).CopyTo(bytes, loc);
+            bytes[loc] = (byte)data;
             loc += Marshal.SizeOf(data);
         }
 
-        static void PackData(ref byte[] bytes, ref int loc, string data)
+        public static void PackData(ref byte[] bytes, ref int loc, string data)
         {
             PackData(ref bytes, ref loc, data.Length);
 
@@ -524,30 +525,30 @@ namespace Netcode
         #endregion
 
         #region ReceivingPackets
-        static void UnpackBool(ref byte[] byteArray, ref int loc, ref bool output)
+        public static void UnpackBool(ref byte[] byteArray, ref int loc, ref bool output)
         {
             output = BitConverter.ToBoolean(byteArray, loc);
             loc += Marshal.SizeOf(output);
         }
 
-        static void UnpackInt(ref byte[] byteArray, ref int loc, ref int output)
+        public static void UnpackInt(ref byte[] byteArray, ref int loc, ref int output)
         {
             output = BitConverter.ToInt32(byteArray, loc);
             loc += Marshal.SizeOf(output);
         }
 
-        static void UnpackFloat(ref byte[] byteArray, ref int loc, ref float output)
+        public static void UnpackFloat(ref byte[] byteArray, ref int loc, ref float output)
         {
             output = BitConverter.ToSingle(byteArray, loc);
             loc += Marshal.SizeOf(output);
         }
-        static void UnpackChar(ref byte[] byteArray, ref int loc, ref char output)
+        public static void UnpackChar(ref byte[] byteArray, ref int loc, ref char output)
         {
-            output = BitConverter.ToChar(byteArray, loc);
+            output = (char)byteArray[loc];
             loc += Marshal.SizeOf(output);
         }
 
-        static void UnpackString(ref byte[] byteArray, ref int loc, ref string output)
+        public static void UnpackString(ref byte[] byteArray, ref int loc, ref string output)
         {
             int strLen = 0;
             UnpackInt(ref byteArray, ref loc, ref strLen);
@@ -870,8 +871,8 @@ namespace Netcode
             playerNumber = index;
             SendDebugOutput("Sending UDP INIT");
             SendPacketInitUDP(GameSceneController.Instance.playerNumber);
-            SendDebugOutput("Sending TCP INIT to other players");
-            SendPacketInit(GameSceneController.Instance.playerNumber, StartManager.Instance.username.text);
+            //SendDebugOutput("Sending TCP INIT to other players");
+            //SendPacketInit(GameSceneController.Instance.playerNumber, StartManager.Instance.username.text);
         }
 
         static void PacketReceivedInit(int sender, string username)
@@ -929,7 +930,7 @@ namespace Netcode
 
         static void PacketReceivedMsg(int sender, string msg)
         {
-            Debug.Log("Player " + sender.ToString() + ": " + msg);
+            SendDebugOutput("Player " + sender.ToString() + ": " + msg);
             RecieveMessage(msg);
         }
 
