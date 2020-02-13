@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Netcode;
 using UnityEngine;
-
+using UnityEngine.AI;
 
 public enum DroidState {
     Standing = 0,
@@ -21,7 +21,7 @@ public class Droid : Entity
     public float minSpeed = 2.0f;
     private Rigidbody selfRigid;
 
-    private Vector3 journeyPoint;
+    public Vector3 journeyPoint;
     private Entity attackPoint;
     public DroidState state = DroidState.Standing;
 
@@ -37,6 +37,7 @@ public class Droid : Entity
 
     public Animator anim;
     public Transform mesh;
+    public NavMeshAgent agent;
     //rotation
     public float rotateSpeed;
     public Vector3 faceingPoint = new Vector3(0, 0, 0);
@@ -51,7 +52,7 @@ public class Droid : Entity
         if (!selfRigid){selfRigid = this.GetComponent<Rigidbody>();}
 
         anim = this.GetComponent<Animator>();
-
+        agent = this.GetComponent<NavMeshAgent>();
         maxHealth = 100;
         currentHealth = 100;
 
@@ -73,6 +74,15 @@ public class Droid : Entity
             {
                 currentCoolDown -= Time.deltaTime;
             }
+
+            /*
+            // Move our position a step closer to the target.
+            Vector3 targetDir = new Vector3(faceingPoint.x - transform.position.x, 0, faceingPoint.z - transform.position.z);
+            mesh.rotation = Quaternion.LookRotation(targetDir);
+
+            anim.SetFloat("Walk", Mathf.Clamp(Vector3.Dot(selfRigid.velocity / maxSpeed, transform.forward), -1, 1));
+            anim.SetFloat("Turn", Mathf.Clamp(Vector3.Dot(selfRigid.velocity / maxSpeed, transform.right), -1, 1));
+            */
         }
     }
 
@@ -204,20 +214,20 @@ public class Droid : Entity
 
     private void MoveTo(Vector2 pos)
     {
+        agent.SetDestination(pos);
+
+
+
+        /*
         faceingPoint = journeyPoint;
 
         Vector2 dir = new Vector2(pos.x - this.transform.position.x, pos.y - this.transform.position.z).normalized * maxSpeed;
 
         selfRigid.velocity = new Vector3(dir.x, selfRigid.velocity.y, dir.y);
 
-        Vector3 targetDir = new Vector3(faceingPoint.x - transform.position.x, 0, faceingPoint.z - transform.position.z);
-
-        // Move our position a step closer to the target.
-        mesh.rotation = Quaternion.LookRotation(targetDir);
 
 
-        anim.SetFloat("Walk", Mathf.Clamp(Vector3.Dot(selfRigid.velocity / maxSpeed, transform.forward), -1, 1));
-        anim.SetFloat("Turn", Mathf.Clamp(Vector3.Dot(selfRigid.velocity / maxSpeed, transform.right), -1, 1));
+    */
 
     }
     private void OnAttack()
@@ -281,8 +291,8 @@ public class Droid : Entity
 
     public override void UpdateEntityStats(EntityData ed)
     {
-        transform.position = ed.position;
-        transform.rotation = Quaternion.Euler(ed.rotation);
+        this.GetComponent<Rigidbody>().velocity = (ed.position - this.transform.position) * 10f;
+        this.transform.rotation = Quaternion.Euler(new Vector3(0f, ed.rotation.y, 0f));
     }
 
     public override void OnDeath()
