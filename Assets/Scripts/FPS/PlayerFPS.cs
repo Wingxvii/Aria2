@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Netcode;
 using UnityEngine;
 
 [System.Serializable]
@@ -306,22 +307,22 @@ public class PlayerFPS : Entity
         //Debug.Log("STILL HERE");
     }
 
-    public void SendUpdate(Vector3 pos, Vector3 rot, int state, int weapon)
+    public void SendUpdate(Vector3 pos, Vector3 rot, int state)
     {
         if (GameSceneController.Instance.type == PlayerType.FPS)
         {
-            UniversalUpdate(pos, rot, state, weapon);
+            UniversalUpdate(pos, rot, state);
 
         }
         else if (GameSceneController.Instance.type == PlayerType.RTS)
         {
 
-            UniversalUpdate(pos, rot, state, weapon);
+            UniversalUpdate(pos, rot, state);
         }
 
     }
 
-    void UniversalUpdate(Vector3 pos, Vector3 rot, int state, int weapon)
+    void UniversalUpdate(Vector3 pos, Vector3 rot, int state)
     {
         //Debug.Log(pos + " , " + rot + ", " + state);
         if (!stats.disableManualControl)
@@ -339,7 +340,7 @@ public class PlayerFPS : Entity
         }
         stats.state = state;
 
-        playerGun.NetworkingUpdate(weapon);
+        //playerGun.NetworkingUpdate(weapon);
 
         //if (weapon != selectedGun)
         //{
@@ -372,7 +373,7 @@ public class PlayerFPS : Entity
         //}
     }
 
-    public override void OnDamage(int num)
+    public override void OnDamage(float num)
     {
         if (destructable)
         {
@@ -395,5 +396,11 @@ public class PlayerFPS : Entity
         {
             OnDeath();
         }
+    }
+
+    public override void UpdateEntityStats(EntityData ed)
+    {
+        if (type == EntityType.Dummy)
+            SendUpdate(ed.position, ed.rotation, ed.state);
     }
 }

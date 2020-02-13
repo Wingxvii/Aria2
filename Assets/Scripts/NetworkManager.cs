@@ -141,9 +141,10 @@ namespace Netcode
     public class DataState
     {
         //players data(ignore self)
-        public EntityData p1 = new EntityData();
-        public EntityData p2 = new EntityData();
-        public EntityData p3 = new EntityData();
+        //public EntityData p1 = new EntityData();
+        //public EntityData p2 = new EntityData();
+        //public EntityData p3 = new EntityData();
+        public int[] playerWeapons = new int[3];
 
         //droid and turret data
         public Dictionary<int, EntityData> entityUpdates = new Dictionary<int, EntityData>();
@@ -152,7 +153,7 @@ namespace Netcode
         public Queue<Tuple<int, int, Vector3>> BuildEntity = new Queue<Tuple<int, int, Vector3>>();
         public Queue<int> KilledEntity = new Queue<int>();
         //for fps: damage, culprit; for fps: damage, hit id
-        public Queue<Tuple<int, int>> DamageDealt = new Queue<Tuple<int, int>>();
+        public Queue<Tuple<int, float, int>> DamageDealt = new Queue<Tuple<int, float, int>>();
 
         //game state
         public int GameState = -1;
@@ -190,6 +191,8 @@ namespace Netcode
         [DllImport(DLL_NAME)]
         static extern bool SendDataKill(packet_kill pkt, bool useTCP, IntPtr client);
         [DllImport(DLL_NAME)]
+        static extern bool SendDebugOutput(string data);
+        [DllImport(DLL_NAME)]
         static extern void StartUpdating(IntPtr client);                                //Starts updating
         //[DllImport(DLL_NAME)]
         //static extern void SetupPacketReception(Action<int, string> action);       //recieve packets from server
@@ -223,7 +226,7 @@ namespace Netcode
 
 
         [DllImport(DLL_NAME)]
-        static extern bool SendDataPacket(IntPtr ptr, int length, bool TCP);
+        static extern bool SendDataPacket(IntPtr ptr, int length, bool TCP, IntPtr client);
         [DllImport(DLL_NAME)]
         static extern void SetupPacketReception(Action<IntPtr, int, bool> action);
 
@@ -255,6 +258,8 @@ namespace Netcode
 
             // Client Init  
             Client = CreateClient();
+            SetupPacketReception(receivePacket);
+            StartUpdating(Client);
         }
 
         #region packingData
@@ -304,7 +309,9 @@ namespace Netcode
             Marshal.Copy(bytes, 0, ptr, length);
 
             //SendDataFunc
-            SendDataPacket(ptr, length, TCP);
+
+            SendDebugOutput("C#: SENDING PACKET");
+            SendDataPacket(ptr, length, TCP, Client);
 
             Marshal.FreeCoTaskMem(ptr);
         }
@@ -322,10 +329,11 @@ namespace Netcode
             PackData(ref sendByteArray, ref loc, index);
             PackData(ref sendByteArray, ref loc, username);
 
+            SendDebugOutput("C#: SENDING INTPTR");
             SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.INIT);
         }
 
-        public static void SendPacketInit(int index)
+        public static void SendPacketInitUDP(int index)
         {
             int loc = InitialOffset;
             int Receiver = 0;
@@ -334,6 +342,7 @@ namespace Netcode
 
             PackData(ref sendByteArray, ref loc, index);
 
+            SendDebugOutput("SENDING UDP PACKET...");
             SendIntPtr(sendByteArray, loc, false, Receiver, (int)PacketType.INIT);
         }
 
@@ -552,37 +561,41 @@ namespace Netcode
 
         static void receivePacket(IntPtr ptr, int length, bool TCP)
         {
+            SendDebugOutput("C# RECEIVED PACKET");
             if (TCP)
             {
                 Marshal.Copy(ptr, tcpByteArray, 0, length);
+                SendDebugOutput("C# DECODED TCP PACKET");
                 deconstructPacket(ref tcpByteArray, length);
             }
             else
             {
                 Marshal.Copy(ptr, udpByteArray, 0, length);
-                deconstructPacket(ref tcpByteArray, length);
+                SendDebugOutput("C# DECODED UDP PACKET");
+                deconstructPacket(ref udpByteArray, length);
             }
 
         }
 
         static void deconstructPacket(ref byte[] bytes, int length)
         {
-
             int type = BitConverter.ToInt32(bytes, 8);
             int sender = BitConverter.ToInt32(bytes, 12);
             int loc = 16;
-
+            SendDebugOutput("Type: " + type.ToString() + " , Sender: " + sender.ToString());
             switch (type)
             {
                 case (int)PacketType.INIT:
                     if (sender == -1)
                     {
+                        SendDebugOutput("C# GOT INIT FROM SERVER");
                         int index = 0;
                         UnpackInt(ref bytes, ref loc, ref index);
                         PacketReceivedInit(sender, index);
                     }
                     else
                     {
+                        SendDebugOutput("C# GOT INIT FROM OTHER PLAYER");
                         string user = "";
                         UnpackString(ref bytes, ref loc, ref user);
                         PacketReceivedInit(sender, user);
@@ -616,10 +629,17 @@ namespace Netcode
                     PacketReceivedState(sender, state);
                     break;
                 case (int)PacketType.ENTITY:
-                    PacketReceivedEntity(ref bytes, ref loc, length);
+                    if (sender != playerNumber)
+                        PacketReceivedEntity(ref bytes, ref loc, length, sender);
                     break;
                 case (int)PacketType.DAMAGE:
-
+                    int senderID = 0;
+                    int receiverID = 0;
+                    float damage = 0.0f;
+                    UnpackInt(ref bytes, ref loc, ref senderID);
+                    UnpackInt(ref bytes, ref loc, ref receiverID);
+                    UnpackFloat(ref bytes, ref loc, ref damage);
+                    PacketReceivedDamage(senderID, receiverID, damage);
                     break;
                 case (int)PacketType.WEAPON:
                     int weapon = 0;
@@ -717,49 +737,57 @@ namespace Netcode
             if (isConnected)
             {
                 //update players
-                if (dataState.p1.updated)
-                {
-                    dataState.p1.updated = false;
+                //if (dataState.p1.updated)
+                //{
+                //    dataState.p1.updated = false;
+                //
+                //    PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[1];
+                //    if (player.type == EntityType.Dummy)
+                //    {
+                //        firearms[0].NetworkingUpdate(dataState.p1.weapon);
+                //        player.SendUpdate(dataState.p1.position, dataState.p1.rotation, dataState.p1.state, dataState.p1.weapon);
+                //    }
+                //}
+                //if (dataState.p2.updated)
+                //{
+                //    dataState.p2.updated = false;
+                //
+                //    PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[2];
+                //    if (player.type == EntityType.Dummy)
+                //    {
+                //        firearms[1].NetworkingUpdate(dataState.p2.weapon);
+                //        player.SendUpdate(dataState.p2.position, dataState.p2.rotation, dataState.p2.state, dataState.p2.weapon);
+                //    }
+                //}
+                //if (dataState.p3.updated)
+                //{
+                //    dataState.p3.updated = false;
+                //
+                //    PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[3];
+                //    if (player.type == EntityType.Dummy)
+                //    {
+                //        player.SendUpdate(dataState.p3.position, dataState.p3.rotation, dataState.p3.state, dataState.p3.weapon);
+                //    }
+                //}
 
-                    PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[1];
-                    if (player.type == EntityType.Dummy)
+                if (dataState.GameState == (int)GameState.GAME)
+                {
+                    foreach (PlayerFPS pfps in EntityManager.Instance.ActivePlayers())
                     {
-                        firearms[0].NetworkingUpdate(dataState.p1.weapon);
-                        player.SendUpdate(dataState.p1.position, dataState.p1.rotation, dataState.p1.state, dataState.p1.weapon);
+                        pfps.playerGun.activeGun = pfps.playerGun.slots[dataState.playerWeapons[pfps.id - 1]];
                     }
-                }
-                if (dataState.p2.updated)
-                {
-                    dataState.p2.updated = false;
 
-                    PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[2];
-                    if (player.type == EntityType.Dummy)
+                    foreach (KeyValuePair<int, EntityData> kvp in dataState.entityUpdates)
                     {
-                        firearms[1].NetworkingUpdate(dataState.p2.weapon);
-                        player.SendUpdate(dataState.p2.position, dataState.p2.rotation, dataState.p2.state, dataState.p2.weapon);
-                    }
-                }
-                if (dataState.p3.updated)
-                {
-                    dataState.p3.updated = false;
-
-                    PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[3];
-                    if (player.type == EntityType.Dummy)
-                    {
-                        player.SendUpdate(dataState.p3.position, dataState.p3.rotation, dataState.p3.state, dataState.p3.weapon);
-                    }
-                }
-
-                foreach (KeyValuePair<int, EntityData> kvp in dataState.entityUpdates)
-                {
-                    if (kvp.Value.updated)
-                    {
-                        Debug.Log("UPDATING POSITION FOR " + kvp.Key + "/" + EntityManager.Instance.AllEntities.Count);
-                        kvp.Value.updated = false;
-                        Entity temp = EntityManager.Instance.AllEntities[kvp.Key];
-                        Debug.Log(temp.name);
-                        //Debug.Log(kvp.Value.position + ", " + kvp.Value.rotation);
-                        temp.UpdateEntityStats(kvp.Value);
+                        if (kvp.Value.updated)
+                        {
+                            //Debug.Log("UPDATING POSITION FOR " + kvp.Key + "/" + EntityManager.Instance.AllEntities.Count);
+                            kvp.Value.updated = false;
+                            Entity temp = EntityManager.Instance.AllEntities[kvp.Key];
+                            //Debug.Log(temp.name);
+                            //Debug.Log(kvp.Value.position + ", " + kvp.Value.rotation);
+                            temp.UpdateEntityStats(kvp.Value);
+                        }
                     }
                 }
 
@@ -774,17 +802,17 @@ namespace Netcode
                     if (GameSceneController.Instance.type == PlayerType.RTS)
                     {
                         //Debug.Log("NO!");
-                        Tuple<int, int> damage = dataState.DamageDealt.Dequeue();
+                        Tuple<int, float, int> damage = dataState.DamageDealt.Dequeue();
 
-                        EntityManager.Instance.AllEntities[damage.Item2].OnDamage(damage.Item1);
+                        EntityManager.Instance.AllEntities[damage.Item1].OnDamage(damage.Item2);
                     }
                     else
                     {
                         //Debug.Log("YEAH!");
-                        Tuple<int, int> damage = dataState.DamageDealt.Dequeue();
+                        Tuple<int, float, int> damage = dataState.DamageDealt.Dequeue();
                         //Debug.Log("PLAYER NUMBER: " + GameSceneController.Instance.playerNumber);
                         //Debug.Log(EntityManager.Instance.AllEntities[GameSceneController.Instance.playerNumber].name);
-                        EntityManager.Instance.AllEntities[GameSceneController.Instance.playerNumber].OnDamage(damage.Item1);
+                        EntityManager.Instance.AllEntities[damage.Item1].OnDamage(damage.Item2);
                     }
                 }
 
@@ -813,19 +841,16 @@ namespace Netcode
                 {
                     if (GameSceneController.Instance.type == PlayerType.FPS)
                     {
-                        if (GameSceneController.Instance.type == PlayerType.FPS)
-                        {
-                            Tuple<int, int, Vector3> tempTup = dataState.BuildEntity.Dequeue();
+                        Tuple<int, int, Vector3> tempTup = dataState.BuildEntity.Dequeue();
 
-                            Entity temp = EntityManager.Instance.GetNewEntity((EntityType)tempTup.Item2);
-                            temp.transform.position = tempTup.Item3;
-                            temp.IssueBuild();
+                        Entity temp = EntityManager.Instance.GetNewEntity((EntityType)tempTup.Item2);
+                        temp.transform.position = tempTup.Item3;
+                        temp.IssueBuild();
 
-                        }
-                        else
-                        {
-                            dataState.BuildEntity.Dequeue();
-                        }
+                    }
+                    else
+                    {
+                        dataState.BuildEntity.Dequeue();
                     }
                 }
             }
@@ -835,13 +860,22 @@ namespace Netcode
         #region PacketReception
         static void PacketReceivedInit(int sender, int index)
         {
+            SendDebugOutput("INIT PACKET");
             isConnected = true;
             GameSceneController.Instance.playerNumber = index;
-            SendPacketInit(GameSceneController.Instance.playerNumber);
+            playerNumber = index;
+            SendDebugOutput("Sending UDP INIT");
+            SendPacketInitUDP(GameSceneController.Instance.playerNumber);
+            SendDebugOutput("Sending TCP INIT to other players");
+            SendPacketInit(GameSceneController.Instance.playerNumber, StartManager.Instance.username.text);
         }
 
         static void PacketReceivedInit(int sender, string username)
         {
+            while (sender >= allUsers.Count)
+            {
+                allUsers.Add(new UsersData());
+            }
             allUsers[sender].username = username;
         }
 
@@ -910,9 +944,11 @@ namespace Netcode
                         StartCountdown();
                         break;
                     case (int)GameState.LOAD:
+                        Debug.Log("Load Game!");
                         LoadGame();
                         break;
                     case (int)GameState.GAME:
+                        Debug.Log("Game Start!");
                         GameReady();
                         break;
                 }
@@ -920,38 +956,46 @@ namespace Netcode
             }
         }
 
-        static void PacketReceivedEntity(ref byte[] bytes, ref int loc, int length)
+        static void PacketReceivedEntity(ref byte[] bytes, ref int loc, int length, int sender)
         {
             while (loc < length)
             {
+
+                EntityData ed = new EntityData();
                 int id = 0;
-                int state = 0;
-                float posX = 0.0f;
-                float posY = 0.0f;
-                float posZ = 0.0f;
-                float rotX = 0.0f;
-                float rotY = 0.0f;
-                float rotZ = 0.0f;
                 UnpackInt(ref bytes, ref loc, ref id);
-                UnpackInt(ref bytes, ref loc, ref state);
-                UnpackFloat(ref bytes, ref loc, ref posX);
-                UnpackFloat(ref bytes, ref loc, ref posY);
-                UnpackFloat(ref bytes, ref loc, ref posZ);
-                UnpackFloat(ref bytes, ref loc, ref rotX);
-                UnpackFloat(ref bytes, ref loc, ref rotY);
-                UnpackFloat(ref bytes, ref loc, ref rotZ);
+
+                SendDebugOutput("C#: ENTITY PROCESSED: " + id.ToString());
+
+                UnpackInt(ref bytes, ref loc, ref ed.state);
+                UnpackFloat(ref bytes, ref loc, ref ed.position.x);
+                UnpackFloat(ref bytes, ref loc, ref ed.position.y);
+                UnpackFloat(ref bytes, ref loc, ref ed.position.z);
+                UnpackFloat(ref bytes, ref loc, ref ed.rotation.x);
+                UnpackFloat(ref bytes, ref loc, ref ed.rotation.y);
+                UnpackFloat(ref bytes, ref loc, ref ed.rotation.z);
+                ed.updated = true;
+
+                lock (dataState.entityUpdates)
+                {
+                    dataState.entityUpdates[id] = ed;
+                }
 
                 // EntityManager.Instance.AllEntities[id];
             }
+
+            SendDebugOutput("C#: ENTITY PROCESSING FINISHED!");
         }
 
         // NEEDS UPDATE @PROGRAMMERS
-        static void PacketReceivedDamage(int sender, packet_damage packet)
+        static void PacketReceivedDamage(int senderID, int receiverID, float damage)
         {
-            int ID = packet.playerID;
-            bool direction = packet.dir; // 0 = Damage to RTS Entity , 1 = Damage to FPS playerID
-            int entity = packet.entity;
-            float damage = packet.damage;
+            Tuple<int, float, int> temp = Tuple.Create(receiverID, damage, senderID);
+
+            lock (dataState)
+            {
+                dataState.DamageDealt.Enqueue(temp);
+            }
         }
 
         static void PacketReceivedWeapon(int sender, int weapon)
@@ -961,26 +1005,27 @@ namespace Netcode
             {
                 return;
             }
-            lock (dataState)
+            lock (dataState.playerWeapons)
             {
-                switch (sender)
-                {
-                    case 1:
-                        dataState.p1.weapon = weapon;
-                        dataState.p1.updated = true;
-                        break;
-                    case 2:
-                        dataState.p2.weapon = weapon;
-                        dataState.p2.updated = true;
-                        break;
-                    case 3:
-                        dataState.p2.weapon = weapon;
-                        dataState.p3.updated = true;
-                        break;
-                    default:
-                        Debug.Log("Error: WEAPONSTATE Sender Invalid");
-                        break;
-                }
+                dataState.playerWeapons[sender - 1] = weapon;
+                //switch (sender)
+                //{
+                //    case 1:
+                //        dataState.p1.weapon = weapon;
+                //        dataState.p1.updated = true;
+                //        break;
+                //    case 2:
+                //        dataState.p2.weapon = weapon;
+                //        dataState.p2.updated = true;
+                //        break;
+                //    case 3:
+                //        dataState.p2.weapon = weapon;
+                //        dataState.p3.updated = true;
+                //        break;
+                //    default:
+                //        Debug.Log("Error: WEAPONSTATE Sender Invalid");
+                //        break;
+                //}
             }
         }
 
@@ -997,6 +1042,7 @@ namespace Netcode
             UnpackFloat(ref bytes, ref loc, ref posY);
             UnpackFloat(ref bytes, ref loc, ref posZ);
 
+            Debug.Log("Building");
             lock (dataState)
             {
                 Tuple<int, int, Vector3> temp = Tuple.Create(ID, type, new Vector3(posX, posY, posZ));
@@ -1493,25 +1539,24 @@ namespace Netcode
          *  string: ip of the server
          * 
          */
-        public static void ConnectToServer(string ipAddr)
-        {
-            if (ipAddr != "")
-            {
-                ip = ipAddr;
-            }
-            // Client Connections
-            if (!Connect(ip, Client))
-            {
-                Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
-                OnConnected(false);
-            }
-            else
-            {
-                OnConnected(true);
-            }
-            SendPacketInit(GameSceneController.Instance.playerNumber, "Nameless");
-            SetupPacketReception(receivePacket);
-        }
+        //public static void ConnectToServer(string ipAddr)
+        //{
+        //    if (ipAddr != "")
+        //    {
+        //        ip = ipAddr;
+        //    }
+        //    // Client Connections
+        //    if (!Connect(ip, Client))
+        //    {
+        //        Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
+        //        OnConnected(false);
+        //    }
+        //    else
+        //    {
+        //        OnConnected(true);
+        //    }
+        //    SendPacketInit(GameSceneController.Instance.playerNumber, "Nameless");
+        //}
 
         /*
         * ConnectToServer
@@ -1522,7 +1567,7 @@ namespace Netcode
         *  string: username of the player connecting
         * 
         */
-        public static void ConnectToServer(string ipAddr, string username)
+        public static void ConnectToServer(string ipAddr, string username = "Nameless")
         {
             if (ipAddr != "")
             {
@@ -1538,8 +1583,6 @@ namespace Netcode
             {
                 OnConnected(true);
             }
-            SendPacketInit(GameSceneController.Instance.playerNumber, username);
-            SetupPacketReception(receivePacket);
         }
 
 
@@ -1577,7 +1620,7 @@ namespace Netcode
          */
         public static void OnRoleSelected(int role)
         {
-            //StartManager.Instance.OnRoleSelected(success);
+            StartManager.Instance.OnRoleSelected(role);
         }
 
         /*
@@ -1594,12 +1637,16 @@ namespace Netcode
         {
             if (!GameSceneController.Instance.gameStart)
             {
+                if (slotNum - 1 == playerNumber)
+                {
+
+                }
                 StartManager.Instance.rolesUpdated = true;
 
-                while (slotNum > allUsers.Count)
-                {
-                    allUsers.Add(new UsersData());
-                }
+                //while (slotNum > allUsers.Count)
+                //{
+                    //allUsers.Add(new UsersData());
+                //}
 
                 //update ready status
                 if (allUsers[slotNum - 1].readyStatus != readyStatus)
@@ -1670,6 +1717,7 @@ namespace Netcode
          */
         public static void StartCountdown()
         {
+            Debug.Log("Start CountDown");
             StartManager.Instance.StartCount();
         }
         /*
@@ -1680,6 +1728,7 @@ namespace Netcode
          */
         public static void StopCountdown()
         {
+            Debug.Log("Stop CountDown");
             StartManager.Instance.StopCount();
         }
 

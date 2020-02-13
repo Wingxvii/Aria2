@@ -30,11 +30,12 @@ public abstract class Entity : MonoBehaviour
 
     //attributes
     public EntityType type;
-    public int currentHealth = 1;
+    public float currentHealth = 1f;
     public int maxHealth = 1;
     public bool destructable = false;
     public bool ready = true;
 
+    EntityData lastNetworked;
     //RTS BEHAVIOURS
     #region RTS
     private bool isRTS = false;
@@ -148,7 +149,7 @@ public abstract class Entity : MonoBehaviour
 
 
     //deals damage to entity
-    public virtual void OnDamage(int num)
+    public virtual void OnDamage(float num)
     {
         if (destructable)
         {

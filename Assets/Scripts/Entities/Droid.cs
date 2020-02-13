@@ -272,7 +272,6 @@ public class Droid : Entity
         dataToSend.Append(transform.rotation.eulerAngles.z);
         dataToSend.Append(",");
     }
-
     public override void UpdateEntityStats(EntityData ed)
     {
         transform.position = ed.position;

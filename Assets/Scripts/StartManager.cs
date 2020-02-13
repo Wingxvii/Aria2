@@ -10,6 +10,8 @@ public class StartManager : MonoBehaviour
     #region SingletonCode
     private static StartManager _instance;
     public static StartManager Instance { get { return _instance; } }
+
+    public Queue<string> queueMessages;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -46,6 +48,7 @@ public class StartManager : MonoBehaviour
 
     public float countdownSeconds = 5.0f;
     public bool countdown = false;
+    public bool loadGame = false;
 
     private void Start()
     {
@@ -58,6 +61,8 @@ public class StartManager : MonoBehaviour
         foreach (Text slot in slots) {
             slot.gameObject.SetActive(false);
         }
+
+        queueMessages = new Queue<string>();
 
     }
 
@@ -95,6 +100,7 @@ public class StartManager : MonoBehaviour
     //try RTS join
     public void OnRTSButton()
     {
+        
         NetworkManager.SelectRole(PlayerType.RTS);
     }
     //try FPS join
@@ -104,19 +110,18 @@ public class StartManager : MonoBehaviour
     }
 
     //check if role is avaliable
-    public void OnRoleSelected(bool success) {
-        if (success)
-        {
-            GameSceneController.Instance.type = this.tempRole;
-            readyStatus.text = "Status: Role Selected";
-            readyButton.interactable = true;
-        }
-        else {
-            GameSceneController.Instance.type = PlayerType.Spectator;
-            readyStatus.text = "Status: Role Unavaliable";
-            readyButton.interactable = false;
-            Ready = false;
-        }
+    public void OnRoleSelected(int type) {
+        GameSceneController.Instance.type = (PlayerType)type;
+        //readyStatus.text = "Status: Role " + GameSceneController.Instance.type.ToString();
+
+        //if (GameSceneController.Instance.type == PlayerType.Spectator)
+        //{
+        //    readyButton.interactable = false;
+        //    Ready = false;
+        //}
+        //else {
+        //    readyButton.interactable = true;
+        //}
     }
 
     public void OnReadyButton() {
@@ -139,25 +144,57 @@ public class StartManager : MonoBehaviour
 
     public void LoadGame()
     {
-        GameSceneController.Instance.SwapScene(2);
+        loadGame = true;
     }
 
     public void StartCount() {
         countdown = true;
-        rtsButton.interactable = false;
-        fpsButton.interactable = false;
+        //rtsButton.interactable = false;
+        //fpsButton.interactable = false;
 
     }
 
     public void StopCount() {
         countdown = false;
         countdownSeconds = 5.0f;
-        rtsButton.interactable = true;
-        fpsButton.interactable = true;
+        //rtsButton.interactable = true;
+        //fpsButton.interactable = true;
     }
 
     private void Update()
     {
+        if(loadGame)
+        {
+            loadGame = false;
+            GameSceneController.Instance.SwapScene(2);
+        }
+        if (countdown)
+        {
+            rtsButton.interactable = false;
+            fpsButton.interactable = false;
+        }
+        else
+        {
+            rtsButton.interactable = true;
+            fpsButton.interactable = true;
+        }
+
+        while (queueMessages.Count > 0)
+        {
+            chatLog.text += queueMessages.Dequeue();
+        }
+
+        readyStatus.text = "Status: Role " + GameSceneController.Instance.type.ToString();
+        if (GameSceneController.Instance.type == PlayerType.Spectator)
+        {
+            readyButton.interactable = false;
+            Ready = false;
+        }
+        else
+        {
+            readyButton.interactable = true;
+        }
+
         //countdown
         if (countdown) {
             countdownSeconds -= Time.deltaTime;
@@ -199,9 +236,12 @@ public class StartManager : MonoBehaviour
     }
 
     public void recieveMessage(string messsage) {
-        chatLog.text += "\n";
-        chatLog.text += messsage;
-
+        //chatLog.text += "\n";
+        //chatLog.text += messsage;
+        lock (queueMessages)
+        {
+            queueMessages.Enqueue("\n" + messsage);
+        }
     }
 
     public void sendMessage() {
