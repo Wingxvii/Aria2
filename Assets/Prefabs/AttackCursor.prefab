@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6109740095189440439}
   - component: {fileID: 3245019361759222494}
   - component: {fileID: 3450351485020074433}
+  - component: {fileID: 2206734666582225654}
   m_Layer: 1
   m_Name: AttackCursor
   m_TagString: Animation
@@ -46,6 +47,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -78,3 +80,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2683152570318193574}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!111 &2206734666582225654
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2683152570318193574}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 807b2faca85bf0c4e96fa036c1fb7c76, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 807b2faca85bf0c4e96fa036c1fb7c76, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

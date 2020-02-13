@@ -9739,6 +9739,8 @@ MonoBehaviour:
     type: 3}
   rallyBlueprint: {fileID: 274030189064651138, guid: e7a791ce740bfd344b008af4444a1eaf,
     type: 3}
+  moveCursorAnim: {fileID: 0}
+  attackCursorAnim: {fileID: 0}
 --- !u!4 &7295444142334338897
 Transform:
   m_ObjectHideFlags: 0

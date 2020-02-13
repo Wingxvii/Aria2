@@ -22,7 +22,6 @@ namespace RTSInput
         //single pattern ends here
         #endregion
 
-
         #region commandFunctions
 
         //builds a entity from a blueprint
@@ -41,6 +40,9 @@ namespace RTSInput
         public void IssueLocation(Entity source, Vector3 position){
             if (source.type == EntityType.Droid || source.type == EntityType.Barracks)
             {
+                InputManager.Instance.moveCursorAnim.transform.position = position;
+                InputManager.Instance.moveCursorAnim.GetComponent<Animation>().Play();
+
                 source.IssueLocation(position);
             }
         }
@@ -48,10 +50,13 @@ namespace RTSInput
         //tells unit to attack sepific target
         public void IssueAttack(Entity source, Entity target)
         {
-            if (source.type == EntityType.Droid || source.type == EntityType.Turret)
-            {
-                source.IssueAttack(target);
-            }
+                if (source.type == EntityType.Droid || source.type == EntityType.Turret)
+                {
+                    InputManager.Instance.attackCursorAnim.transform.position = target.transform.position;
+                    InputManager.Instance.attackCursorAnim.GetComponent<Animation>().Play();
+
+                    source.IssueAttack(target);
+                }
         }
 
         //tells unit to attack sepific target
@@ -59,6 +64,9 @@ namespace RTSInput
         {
             if (source.type == EntityType.Droid)
             {
+                InputManager.Instance.attackCursorAnim.transform.position = position;
+                InputManager.Instance.attackCursorAnim.GetComponent<Animation>().Play();
+
                 source.IssueAttack(position);
             }
         }

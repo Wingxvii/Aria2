@@ -88,6 +88,10 @@ namespace RTSInput
         public GameObject moveCursorBlueprint;
         public GameObject attackCursorBlueprint;
         public GameObject rallyBlueprint;
+
+        public GameObject moveCursorAnim;
+        public GameObject attackCursorAnim;
+
         #endregion
 
         #region DoubleClick
@@ -115,10 +119,16 @@ namespace RTSInput
             wallBlueprint.SetActive(false);
             scienceBlueprint = Instantiate(scienceBlueprint);
             scienceBlueprint.SetActive(false);
+
+            attackCursorAnim = Instantiate(attackCursorBlueprint);
+            moveCursorAnim = Instantiate(moveCursorBlueprint);
+
             moveCursorBlueprint = Instantiate(moveCursorBlueprint);
             moveCursorBlueprint.SetActive(false);
+            moveCursorBlueprint.GetComponent<Animation>().playAutomatically = false;
             attackCursorBlueprint = Instantiate(attackCursorBlueprint);
             attackCursorBlueprint.SetActive(false);
+            attackCursorBlueprint.GetComponent<Animation>().playAutomatically = false;
             rallyBlueprint = Instantiate(rallyBlueprint);
             rallyBlueprint.SetActive(false);
             activeBlueprint = turretBlueprint;
@@ -440,7 +450,7 @@ namespace RTSInput
                         {
                             if (obj.type == EntityType.Turret)
                             {
-                                CommandManager.Instance.IssueAttack(obj, HitObject);
+                                CommandManager.Instance.IssueAttack(obj, staticPosition);
                             }
                             else if (obj.type == EntityType.Droid)
                             {
