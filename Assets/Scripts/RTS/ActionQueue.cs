@@ -14,11 +14,11 @@ public class ActionQueue : MonoBehaviour
     public Button currentActionSlot;
 
     public Button[] slots;
-    private int maxActions = 6;
+    private int maxActions = 7;
 
     private void Start()
     {
-        //maxActions = Barracks.maxTrainingCap;
+        maxActions = Barracks.maxTrainingCap;
     }
 
     private void Update()

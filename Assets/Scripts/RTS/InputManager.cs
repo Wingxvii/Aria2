@@ -227,7 +227,6 @@ namespace RTSInput
                             screenPoint.y <= Mathf.Max(boxStart.y, Input.mousePosition.y) && !SelectedEntities.Contains(obj) &&
                             obj.gameObject.activeSelf)
                         {
-                            //Debug.Log(obj.name);
                             SelectedEntities.Add(obj);
                             obj.GetComponent<Entity>().OnSelect();
                             selectionChanged = true;
@@ -269,14 +268,14 @@ namespace RTSInput
                         //not purchaseable
                         else
                         {
-                            Debug.Log("NOT ENOUGH CREDITS");
+                            NotificationManager.Instance.HitNotification(NotificationType.INSUFFICIENT_CREDITS);
                         }
 
                     }
                     //handle prefab not placeable exception
                     else if (activeBlueprint != null && !activeBlueprint.GetComponent<ShellPlacement>().placeable)
                     {
-                        Debug.Log("INVALID PLACEMENT");
+                        NotificationManager.Instance.HitNotification(NotificationType.INVALID_PLACEMENT);
                     }
                 }
                 #endregion

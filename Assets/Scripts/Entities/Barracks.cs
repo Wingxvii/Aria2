@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using RTSInput;
 
 public class Barracks : Building
 {
@@ -10,7 +11,7 @@ public class Barracks : Building
     public float currentBuildTime = 0;
 
     public static float droidTrainTime = 5.0f;
-    public static int maxTrainingCap = 25;
+    public static int maxTrainingCap = 7;
 
     private Canvas canvas;
 
@@ -135,15 +136,15 @@ public class Barracks : Building
             buildTimes.Enqueue(ResourceManager.Instance.RequestQueue(EntityType.Droid));
         }
         else if (ResourceManager.Instance.supplyCurrent >= ResourceManager.Instance.totalSupply) {
-            Debug.Log("MAX SUPPLY REACHED");
+            NotificationManager.Instance.HitNotification(NotificationType.SUPPLY_BLOCKED);
         }
         else if (buildTimes.Count >= maxTrainingCap)
         {
-            Debug.Log("QUEUE IS FULL");
+            NotificationManager.Instance.HitNotification(NotificationType.QUEUE_FULL);
         }
         else
         {
-            Debug.Log("NOT ENOUGH CREDITS");
+            NotificationManager.Instance.HitNotification(NotificationType.INSUFFICIENT_CREDITS);
         }
     }
 

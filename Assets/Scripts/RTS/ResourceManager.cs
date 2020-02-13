@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Netcode;
+using RTSInput;
 public class ResourceManager : MonoBehaviour
 {
     #region SingletonCode
@@ -81,11 +81,19 @@ public class ResourceManager : MonoBehaviour
 
     public float timeElapsed;
 
+    bool minutePassed = false;
+    bool thirtyPassed = false;
+    bool tenPassed = false;
+
     // Start is called before the first frame update
     void Start()
     {
         credits = 1000;
         timeElapsed = 600;
+        minutePassed = false;
+        thirtyPassed = false;
+        tenPassed = false;
+
     }
 
     private void Update()
@@ -94,7 +102,20 @@ public class ResourceManager : MonoBehaviour
         {
             timeElapsed -= Time.deltaTime;
             time.text = ((int)(timeElapsed / 60.0f)).ToString("00") + ":" + ((int)(timeElapsed % 60)).ToString("00");
-            if (timeElapsed < 0)
+            if (!minutePassed && timeElapsed < 60) {
+                NotificationManager.Instance.HitNotification(NotificationType.MINUTE_MARK);
+                minutePassed = true;
+            }
+            else if (!thirtyPassed && timeElapsed < 30)
+            {
+                NotificationManager.Instance.HitNotification(NotificationType.THIRTY_MARK);
+                thirtyPassed = true;
+            }
+            else if (!tenPassed && timeElapsed < 10)
+            {
+                NotificationManager.Instance.HitNotification(NotificationType.TEN_MARK);
+                tenPassed = true;
+            }else if (timeElapsed < 0)
             {
                 //RTSGameManager.Instance.GameEndWin();
             }
@@ -197,7 +218,6 @@ public class ResourceManager : MonoBehaviour
                 credits += ResourceConstants.COST_TURRET;
                 break;
             case EntityType.Wall:
-                break;
                 credits += ResourceConstants.COST_WALL;
                 break;
             case EntityType.Science:
@@ -240,7 +260,7 @@ public class ResourceManager : MonoBehaviour
                     return true;
                 }
                 else {
-                    Debug.Log("NOT ENOUGH CREDITS");
+                    NotificationManager.Instance.HitNotification(NotificationType.INSUFFICIENT_CREDITS);
                     return false;
                 }
                 break;
@@ -252,7 +272,7 @@ public class ResourceManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("NOT ENOUGH CREDITS");
+                    NotificationManager.Instance.HitNotification(NotificationType.INSUFFICIENT_CREDITS);
                     return false;
                 }
                 break;
@@ -264,7 +284,7 @@ public class ResourceManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("NOT ENOUGH CREDITS");
+                    NotificationManager.Instance.HitNotification(NotificationType.INSUFFICIENT_CREDITS);
                     return false;
                 }
                 break;
@@ -276,7 +296,7 @@ public class ResourceManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("NOT ENOUGH CREDITS");
+                    NotificationManager.Instance.HitNotification(NotificationType.INSUFFICIENT_CREDITS);
                     return false;
                 }
                 break;
@@ -288,7 +308,7 @@ public class ResourceManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("NOT ENOUGH CREDITS");
+                    NotificationManager.Instance.HitNotification(NotificationType.INSUFFICIENT_CREDITS);
                     return false;
                 }
                 break;

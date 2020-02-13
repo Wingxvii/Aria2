@@ -844,7 +844,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1380059907}
   - component: {fileID: 1380059906}
-  - component: {fileID: 1380059905}
   - component: {fileID: 1380059904}
   m_Layer: 0
   m_Name: Minimap Camera
@@ -957,14 +956,6 @@ MonoBehaviour:
       data1: 0
       data2: 0
   defaultFrameSettings: 0
---- !u!81 &1380059905
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1380059903}
-  m_Enabled: 1
 --- !u!20 &1380059906
 Camera:
   m_ObjectHideFlags: 0
@@ -996,7 +987,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 132887
+    m_Bits: 394007
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 1f08642ba8d9a444390a27d3a21b3549, type: 2}
   m_TargetDisplay: 0
@@ -9652,6 +9643,7 @@ GameObject:
   - component: {fileID: 7295444141309362687}
   - component: {fileID: 7295444141309362560}
   - component: {fileID: 7295444141309362564}
+  - component: {fileID: 7295444141309362565}
   m_Layer: 0
   m_Name: RTS Manager
   m_TagString: Untagged
@@ -9671,6 +9663,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2366e21280f7174eb35ebde383291ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7295444141309362565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7295444141309362563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eaf3c68d88b976458c5efebeed1164e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notification: {fileID: 906145167281654048, guid: 657bae9534d103c4b8b743607107232b,
+    type: 3}
+  notifCanvas: {fileID: 865607308}
 --- !u!114 &7295444141309362686
 MonoBehaviour:
   m_ObjectHideFlags: 0

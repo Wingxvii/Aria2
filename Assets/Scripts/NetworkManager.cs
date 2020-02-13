@@ -328,11 +328,8 @@ namespace Netcode
                 {
                     if (kvp.Value.updated)
                     {
-                        Debug.Log("UPDATING POSITION FOR " + kvp.Key + "/" + EntityManager.Instance.AllEntities.Count);
                         kvp.Value.updated = false;
                         Entity temp = EntityManager.Instance.AllEntities[kvp.Key];
-                        Debug.Log(temp.name);
-                        //Debug.Log(kvp.Value.position + ", " + kvp.Value.rotation);
                         temp.UpdateEntityStats(kvp.Value);
                     }
                 }
@@ -998,8 +995,6 @@ namespace Netcode
                     {
                         Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
                     }
-
-                    Debug.Log("BUILT");
                 }
             }
 
