@@ -48,6 +48,10 @@ public class Droid : Entity
     {
         type = EntityType.Droid;
 
+        if (GameSceneController.Instance.type == PlayerType.FPS) {
+            agent.enabled = false;
+        }
+
         //setup rigidbody
         if (!selfRigid){selfRigid = this.GetComponent<Rigidbody>();}
 
@@ -214,7 +218,6 @@ public class Droid : Entity
     private void MoveTo(Vector3 pos)
     {
         agent.SetDestination(pos);
-
     }
     private void OnAttack()
     {
@@ -277,10 +280,8 @@ public class Droid : Entity
 
     public override void UpdateEntityStats(EntityData ed)
     {
-        /*
         this.GetComponent<Rigidbody>().velocity = (ed.position - this.transform.position) * 10f;
         this.transform.rotation = Quaternion.Euler(new Vector3(0f, ed.rotation.y, 0f));
-        */
     }
 
     public override void OnDeath()
