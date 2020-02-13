@@ -43,10 +43,19 @@ namespace RTSInput
         public GameObject notification;
         public Transform notifCanvas;
 
+        public Stack<GameObject> notifPool;
+
+
+        private void Start()
+        {
+            notifPool = new Stack<GameObject>();
+        }
 
         //add notification to list
-        public void HitNotification(NotificationType type) {
-            switch (type) {
+        public void HitNotification(NotificationType type)
+        {
+            switch (type)
+            {
                 case NotificationType.INSUFFICIENT_CREDITS:
                     StartCoroutine(NotifPlay("Insufficient Credits"));
                     break;
@@ -78,13 +87,24 @@ namespace RTSInput
 
         IEnumerator NotifPlay(string newText)
         {
-            GameObject notifObj = Instantiate(notification, new Vector3(960, 365,0), Quaternion.identity);
+            GameObject notifObj;
+
+            //pool this
+            if (notifPool.Count > 0)
+            {
+                notifObj = notifPool.Pop();
+                notifObj.SetActive(true);
+            }
+            else
+            {
+                notifObj = Instantiate(notification, new Vector3(960, 365, 0), Quaternion.identity);
+            }
+
             notifObj.transform.parent = notifCanvas;
             notifObj.GetComponent<Text>().text = newText;
 
-
             Animation anim = notifObj.GetComponent<Animation>();
-            
+
             //play build animation
             anim.Play();
 
@@ -93,7 +113,9 @@ namespace RTSInput
                 yield return 0;
             }
 
-            Destroy(notifObj);
+            notifPool.Push(notifObj);
+            notifObj.SetActive(false);
+
         }
 
     }
