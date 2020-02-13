@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 using RTSInput;
 public class ResourceManager : MonoBehaviour
 {
@@ -355,7 +356,9 @@ public class ResourceManager : MonoBehaviour
             {
                 case EntityType.Droid:
                     Droid temp = (Droid)EntityManager.Instance.GetNewEntity(EntityType.Droid);
-                    temp.gameObject.transform.position = home.position;
+                    //temp.gameObject.transform.position = home.position;
+                    temp.gameObject.GetComponent<NavMeshAgent>().Warp(home.position);
+                    Debug.Log("Spawned");
                     temp.IssueLocation(rally);
                     if (GameSceneController.Instance.type == PlayerType.RTS)
                         Netcode.NetworkManager.SendBuildEntity(temp);

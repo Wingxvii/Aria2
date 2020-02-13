@@ -863,6 +863,7 @@ MonoBehaviour:
   ready: 1
   maxSpeed: 4
   minSpeed: 2
+  journeyPoint: {x: 0, y: 0, z: 0}
   state: 0
   journeyAccuracy: 2
   attackDamage: 5

@@ -75,23 +75,22 @@ public class Droid : Entity
                 currentCoolDown -= Time.deltaTime;
             }
 
-            /*
             // Move our position a step closer to the target.
-            Vector3 targetDir = new Vector3(faceingPoint.x - transform.position.x, 0, faceingPoint.z - transform.position.z);
-            mesh.rotation = Quaternion.LookRotation(targetDir);
+            //Vector3 targetDir = new Vector3(faceingPoint.x - transform.position.x, 0, faceingPoint.z - transform.position.z);
+            //mesh.rotation = Quaternion.LookRotation(targetDir);
 
-            anim.SetFloat("Walk", Mathf.Clamp(Vector3.Dot(selfRigid.velocity / maxSpeed, transform.forward), -1, 1));
-            anim.SetFloat("Turn", Mathf.Clamp(Vector3.Dot(selfRigid.velocity / maxSpeed, transform.right), -1, 1));
-            */
+            anim.SetFloat("Walk", Mathf.Clamp(Vector3.Dot(agent.velocity / maxSpeed, transform.forward), -1, 1));
+            anim.SetFloat("Turn", Mathf.Clamp(Vector3.Dot(agent.velocity / maxSpeed, transform.right), -1, 1));
         }
     }
 
     protected override void BaseFixedUpdate() {
+        /*
         if (selfRigid.velocity.magnitude > maxSpeed)
         {
             selfRigid.velocity = selfRigid.velocity.normalized * maxSpeed;
         }
-
+        */
 
         if (GameSceneController.Instance.type == PlayerType.FPS)
         {
@@ -111,14 +110,14 @@ public class Droid : Entity
                     else
                     {
 
-                        MoveTo(new Vector2(journeyPoint.x, journeyPoint.z));
+                        MoveTo(journeyPoint);
 
                     }
                     break;
                 case DroidState.TargetAttacking:
                     //check if gameobject is seeable
                     journeyPoint = attackPoint.transform.position;
-                    MoveTo(new Vector2(journeyPoint.x, journeyPoint.z));
+                    MoveTo(journeyPoint);
                     break;
 
                 case DroidState.TetherAttacking:
@@ -142,11 +141,11 @@ public class Droid : Entity
 
                     //check if gameobject is seeable
                     journeyPoint = attackPoint.transform.position;
-                    MoveTo(new Vector2(journeyPoint.x, journeyPoint.z));
+                    MoveTo(journeyPoint);
                     break;
                 case DroidState.AttackMoving:
                     //check if gameobject is seeable
-                    MoveTo(new Vector2(journeyPoint.x, journeyPoint.z));
+                    MoveTo(journeyPoint);
                     shortestDist = float.MaxValue;
 
                     //check shortest in range for each player
@@ -212,22 +211,9 @@ public class Droid : Entity
         }
     }
 
-    private void MoveTo(Vector2 pos)
+    private void MoveTo(Vector3 pos)
     {
         agent.SetDestination(pos);
-
-
-
-        /*
-        faceingPoint = journeyPoint;
-
-        Vector2 dir = new Vector2(pos.x - this.transform.position.x, pos.y - this.transform.position.z).normalized * maxSpeed;
-
-        selfRigid.velocity = new Vector3(dir.x, selfRigid.velocity.y, dir.y);
-
-
-
-    */
 
     }
     private void OnAttack()
@@ -291,8 +277,10 @@ public class Droid : Entity
 
     public override void UpdateEntityStats(EntityData ed)
     {
+        /*
         this.GetComponent<Rigidbody>().velocity = (ed.position - this.transform.position) * 10f;
         this.transform.rotation = Quaternion.Euler(new Vector3(0f, ed.rotation.y, 0f));
+        */
     }
 
     public override void OnDeath()
