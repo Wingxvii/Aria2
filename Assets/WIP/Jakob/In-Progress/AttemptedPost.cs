@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttemptedPost : MonoBehaviour
 {
-    Material shader;
+    public Material shader;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +20,6 @@ public class AttemptedPost : MonoBehaviour
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
-        Graphics.Blit(source, shader);
+        Graphics.Blit(source, destination, shader);
     }
 }

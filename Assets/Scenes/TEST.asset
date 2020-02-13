@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: TEST
+  m_EditorClassIdentifier: Assembly-CSharp::Firearms
+  gunStats:
+    accuracy: 50
+    accReduc: 20
+    dmg: 30
+    RoF: 10
+    clip: 50
+    projNum: 1
+    gunShot: {fileID: 0}
+    barrelPos1: {fileID: 0}
+    muzzleFlash: {fileID: 0}
+    tracer: {fileID: 0}
+    gunMesh: {fileID: 0}
+    gunCoord: {x: 0, y: 0, z: 0}
+    barrelCoord: {x: 0, y: 0, z: 0}
