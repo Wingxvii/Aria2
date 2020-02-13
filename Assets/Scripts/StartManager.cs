@@ -49,6 +49,7 @@ public class StartManager : MonoBehaviour
     public float countdownSeconds = 5.0f;
     public bool countdown = false;
     public bool loadGame = false;
+    public bool connected = false;
 
     private void Start()
     {
@@ -83,18 +84,13 @@ public class StartManager : MonoBehaviour
     {
         if (success)
         {
-            connectionStatus.text = "Connection Status: Connected";
-            sendButton.interactable = true;
-            rtsButton.interactable = true;
-            fpsButton.interactable = true;
+            connected = true;
+            
         }
         else {
-            connectionStatus.text = "Connection Status: Unable to Connect";
-            sendButton.interactable = false;
-            rtsButton.interactable = false;
-            fpsButton.interactable = false;
-            readyButton.interactable = false;
+            connected = false;
         }
+        rolesUpdated = true;
     }
 
     //try RTS join
@@ -122,6 +118,7 @@ public class StartManager : MonoBehaviour
         //else {
         //    readyButton.interactable = true;
         //}
+        rolesUpdated = true;
     }
 
     public void OnReadyButton() {
@@ -138,7 +135,7 @@ public class StartManager : MonoBehaviour
             readyButtonText.text = "Ready!";
             readyStatus.text = "Status: Not Ready";
         }
-
+        rolesUpdated = true;
         NetworkManager.OnReady(Ready);
     }
 
@@ -163,6 +160,21 @@ public class StartManager : MonoBehaviour
 
     private void Update()
     {
+        if(connected)
+        {
+            connectionStatus.text = "Connection Status: Connected";
+            sendButton.interactable = true;
+            rtsButton.interactable = true;
+            fpsButton.interactable = true;
+        }
+        else
+        {
+            connectionStatus.text = "Connection Status: Unable to Connect";
+            sendButton.interactable = false;
+            rtsButton.interactable = false;
+            fpsButton.interactable = false;
+            readyButton.interactable = false;
+        }
         if(loadGame)
         {
             loadGame = false;

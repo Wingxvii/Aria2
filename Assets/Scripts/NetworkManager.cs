@@ -11,6 +11,7 @@ namespace Netcode
     {
         // initialization connection
         INIT = 0,
+        USER,
         // Ready
         TYPE,
         READY,
@@ -297,7 +298,7 @@ namespace Netcode
 
         static int InitialOffset = 16;
 
-        static void SendIntPtr(byte[] bytes, int length, bool TCP, int receiver, int packetType)
+        static bool SendIntPtr(byte[] bytes, int length, bool TCP, int receiver, int packetType)
         {
             int playerID = GameSceneController.Instance.playerNumber;
             BitConverter.GetBytes(length).CopyTo(bytes, 0);
@@ -314,27 +315,16 @@ namespace Netcode
             //SendDataFunc
 
             //SendDebugOutput("C#: SENDING PACKET");
-            SendDataPacket(ptr, length, TCP, Client);
+            bool returnVal = SendDataPacket(ptr, length, TCP, Client);
 
             Marshal.FreeCoTaskMem(ptr);
+
+            return returnVal;
         }
         #endregion
 
         #region ByteSender
 
-        public static void SendPacketInit(int index, string username)
-        {
-            int loc = InitialOffset;
-            int Receiver = 0;
-
-            Receiver = (~0);
-
-            PackData(ref sendByteArray, ref loc, index);
-            PackData(ref sendByteArray, ref loc, username);
-
-            SendDebugOutput("C#: SENDING INTPTR");
-            SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.INIT);
-        }
 
         public static void SendPacketInitUDP(int index)
         {
@@ -347,6 +337,19 @@ namespace Netcode
 
             SendDebugOutput("SENDING UDP PACKET...");
             SendIntPtr(sendByteArray, loc, false, Receiver, (int)PacketType.INIT);
+        }
+        public static void SendPacketUser(int index, string username)
+        {
+            int loc = InitialOffset;
+            int Receiver = 0;
+
+            Receiver = ~(0);
+
+            PackData(ref sendByteArray, ref loc, index);
+            PackData(ref sendByteArray, ref loc, username);
+
+            SendDebugOutput("C#: SENDING INTPTR");
+            SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.USER);
         }
 
         public static void SendPacketMsg(string message)
@@ -584,26 +587,30 @@ namespace Netcode
         {
             int type = BitConverter.ToInt32(bytes, 8);
             int sender = BitConverter.ToInt32(bytes, 12);
-            int loc = 16;
+            int loc = InitialOffset;
+
             SendDebugOutput("Type: " + type.ToString() + " , Sender: " + sender.ToString());
             switch (type)
             {
                 case (int)PacketType.INIT:
-                    if (sender == -1)
                     {
-                        SendDebugOutput("C# GOT INIT FROM SERVER");
-                        int index = 0;
-                        UnpackInt(ref bytes, ref loc, ref index);
-                        PacketReceivedInit(sender, index);
+                        if (sender == -1)
+                        {
+                            SendDebugOutput("C# GOT INIT FROM SERVER");
+                            int index = 0;
+                            UnpackInt(ref bytes, ref loc, ref index);
+                            PacketReceivedInit(sender, index);
+                        }
                     }
-                    else
+                    break;
+                case (int)PacketType.USER:
                     {
-                        SendDebugOutput("C# GOT INIT FROM OTHER PLAYER");
+                        SendDebugOutput("C# GOT USER FROM OTHER PLAYER");
                         int index = 0;
                         string user = "";
                         UnpackInt(ref bytes, ref loc, ref index);
                         UnpackString(ref bytes, ref loc, ref user);
-                        PacketReceivedInit(sender, user);
+                        PacketReceivedUser(sender, user);
                     }
                     break;
                 case (int)PacketType.TYPE:
@@ -662,6 +669,7 @@ namespace Netcode
                     PacketReceivedDeath(id, killerID);
                     break;
             }
+
         }
 
         #endregion
@@ -867,22 +875,24 @@ namespace Netcode
         {
             SendDebugOutput("INIT PACKET");
             isConnected = true;
+            OnConnected(true);
             GameSceneController.Instance.playerNumber = index;
             playerNumber = index;
+            allUsers.Add(new UsersData());
             SendDebugOutput("Sending UDP INIT");
             SendPacketInitUDP(GameSceneController.Instance.playerNumber);
-            //SendDebugOutput("Sending TCP INIT to other players");
-            //SendPacketInit(GameSceneController.Instance.playerNumber, StartManager.Instance.username.text);
+            SendDebugOutput("Sending TCP for username");
+            SendPacketUser(GameSceneController.Instance.playerNumber, StartManager.Instance.username.text);
         }
 
-        static void PacketReceivedInit(int sender, string username)
+        static void PacketReceivedUser(int sender, string user)
         {
             while (sender >= allUsers.Count)
             {
                 allUsers.Add(new UsersData());
                 SendDebugOutput("User Added! Total: " + allUsers.Count.ToString());
             }
-            allUsers[sender].username = username;
+            allUsers[sender].username = user;
         }
 
         static void PacketReceivedType(int type)
@@ -1585,10 +1595,6 @@ namespace Netcode
                 Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
                 OnConnected(false);
             }
-            else
-            {
-                OnConnected(true);
-            }
         }
 
 
@@ -1651,7 +1657,7 @@ namespace Netcode
 
                 //while (slotNum > allUsers.Count)
                 //{
-                    //allUsers.Add(new UsersData());
+                //allUsers.Add(new UsersData());
                 //}
 
                 //update ready status
