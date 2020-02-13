@@ -25,7 +25,7 @@ public class Droid : Entity
     private Entity attackPoint;
     public DroidState state = DroidState.Standing;
 
-    public float journeyAccuracy = 5.0f;
+    public float journeyAccuracy = 2.0f;
 
     public int attackDamage = 5;
     public int strongAttack = 8;
@@ -35,6 +35,8 @@ public class Droid : Entity
 
     public float visualRange = 20.0f;
 
+    public Animator anim;
+    public Transform mesh;
     //rotation
     public float rotateSpeed;
     public Vector3 faceingPoint = new Vector3(0, 0, 0);
@@ -47,6 +49,8 @@ public class Droid : Entity
 
         //setup rigidbody
         if (!selfRigid){selfRigid = this.GetComponent<Rigidbody>();}
+
+        anim = this.GetComponent<Animator>();
 
         maxHealth = 100;
         currentHealth = 100;
@@ -69,19 +73,6 @@ public class Droid : Entity
             {
                 currentCoolDown -= Time.deltaTime;
             }
-            if (state != DroidState.Standing)
-            {
-                Vector3 targetDir = new Vector3(faceingPoint.x - transform.position.x, 0, faceingPoint.z - transform.position.z);
-
-                // The step size is equal to speed times frame time.
-                float step = rotateSpeed * Time.deltaTime;
-
-                Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
-
-                // Move our position a step closer to the target.
-                transform.rotation = Quaternion.LookRotation(newDir);
-            }
-
         }
     }
 
@@ -167,6 +158,9 @@ public class Droid : Entity
                 case DroidState.Standing:
                     shortestDist = float.MaxValue;
 
+                    anim.SetFloat("Walk", 0);
+                    anim.SetFloat("Turn", 0);
+
                     foreach (PlayerFPS player in EntityManager.Instance.ActivePlayers())
                     {
                         float dist = Vector3.Distance(player.transform.position, this.transform.position);
@@ -213,7 +207,18 @@ public class Droid : Entity
         faceingPoint = journeyPoint;
 
         Vector2 dir = new Vector2(pos.x - this.transform.position.x, pos.y - this.transform.position.z).normalized * maxSpeed;
+
         selfRigid.velocity = new Vector3(dir.x, selfRigid.velocity.y, dir.y);
+
+        Vector3 targetDir = new Vector3(faceingPoint.x - transform.position.x, 0, faceingPoint.z - transform.position.z);
+
+        // Move our position a step closer to the target.
+        mesh.rotation = Quaternion.LookRotation(targetDir);
+
+
+        anim.SetFloat("Walk", Mathf.Clamp(Vector3.Dot(selfRigid.velocity / maxSpeed, transform.forward), -1, 1));
+        anim.SetFloat("Turn", Mathf.Clamp(Vector3.Dot(selfRigid.velocity / maxSpeed, transform.right), -1, 1));
+
     }
     private void OnAttack()
     {
@@ -223,11 +228,12 @@ public class Droid : Entity
             {
                 NetworkManager.SendEnvironmentalDamage(attackDamage, attackPoint.id, this.id);
                 currentCoolDown = coolDown;
-
+                anim.Play("Attack");
             }
             else {
                 NetworkManager.SendEnvironmentalDamage(strongAttack, attackPoint.id, this.id);
                 currentCoolDown = lowCoolDown;
+                anim.Play("Attack");
 
             }
         }
@@ -278,4 +284,27 @@ public class Droid : Entity
         transform.position = ed.position;
         transform.rotation = Quaternion.Euler(ed.rotation);
     }
+
+    public override void OnDeath()
+    {
+        StartCoroutine(PlayDeath());
+    }
+
+    public void OnDance()
+    {
+        anim.Play("Dance");
+
+    }
+
+    IEnumerator PlayDeath()
+    {
+        anim.Play("Death");
+        NetworkManager.SendKilledEntity(this);
+
+        yield return new WaitForSeconds(3.2f);
+
+        OnDeActivate();
+    }
+
+
 }
