@@ -304,13 +304,15 @@ namespace Netcode
             BitConverter.GetBytes(packetType).CopyTo(bytes, 8);
             BitConverter.GetBytes(playerID).CopyTo(bytes, 12);
 
+            SendDebugOutput("ID: " + playerID.ToString() + ", Type: " + packetType.ToString() + ", LENGTH: " + length.ToString());
+
             IntPtr ptr = Marshal.AllocCoTaskMem(length);
 
             Marshal.Copy(bytes, 0, ptr, length);
 
             //SendDataFunc
 
-            SendDebugOutput("C#: SENDING PACKET");
+            //SendDebugOutput("C#: SENDING PACKET");
             SendDataPacket(ptr, length, TCP, Client);
 
             Marshal.FreeCoTaskMem(ptr);
@@ -561,17 +563,17 @@ namespace Netcode
 
         static void receivePacket(IntPtr ptr, int length, bool TCP)
         {
-            SendDebugOutput("C# RECEIVED PACKET");
+            //SendDebugOutput("C# RECEIVED PACKET");
             if (TCP)
             {
                 Marshal.Copy(ptr, tcpByteArray, 0, length);
-                SendDebugOutput("C# DECODED TCP PACKET");
+                //SendDebugOutput("C# DECODED TCP PACKET");
                 deconstructPacket(ref tcpByteArray, length);
             }
             else
             {
                 Marshal.Copy(ptr, udpByteArray, 0, length);
-                SendDebugOutput("C# DECODED UDP PACKET");
+                //SendDebugOutput("C# DECODED UDP PACKET");
                 deconstructPacket(ref udpByteArray, length);
             }
 
@@ -596,7 +598,9 @@ namespace Netcode
                     else
                     {
                         SendDebugOutput("C# GOT INIT FROM OTHER PLAYER");
+                        int index = 0;
                         string user = "";
+                        UnpackInt(ref bytes, ref loc, ref index);
                         UnpackString(ref bytes, ref loc, ref user);
                         PacketReceivedInit(sender, user);
                     }
@@ -875,6 +879,7 @@ namespace Netcode
             while (sender >= allUsers.Count)
             {
                 allUsers.Add(new UsersData());
+                SendDebugOutput("User Added! Total: " + allUsers.Count.ToString());
             }
             allUsers[sender].username = username;
         }
@@ -965,7 +970,7 @@ namespace Netcode
                 int id = 0;
                 UnpackInt(ref bytes, ref loc, ref id);
 
-                SendDebugOutput("C#: ENTITY PROCESSED: " + id.ToString());
+                //SendDebugOutput("C#: ENTITY PROCESSED: " + id.ToString());
 
                 UnpackInt(ref bytes, ref loc, ref ed.state);
                 UnpackFloat(ref bytes, ref loc, ref ed.position.x);
@@ -984,7 +989,7 @@ namespace Netcode
                 // EntityManager.Instance.AllEntities[id];
             }
 
-            SendDebugOutput("C#: ENTITY PROCESSING FINISHED!");
+            //SendDebugOutput("C#: ENTITY PROCESSING FINISHED!");
         }
 
         // NEEDS UPDATE @PROGRAMMERS
