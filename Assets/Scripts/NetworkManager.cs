@@ -298,24 +298,28 @@ namespace Netcode
 
         static bool SendIntPtr(ref byte[] bytes, int length, bool TCP, int receiver, int packetType)
         {
-            int playerID = GameSceneController.Instance.playerNumber;
-            BitConverter.GetBytes(length).CopyTo(bytes, 0);
-            BitConverter.GetBytes(receiver).CopyTo(bytes, 4);
-            BitConverter.GetBytes(packetType).CopyTo(bytes, 8);
-            BitConverter.GetBytes(playerID).CopyTo(bytes, 12);
+            bool returnVal = false;
+            if (isConnected)
+            {
+                int playerID = GameSceneController.Instance.playerNumber;
+                BitConverter.GetBytes(length).CopyTo(bytes, 0);
+                BitConverter.GetBytes(receiver).CopyTo(bytes, 4);
+                BitConverter.GetBytes(packetType).CopyTo(bytes, 8);
+                BitConverter.GetBytes(playerID).CopyTo(bytes, 12);
 
-            //SendDebugOutput("ID: " + playerID.ToString() + ", Type: " + packetType.ToString() + ", LENGTH: " + length.ToString());
+                //SendDebugOutput("ID: " + playerID.ToString() + ", Type: " + packetType.ToString() + ", LENGTH: " + length.ToString());
 
-            IntPtr ptr = Marshal.AllocCoTaskMem(length);
+                IntPtr ptr = Marshal.AllocCoTaskMem(length);
 
-            Marshal.Copy(bytes, 0, ptr, length);
+                Marshal.Copy(bytes, 0, ptr, length);
 
-            //SendDataFunc
+                //SendDataFunc
 
-            //SendDebugOutput("C#: SENDING PACKET");
-            bool returnVal = SendDataPacket(ptr, length, TCP, Client);
+                //SendDebugOutput("C#: SENDING PACKET");
+                returnVal = SendDataPacket(ptr, length, TCP, Client);
 
-            Marshal.FreeCoTaskMem(ptr);
+                Marshal.FreeCoTaskMem(ptr);
+            }
 
             return returnVal;
         }

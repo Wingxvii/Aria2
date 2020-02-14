@@ -324,8 +324,7 @@ MonoBehaviour:
   playerNumber: -1
   gameStart: 1
   loadedScene: 1
-  IP: 
-  type: 1
+  type: 2
   gameState: 0
 --- !u!4 &574309900
 Transform:
