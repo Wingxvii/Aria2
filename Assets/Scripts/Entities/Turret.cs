@@ -127,7 +127,7 @@ public class Turret : Building
             {
                 case TurretState.Idle:
                     //search for shortest player
-                    foreach (PlayerFPS player in EntityManager.Instance.ActivePlayers())
+                    foreach (Entity player in EntityManager.Instance.ActivePlayers())
                     {
                         dist = Vector3.Distance(player.transform.position, this.transform.position);
 
@@ -144,7 +144,7 @@ public class Turret : Building
                     break;
                 case TurretState.IdleShooting:
                     //search for shortest player
-                    foreach (PlayerFPS player in EntityManager.Instance.ActivePlayers())
+                    foreach (Entity player in EntityManager.Instance.ActivePlayers())
                     {
                         dist = Vector3.Distance(player.transform.position, this.transform.position);
                         if (dist < shortestDist)
@@ -227,7 +227,7 @@ public class Turret : Building
                     break;
                 case TurretState.Recoil:
                     //search for shortest player
-                    foreach (PlayerFPS player in EntityManager.Instance.ActivePlayers())
+                    foreach (Entity player in EntityManager.Instance.ActivePlayers())
                     {
                         dist = Vector3.Distance(player.transform.position, this.transform.position);
                         if (dist < shortestDist)
