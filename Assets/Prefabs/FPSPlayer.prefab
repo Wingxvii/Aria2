@@ -431,8 +431,8 @@ MonoBehaviour:
   ready: 1
   m_camera: {fileID: 2070961772415355655}
   m_accel: 25
-  m_drag: 1
-  m_speedCap: 3
+  m_drag: 5
+  m_speedCap: 5
   m_runSpeedMod: 2
   m_stickToGroundDistance: 0.25
   m_jumpSpeed: 4

@@ -1538,7 +1538,7 @@ MonoBehaviour:
     type: 3}
   turretPrefab: {fileID: 5508097730102920826, guid: 529508816a634614b898583372ae9b5c,
     type: 3}
-  controllablePlayerPrefab: {fileID: 4720113362179397652, guid: 470af53b1795a1a45b7214d01ff6ef09,
+  controllablePlayerPrefab: {fileID: 2070961771461345977, guid: c0838855dbcc8af45b45d58b18b1acd4,
     type: 3}
   sciencePrefab: {fileID: 929845155177562363, guid: 3abd0d57ee5e9ed43bf389ea277fe2eb,
     type: 3}
@@ -7208,6 +7208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1897279929621889897, guid: 1183c10c67be55e40b24d56e100a20b4,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1925983290485713837, guid: 1183c10c67be55e40b24d56e100a20b4,
         type: 3}
