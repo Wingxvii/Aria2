@@ -16,7 +16,7 @@ MonoBehaviour:
     accuracy: 200
     accReduc: 2
     dmg: 2
-    RoF: 50
+    RoF: 15
     clip: 10000
     projNum: 1
     gunShot: {fileID: 0}

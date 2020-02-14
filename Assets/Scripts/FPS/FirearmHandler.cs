@@ -17,6 +17,7 @@ public class FirearmHandler : MonoBehaviour
 	//Firearm Universal
 	public GameObject bulletHole;
 	public GameObject bulletImpact;
+	public GameObject muzzleFlash;
 
 	public Transform barrel;
 
@@ -129,7 +130,10 @@ public class FirearmHandler : MonoBehaviour
 			{
 				Debug.DrawRay(PV.transform.position,projectileDirection*10,Color.green,10,false);
 				GameObject impact= Instantiate(bulletImpact, hit.point, Quaternion.LookRotation(hit.normal));
+				GameObject flash = Instantiate(muzzleFlash,barrel.position, Quaternion.LookRotation(PV.transform.forward));
+				flash.transform.SetParent(barrel);
 				Destroy(impact,1f);
+				Destroy(flash, 1f);
 			}
 		}
 	}
