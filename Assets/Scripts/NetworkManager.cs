@@ -341,7 +341,7 @@ namespace Netcode
             int loc = InitialOffset;
             int Receiver = 0;
 
-            Receiver = ~(0);
+            Receiver = ~(1 << (index + 1));
 
             PackData(ref sendByteArray, ref loc, index);
             PackData(ref sendByteArray, ref loc, username);
@@ -603,7 +603,12 @@ namespace Netcode
                     break;
                 case (int)PacketType.USER:
                     {
-                        if (sender != playerNumber)
+                        if(sender == -1)
+                        {
+                            SendDebugOutput("C# GOT USERS FROM SERVER");
+                            PacketReceivedAllUser(ref bytes, length, loc);
+                        }
+                        else
                         {
                             SendDebugOutput("C# GOT USER FROM OTHER PLAYER");
                             int index = 0;
@@ -894,6 +899,26 @@ namespace Netcode
                 SendDebugOutput("User Added! Total: " + allUsers.Count.ToString());
             }
             allUsers[index].username = user;
+        }
+
+        static void PacketReceivedAllUser(ref byte[] data, int length, int loc)
+        {
+            int index = 0; 
+            string user = "";
+
+            while (loc < length)
+            {
+                UnpackInt(ref data, ref loc, ref index);
+                while (allUsers.Count < index)
+                {
+                    allUsers.Add(new UsersData());
+                    SendDebugOutput("User Added! Total: " + allUsers.Count.ToString());
+                }
+
+                UnpackString(ref data, ref loc, ref user);
+                allUsers[index].username = user;
+                user = "";
+            }
         }
 
         static void PacketReceivedType(int type)
