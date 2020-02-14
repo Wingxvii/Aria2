@@ -334,6 +334,15 @@ namespace FPSPlayer {
 			Debug.Log("U DEAD");
 		}
 
+        public override void ResetValues()
+        {
+            m_oldPosition = Vector3.zero;
+            transform.position = Vector3.zero;
+            m_pitch = 0;
+            m_yaw = 0;
+            this.currentHealth = maxHealth;
+        }
+
         /*
 		public override void OnDamage(int num)
 		{
@@ -348,7 +357,7 @@ namespace FPSPlayer {
 		}
         */
 
-		public override void OnDamage(int num, Entity culprit)
+        public override void OnDamage(int num, Entity culprit)
 		{
 			Debug.Log("DAMAGE: " + num);
 			if (destructable)
