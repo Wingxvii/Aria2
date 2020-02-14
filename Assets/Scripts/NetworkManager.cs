@@ -296,7 +296,7 @@ namespace Netcode
 
         static int InitialOffset = 16;
 
-        static bool SendIntPtr(byte[] bytes, int length, bool TCP, int receiver, int packetType)
+        static bool SendIntPtr(ref byte[] bytes, int length, bool TCP, int receiver, int packetType)
         {
             int playerID = GameSceneController.Instance.playerNumber;
             BitConverter.GetBytes(length).CopyTo(bytes, 0);
@@ -334,8 +334,9 @@ namespace Netcode
             PackData(ref sendByteArray, ref loc, index);
 
             SendDebugOutput("SENDING UDP PACKET...");
-            SendIntPtr(sendByteArray, loc, false, Receiver, (int)PacketType.INIT);
+            SendIntPtr(ref sendByteArray, loc, false, Receiver, (int)PacketType.INIT);
         }
+
         public static void SendPacketUser(int index, string username)
         {
             if (username == "")
@@ -351,7 +352,7 @@ namespace Netcode
             PackData(ref sendByteArray, ref loc, username);
 
             SendDebugOutput("C#: SENDING INTPTR");
-            SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.USER);
+            SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.USER);
         }
 
         public static void SendPacketMsg(string message)
@@ -365,7 +366,7 @@ namespace Netcode
 
                 PackData(ref sendByteArray, ref loc, message);
 
-                SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.MESSAGE);
+                SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.MESSAGE);
             }
         }
 
@@ -378,7 +379,7 @@ namespace Netcode
 
                 PackData(ref sendByteArray, ref loc, (int)type);
 
-                SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.TYPE);
+                SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.TYPE);
             }
         }
 
@@ -389,7 +390,7 @@ namespace Netcode
 
             PackData(ref sendByteArray, ref loc, ready);
 
-            SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.READY);
+            SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.READY);
         }
 
         public static void SendPacketState(int state)
@@ -403,7 +404,7 @@ namespace Netcode
 
                 PackData(ref sendByteArray, ref loc, state);
 
-                SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.STATE);
+                SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.STATE);
             }
         }
 
@@ -457,7 +458,7 @@ namespace Netcode
                 return;
             }
 
-            SendIntPtr(sendByteArray, loc, false, Receiver, (int)PacketType.ENTITY);
+            SendIntPtr(ref sendByteArray, loc, false, Receiver, (int)PacketType.ENTITY);
         }
 
 
@@ -474,7 +475,7 @@ namespace Netcode
                 PackData(ref sendByteArray, ref loc, receiverID);
                 PackData(ref sendByteArray, ref loc, damage);
 
-                SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.DAMAGE);
+                SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.DAMAGE);
             }
         }
 
@@ -489,7 +490,7 @@ namespace Netcode
 
                 PackData(ref sendByteArray, ref loc, weapon);
 
-                SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.WEAPON);
+                SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.WEAPON);
             }
         }
 
@@ -508,7 +509,7 @@ namespace Netcode
                 PackData(ref sendByteArray, ref loc, pos.y);
                 PackData(ref sendByteArray, ref loc, pos.z);
 
-                SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.BUILD);
+                SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.BUILD);
             }
         }
 
@@ -524,7 +525,7 @@ namespace Netcode
                 PackData(ref sendByteArray, ref loc, ID);
                 PackData(ref sendByteArray, ref loc, killerID);
 
-                SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.DEATH);
+                SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.DEATH);
             }
         }
         #endregion
@@ -930,8 +931,14 @@ namespace Netcode
 
                 while (index >= allUsers.Count)
                 {
-                    allUsers.Add(new UsersData());
-                    SendDebugOutput("User Added! Total: " + allUsers.Count.ToString());
+                    while (allUsers.Count <= index)
+                    {
+                        allUsers.Add(new UsersData());
+                        SendDebugOutput("User Added! Total: " + allUsers.Count.ToString());
+                    }
+
+                    allUsers[index].username = user;
+                    user = "";
                 }
                 allUsers[index].username = user;
                 user = "";
