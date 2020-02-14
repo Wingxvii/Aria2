@@ -221,10 +221,14 @@ namespace FPSPlayer {
 				m_velocity += intendedMovement * m_accel * Time.fixedDeltaTime;
 
 				//Cap horizontal speed
-
 				float currentSpeedCap = m_speedCap;
-				if (Input.GetKey(KeyCode.LeftShift) && movement.y > 0)
-					currentSpeedCap *= m_runSpeedMod;
+
+                if (Input.GetKey(KeyCode.Tab) && movement.y > 0)
+                {
+                    currentSpeedCap *= m_runSpeedMod;
+                    Debug.Log("Running");
+                }
+
 				//Grab the horizontal velocity components and clamp them.
 				Vector3 vTest = m_velocity;
 				vTest.y = 0;
