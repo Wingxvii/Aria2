@@ -449,7 +449,7 @@ namespace Netcode
                 PackData(ref sendByteArray, ref loc, player.transform.position.y);
                 PackData(ref sendByteArray, ref loc, player.transform.position.z);
                 PackData(ref sendByteArray, ref loc, player.mainCam.transform.localRotation.x);
-                PackData(ref sendByteArray, ref loc, player.mainCam.transform.localRotation.y);
+                PackData(ref sendByteArray, ref loc, player.transform.localRotation.y);
                 PackData(ref sendByteArray, ref loc, player.mainCam.transform.rotation.z);
             }
             else
@@ -927,16 +927,14 @@ namespace Netcode
                 UnpackInt(ref data, ref loc, ref index);
                 UnpackString(ref data, ref loc, ref user);
                 SendDebugOutput("Index: " + index.ToString());
-                if (index != playerNumber)
+
+                while (index >= allUsers.Count)
                 {
-                    while (allUsers.Count <= index)
-                    {
-                        allUsers.Add(new UsersData());
-                        SendDebugOutput("User Added! Total: " + allUsers.Count.ToString());
-                    }
-                    allUsers[index].username = user;
-                    user = "";
+                    allUsers.Add(new UsersData());
+                    SendDebugOutput("User Added! Total: " + allUsers.Count.ToString());
                 }
+                allUsers[index].username = user;
+                user = "";
             }
         }
 
@@ -968,6 +966,7 @@ namespace Netcode
 
         static void PacketReceivedReady(int sender, bool ready)
         {
+            SendDebugOutput("Sender: " + sender.ToString() + ", Count: " + allUsers.Count.ToString());
             if (allUsers[sender].readyStatus != ready)
             {
                 allUsers[sender].readyStatus = ready;
