@@ -22,8 +22,7 @@ namespace RTSInput
         Other,
     }
 
-    public class InputManager : MonoBehaviour
-    {
+    public class InputManager : MonoBehaviour { 
         #region SingletonCode
         private static InputManager _instance;
         public static InputManager Instance { get { return _instance; } }
@@ -138,21 +137,22 @@ namespace RTSInput
                 {
                     staticPosition = hit.point;
 
-                PlacementGrid grid;
-                if (hit.collider.gameObject.TryGetComponent<PlacementGrid>(out grid)) {
-                    staticPosition = grid.Snap(hit.point) - grid.m_offset;
-                }
+                    PlacementGrid grid;
+                    if (hit.collider.gameObject.TryGetComponent<PlacementGrid>(out grid))
+                    {
+                        staticPosition = grid.Snap(hit.point) - grid.m_offset;
+                    }
 
-                if (hit.collider.CompareTag("Ground"))
-                {
-                    HitObject = hit.collider.gameObject.GetComponent<Entity>();
+                    if (hit.collider.CompareTag("Ground"))
+                    {
+                        HitObject = hit.collider.gameObject.GetComponent<Entity>();
+                    }
+                    else
+                    {
+                        HitObject = null;
+                    }
+                    //check to see if anything gets hit
                 }
-                else
-                {
-                    HitObject = null;
-                }
-                //check to see if anything gets hit
-
                 #endregion
 
                 //handle selection box first
@@ -178,17 +178,18 @@ namespace RTSInput
 
 
 
-            //bind prefab object to mouse
-            if (activeBlueprint != null && activeBlueprint.activeSelf)
-            {
-                activeBlueprint.transform.position = new Vector3(InputManager.Instance.staticPosition.x, InputManager.Instance.staticPosition.y, InputManager.Instance.staticPosition.z);
-                ShellPlacement bp = activeBlueprint.GetComponent<ShellPlacement>();
-                if (bp.offset) {
-                    activeBlueprint.transform.position += bp.offset.localPosition;
+                //bind prefab object to mouse
+                if (activeBlueprint != null && activeBlueprint.activeSelf)
+                {
+                    activeBlueprint.transform.position = new Vector3(InputManager.Instance.staticPosition.x, InputManager.Instance.staticPosition.y, InputManager.Instance.staticPosition.z);
+                    ShellPlacement bp = activeBlueprint.GetComponent<ShellPlacement>();
+                    if (bp.offset)
+                    {
+                        activeBlueprint.transform.position += bp.offset.localPosition;
+                    }
                 }
             }
         }
-
         //handles selection box
         private void HandleSelectionBox()
         {

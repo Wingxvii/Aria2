@@ -306,6 +306,7 @@ namespace FPSPlayer {
 			Debug.Log("U DEAD");
 		}
 
+        /*
 		public override void OnDamage(int num)
 		{
 			if (destructable)
@@ -317,6 +318,7 @@ namespace FPSPlayer {
 				OnDeath();
 			}
 		}
+        */
 
 		public override void OnDamage(int num, Entity culprit)
 		{

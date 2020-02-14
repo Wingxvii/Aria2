@@ -298,7 +298,7 @@ public class Droid : Entity
     IEnumerator PlayDeath()
     {
         anim.Play("Death");
-        NetworkManager.SendKilledEntity(this);
+        //NetworkManager.SendKilledEntity(this);
 
         yield return new WaitForSeconds(3.2f);
 
