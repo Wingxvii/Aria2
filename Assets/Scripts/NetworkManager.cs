@@ -459,7 +459,7 @@ namespace Netcode
                 PackData(ref sendByteArray, ref loc, player.transform.position.z);
                 PackData(ref sendByteArray, ref loc, player.m_pitch);
                 PackData(ref sendByteArray, ref loc, player.m_yaw);
-                //PackData(ref sendByteArray, ref loc, player.mainCam.transform.rotation.z);
+                PackData(ref sendByteArray, ref loc, player.transform.rotation.z);
             }
             else
             {

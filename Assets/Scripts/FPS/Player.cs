@@ -302,7 +302,9 @@ namespace FPSPlayer {
 						m_cControl.Move(new Vector3(0, -hit.distance, 0));
 					}
 				}
-			}
+
+                Netcode.NetworkManager.SendPacketEntities();
+            }
         }
 
 		public override void OnDeath()
@@ -337,7 +339,14 @@ namespace FPSPlayer {
 				OnDeath();
 			}
 		}
-	}
+
+        public override void UpdateEntityStats(Netcode.EntityData ed)
+        {
+            transform.position = ed.position;
+            m_pitch = ed.rotation.x;
+            m_yaw = ed.rotation.y;
+        }
+    }
 
 
 }
