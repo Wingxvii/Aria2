@@ -135,8 +135,8 @@ public class FirearmHandler : MonoBehaviour
 				Destroy(impact,1f);
 				Destroy(flash, 1f);
 
-                Entity ET;
-                if (hit.collider.TryGetComponent<Entity>(out ET))
+                Entity ET = hit.collider.GetComponentInParent<Entity>();
+                if (ET != null)
                 {
                     if (ET.type == EntityType.Player || ET.type == EntityType.Dummy)
                     {
