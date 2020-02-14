@@ -735,11 +735,7 @@ MonoBehaviour:
   gameStart: 1
   loadedScene: 1
   IP: 
-<<<<<<< HEAD
   type: 0
-=======
-  type: 1
->>>>>>> c7dfea265753eeacb5f982e2aad57251a33a9051
   gameState: 0
 --- !u!4 &574309900
 Transform:
@@ -1013,7 +1009,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1065021299}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
 --- !u!1 &916188261 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7360884830737907695, guid: 1183c10c67be55e40b24d56e100a20b4,
@@ -1036,15 +1031,10 @@ MeshCollider:
   m_Mesh: {fileID: 3496438330554941201, guid: c23b030e87603fc4facccea6df3d3184, type: 3}
 --- !u!54 &916188266
 Rigidbody:
-=======
---- !u!1 &1029143773
-GameObject:
->>>>>>> c7dfea265753eeacb5f982e2aad57251a33a9051
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 916188261}
   serializedVersion: 2
   m_Mass: 1
@@ -1099,26 +1089,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!64 &975836034
 MeshCollider:
-=======
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1029143775}
-  - component: {fileID: 1029143774}
-  m_Layer: 9
-  m_Name: PlacementGrid
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1029143774
-MonoBehaviour:
->>>>>>> c7dfea265753eeacb5f982e2aad57251a33a9051
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 975836030}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1129,27 +1103,10 @@ MonoBehaviour:
   m_Mesh: {fileID: 4848376998858798367, guid: c23b030e87603fc4facccea6df3d3184, type: 3}
 --- !u!54 &975836035
 Rigidbody:
-=======
-  m_GameObject: {fileID: 1029143773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42827287e3842814290828a363adc40d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_width: 8
-  m_height: 8
-  m_gridSize: 12.77
-  m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
-  m_hitboxMaterial: {fileID: 2100000, guid: 3294da82c91c88a4caa80ac106aa9d79, type: 2}
---- !u!4 &1029143775
-Transform:
->>>>>>> c7dfea265753eeacb5f982e2aad57251a33a9051
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 975836030}
   serializedVersion: 2
   m_Mass: 1
@@ -1160,16 +1117,6 @@ Transform:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
-=======
-  m_GameObject: {fileID: 1029143773}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -39, y: 0.51, z: -43}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> c7dfea265753eeacb5f982e2aad57251a33a9051
 --- !u!1001 &1065021299
 PrefabInstance:
   m_ObjectHideFlags: 0
