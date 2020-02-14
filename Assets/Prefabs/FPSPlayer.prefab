@@ -525,6 +525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  killerID: 0
   type: 5
   currentHealth: 1
   maxHealth: 1
@@ -540,6 +541,8 @@ MonoBehaviour:
   m_cameraHeight: 1.5
   m_fovIncrease: 1.25
   m_fovLerpSpeed: 10
+  m_pitch: 0
+  m_yaw: 0
 --- !u!1 &2070961772415355650
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,7 +609,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 261943
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -712,7 +715,7 @@ MonoBehaviour:
   invertFaceCulling: 0
   probeLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 261943
   hasPersistentHistory: 0
   m_RenderingPathCustomFrameSettings:
     bitDatas:
