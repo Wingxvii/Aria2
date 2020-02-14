@@ -86,7 +86,7 @@ public class EntityManager : MonoBehaviour
         {
             foreach (Entity entity in AllEntities)
             {
-                if (entity.gameObject.activeSelf)
+                if (entity&&entity.gameObject.activeSelf)
                 {
                     ActiveEntitiesByType[(int)entity.type].Add(entity);
                 }

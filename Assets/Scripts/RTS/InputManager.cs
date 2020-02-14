@@ -135,6 +135,12 @@ namespace RTSInput
             {
                 staticPosition = hit.point;
 
+                PlacementGrid grid;
+                if (hit.collider.gameObject.TryGetComponent<PlacementGrid>(out grid)) {
+                    staticPosition = grid.Snap(hit.point);
+                    Debug.Log(grid.Snap(hit.point));
+                }
+
                 if (hit.collider.CompareTag("Ground"))
                 {
                     staticTag = StaticTag.Ground;
@@ -185,7 +191,11 @@ namespace RTSInput
             //bind prefab object to mouse
             if (activeBlueprint != null && activeBlueprint.activeSelf)
             {
-                activeBlueprint.GetComponent<Transform>().position = new Vector3(InputManager.Instance.staticPosition.x, InputManager.Instance.staticPosition.y + activeBlueprint.GetComponent<Transform>().localScale.y, InputManager.Instance.staticPosition.z);
+                activeBlueprint.transform.position = new Vector3(InputManager.Instance.staticPosition.x, InputManager.Instance.staticPosition.y + activeBlueprint.transform.localScale.y, InputManager.Instance.staticPosition.z);
+                ShellPlacement bp = activeBlueprint.GetComponent<ShellPlacement>();
+                if (bp.offset) {
+                    activeBlueprint.transform.position += bp.offset.localPosition;
+                }
             }
         }
 
@@ -219,7 +229,9 @@ namespace RTSInput
                 {
                     foreach (Entity obj in EntityManager.Instance.AllEntities)
                     {
-                        Vector3 screenPoint = Camera.main.WorldToScreenPoint(obj.GetComponent<Transform>().position);
+                        if (obj == null) continue;
+
+                        Vector3 screenPoint = Camera.main.WorldToScreenPoint(obj.transform.position);
 
                         if (screenPoint.x >= Mathf.Min(boxStart.x, Input.mousePosition.x) &&
                             screenPoint.x <= Mathf.Max(boxStart.x, Input.mousePosition.x) &&
@@ -263,7 +275,7 @@ namespace RTSInput
                         }
                         if (ResourceManager.Instance.Purchase(shell.type))
                         {
-                            CommandManager.Instance.Build(staticPosition, shell.type);
+                            CommandManager.Instance.Build(activeBlueprint.transform.position, shell.type);
                         }
                         //not purchaseable
                         else
