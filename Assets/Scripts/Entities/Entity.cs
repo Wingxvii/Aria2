@@ -162,7 +162,7 @@ public abstract class Entity : MonoBehaviour
         {
             killerID = kID;
             OnDeath();
-        }
+        }//
     }
     public virtual void OnDamage(int num, Entity culprit)
     {
