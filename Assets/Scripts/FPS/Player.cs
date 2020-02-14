@@ -40,6 +40,7 @@ namespace FPSPlayer {
             [Header("FX")]
             public float m_fovIncrease = 1.25f;
             public float m_fovLerpSpeed = 10.0f;
+            public float m_pitch = 0.0f, m_yaw = 0.0f;
         #endregion
 
         #region Private Members
@@ -52,7 +53,6 @@ namespace FPSPlayer {
             //Current velocity of the player.
             private Vector3 m_velocity = Vector3.zero;
             //Camera angles
-            private float m_pitch = 0.0f, m_yaw = 0.0f;
             //Used to check whether or not the player was grounded before moving.
             private bool m_wasGrounded = false;
 
@@ -90,6 +90,11 @@ namespace FPSPlayer {
          */
         public PlayerState GetState() {
             return m_state;
+        }
+
+        public void SetState(int state)
+        {
+            m_state = (PlayerState)state;
         }
 
         private void Awake() {
@@ -301,7 +306,9 @@ namespace FPSPlayer {
 						m_cControl.Move(new Vector3(0, -hit.distance, 0));
 					}
 				}
-			}
+
+                Netcode.NetworkManager.SendPacketEntities();
+            }
         }
 
 		public override void OnDeath()
@@ -336,7 +343,15 @@ namespace FPSPlayer {
 				OnDeath();
 			}
 		}
-	}
+
+        public override void UpdateEntityStats(Netcode.EntityData ed)
+        {
+            transform.position = ed.position;
+            transform.localRotation = Quaternion.Euler(new Vector3(0, ed.rotation.y, 0));
+            //m_pitch = ed.rotation.x;
+            //m_yaw = ed.rotation.y;
+        }
+    }
 
 
 }

@@ -136,23 +136,33 @@ namespace RTSInput
                 if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.staticsMask))
                 {
                     staticPosition = hit.point;
-
                     PlacementGrid grid;
-                    if (hit.collider.gameObject.TryGetComponent<PlacementGrid>(out grid))
-                    {
-                        staticPosition = grid.Snap(hit.point) - grid.m_offset;
-                    }
 
                     if (hit.collider.CompareTag("Ground"))
                     {
-                        HitObject = hit.collider.gameObject.GetComponent<Entity>();
+                        staticTag = StaticTag.Ground;
                     }
-                    else
+                    
+                    if (hit.collider.gameObject.TryGetComponent<PlacementGrid>(out grid))
                     {
-                        HitObject = null;
+                        staticPosition = grid.Snap(hit.point) - grid.m_offset;
+                        staticTag = StaticTag.Buildable;
                     }
-                    //check to see if anything gets hit
+                    else {
+                        staticTag = StaticTag.Other;
+                    }
+
                 }
+                if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.entitysMask))
+                {
+                    HitObject = hit.collider.gameObject.GetComponent<Entity>();
+                }
+                else
+                {
+                    HitObject = null;
+                }
+                //check to see if anything gets hit
+
                 #endregion
 
                 //handle selection box first

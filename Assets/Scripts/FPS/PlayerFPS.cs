@@ -373,7 +373,7 @@ public class PlayerFPS : Entity
         //}
     }
 
-    public override void OnDamage(float num)
+    public override void OnDamage(float num, int id)
     {
         if (destructable)
         {
@@ -381,6 +381,7 @@ public class PlayerFPS : Entity
         }
         if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.FPS)
         {
+            killerID = id;
             OnDeath();
         }
     }
