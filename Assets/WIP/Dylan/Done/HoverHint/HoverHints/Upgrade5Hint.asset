@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7bb8c94b88844e4b8406ddb573e20a6, type: 3}
-  m_Name: Attack
+  m_Script: {fileID: 11500000, guid: 8f0d0123b1a056c4094bd8a031362835, type: 3}
+  m_Name: Upgrade5Hint
   m_EditorClassIdentifier: 
-  actionType: 3
-  argument: 0
-  spriteToUse: {fileID: 21300000, guid: e5f0144d608ed4d4ab511613fc432fcc, type: 3}
-  hintInfo: {fileID: 11400000, guid: 8890962fb67ab0644bb059d5ad236b47, type: 2}
+  title: Upgrade 5
+  titleColor: {r: 0, g: 1, b: 1, a: 1}
+  description: 'Research upgrade.
+
+
+    Cost: 1000'
