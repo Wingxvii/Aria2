@@ -870,7 +870,9 @@ namespace Netcode
                     else
                     {
                         //Debug.Log("YEAH!");
+
                         Tuple<int, float, int> damage = dataState.DamageDealt.Dequeue();
+                        //Debug.Log(damage.Item1 + ", " + damage.Item2 + ", " + damage.Item3);
                         //Debug.Log("PLAYER NUMBER: " + GameSceneController.Instance.playerNumber);
                         //Debug.Log(EntityManager.Instance.AllEntities[GameSceneController.Instance.playerNumber].name);
                         EntityManager.Instance.AllEntities[damage.Item1].OnDamage(damage.Item2, damage.Item3);

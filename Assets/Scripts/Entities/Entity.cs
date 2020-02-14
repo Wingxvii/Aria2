@@ -152,11 +152,13 @@ public abstract class Entity : MonoBehaviour
     //deals damage to entity
     public virtual void OnDamage(float num, int kID)
     {
+        Debug.Log(type);
         if (destructable)
         {
+            //Debug.Log("NO_BODY");
             currentHealth -= num;
         }
-        if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.RTS)
+        if (currentHealth <= 0)
         {
             killerID = kID;
             OnDeath();
