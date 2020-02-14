@@ -54,73 +54,74 @@ namespace Netcode
         ENDGAME
     }
 
-    struct packet_init
-    {
-        public int index;
-    };
+    //struct packet_init
+    //{
+    //    public int index;
+    //};
 
-    struct packet_join
-    {
-        public PlayerType type;		// 0 = rts, 0 = fps
-        public int playerID;
-    };
+    //struct packet_join
+    //{
+    //    public PlayerType type;		// 0 = rts, 0 = fps
+    //    public int playerID;
+    //};
 
-    struct packet_msg
-    {
-        public string message;
-    };
+    //struct packet_msg
+    //{
+    //    public string message;
+    //};
 
-    struct entity
-    {
-        public float posX;
-        public float posY;
-        public float posZ;
-        public float rotX;
-        public float rotY;
-        public float rotZ;
-        public int state;
-    };
+    //struct entity
+    //{
+    //    public float posX;
+    //    public float posY;
+    //    public float posZ;
+    //    public float rotX;
+    //    public float rotY;
+    //    public float rotZ;
+    //    public int state;
+    //};
 
 
-    struct packet_entity
-    {
-        [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 500)]
-        public entity[] entities;
-    }
+    //struct packet_entity
+    //{
+    //    [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 500)]
+    //    public entity[] entities;
+    //}
 
-    struct packet_weapon
-    {
-        public int weapon;
-    };
+    //struct packet_weapon
+    //{
+    //    public int weapon;
+    //};
 
-    struct packet_damage
-    {
-        public int playerID;
-        public bool dir;
-        public int entity;
-        public float damage;
-    };
+    //struct packet_damage
+    //{
+    //    public int playerID;
+    //    public bool dir;
+    //    public int entity;
+    //    public float damage;
+    //};
 
-    struct packet_build
-    {
-        public int id;
-        public int type;
-        public float posX;
-        public float posY;
-        public float posZ;
-    };
+    //struct packet_build
+    //{
+    //    public int id;
+    //    public int type;
+    //    public float posX;
+    //    public float posY;
+    //    public float posZ;
+    //};
 
-    struct packet_kill
-    {
-        public int id;
-    };
+    //struct packet_kill
+    //{
+    //    public int id;
+    //};
 
-    struct packet_state
-    {
-        public int state;
-    };
+    //struct packet_state
+    //{
+    //    public int state;
+    //};
 
     //container for user data storage
+    
     public class UsersData
     {
         public string username = "Nameless";
@@ -174,62 +175,59 @@ namespace Netcode
         [DllImport(DLL_NAME)]
         static extern bool Connect(string ipAddr, IntPtr client);                          //Connects to c++ Server
         [DllImport(DLL_NAME)]
-        static extern bool SendDataInit(packet_init pkt, bool useTCP, IntPtr client);  //Sends Message to all other clients    
-        [DllImport(DLL_NAME)]
-        static extern bool SendDataJoin(packet_join pkt, bool useTCP, IntPtr client);
-        [DllImport(DLL_NAME)]
-        static extern bool SendDataMsg(packet_msg pkt, bool useTCP, IntPtr client);
-        [DllImport(DLL_NAME)]
-        static extern bool SendDataState(packet_state pkt, bool useTCP, IntPtr client);
-        [DllImport(DLL_NAME)]
-        static extern bool SendDataEntity(packet_entity pkt, bool useTCP, IntPtr client);
-        [DllImport(DLL_NAME)]
-        static extern bool SendDataDamage(packet_damage pkt, bool useTCP, IntPtr client);
-        [DllImport(DLL_NAME)]
-        static extern bool SendDataWeapon(packet_weapon pkt, bool useTCP, IntPtr client);
-        [DllImport(DLL_NAME)]
-        static extern bool SendDataBuild(packet_build pkt, bool useTCP, IntPtr client);
-        [DllImport(DLL_NAME)]
-        static extern bool SendDataKill(packet_kill pkt, bool useTCP, IntPtr client);
-        [DllImport(DLL_NAME)]
-        static extern bool SendDebugOutput(string data);
+        static extern void SetupPacketReception(Action<IntPtr, int, bool> action);
         [DllImport(DLL_NAME)]
         static extern void StartUpdating(IntPtr client);                                //Starts updating
+        [DllImport(DLL_NAME)]
+        static extern bool SendDataPacket(IntPtr ptr, int length, bool TCP, IntPtr client);
+        //[DllImport(DLL_NAME)]
+        //static extern bool SendDataInit(packet_init pkt, bool useTCP, IntPtr client);  //Sends Message to all other clients    
+        //[DllImport(DLL_NAME)]
+        //static extern bool SendDataJoin(packet_join pkt, bool useTCP, IntPtr client);
+        //[DllImport(DLL_NAME)]
+        //static extern bool SendDataMsg(packet_msg pkt, bool useTCP, IntPtr client);
+        //[DllImport(DLL_NAME)]
+        //static extern bool SendDataState(packet_state pkt, bool useTCP, IntPtr client);
+        //[DllImport(DLL_NAME)]
+        //static extern bool SendDataEntity(packet_entity pkt, bool useTCP, IntPtr client);
+        //[DllImport(DLL_NAME)]
+        //static extern bool SendDataDamage(packet_damage pkt, bool useTCP, IntPtr client);
+        //[DllImport(DLL_NAME)]
+        //static extern bool SendDataWeapon(packet_weapon pkt, bool useTCP, IntPtr client);
+        //[DllImport(DLL_NAME)]
+        //static extern bool SendDataBuild(packet_build pkt, bool useTCP, IntPtr client);
+        //[DllImport(DLL_NAME)]
+        //static extern bool SendDataKill(packet_kill pkt, bool useTCP, IntPtr client);
         //[DllImport(DLL_NAME)]
         //static extern void SetupPacketReception(Action<int, string> action);       //recieve packets from server
+        //[DllImport(DLL_NAME)]
+        //static extern void SetupPacketReceptionInit(Action<int, packet_init> action);
+        //[DllImport(DLL_NAME)]
+        //static extern void SetupPacketReceptionJoin(Action<int, packet_join> action);
+        //[DllImport(DLL_NAME)]
+        //static extern void SetupPacketReceptionMsg(Action<int, packet_msg> action);
+        //[DllImport(DLL_NAME)]
+        //static extern void SetupPacketReceptionState(Action<int, packet_state> action);
+        //[DllImport(DLL_NAME)]
+        //static extern void SetupPacketReceptionEntity(Action<int, packet_entity> action);
+        //[DllImport(DLL_NAME)]
+        //static extern void SetupPacketReceptionDamage(Action<int, packet_damage> action);
+        //[DllImport(DLL_NAME)]
+        //static extern void SetupPacketReceptionWeapon(Action<int, packet_weapon> action);
+        //[DllImport(DLL_NAME)]
+        //static extern void SetupPacketReceptionBuild(Action<int, packet_build> action);
+        //[DllImport(DLL_NAME)]
+        //static extern void SetupPacketReceptionKill(Action<int, packet_kill> action);
+        //[DllImport(DLL_NAME)]
+        //static extern int GetPlayerNumber(IntPtr client);
         [DllImport(DLL_NAME)]
-        static extern void SetupPacketReceptionInit(Action<int, packet_init> action);
-        [DllImport(DLL_NAME)]
-        static extern void SetupPacketReceptionJoin(Action<int, packet_join> action);
-        [DllImport(DLL_NAME)]
-        static extern void SetupPacketReceptionMsg(Action<int, packet_msg> action);
-        [DllImport(DLL_NAME)]
-        static extern void SetupPacketReceptionState(Action<int, packet_state> action);
-        [DllImport(DLL_NAME)]
-        static extern void SetupPacketReceptionEntity(Action<int, packet_entity> action);
-        [DllImport(DLL_NAME)]
-        static extern void SetupPacketReceptionDamage(Action<int, packet_damage> action);
-        [DllImport(DLL_NAME)]
-        static extern void SetupPacketReceptionWeapon(Action<int, packet_weapon> action);
-        [DllImport(DLL_NAME)]
-        static extern void SetupPacketReceptionBuild(Action<int, packet_build> action);
-        [DllImport(DLL_NAME)]
-        static extern void SetupPacketReceptionKill(Action<int, packet_kill> action);
-        [DllImport(DLL_NAME)]
-        static extern int GetPlayerNumber(IntPtr client);
+        static extern bool SendDebugOutput(string data);
         [DllImport(DLL_NAME)]
         static extern int GetError(IntPtr client);
         [DllImport(DLL_NAME)]
         static extern int GetErrorLoc(IntPtr client);
-        [DllImport(DLL_NAME)]
-        static extern void SetupTextReception(Action<string> action);
 
 
-
-        [DllImport(DLL_NAME)]
-        static extern bool SendDataPacket(IntPtr ptr, int length, bool TCP, IntPtr client);
-        [DllImport(DLL_NAME)]
-        static extern void SetupPacketReception(Action<IntPtr, int, bool> action);
 
 
         public static string ip = "127.0.0.1";
@@ -605,12 +603,15 @@ namespace Netcode
                     break;
                 case (int)PacketType.USER:
                     {
-                        SendDebugOutput("C# GOT USER FROM OTHER PLAYER");
-                        int index = 0;
-                        string user = "";
-                        UnpackInt(ref bytes, ref loc, ref index);
-                        UnpackString(ref bytes, ref loc, ref user);
-                        PacketReceivedUser(sender, user);
+                        if (sender != playerNumber)
+                        {
+                            SendDebugOutput("C# GOT USER FROM OTHER PLAYER");
+                            int index = 0;
+                            string user = "";
+                            UnpackInt(ref bytes, ref loc, ref index);
+                            UnpackString(ref bytes, ref loc, ref user);
+                            PacketReceivedUser(index, user);
+                        }
                     }
                     break;
                 case (int)PacketType.TYPE:
@@ -885,14 +886,14 @@ namespace Netcode
             SendPacketUser(GameSceneController.Instance.playerNumber, StartManager.Instance.username.text);
         }
 
-        static void PacketReceivedUser(int sender, string user)
+        static void PacketReceivedUser(int index, string user)
         {
-            while (sender >= allUsers.Count)
+            while (index >= allUsers.Count)
             {
                 allUsers.Add(new UsersData());
                 SendDebugOutput("User Added! Total: " + allUsers.Count.ToString());
             }
-            allUsers[sender].username = user;
+            allUsers[index].username = user;
         }
 
         static void PacketReceivedType(int type)

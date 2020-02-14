@@ -350,6 +350,8 @@ MonoBehaviour:
   rolesUpdated: 0
   countdownSeconds: 5
   countdown: 0
+  loadGame: 0
+  connected: 0
 --- !u!1 &85851324
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +364,7 @@ GameObject:
   - component: {fileID: 85851327}
   - component: {fileID: 85851326}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ConnectionStatus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -516,7 +518,7 @@ GameObject:
   - component: {fileID: 165856981}
   - component: {fileID: 165856980}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Slot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -593,7 +595,7 @@ GameObject:
   - component: {fileID: 174630609}
   - component: {fileID: 174630608}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Slot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -671,7 +673,7 @@ GameObject:
   - component: {fileID: 284565071}
   - component: {fileID: 284565070}
   m_Layer: 5
-  m_Name: InputField
+  m_Name: InputMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -809,7 +811,7 @@ GameObject:
   - component: {fileID: 306918468}
   - component: {fileID: 306918467}
   m_Layer: 5
-  m_Name: Text
+  m_Name: MessageLog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -854,7 +856,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1118,7 +1120,7 @@ GameObject:
   - component: {fileID: 424748206}
   - component: {fileID: 424748205}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BtConnect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1246,7 +1248,7 @@ GameObject:
   - component: {fileID: 539708182}
   - component: {fileID: 539708181}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: Slot4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1400,7 +1402,7 @@ GameObject:
   - component: {fileID: 658498740}
   - component: {fileID: 658498739}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Username
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1555,7 +1557,7 @@ GameObject:
   - component: {fileID: 755560744}
   - component: {fileID: 755560743}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Send
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1683,7 +1685,7 @@ GameObject:
   - component: {fileID: 801695611}
   - component: {fileID: 801695610}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ReadyStatus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1834,7 +1836,7 @@ GameObject:
   - component: {fileID: 1057404449}
   - component: {fileID: 1057404448}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: BtFPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2500,7 +2502,7 @@ GameObject:
   - component: {fileID: 1317147651}
   - component: {fileID: 1317147650}
   m_Layer: 5
-  m_Name: InputField
+  m_Name: InputUsername
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2683,10 +2685,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -2716,7 +2718,7 @@ GameObject:
   - component: {fileID: 1362459395}
   - component: {fileID: 1362459394}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BtReady
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2844,7 +2846,7 @@ GameObject:
   - component: {fileID: 1367622710}
   - component: {fileID: 1367622709}
   m_Layer: 5
-  m_Name: Text
+  m_Name: RoleSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2994,7 +2996,7 @@ GameObject:
   - component: {fileID: 1461901969}
   - component: {fileID: 1461901968}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ChatLog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3071,7 +3073,7 @@ GameObject:
   - component: {fileID: 1546596989}
   - component: {fileID: 1546596988}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: Slot3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3149,7 +3151,7 @@ GameObject:
   - component: {fileID: 1547839992}
   - component: {fileID: 1547839991}
   m_Layer: 5
-  m_Name: InputField
+  m_Name: InputIP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3431,7 +3433,7 @@ GameObject:
   - component: {fileID: 1943431283}
   - component: {fileID: 1943431282}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BtRTS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
