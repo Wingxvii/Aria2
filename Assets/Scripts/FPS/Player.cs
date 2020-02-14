@@ -200,7 +200,13 @@ namespace FPSPlayer {
 					
 					
 				}
-				
+				if (Input.GetKeyUp(KeyCode.E))
+				{
+					interactTimerSlider.GetComponentInChildren<Slider>().value = 0;
+					heldTime = 0;
+					interactTimerSlider.SetActive(false);
+				}
+
 
 
 			}
