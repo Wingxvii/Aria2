@@ -225,6 +225,6 @@ public class EntityManager : MonoBehaviour
 
     //simple getters
     public List<Entity> ActivePlayers() {
-        return ActiveEntitiesByType[(int)EntityType.Player];
+        return ActiveEntitiesByType[(int)EntityType.Dummy];
     }
 }
