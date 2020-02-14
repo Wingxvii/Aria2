@@ -333,7 +333,7 @@ namespace Netcode
 
             PackData(ref sendByteArray, ref loc, index);
 
-            SendDebugOutput("SENDING UDP PACKET...");
+            //SendDebugOutput("SENDING UDP PACKET...");
             SendIntPtr(sendByteArray, loc, false, Receiver, (int)PacketType.INIT);
         }
         public static void SendPacketUser(int index, string username)
@@ -350,7 +350,7 @@ namespace Netcode
             PackData(ref sendByteArray, ref loc, index);
             PackData(ref sendByteArray, ref loc, username);
 
-            SendDebugOutput("C#: SENDING INTPTR");
+            //SendDebugOutput("C#: SENDING INTPTR");
             SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.USER);
         }
 
@@ -399,7 +399,7 @@ namespace Netcode
                 int loc = InitialOffset;
                 int Receiver = 0;
 
-                Receiver = (~0);
+                Receiver = ((int)PlayerMask.SERVER);
 
                 PackData(ref sendByteArray, ref loc, state);
 
@@ -412,7 +412,7 @@ namespace Netcode
             int loc = InitialOffset;
             int Receiver = 0;
 
-            Receiver = ~((1 << GameSceneController.Instance.playerNumber));
+            Receiver = ~(1 << (GameSceneController.Instance.playerNumber + 1));
 
             if (GameSceneController.Instance.type == PlayerType.RTS)
             {
@@ -485,7 +485,7 @@ namespace Netcode
                 int loc = InitialOffset;
                 int Receiver = 0;
 
-                Receiver = ~((1 << GameSceneController.Instance.playerNumber) & (int)PlayerMask.SERVER);
+                Receiver = ~((1 << (GameSceneController.Instance.playerNumber + 1)) & (int)PlayerMask.SERVER);
 
                 PackData(ref sendByteArray, ref loc, weapon);
 
@@ -590,7 +590,6 @@ namespace Netcode
             {
                 SendDebugOutput("Invalid Packet Received");
             }
-
         }
 
         static void deconstructPacket(ref byte[] bytes, int length)
@@ -659,10 +658,11 @@ namespace Netcode
                     PacketReceivedState(sender, state);
                     break;
                 case (int)PacketType.ENTITY:
+                    //SendDebugOutput("Update");
                     if (sender != playerNumber)
                     {
                         PacketReceivedEntity(ref bytes, ref loc, length, sender);
-                        SendDebugOutput("Update");
+                        //SendDebugOutput("Other Updates");
                     }
                     break;
                 case (int)PacketType.DAMAGE:
@@ -688,6 +688,9 @@ namespace Netcode
                     UnpackInt(ref bytes, ref loc, ref id);
                     UnpackInt(ref bytes, ref loc, ref killerID);
                     PacketReceivedDeath(id, killerID);
+                    break;
+                default:
+                    SendDebugOutput("Error Packet Type");
                     break;
             }
 
@@ -803,9 +806,10 @@ namespace Netcode
                 //        player.SendUpdate(dataState.p3.position, dataState.p3.rotation, dataState.p3.state, dataState.p3.weapon);
                 //    }
                 //}
-
+                //SendDebugOutput("Game State: " + dataState.GameState.ToString());
                 if (dataState.GameState == (int)GameState.GAME)
                 {
+                    //SendDebugOutput("Game Update");
                     foreach (PlayerFPS pfps in EntityManager.Instance.ActivePlayers())
                     {
                         pfps.playerGun.activeGun = pfps.playerGun.slots[dataState.playerWeapons[pfps.id - 1]];
@@ -813,8 +817,10 @@ namespace Netcode
 
                     foreach (KeyValuePair<int, EntityData> kvp in dataState.entityUpdates)
                     {
+                        //SendDebugOutput("Updating Entities...");
                         if (kvp.Value.updated)
                         {
+                            //SendDebugOutput("Updating Entities now....");
                             //Debug.Log("UPDATING POSITION FOR " + kvp.Key + "/" + EntityManager.Instance.AllEntities.Count);
                             kvp.Value.updated = false;
                             Entity temp = EntityManager.Instance.AllEntities[kvp.Key];
@@ -923,10 +929,10 @@ namespace Netcode
 
             while (loc < length)
             {
-                SendDebugOutput("Loc:" + loc.ToString() + " , Len: " + length.ToString());
+                //SendDebugOutput("Loc:" + loc.ToString() + " , Len: " + length.ToString());
                 UnpackInt(ref data, ref loc, ref index);
                 UnpackString(ref data, ref loc, ref user);
-                SendDebugOutput("Index: " + index.ToString());
+                //SendDebugOutput("Index: " + index.ToString());
 
                 while (index >= allUsers.Count)
                 {
@@ -1038,7 +1044,9 @@ namespace Netcode
 
                 lock (dataState.entityUpdates)
                 {
+                    //SendDebugOutput("Entity Updates");
                     dataState.entityUpdates[id] = ed;
+                    //SendDebugOutput("E-UPDATES SIZE: " + dataState.entityUpdates.Count.ToString());
                 }
 
                 // EntityManager.Instance.AllEntities[id];
