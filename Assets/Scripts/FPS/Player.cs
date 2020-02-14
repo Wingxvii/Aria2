@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace FPSPlayer {
     [RequireComponent(typeof(CharacterController))]
@@ -41,6 +42,8 @@ namespace FPSPlayer {
             public float m_fovIncrease = 1.25f;
             public float m_fovLerpSpeed = 10.0f;
             public float m_pitch = 0.0f, m_yaw = 0.0f;
+
+		public GameObject interactTimerSlider;
         #endregion
 
         #region Private Members
@@ -59,6 +62,7 @@ namespace FPSPlayer {
 		private float interactStartTime = 0f;
 		private float holdTime = 3.0f;
 		private float interactTimer = 0f;
+		private float heldTime = 0f;
 		
 
 
@@ -156,19 +160,27 @@ namespace FPSPlayer {
 
 				if (Input.GetKeyDown(KeyCode.E))
 				{
+					interactTimerSlider.GetComponentInChildren<Slider>().value = 0;
 					interactStartTime = Time.time;
 					interactTimer = interactStartTime;
+					heldTime = 0;
 				}
 				if (Input.GetKey(KeyCode.E))
 				{
+
 					Ray interactRay = new Ray(m_camera.transform.position, m_camera.transform.forward);
 					RaycastHit hit;
 					if (Physics.Raycast(interactRay,out hit))
 					{
+						
 						Terminal currentTerminal = hit.transform.GetComponent<Terminal>();
 						if (currentTerminal!=null)
 						{
+							
 							interactTimer += Time.deltaTime;
+							heldTime += Time.deltaTime;
+							interactTimerSlider.SetActive(true);
+							interactTimerSlider.GetComponentInChildren<Slider>().value = heldTime;
 							Debug.DrawRay(m_camera.transform.position, m_camera.transform.forward * 10, Color.green, 10, false);
 							if (interactTimer > (interactStartTime + holdTime))
 							{
@@ -177,10 +189,15 @@ namespace FPSPlayer {
 						}
 						else
 						{
+							heldTime = 0;
 							interactTimer = 0;
+							interactTimerSlider.GetComponentInChildren<Slider>().value = 0;
+							interactTimerSlider.SetActive(false);
+							
 						}
 						
 					}
+					
 					
 				}
 				
