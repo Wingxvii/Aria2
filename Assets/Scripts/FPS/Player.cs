@@ -336,10 +336,8 @@ namespace FPSPlayer {
 
         public override void ResetValues()
         {
-            m_oldPosition = Vector3.zero;
-            transform.position = Vector3.zero;
-            m_pitch = 0;
-            m_yaw = 0;
+            SetLocation(Vector3.zero);
+            SetRotation(Vector3.zero);
             this.currentHealth = maxHealth;
         }
 
