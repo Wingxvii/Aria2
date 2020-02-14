@@ -8,7 +8,7 @@ public class HoverHintInfo : ScriptableObject
 {
     [Header("Text")]
     public string title;
-    public Color titleColor;
+    public Color titleColor = Color.white;
     
     [Multiline]
     public string description;

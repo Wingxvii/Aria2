@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f0d0123b1a056c4094bd8a031362835, type: 3}
-  m_Name: BuildDroid
+  m_Name: BuildWallHint
   m_EditorClassIdentifier: 
-  title: Build Droid
-  titleColor: {r: 0.8490566, g: 0.19624422, b: 0.19624422, a: 1}
-  description: 'Queue construction of a droid.
+  title: Build Wall
+  titleColor: {r: 1, g: 1, b: 0, a: 1}
+  description: 'Construct a wall.
 
 
-    Cost: 100
-
-    Time: 5'
+    Cost: 250'
