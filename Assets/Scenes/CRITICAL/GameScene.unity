@@ -9663,6 +9663,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2366e21280f7174eb35ebde383291ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  researchImages:
+  - {fileID: 21300000, guid: 64ee2c0ebcddac949993082b58b0030a, type: 3}
+  - {fileID: 21300000, guid: e21f3a5e48fd1c64ea7cbadb7224dd36, type: 3}
+  - {fileID: 21300000, guid: 58a094e1adf021f41b612af7a1e02740, type: 3}
+  - {fileID: 21300000, guid: f99bc895874e64d479aa7e9e7536b1cb, type: 3}
+  - {fileID: 21300000, guid: fc62d410ff36c5d44a2c6a2099ead03e, type: 3}
+  - {fileID: 21300000, guid: 5533c89c7d59eca4ca5feccb6d635499, type: 3}
 --- !u!114 &7295444141309362565
 MonoBehaviour:
   m_ObjectHideFlags: 0
