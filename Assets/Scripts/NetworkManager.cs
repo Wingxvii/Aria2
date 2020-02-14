@@ -451,15 +451,15 @@ namespace Netcode
             }
             else if (GameSceneController.Instance.type == PlayerType.FPS)
             {
-                PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[playerNumber];
+                FPSPlayer.Player player = (FPSPlayer.Player)EntityManager.Instance.AllEntities[playerNumber];
                 PackData(ref sendByteArray, ref loc, player.id);
-                PackData(ref sendByteArray, ref loc, player.stats.state);
+                PackData(ref sendByteArray, ref loc, (int)player.GetState());
                 PackData(ref sendByteArray, ref loc, player.transform.position.x);
                 PackData(ref sendByteArray, ref loc, player.transform.position.y);
                 PackData(ref sendByteArray, ref loc, player.transform.position.z);
-                PackData(ref sendByteArray, ref loc, player.mainCam.transform.localRotation.x);
-                PackData(ref sendByteArray, ref loc, player.transform.localRotation.y);
-                PackData(ref sendByteArray, ref loc, player.mainCam.transform.rotation.z);
+                PackData(ref sendByteArray, ref loc, player.m_pitch);
+                PackData(ref sendByteArray, ref loc, player.m_yaw);
+                //PackData(ref sendByteArray, ref loc, player.mainCam.transform.rotation.z);
             }
             else
             {
@@ -820,9 +820,20 @@ namespace Netcode
                 if (dataState.GameState == (int)GameState.GAME)
                 {
                     //SendDebugOutput("Game Update");
-                    foreach (PlayerFPS pfps in EntityManager.Instance.ActivePlayers())
+                    //foreach (FPSPlayer.Player pfps in EntityManager.Instance.ActivePlayers())
+                    //{
+                    //
+                    //    pfps. = pfps.playerGun.slots[dataState.playerWeapons[pfps.id - 1]];
+                    //}
+                    //
+                    //foreach (FirearmHandler firearm in firearms)
+                    //{
+                    //   
+                    //}
+
+                    for(int i = 0; i < 3; i++)
                     {
-                        pfps.playerGun.activeGun = pfps.playerGun.slots[dataState.playerWeapons[pfps.id - 1]];
+                        firearms[i].NetworkingUpdate(dataState.playerWeapons[i]);
                     }
 
                     foreach (KeyValuePair<int, EntityData> kvp in dataState.entityUpdates)
