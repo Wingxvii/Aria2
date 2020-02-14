@@ -134,6 +134,16 @@ namespace RTSInput
             if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.staticsMask))
             {
                 staticPosition = hit.point;
+<<<<<<< HEAD
+=======
+
+                //Snap
+                PlacementGrid grid = null;
+                if (hit.transform.gameObject.TryGetComponent(out grid)) {
+                    staticPosition = grid.Snap(staticPosition);
+                }
+            }
+>>>>>>> c7dfea265753eeacb5f982e2aad57251a33a9051
 
                 PlacementGrid grid;
                 if (hit.collider.gameObject.TryGetComponent<PlacementGrid>(out grid)) {
@@ -189,6 +199,7 @@ namespace RTSInput
 
 
             //bind prefab object to mouse
+<<<<<<< HEAD
             if (activeBlueprint != null && activeBlueprint.activeSelf)
             {
                 activeBlueprint.transform.position = new Vector3(InputManager.Instance.staticPosition.x, InputManager.Instance.staticPosition.y + activeBlueprint.transform.localScale.y, InputManager.Instance.staticPosition.z);
@@ -197,6 +208,14 @@ namespace RTSInput
                     activeBlueprint.transform.position += bp.offset.localPosition;
                 }
             }
+=======
+            //Moved to ShellPlacement
+            //if (activeBlueprint != null && activeBlueprint.activeSelf)
+            //{
+            //    activeBlueprint.GetComponent<Transform>().position = new Vector3(InputManager.Instance.staticPosition.x, InputManager.Instance.staticPosition.y + activeBlueprint.GetComponent<Transform>().localScale.y, InputManager.Instance.staticPosition.z);
+            //}
+
+>>>>>>> c7dfea265753eeacb5f982e2aad57251a33a9051
         }
 
         //handles selection box
