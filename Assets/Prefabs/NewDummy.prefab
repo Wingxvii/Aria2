@@ -490,10 +490,10 @@ GameObject:
   - component: {fileID: 4720113362179397650}
   - component: {fileID: 4720113362179397649}
   - component: {fileID: 4720113362179397648}
-  - component: {fileID: 4720113362179397655}
-  - component: {fileID: 4720113362179397654}
   - component: {fileID: 4720113362179397653}
   - component: {fileID: 4720113362179397676}
+  - component: {fileID: 84414037758976351}
+  - component: {fileID: 1248902382553788475}
   m_Layer: 13
   m_Name: NewDummy
   m_TagString: Player
@@ -579,52 +579,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4720113362179397655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4720113362179397652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9be5da492ea5eb34ab83a6a8c1a38135, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  type: 6
-  currentHealth: 1
-  maxHealth: 1
-  destructable: 0
-  ready: 1
-  remainingAmmunition: c8000000f401000050000000
-  stats:
-    acceleration: 100
-    airborneAcceleration: 10
-    maxSpeed: 30
-    jumpPower: 10
-    maxWalkableAngle: 30
-    friction: 50
-    aerialDrag: 0
-    state: 1
-    disableManualControl: 0
-  playerGun: {fileID: 1579262126802258333}
---- !u!114 &4720113362179397654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4720113362179397652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3792c897f995f4d47baf14d2d5c1bb2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotX: 0
-  rotY: 1
-  rotZ: 0
-  sensitivity: {x: 1, y: 1, z: 1}
 --- !u!54 &4720113362179397653
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -653,6 +607,52 @@ Halo:
     serializedVersion: 2
     rgba: 4286611584
   m_Size: 5
+--- !u!143 &84414037758976351
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4720113362179397652}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1248902382553788475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4720113362179397652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3644eed16cb8fb34fa84864a2daddb1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  type: 6
+  currentHealth: 1
+  maxHealth: 1
+  destructable: 0
+  ready: 1
+  m_camera: {fileID: 0}
+  m_accel: 25
+  m_drag: 1
+  m_speedCap: 3
+  m_runSpeedMod: 2
+  m_stickToGroundDistance: 0.25
+  m_jumpSpeed: 4
+  m_cameraHeight: 1.5
+  m_fovIncrease: 1.25
+  m_fovLerpSpeed: 10
 --- !u!1 &4720113362189049744
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,7 +705,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4720113363310705883}
-  - component: {fileID: 4720113363310705876}
   m_Layer: 13
   m_Name: Pivot
   m_TagString: Untagged
@@ -728,22 +727,6 @@ Transform:
   m_Father: {fileID: 4720113362179397651}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4720113363310705876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4720113363310705882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3792c897f995f4d47baf14d2d5c1bb2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotX: 1
-  rotY: 0
-  rotZ: 0
-  sensitivity: {x: 1, y: 1, z: 1}
 --- !u!1 &5169142194875708300
 GameObject:
   m_ObjectHideFlags: 0

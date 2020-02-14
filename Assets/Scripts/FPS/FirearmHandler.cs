@@ -34,7 +34,7 @@ public class FirearmHandler : MonoBehaviour
 
 		reload();
 
-        parentPlayer = GetComponentInParent<PlayerFPS>().id;
+        parentPlayer = GetComponentInParent<FPSPlayer.Player>().id;
 
         Debug.Log(parentPlayer - 1);
         Netcode.NetworkManager.firearms[parentPlayer - 1] = this;
