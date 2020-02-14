@@ -260,7 +260,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barracks (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4781890533621076481, guid: cd8126f404d7ca9439d766667b571fd4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cd8126f404d7ca9439d766667b571fd4, type: 3}
 --- !u!1 &441694045
 GameObject:

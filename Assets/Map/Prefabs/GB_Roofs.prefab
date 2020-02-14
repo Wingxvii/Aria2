@@ -47,7 +47,7 @@ MonoBehaviour:
   m_height: 5
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &327256969776144439
 GameObject:
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_height: 12
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &451318174879643895
 GameObject:
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_height: 1
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &512779927164464450
 GameObject:
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_height: 5
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &623534965339711732
 GameObject:
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_height: 2
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &908037451654239929
 GameObject:
@@ -292,7 +292,7 @@ MonoBehaviour:
   m_height: 16
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &1133882609599570379
 GameObject:
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_height: 2
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &1142005784678767471
 GameObject:
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_height: 2
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &1263212496114646749
 GameObject:
@@ -439,7 +439,7 @@ MonoBehaviour:
   m_height: 8
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &1304650043092318058
 GameObject:
@@ -488,7 +488,7 @@ MonoBehaviour:
   m_height: 1
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &1657924303267675828
 GameObject:
@@ -537,7 +537,7 @@ MonoBehaviour:
   m_height: 1
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &1807150805349439114
 GameObject:
@@ -586,7 +586,7 @@ MonoBehaviour:
   m_height: 1
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &1952905908569330847
 GameObject:
@@ -620,11 +620,10 @@ Transform:
   - {fileID: 1848784700621693826}
   - {fileID: 6384168676383471791}
   - {fileID: 7935584364595266450}
-  - {fileID: 2360353459117700893}
-  - {fileID: 6013050880440923818}
   - {fileID: 1437340891212325761}
   - {fileID: 4511182071052915535}
   - {fileID: 5295569520510960771}
+  - {fileID: 5986664818710520305}
   m_Father: {fileID: 5200827185849614176}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -675,7 +674,7 @@ MonoBehaviour:
   m_height: 1
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &2209364746196452426
 GameObject:
@@ -724,7 +723,7 @@ MonoBehaviour:
   m_height: 1
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &2779075755913794502
 GameObject:
@@ -759,7 +758,7 @@ Transform:
   - {fileID: 8676280272176839809}
   - {fileID: 1415408633191390887}
   m_Father: {fileID: 6804761434086719971}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3526234504942627330
 GameObject:
@@ -808,7 +807,7 @@ MonoBehaviour:
   m_height: 2
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &3555552601454916716
 GameObject:
@@ -857,7 +856,7 @@ MonoBehaviour:
   m_height: 2
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &4258649099945382900
 GameObject:
@@ -906,7 +905,7 @@ MonoBehaviour:
   m_height: 1
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &4500365514046814782
 GameObject:
@@ -955,7 +954,7 @@ MonoBehaviour:
   m_height: 2
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &4705870932585623135
 GameObject:
@@ -1004,7 +1003,7 @@ MonoBehaviour:
   m_height: 5
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &5026939765342233374
 GameObject:
@@ -1053,7 +1052,7 @@ MonoBehaviour:
   m_height: 2
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &5242656195023044063
 GameObject:
@@ -1142,7 +1141,7 @@ MonoBehaviour:
   m_height: 3
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &5790902183035742010
 GameObject:
@@ -1191,7 +1190,7 @@ MonoBehaviour:
   m_height: 2
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &5877720844804593989
 GameObject:
@@ -1235,7 +1234,7 @@ Transform:
   - {fileID: 6984562051712229730}
   - {fileID: 4377658778237499505}
   m_Father: {fileID: 6804761434086719971}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6147207157092853554
 GameObject:
@@ -1284,7 +1283,7 @@ MonoBehaviour:
   m_height: 6
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &6186897212715211158
 GameObject:
@@ -1333,7 +1332,7 @@ MonoBehaviour:
   m_height: 3
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &6892239731622303032
 GameObject:
@@ -1382,7 +1381,7 @@ MonoBehaviour:
   m_height: 3
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &6945160144445712139
 GameObject:
@@ -1431,7 +1430,7 @@ MonoBehaviour:
   m_height: 2
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &7192500751462652819
 GameObject:
@@ -1480,7 +1479,7 @@ MonoBehaviour:
   m_height: 1
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &7373345038166839553
 GameObject:
@@ -1493,7 +1492,7 @@ GameObject:
   - component: {fileID: 2360353459117700893}
   - component: {fileID: 6786058063674532807}
   m_Layer: 9
-  m_Name: Grid 3x7
+  m_Name: Grid 3x9
   m_TagString: Buildable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1506,12 +1505,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7373345038166839553}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.4621, y: 0.0039999867, z: 0.030300003}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.46209997, y: 0.0039999867, z: 0.030299997}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
-  m_Father: {fileID: 6804761434086719971}
-  m_RootOrder: 5
+  m_Father: {fileID: 5986664818710520305}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &6786058063674532807
 MonoBehaviour:
@@ -1529,7 +1528,7 @@ MonoBehaviour:
   m_height: 9
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &7432229545501047287
 GameObject:
@@ -1578,7 +1577,7 @@ MonoBehaviour:
   m_height: 1
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &7513678261466036404
 GameObject:
@@ -1627,7 +1626,7 @@ MonoBehaviour:
   m_height: 7
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &7649826053184327711
 GameObject:
@@ -1640,7 +1639,7 @@ GameObject:
   - component: {fileID: 6013050880440923818}
   - component: {fileID: 8551028876096448983}
   m_Layer: 9
-  m_Name: Grid 3x7 (1)
+  m_Name: Grid 7x2
   m_TagString: Buildable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1653,12 +1652,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7649826053184327711}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.4921, y: -0.266, z: 0.0303}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.49209997, y: -0.26599997, z: 0.030300006}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
-  m_Father: {fileID: 6804761434086719971}
-  m_RootOrder: 6
+  m_Father: {fileID: 5986664818710520305}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &8551028876096448983
 MonoBehaviour:
@@ -1676,7 +1675,7 @@ MonoBehaviour:
   m_height: 2
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &7697840034680982726
 GameObject:
@@ -1725,7 +1724,7 @@ MonoBehaviour:
   m_height: 2
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &8148942851509330228
 GameObject:
@@ -1774,8 +1773,40 @@ MonoBehaviour:
   m_height: 10
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
+--- !u!1 &8207081064255174637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5986664818710520305}
+  m_Layer: 9
+  m_Name: Grid_TBuild
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5986664818710520305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8207081064255174637}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2360353459117700893}
+  - {fileID: 6013050880440923818}
+  m_Father: {fileID: 6804761434086719971}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8267905001671947739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1823,7 +1854,7 @@ MonoBehaviour:
   m_height: 2
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &8370022383560729472
 GameObject:
@@ -1872,7 +1903,7 @@ MonoBehaviour:
   m_height: 6
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &8385703362412552202
 GameObject:
@@ -1921,7 +1952,7 @@ MonoBehaviour:
   m_height: 2
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &8538969488396922628
 GameObject:
@@ -1970,7 +2001,7 @@ MonoBehaviour:
   m_height: 1
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &8543549903275481154
 GameObject:
@@ -2019,7 +2050,7 @@ MonoBehaviour:
   m_height: 2
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &8896436280355000947
 GameObject:
@@ -2054,7 +2085,7 @@ Transform:
   - {fileID: 6224225881386862261}
   - {fileID: 6900173289248839397}
   m_Father: {fileID: 6804761434086719971}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9062075825665902654
 GameObject:
@@ -2103,7 +2134,7 @@ MonoBehaviour:
   m_height: 4
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &9086251440043076691
 GameObject:
@@ -2152,7 +2183,7 @@ MonoBehaviour:
   m_height: 1
   m_gridSize: 3
   m_offset: {x: 0, y: 0, z: 0}
-  m_drawHitbox: 1
+  m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 0}
 --- !u!1 &9112564482719370611
 GameObject:

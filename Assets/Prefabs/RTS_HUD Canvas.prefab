@@ -1576,6 +1576,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionMenuPoolSize: 8
+  useHotkeys: 0
+  hotkeys: 71000000770000006500000072000000610000007300000064000000660000007a000000780000006300000076000000
   buildMenuButtons:
   - {fileID: 11400000, guid: 8bbbae05a6d735f4fbec52200f096b9c, type: 2}
   - {fileID: 11400000, guid: f9c0496fd279e4a488fb9cafedb23189, type: 2}
@@ -1602,6 +1604,8 @@ MonoBehaviour:
   unitPortrait: {fileID: 6420665988843255354}
   unitName: {fileID: 6420665987955727058}
   unitHealth: {fileID: 6420665987903324116}
+  hintPrefab: {fileID: 4738430019591923177, guid: d78ecee99b4a8424797f552b4c8f6b21,
+    type: 3}
 --- !u!1 &3501842615242144976
 GameObject:
   m_ObjectHideFlags: 0
