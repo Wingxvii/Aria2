@@ -89,7 +89,7 @@ public class ResourceManager : MonoBehaviour
     void Start()
     {
         credits = 1000;
-        timeElapsed = 600;
+        timeElapsed = 240;
         minutePassed = false;
         thirtyPassed = false;
         tenPassed = false;
