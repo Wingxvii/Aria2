@@ -189,7 +189,7 @@ namespace RTSInput
 
 
                 //bind prefab object to mouse
-                if (activeBlueprint != null && activeBlueprint.activeSelf)
+                if (activeBlueprint != null && activeBlueprint.activeSelf && currentEvent != MouseEvent.MovementCursor && currentEvent != MouseEvent.RallyCursor)
                 {
                     activeBlueprint.transform.position = new Vector3(InputManager.Instance.staticPosition.x, InputManager.Instance.staticPosition.y, InputManager.Instance.staticPosition.z);
                     ShellPlacement bp = activeBlueprint.GetComponent<ShellPlacement>();
@@ -197,6 +197,9 @@ namespace RTSInput
                     {
                         activeBlueprint.transform.position += bp.offset.localPosition;
                     }
+                }
+                else if (activeBlueprint != null && activeBlueprint.activeSelf) {
+                    activeBlueprint.transform.position = staticPosition;
                 }
             }
         }
