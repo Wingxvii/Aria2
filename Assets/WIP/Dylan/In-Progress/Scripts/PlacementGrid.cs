@@ -39,8 +39,9 @@ public class PlacementGrid : MonoBehaviour
             temp.z -= temp.z % m_gridSize;
 
             temp.y = transform.position.y + m_offset.y;
+
             //Offset
-            temp += new Vector3(0.5f, 0.5f, 0.5f);
+            temp += new Vector3(m_gridSize * 0.5f, 0.0f, m_gridSize * 0.5f);
 
             //re-apply rotation.
             temp = transform.rotation * temp;

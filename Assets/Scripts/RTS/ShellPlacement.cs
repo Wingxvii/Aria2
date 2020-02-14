@@ -38,7 +38,7 @@ public class ShellPlacement : MonoBehaviour
         }
 
         //Get new position based on mouse position
-        transform.position = new Vector3(RTSInput.InputManager.Instance.staticPosition.x, RTSInput.InputManager.Instance.staticPosition.y + transform.localScale.y, RTSInput.InputManager.Instance.staticPosition.z);
+        //transform.position = new Vector3(RTSInput.InputManager.Instance.staticPosition.x, RTSInput.InputManager.Instance.staticPosition.y, RTSInput.InputManager.Instance.staticPosition.z);
 
     }
 

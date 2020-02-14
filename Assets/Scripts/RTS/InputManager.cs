@@ -137,7 +137,7 @@ namespace RTSInput
 
                 PlacementGrid grid;
                 if (hit.collider.gameObject.TryGetComponent<PlacementGrid>(out grid)) {
-                    staticPosition = grid.Snap(hit.point);
+                    staticPosition = grid.Snap(hit.point) - grid.m_offset;
                 }
 
                 if (hit.collider.CompareTag("Ground"))
@@ -190,7 +190,7 @@ namespace RTSInput
             //bind prefab object to mouse
             if (activeBlueprint != null && activeBlueprint.activeSelf)
             {
-                activeBlueprint.transform.position = new Vector3(InputManager.Instance.staticPosition.x, InputManager.Instance.staticPosition.y + activeBlueprint.transform.localScale.y, InputManager.Instance.staticPosition.z);
+                activeBlueprint.transform.position = new Vector3(InputManager.Instance.staticPosition.x, InputManager.Instance.staticPosition.y, InputManager.Instance.staticPosition.z);
                 ShellPlacement bp = activeBlueprint.GetComponent<ShellPlacement>();
                 if (bp.offset) {
                     activeBlueprint.transform.position += bp.offset.localPosition;
