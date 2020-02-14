@@ -7,8 +7,25 @@ using UnityEngine.UI;
 
 public class RTSHUD : MonoBehaviour
 {
-    [Header("Optimisation")]
+    [Header("Action Menu")]
     public int actionMenuPoolSize=8;
+    public bool useHotkeys = false;
+    public KeyCode[] hotkeys = {
+        KeyCode.Q,
+        KeyCode.W,
+        KeyCode.E,
+        KeyCode.R,
+
+        KeyCode.A,
+        KeyCode.S,
+        KeyCode.D,
+        KeyCode.F,
+
+        KeyCode.Z,
+        KeyCode.X,
+        KeyCode.C,
+        KeyCode.V,
+    };
 
     [Header("Build Menu")]
     public ActionButton[] buildMenuButtons;
@@ -30,6 +47,9 @@ public class RTSHUD : MonoBehaviour
     public Text unitName;
     public Text unitHealth;
 
+    [Header("Prefab References")]
+    public GameObject hintPrefab = null;
+
     private UIInfo currentUIInfo=null;
 
     private List<ActionMenuButton> actionButtonPool;
@@ -40,11 +60,17 @@ public class RTSHUD : MonoBehaviour
         for (int i = 0; i < actionMenuPoolSize; ++i) {
             GameObject go = new GameObject("ActionButton");
             go.transform.SetParent(actionMenu.transform);
-            ActionMenuButton amb = go.AddComponent<ActionMenuButton>();
             Image img = go.AddComponent<Image>();
             Button btn = go.AddComponent<Button>();
             btn.image = img;
+            ActionMenuButton amb = go.AddComponent<ActionMenuButton>();
+            amb.hintPanelPrefab = hintPrefab;
             amb.buttonInfo = null;
+
+            if (useHotkeys && i<hotkeys.Length) {
+                amb.hotkey = hotkeys[i];
+            }
+
             actionButtonPool.Add(amb);
         }
     }

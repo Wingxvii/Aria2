@@ -19,4 +19,6 @@ public class ActionButton : ScriptableObject
     public ActionType actionType;
     public int argument;
     public Sprite spriteToUse;
+
+    public HoverHintInfo hintInfo;
 }

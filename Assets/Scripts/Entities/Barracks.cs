@@ -7,6 +7,8 @@ using RTSInput;
 public class Barracks : Building
 {
     public Slider buildProcess;
+    public GameObject processObject;
+
     public Queue<float> buildTimes;
     public float currentBuildTime = 0;
 
@@ -38,10 +40,13 @@ public class Barracks : Building
         canvas.transform.LookAt(canvas.transform.position + Camera.main.transform.rotation * Vector3.back, Camera.main.transform.rotation * Vector3.up);
 
         spawnPoint = this.transform.Find("SpawnPoint");
+        
         buildProcess.gameObject.SetActive(false);
 
         buildProcess = canvas.transform.Find("Building Progress").GetComponent<Slider>();
         buildProcess.gameObject.SetActive(false);
+
+        processObject.SetActive(false);
 
         buildTimes = new Queue<float>();
 
@@ -61,7 +66,8 @@ public class Barracks : Building
             //add to queue
             if (currentBuildTime <= 0 && buildTimes.Count > 0)
             {
-                buildProcess.gameObject.SetActive(true);
+                // buildProcess.gameObject.SetActive(true);
+                processObject.SetActive(true);
                 currentBuildTime += buildTimes.Dequeue();
             }
             //tick queue
@@ -84,7 +90,8 @@ public class Barracks : Building
             //queue ended
             else if (currentBuildTime <= 0)
             {
-                buildProcess.gameObject.SetActive(false);
+                // buildProcess.gameObject.SetActive(false);
+                processObject.SetActive(false);
             }
         }
     }

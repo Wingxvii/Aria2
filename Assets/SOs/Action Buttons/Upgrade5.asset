@@ -15,3 +15,4 @@ MonoBehaviour:
   actionType: 6
   argument: 4
   spriteToUse: {fileID: 21300000, guid: fc62d410ff36c5d44a2c6a2099ead03e, type: 3}
+  hintInfo: {fileID: 11400000, guid: db7cff0b59a695f449a3391f41dfac9c, type: 2}
