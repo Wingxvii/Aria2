@@ -68,9 +68,6 @@ public class EntityManager : MonoBehaviour
 
         }
 
-        SpawnManager.Instance.Initialize();
-
-        SpawnManager.Instance.Initialize();
 
         //create all lists
         ActiveEntitiesByType = new List<List<Entity>>();
@@ -109,12 +106,19 @@ public class EntityManager : MonoBehaviour
         //spawn players for debugging
         EntityType[] spawnType = new EntityType[3];
         Entity temp;
+        SpawnManager.Instance.Initialize();
 
         for (int i = 0; i < spawnType.Length; ++i)
         {
             spawnType[i] = (GameSceneController.Instance.playerNumber == i + 1) ? EntityType.Player : EntityType.Dummy;
-
             temp = GetNewEntity(spawnType[i]);
+
+            //set spawn
+            int spawnPointNum = SpawnManager.Instance.freeSpawnPoints.Dequeue();
+            temp.transform.position = SpawnManager.Instance.FPSspawnpoints[spawnPointNum].position;
+            temp.transform.rotation = Quaternion.identity;
+
+
 
             //temp.transform.position = new Vector3(-10f, 0.5f, -10f);
             //AllEntities.Add(temp);
