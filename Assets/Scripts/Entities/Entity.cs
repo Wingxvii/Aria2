@@ -25,6 +25,7 @@ public abstract class Entity : MonoBehaviour
 
     //ID
     public int id;
+    public int killerID;
     private static int idtracker = 0;
     private static List<Entity> indexedList = new List<Entity>();
 
@@ -149,7 +150,7 @@ public abstract class Entity : MonoBehaviour
 
 
     //deals damage to entity
-    public virtual void OnDamage(float num)
+    public virtual void OnDamage(float num, int kID)
     {
         if (destructable)
         {
@@ -157,6 +158,7 @@ public abstract class Entity : MonoBehaviour
         }
         if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.RTS)
         {
+            killerID = kID;
             OnDeath();
         }
     }
@@ -168,6 +170,7 @@ public abstract class Entity : MonoBehaviour
         }
         if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.RTS)
         {
+            killerID = culprit.id;
             OnDeath();
         }
     }
