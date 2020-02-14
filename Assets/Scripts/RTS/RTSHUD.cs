@@ -30,6 +30,9 @@ public class RTSHUD : MonoBehaviour
     public Text unitName;
     public Text unitHealth;
 
+    [Header("Prefab References")]
+    public GameObject hintPrefab = null;
+
     private UIInfo currentUIInfo=null;
 
     private List<ActionMenuButton> actionButtonPool;
@@ -40,10 +43,11 @@ public class RTSHUD : MonoBehaviour
         for (int i = 0; i < actionMenuPoolSize; ++i) {
             GameObject go = new GameObject("ActionButton");
             go.transform.SetParent(actionMenu.transform);
-            ActionMenuButton amb = go.AddComponent<ActionMenuButton>();
             Image img = go.AddComponent<Image>();
             Button btn = go.AddComponent<Button>();
             btn.image = img;
+            ActionMenuButton amb = go.AddComponent<ActionMenuButton>();
+            amb.hintPanelPrefab = hintPrefab;
             amb.buttonInfo = null;
             actionButtonPool.Add(amb);
         }

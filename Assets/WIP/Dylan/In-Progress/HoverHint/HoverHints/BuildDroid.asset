@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BuildDroid
   m_EditorClassIdentifier: 
   title: Build Droid
-  titleColor: {r: 0.8490566, g: 0.19624422, b: 0.19624422, a: 0}
+  titleColor: {r: 0.8490566, g: 0.19624422, b: 0.19624422, a: 1}
   description: 'Queue construction of a droid.
 
 
