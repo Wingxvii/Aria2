@@ -79,6 +79,11 @@ public class StartManager : MonoBehaviour
             NetworkManager.ConnectToServer(ipText.text);
         }
     }
+
+    public void OnRoleUpdate(bool b)
+    {
+        rolesUpdated = b;
+    }
     //recieve successful
     public void OnConnected(bool success)
     {
@@ -90,7 +95,7 @@ public class StartManager : MonoBehaviour
         else {
             connected = false;
         }
-        rolesUpdated = true;
+        OnRoleUpdate(true);
     }
 
     //try RTS join
@@ -108,6 +113,7 @@ public class StartManager : MonoBehaviour
     //check if role is avaliable
     public void OnRoleSelected(int type) {
         GameSceneController.Instance.type = (PlayerType)type;
+        
         //readyStatus.text = "Status: Role " + GameSceneController.Instance.type.ToString();
 
         //if (GameSceneController.Instance.type == PlayerType.Spectator)
@@ -118,7 +124,7 @@ public class StartManager : MonoBehaviour
         //else {
         //    readyButton.interactable = true;
         //}
-        rolesUpdated = true;
+        OnRoleUpdate(true);
     }
 
     public void OnReadyButton() {
@@ -135,7 +141,7 @@ public class StartManager : MonoBehaviour
             readyButtonText.text = "Ready!";
             readyStatus.text = "Status: Not Ready";
         }
-        rolesUpdated = true;
+        OnRoleUpdate(true);
         NetworkManager.OnReady(Ready);
     }
 
@@ -217,7 +223,8 @@ public class StartManager : MonoBehaviour
 
         //update roles
         if (rolesUpdated) {
-            for(int counter = 0; counter < NetworkManager.allUsers.Count; counter++) {
+            for(int counter = 0; counter < NetworkManager.allUsers.Count; counter++) 
+            {
                 StringBuilder output = new StringBuilder();
 
                 output.Append(NetworkManager.allUsers[counter].username);
@@ -244,7 +251,7 @@ public class StartManager : MonoBehaviour
                     Debug.LogWarning("More than allowed slots of players tried to connect");
                 }
             }
-            rolesUpdated = false;
+            OnRoleUpdate(false);
         }
     }
 

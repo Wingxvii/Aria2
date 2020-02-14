@@ -304,7 +304,7 @@ namespace Netcode
             BitConverter.GetBytes(packetType).CopyTo(bytes, 8);
             BitConverter.GetBytes(playerID).CopyTo(bytes, 12);
 
-            SendDebugOutput("ID: " + playerID.ToString() + ", Type: " + packetType.ToString() + ", LENGTH: " + length.ToString());
+            //SendDebugOutput("ID: " + playerID.ToString() + ", Type: " + packetType.ToString() + ", LENGTH: " + length.ToString());
 
             IntPtr ptr = Marshal.AllocCoTaskMem(length);
 
@@ -334,7 +334,7 @@ namespace Netcode
             PackData(ref sendByteArray, ref loc, index);
 
             //SendDebugOutput("SENDING UDP PACKET...");
-            SendIntPtr(sendByteArray, loc, false, Receiver, (int)PacketType.INIT);
+            SendIntPtr(ref sendByteArray, loc, false, Receiver, (int)PacketType.INIT);
         }
 
         public static void SendPacketUser(int index, string username)
@@ -352,7 +352,9 @@ namespace Netcode
             PackData(ref sendByteArray, ref loc, username);
 
             //SendDebugOutput("C#: SENDING INTPTR");
-            SendIntPtr(sendByteArray, loc, true, Receiver, (int)PacketType.USER);
+            SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.USER);
+
+            StartManager.Instance.OnRoleUpdate(true);
         }
 
         public static void SendPacketMsg(string message)
@@ -380,6 +382,8 @@ namespace Netcode
                 PackData(ref sendByteArray, ref loc, (int)type);
 
                 SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.TYPE);
+
+                StartManager.Instance.OnRoleUpdate(true);
             }
         }
 
@@ -391,6 +395,8 @@ namespace Netcode
             PackData(ref sendByteArray, ref loc, ready);
 
             SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.READY);
+
+            StartManager.Instance.OnRoleUpdate(true);
         }
 
         public static void SendPacketState(int state)
@@ -599,14 +605,14 @@ namespace Netcode
             int sender = BitConverter.ToInt32(bytes, 12);
             int loc = InitialOffset;
 
-            SendDebugOutput("Type: " + type.ToString() + " , Sender: " + sender.ToString());
+            //SendDebugOutput("Type: " + type.ToString() + " , Sender: " + sender.ToString());
             switch (type)
             {
                 case (int)PacketType.INIT:
                     {
                         if (sender == -1)
                         {
-                            SendDebugOutput("C# GOT INIT FROM SERVER");
+                            //SendDebugOutput("C# GOT INIT FROM SERVER");
                             int index = 0;
                             UnpackInt(ref bytes, ref loc, ref index);
                             PacketReceivedInit(sender, index);
@@ -636,6 +642,7 @@ namespace Netcode
                     UnpackInt(ref bytes, ref loc, ref playerType);
                     if (sender == GameSceneController.Instance.playerNumber)
                     {
+                        allUsers[playerNumber].type = (PlayerType)playerType;
                         PacketReceivedType(playerType);
                     }
                     else
@@ -921,6 +928,7 @@ namespace Netcode
                 SendDebugOutput("User Added! Total: " + allUsers.Count.ToString());
             }
             allUsers[index].username = user;
+            StartManager.Instance.OnRoleUpdate(true);
         }
 
         static void PacketReceivedAllUser(ref byte[] data, int length, int loc)
@@ -935,20 +943,16 @@ namespace Netcode
                 UnpackString(ref data, ref loc, ref user);
                 //SendDebugOutput("Index: " + index.ToString());
 
-                while (index >= allUsers.Count)
+                while (allUsers.Count <= index)
                 {
-                    while (allUsers.Count <= index)
-                    {
-                        allUsers.Add(new UsersData());
-                        SendDebugOutput("User Added! Total: " + allUsers.Count.ToString());
-                    }
-
-                    allUsers[index].username = user;
-                    user = "";
+                    allUsers.Add(new UsersData());
+                    SendDebugOutput("User Added! Total: " + allUsers.Count.ToString());
                 }
+
                 allUsers[index].username = user;
                 user = "";
             }
+            StartManager.Instance.OnRoleUpdate(true);
         }
 
         static void PacketReceivedType(int type)
@@ -975,11 +979,12 @@ namespace Netcode
                     RecieveMessage("User " + allUsers[sender].username + " is now SPECTATOR.");
                 }
             }
+            StartManager.Instance.OnRoleUpdate(true);
         }
 
         static void PacketReceivedReady(int sender, bool ready)
         {
-            SendDebugOutput("Sender: " + sender.ToString() + ", Count: " + allUsers.Count.ToString());
+            //SendDebugOutput("Sender: " + sender.ToString() + ", Count: " + allUsers.Count.ToString());
             if (allUsers[sender].readyStatus != ready)
             {
                 allUsers[sender].readyStatus = ready;
