@@ -223,7 +223,7 @@ public class StartManager : MonoBehaviour
                 output.Append(NetworkManager.allUsers[counter].username);
                 output.Append(" - ");
                 if (NetworkManager.allUsers[counter].type == PlayerType.FPS) { output.Append("FPS - "); }
-                else if (NetworkManager.allUsers[counter].type == PlayerType.FPS) { output.Append("RTS - "); }
+                else if (NetworkManager.allUsers[counter].type == PlayerType.RTS) { output.Append("RTS - "); }
                 else { output.Append("Spectator - "); }
 
                 if (NetworkManager.allUsers[counter].readyStatus)
@@ -238,6 +238,7 @@ public class StartManager : MonoBehaviour
                 if (slots.Length > counter)
                 {
                     slots[counter].text = output.ToString();
+                    slots[counter].gameObject.SetActive(true);
                 }
                 else {
                     Debug.LogWarning("More than allowed slots of players tried to connect");

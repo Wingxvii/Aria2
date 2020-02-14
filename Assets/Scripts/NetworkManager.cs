@@ -121,7 +121,7 @@ namespace Netcode
     //};
 
     //container for user data storage
-    
+
     public class UsersData
     {
         public string username = "Nameless";
@@ -338,6 +338,10 @@ namespace Netcode
         }
         public static void SendPacketUser(int index, string username)
         {
+            if (username == "")
+            {
+                username = "Nameless";
+            }
             int loc = InitialOffset;
             int Receiver = 0;
 
@@ -565,18 +569,26 @@ namespace Netcode
 
         static void receivePacket(IntPtr ptr, int length, bool TCP)
         {
-            //SendDebugOutput("C# RECEIVED PACKET");
-            if (TCP)
+            if (Math.Abs(length) < 5000)
             {
-                Marshal.Copy(ptr, tcpByteArray, 0, length);
-                //SendDebugOutput("C# DECODED TCP PACKET");
-                deconstructPacket(ref tcpByteArray, length);
+
+                //SendDebugOutput("C# RECEIVED PACKET");
+                if (TCP)
+                {
+                    Marshal.Copy(ptr, tcpByteArray, 0, length);
+                    //SendDebugOutput("C# DECODED TCP PACKET");
+                    deconstructPacket(ref tcpByteArray, length);
+                }
+                else
+                {
+                    Marshal.Copy(ptr, udpByteArray, 0, length);
+                    //SendDebugOutput("C# DECODED UDP PACKET");
+                    deconstructPacket(ref udpByteArray, length);
+                }
             }
             else
             {
-                Marshal.Copy(ptr, udpByteArray, 0, length);
-                //SendDebugOutput("C# DECODED UDP PACKET");
-                deconstructPacket(ref udpByteArray, length);
+                SendDebugOutput("Invalid Packet Received");
             }
 
         }
@@ -603,7 +615,7 @@ namespace Netcode
                     break;
                 case (int)PacketType.USER:
                     {
-                        if(sender == -1)
+                        if (sender == -1)
                         {
                             SendDebugOutput("C# GOT USERS FROM SERVER");
                             PacketReceivedAllUser(ref bytes, length, loc);
@@ -648,7 +660,10 @@ namespace Netcode
                     break;
                 case (int)PacketType.ENTITY:
                     if (sender != playerNumber)
+                    {
                         PacketReceivedEntity(ref bytes, ref loc, length, sender);
+                        SendDebugOutput("Update");
+                    }
                     break;
                 case (int)PacketType.DAMAGE:
                     int senderID = 0;
@@ -903,21 +918,25 @@ namespace Netcode
 
         static void PacketReceivedAllUser(ref byte[] data, int length, int loc)
         {
-            int index = 0; 
+            int index = 0;
             string user = "";
 
             while (loc < length)
             {
+                SendDebugOutput("Loc:" + loc.ToString() + " , Len: " + length.ToString());
                 UnpackInt(ref data, ref loc, ref index);
-                while (allUsers.Count < index)
-                {
-                    allUsers.Add(new UsersData());
-                    SendDebugOutput("User Added! Total: " + allUsers.Count.ToString());
-                }
-
                 UnpackString(ref data, ref loc, ref user);
-                allUsers[index].username = user;
-                user = "";
+                SendDebugOutput("Index: " + index.ToString());
+                if (index != playerNumber)
+                {
+                    while (allUsers.Count <= index)
+                    {
+                        allUsers.Add(new UsersData());
+                        SendDebugOutput("User Added! Total: " + allUsers.Count.ToString());
+                    }
+                    allUsers[index].username = user;
+                    user = "";
+                }
             }
         }
 
