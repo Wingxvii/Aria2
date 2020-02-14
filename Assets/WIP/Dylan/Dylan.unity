@@ -630,6 +630,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4738430019591923177, guid: a29f3d8772ea4904490d56d51da96a45,
         type: 3}
+    - target: {fileID: 3501842615204192731, guid: 611a0886e8ede334aac146bfda4e20dd,
+        type: 3}
+      propertyPath: useHotkeys
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6420665987284314228, guid: 611a0886e8ede334aac146bfda4e20dd,
         type: 3}
       propertyPath: m_AnchoredPosition.y

@@ -14,6 +14,7 @@ public class ActionMenuButton : MonoBehaviour
 
     private Button button;
 
+    public KeyCode hotkey = KeyCode.None;
 
     private void Awake() {
         button = GetComponent<Button>();
@@ -67,6 +68,12 @@ public class ActionMenuButton : MonoBehaviour
         if (hintPanel&&buttonInfo&&buttonInfo.hintInfo) {
             hintPanel.transform.localPosition = new Vector3(32, 32, 0);
             hintPanel.GetComponent<HoverHint>().m_hintInfo = buttonInfo.hintInfo;
+        }
+
+        if (hotkey!=KeyCode.None) {
+            if (Input.GetKeyDown(hotkey)) {
+                OnClick();
+            }
         }
     }
 
