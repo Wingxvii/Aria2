@@ -85,7 +85,6 @@ GameObject:
   - component: {fileID: 4224903672921372367}
   - component: {fileID: 697680683534145694}
   - component: {fileID: 2944722344727024708}
-  - component: {fileID: 7366193306950499030}
   m_Layer: 13
   m_Name: Gun
   m_TagString: Untagged
@@ -195,21 +194,6 @@ MonoBehaviour:
   muzzleFlash: {fileID: 4736684412357786358, guid: 6c813d96d006632428013fd0c789becd,
     type: 3}
   barrel: {fileID: 7158014749424182887}
---- !u!111 &7366193306950499030
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 504371968378089437}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &1558703982977958228
 GameObject:
   m_ObjectHideFlags: 0
