@@ -128,12 +128,15 @@ namespace RTSInput
         // Update is called once per frame
         void Update()
         {
-            #region Raycast
-            //raycast the mouse
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.staticsMask))
+            //[FPS]update input only if game is currently running
+            if (ResourceManager.Instance.gameState == ResourceManager.GameState.Running)
             {
-                staticPosition = hit.point;
+                #region Raycast
+                //raycast the mouse
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.staticsMask))
+                {
+                    staticPosition = hit.point;
 
                 PlacementGrid grid;
                 if (hit.collider.gameObject.TryGetComponent<PlacementGrid>(out grid)) {
@@ -142,49 +145,37 @@ namespace RTSInput
 
                 if (hit.collider.CompareTag("Ground"))
                 {
-                    staticTag = StaticTag.Ground;
+                    HitObject = hit.collider.gameObject.GetComponent<Entity>();
                 }
-                else if (hit.collider.CompareTag("Buildable"))
+                else
                 {
-                    staticTag = StaticTag.Buildable;
+                    HitObject = null;
                 }
-                else {
-                    staticTag = StaticTag.Other;
-                }
+                //check to see if anything gets hit
 
-            }
-            if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.entitysMask))
-            {
-                HitObject = hit.collider.gameObject.GetComponent<Entity>();
-            }
-            else
-            {
-                HitObject = null;
-            }
-            //check to see if anything gets hit
+                #endregion
 
-            #endregion
+                //handle selection box first
+                HandleSelectionBox();
 
-            //handle selection box first
-            HandleSelectionBox();
+                //handle left mouse click events
+                HandleLeftMouseClicks();
 
-            //handle left mouse click events
-            HandleLeftMouseClicks();
+                //handle right mouse click events
+                HandleRightMouseClicks();
 
-            //handle right mouse click events
-            HandleRightMouseClicks();
+                //handle key press
+                HandleKeys();
 
-            //handle key press
-            HandleKeys();
+                //check activity
+                CheckActivity();
 
-            //check activity
-            CheckActivity();
+                //handle selection changes #depricated in commit e27ca50f5208e5b2c054ff258cac52ef5b323323
+                //HandleSelectionChanges();
 
-            //handle selection changes #depricated in commit e27ca50f5208e5b2c054ff258cac52ef5b323323
-            //HandleSelectionChanges();
+                //check validity of current blueprint
+                CheckValidity();
 
-            //check validity of current blueprint
-            CheckValidity();
 
 
             //bind prefab object to mouse

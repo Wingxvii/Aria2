@@ -129,9 +129,8 @@ namespace DEPRECATED
 			}
 		}
 
-		public override void OnDamage(int dmg, Entity entity)
-		{
-			NetworkManager.SendDamage(this.id, false, entity.id, dmg);
-		}
-	}
+    public override void OnDamage(int dmg, Entity entity)
+    {
+        NetworkManager.SendPacketDamage(this.id, entity.id, dmg);
+    }
 }

@@ -69,19 +69,19 @@ public class FirearmHandler : MonoBehaviour
             {
                 activeGun = slots[0];
                 updateWeapon();
-                Netcode.NetworkManager.SendWeaponSwap(0);
+                Netcode.NetworkManager.SendPacketWeapon(0);
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 activeGun = slots[1];
                 updateWeapon();
-                Netcode.NetworkManager.SendWeaponSwap(1);
+                Netcode.NetworkManager.SendPacketWeapon(1);
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 activeGun = slots[2];
                 updateWeapon();
-                Netcode.NetworkManager.SendWeaponSwap(2);
+                Netcode.NetworkManager.SendPacketWeapon(2);
             }
         }
 	}

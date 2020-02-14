@@ -61,7 +61,7 @@ public class ResourceManager : MonoBehaviour
     }
 
 
-    public GameState gameState = GameState.Running;
+    public GameState gameState = GameState.Preparing;
 
     public int credits = 0;
     public int totalSupply = 0;
@@ -98,6 +98,7 @@ public class ResourceManager : MonoBehaviour
 
     private void Update()
     {
+        if (GameSceneController.Instance.gameStart) { gameState = GameState.Running; }
         if (gameState == GameState.Running)
         {
             timeElapsed -= Time.deltaTime;
@@ -121,12 +122,7 @@ public class ResourceManager : MonoBehaviour
             }
         }
     }
-
-    public void StartGame()
-    {
-        gameState = GameState.Running;
-    }
-
+    
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -358,7 +354,12 @@ public class ResourceManager : MonoBehaviour
                     temp.gameObject.transform.position = home.position;
                     temp.IssueLocation(rally);
                     if (GameSceneController.Instance.type == PlayerType.RTS)
-                        Netcode.NetworkManager.SendBuildEntity(temp);
+                        Netcode.NetworkManager.SendPacketBuild(
+                        temp.id, (int)temp.type,
+                        new Vector3(
+                            temp.transform.position.x,
+                            temp.transform.position.y,
+                            temp.transform.position.z));
                     break;
                 default:
                     Debug.Log("ERROR: DROID TYPE INVALID");

@@ -47,9 +47,9 @@ public class EntityManager : MonoBehaviour
     public GameObject FPSManagers;
     public GameObject RTSManagers;
     public GameObject Debugger;
+
     private void Start()
     {
-        GameSceneController.Instance.gameStart = true;
         //add managers
         if (GameSceneController.Instance.type == PlayerType.FPS)
         {
@@ -125,13 +125,15 @@ public class EntityManager : MonoBehaviour
             //ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
         }
 
+        //tell network that user is done loading
+        NetworkManager.OnLoaded();
     }
-    
+
     private void FixedUpdate()
     {
         if (ActiveEntitiesByType[(int)EntityType.Turret].Count + ActiveEntitiesByType[(int)EntityType.Droid].Count > 0
             && GameSceneController.Instance.type == PlayerType.RTS)
-            NetworkManager.SendEntities();
+            NetworkManager.SendPacketEntities();
     }
 
     //returns an avaliable entity from pool or newly instantiated, if none are avaliable

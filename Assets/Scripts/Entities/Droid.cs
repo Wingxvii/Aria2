@@ -226,12 +226,12 @@ public class Droid : Entity
         {
             if (ResourceManager.Instance.droidStronger)
             {
-                NetworkManager.SendEnvironmentalDamage(attackDamage, attackPoint.id, this.id);
+                NetworkManager.SendPacketDamage(this.id, attackPoint.id, attackDamage);
                 currentCoolDown = coolDown;
                 anim.Play("Attack");
             }
             else {
-                NetworkManager.SendEnvironmentalDamage(strongAttack, attackPoint.id, this.id);
+                NetworkManager.SendPacketDamage(this.id, attackPoint.id, strongAttack);
                 currentCoolDown = lowCoolDown;
                 anim.Play("Attack");
 
@@ -278,7 +278,6 @@ public class Droid : Entity
         dataToSend.Append(transform.rotation.eulerAngles.z);
         dataToSend.Append(",");
     }
-
     public override void UpdateEntityStats(EntityData ed)
     {
         transform.position = ed.position;
