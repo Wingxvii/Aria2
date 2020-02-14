@@ -343,8 +343,9 @@ namespace FPSPlayer {
         public override void UpdateEntityStats(Netcode.EntityData ed)
         {
             transform.position = ed.position;
-            m_pitch = ed.rotation.x;
-            m_yaw = ed.rotation.y;
+            transform.localRotation = Quaternion.Euler(new Vector3(0, ed.rotation.y, 0));
+            //m_pitch = ed.rotation.x;
+            //m_yaw = ed.rotation.y;
         }
     }
 
