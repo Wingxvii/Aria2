@@ -129,6 +129,15 @@ public class EntityManager : MonoBehaviour
         NetworkManager.OnLoaded();
     }
 
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.P))
+        {
+            Debug.Log("Active Entity Types: " + ActiveEntitiesByType.Count.ToString());
+            Debug.Log("Active Entity Dummys: " + ActiveEntitiesByType[6].Count.ToString());
+        }
+    }
+
     private void FixedUpdate()
     {
         if (ActiveEntitiesByType[(int)EntityType.Turret].Count + ActiveEntitiesByType[(int)EntityType.Droid].Count > 0

@@ -194,7 +194,7 @@ public abstract class Entity : MonoBehaviour
     public virtual void OnDeath()
     {
         //deactivate
-        int killerID = 0; // NEED UPDATE @PROGRAMMER
+        int killerID = 0;
         NetworkManager.SendPacketDeath(this.id, killerID);
         OnDeActivate();
     }
@@ -224,7 +224,6 @@ public abstract class Entity : MonoBehaviour
     public virtual void GetEntityString(ref StringBuilder dataToSend) {  }
 
     public virtual void UpdateEntityStats(EntityData ed) {
-        
-        
+        Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString());
     }
 }

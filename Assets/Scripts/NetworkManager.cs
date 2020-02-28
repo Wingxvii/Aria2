@@ -444,9 +444,9 @@ namespace Netcode
                     PackData(ref sendByteArray, ref loc, turret.transform.position.x);
                     PackData(ref sendByteArray, ref loc, turret.transform.position.y);
                     PackData(ref sendByteArray, ref loc, turret.transform.position.z);
-                    PackData(ref sendByteArray, ref loc, turret.head.transform.localRotation.x);
-                    PackData(ref sendByteArray, ref loc, turret.body.transform.localRotation.y);
-                    PackData(ref sendByteArray, ref loc, turret.transform.rotation.z);
+                    PackData(ref sendByteArray, ref loc, turret.faceingPoint.x);
+                    PackData(ref sendByteArray, ref loc, turret.faceingPoint.y);
+                    PackData(ref sendByteArray, ref loc, turret.faceingPoint.z);
                 }
             }
             else if (GameSceneController.Instance.type == PlayerType.FPS)
@@ -923,16 +923,19 @@ namespace Netcode
         #region PacketReception
         static void PacketReceivedInit(int sender, int index)
         {
-            SendDebugOutput("INIT PACKET");
-            isConnected = true;
-            OnConnected(true);
             GameSceneController.Instance.playerNumber = index;
             playerNumber = index;
-            allUsers.Add(new UsersData());
-            SendDebugOutput("Sending UDP INIT");
-            SendPacketInitUDP(GameSceneController.Instance.playerNumber);
-            SendDebugOutput("Sending TCP for username");
-            SendPacketUser(GameSceneController.Instance.playerNumber, StartManager.Instance.username.text);
+            if (!isConnected)
+            {
+                SendDebugOutput("INIT PACKET");
+                isConnected = true;
+                OnConnected(true);
+                allUsers.Add(new UsersData());
+                SendDebugOutput("Sending UDP INIT");
+                SendPacketInitUDP(GameSceneController.Instance.playerNumber);
+                SendDebugOutput("Sending TCP for username");
+                SendPacketUser(GameSceneController.Instance.playerNumber, StartManager.Instance.username.text);
+            }
         }
 
         static void PacketReceivedUser(int index, string user)
