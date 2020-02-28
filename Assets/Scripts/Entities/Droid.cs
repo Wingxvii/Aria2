@@ -115,7 +115,7 @@ public class Droid : Entity
                     shortestDist = float.MaxValue;
 
                     //check shortest in range for each player
-                    foreach (PlayerFPS player in EntityManager.Instance.ActivePlayers())
+                    foreach (FPSPlayer.Player player in EntityManager.Instance.ActivePlayers())
                     {
                         float dist = Vector3.Distance(player.transform.position, this.transform.position);
                         if (dist < shortestDist)
@@ -140,7 +140,7 @@ public class Droid : Entity
                     shortestDist = float.MaxValue;
 
                     //check shortest in range for each player
-                    foreach (PlayerFPS player in EntityManager.Instance.ActivePlayers())
+                    foreach (FPSPlayer.Player player in EntityManager.Instance.ActivePlayers())
                     {
                         float dist = Vector3.Distance(player.transform.position, this.transform.position);
                         if (dist < shortestDist)
@@ -161,7 +161,7 @@ public class Droid : Entity
                     anim.SetFloat("Walk", 0);
                     anim.SetFloat("Turn", 0);
 
-                    foreach (PlayerFPS player in EntityManager.Instance.ActivePlayers())
+                    foreach (FPSPlayer.Player player in EntityManager.Instance.ActivePlayers())
                     {
                         float dist = Vector3.Distance(player.transform.position, this.transform.position);
                         if (dist < shortestDist)
@@ -246,9 +246,9 @@ public class Droid : Entity
             {
                 state = DroidState.TetherAttacking;
             }
-            if (!(state == DroidState.TetherAttacking && attackPoint != other.gameObject.GetComponent<PlayerFPS>()) && state != DroidState.TargetAttacking)
+            if (!(state == DroidState.TetherAttacking && attackPoint != other.gameObject.GetComponent<FPSPlayer.Player>()) && state != DroidState.TargetAttacking)
             {
-                attackPoint = other.gameObject.GetComponent<PlayerFPS>();
+                attackPoint = other.gameObject.GetComponent<FPSPlayer.Player>();
             }
             OnAttack();
         }
