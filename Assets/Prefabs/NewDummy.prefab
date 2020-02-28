@@ -509,7 +509,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4720113362179397652}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 2.072, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4720113363310705883}
@@ -572,7 +572,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 4
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -610,6 +610,7 @@ MonoBehaviour:
   m_fovLerpSpeed: 10
   m_pitch: 0
   m_yaw: 0
+  interactTimerSlider: {fileID: 0}
 --- !u!1 &4720113362189049744
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,7 +678,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4720113363310705882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1.442, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4720113362156529422}
@@ -881,7 +882,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 1d116603e3ab9cf4288d0e66a9d2857a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.898
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1d116603e3ab9cf4288d0e66a9d2857a,
         type: 3}
