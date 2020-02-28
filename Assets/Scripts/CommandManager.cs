@@ -40,7 +40,8 @@ namespace RTSInput
                         new Vector3(
                             newEntity.transform.position.x,
                             newEntity.transform.position.y,
-                            newEntity.transform.position.z));
+                            newEntity.transform.position.z),
+                        newEntity.life);
             }
         }
 

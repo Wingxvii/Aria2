@@ -337,7 +337,7 @@ namespace FPSPlayer {
 		public override void OnDeath()
 		{
 			ResetValues();
-			Debug.Log("U DEAD");
+            Debug.Log("U DEAD");
 		}
 
         public override void ResetValues()

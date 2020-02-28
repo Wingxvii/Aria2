@@ -138,7 +138,6 @@ public class EntityManager : MonoBehaviour
 
     //returns an avaliable entity from pool or newly instantiated, if none are avaliable
     public Entity GetNewEntity(EntityType type) {
-
         if (DeactivatedEntitiesByType[(int)type].Count != 0)
         {
             Entity returnEntity = DeactivatedEntitiesByType[(int)type].Dequeue();
@@ -146,17 +145,96 @@ public class EntityManager : MonoBehaviour
 
             return returnEntity;
         }
-        else {
+        else
+        {
             Entity returnEntity = CreateEntity(type);
 
             return returnEntity;
         }
     }
+
+    public Entity EntitySwitch(EntityType type)
+    {
+        Entity returnValue;
+
+        switch (type)
+        {
+            case EntityType.Barracks:
+                returnValue = Instantiate(barracksPrefab).GetComponent<Entity>();
+
+                break;
+            case EntityType.Droid:
+                returnValue = Instantiate(droidPrefab).GetComponent<Entity>();
+
+                break;
+            case EntityType.Player:
+                returnValue = Instantiate(controllablePlayerPrefab).GetComponent<Entity>();
+
+                break;
+            case EntityType.Dummy:
+                returnValue = Instantiate(playerPrefab).GetComponent<Entity>();
+
+                break;
+            case EntityType.Turret:
+                returnValue = Instantiate(turretPrefab).GetComponent<Entity>();
+
+                break;
+            case EntityType.Wall:
+                returnValue = Instantiate(wallPrefab).GetComponent<Entity>();
+
+                break;
+            case EntityType.Science:
+                returnValue = Instantiate(sciencePrefab).GetComponent<Entity>();
+
+                break;
+            default:
+                returnValue = Instantiate(wallPrefab).GetComponent<Entity>();
+                Debug.LogWarning("Tried to create invalid entity type, creating wall entity instead");
+
+                break;
+        }
+
+        return returnValue;
+    }
+
+    public Entity GetEntityAt(EntityType type, int entityID)
+    {
+        Entity returnEntity;
+        if (entityID < AllEntities.Count)
+        {
+            if (AllEntities[entityID] == null)
+            {
+                AllEntities[entityID] = EntitySwitch(type);
+            }
+
+            returnEntity = AllEntities[entityID];
+            returnEntity.OnActivate();
+            return returnEntity;
+        }
+        else
+        {
+            returnEntity = EntitySwitch(type);
+
+            while (AllEntities.Count <= entityID)
+            {
+                AllEntities.Add(null);
+            }
+
+            AllEntities.Add(returnEntity);
+        }
+
+        returnEntity.id = entityID;
+        return returnEntity;
+    }
+
     //deactivates an entity: DO NOT USE
     //@Entity OnDeActivate()
     public void DeactivateEntity(EntityType type, Entity entity) {
-        ActiveEntitiesByType[(int)type].Remove(entity);
-        DeactivatedEntitiesByType[(int)type].Enqueue(entity);
+        if (GameSceneController.Instance.type == PlayerType.RTS)
+        {
+            ActiveEntitiesByType[(int)type].Remove(entity);
+            DeactivatedEntitiesByType[(int)type].Enqueue(entity);
+        }
     }
 
     //initalize new entity with overloads

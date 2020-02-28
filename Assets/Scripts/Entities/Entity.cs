@@ -24,6 +24,7 @@ public abstract class Entity : MonoBehaviour
 {
 
     //ID
+    public int life = 0;
     public int id;
     public int killerID;
     private static int idtracker = 0;
@@ -150,31 +151,34 @@ public abstract class Entity : MonoBehaviour
 
 
     //deals damage to entity
-    public virtual void OnDamage(float num, int kID)
+    public virtual void OnDamage(float num, int kID, int entityLife)
     {
-        Debug.Log(type);
-        if (destructable)
+        if (life == entityLife)
         {
-            //Debug.Log("NO_BODY");
-            currentHealth -= num;
+            Debug.Log(type);
+            if (destructable)
+            {
+                //Debug.Log("NO_BODY");
+                currentHealth -= num;
+            }
+            if (currentHealth <= 0)
+            {
+                killerID = kID;
+                OnDeath();
+            }//
         }
-        if (currentHealth <= 0)
-        {
-            killerID = kID;
-            OnDeath();
-        }//
     }
     public virtual void OnDamage(int num, Entity culprit)
     {
-        if (destructable)
-        {
-            currentHealth -= num;
-        }
-        if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.RTS)
-        {
-            killerID = culprit.id;
-            OnDeath();
-        }
+        //if (destructable)
+        //{
+        //    currentHealth -= num;
+        //}
+        //if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.RTS)
+        //{
+        //    killerID = culprit.id;
+        //    OnDeath();
+        //}
     }
 
 
@@ -193,6 +197,7 @@ public abstract class Entity : MonoBehaviour
     //death of unit
     public virtual void OnDeath()
     {
+        ++life;
         //deactivate
         int killerID = 0; // NEED UPDATE @PROGRAMMER
         NetworkManager.SendPacketDeath(this.id, killerID);

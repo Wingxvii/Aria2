@@ -359,7 +359,8 @@ public class ResourceManager : MonoBehaviour
                         new Vector3(
                             temp.transform.position.x,
                             temp.transform.position.y,
-                            temp.transform.position.z));
+                            temp.transform.position.z),
+                        temp.life);
                     break;
                 default:
                     Debug.Log("ERROR: DROID TYPE INVALID");

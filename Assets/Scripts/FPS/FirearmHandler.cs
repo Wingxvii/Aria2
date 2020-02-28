@@ -141,7 +141,7 @@ public class FirearmHandler : MonoBehaviour
                     Debug.Log(ET.name);
                     if (ET.type != EntityType.Player && ET.type != EntityType.Dummy)
                     {
-                        Netcode.NetworkManager.SendPacketDamage(parentPlayer, ET.id, gunStats.dmg);
+                        Netcode.NetworkManager.SendPacketDamage(parentPlayer, ET.id, gunStats.dmg, ET.life);
                     }
                 }
 			}
