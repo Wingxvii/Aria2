@@ -836,18 +836,20 @@ namespace Netcode
                         firearms[i].NetworkingUpdate(dataState.playerWeapons[i]);
                     }
 
-                    foreach (KeyValuePair<int, EntityData> kvp in dataState.entityUpdates)
+                    foreach (var keyVal in dataState.entityUpdates.Keys)
                     {
+
+                        EntityData ed = dataState.entityUpdates[keyVal];
                         //SendDebugOutput("Updating Entities...");
-                        if (kvp.Value.updated)
+                        if (ed.updated)
                         {
                             //SendDebugOutput("Updating Entities now....");
                             //Debug.Log("UPDATING POSITION FOR " + kvp.Key + "/" + EntityManager.Instance.AllEntities.Count);
-                            kvp.Value.updated = false;
-                            Entity temp = EntityManager.Instance.AllEntities[kvp.Key];
+                            ed.updated = false;
+                            Entity temp = EntityManager.Instance.AllEntities[keyVal];
                             //Debug.Log(temp.name);
                             //Debug.Log(kvp.Value.position + ", " + kvp.Value.rotation);
-                            temp.UpdateEntityStats(kvp.Value);
+                            temp.UpdateEntityStats(ed);
                         }
                     }
                 }
