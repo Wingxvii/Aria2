@@ -578,7 +578,7 @@ namespace Netcode
 
         static void receivePacket(IntPtr ptr, int length, bool TCP)
         {
-            if (Math.Abs(length) < 5000)
+            if (length < 5000 && length >= InitialOffset)
             {
 
                 //SendDebugOutput("C# RECEIVED PACKET");
@@ -1046,6 +1046,10 @@ namespace Netcode
                     case (int)GameState.GAME:
                         Debug.Log("Game Start!");
                         GameReady();
+                        break;
+                    case (int)GameState.ENDGAME:
+                        Debug.Log("End Game!");
+                        GameEnded();
                         break;
                 }
                 dataState.GameState = state;
@@ -1900,8 +1904,19 @@ namespace Netcode
         {
             StartManager.Instance.recieveMessage(message);
         }
-
-
         #endregion
+
+
+        public static void EndGame()
+        {
+            SendPacketState((int)GameState.ENDGAME);
+        }
+
+        // Client receive ENDGAME state from server, Call Scene Switch Here
+        public static void GameEnded()
+        {
+            // Insert SceneSwap to End Game Scene
+            GameSceneController.Instance.SwapScene(3);
+        }
     }
 }

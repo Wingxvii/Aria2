@@ -16,8 +16,11 @@ public class Terminal : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (launch)
-			gate.GetComponent<Transform>().position = gate.GetComponent<Transform>().position + Vector3.up*0.1f;
+        if (launch)
+        {
+            gate.GetComponent<Transform>().position = gate.GetComponent<Transform>().position + Vector3.up * 0.1f;
+            Netcode.NetworkManager.EndGame();
+        }
 	}
 	public void openGate(GameObject gate)
 	{
@@ -26,7 +29,6 @@ public class Terminal : MonoBehaviour
 		else
 		{
 			launch = true;
-			
 		}
 	}
 }
