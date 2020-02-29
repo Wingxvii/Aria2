@@ -580,7 +580,7 @@ namespace Netcode
 
         static void receivePacket(IntPtr ptr, int length, bool TCP)
         {
-            if (Math.Abs(length) < 5000)
+            if (16 <= length && length < 5000)
             {
 
                 //SendDebugOutput("C# RECEIVED PACKET");
@@ -880,6 +880,7 @@ namespace Netcode
                     if (EntityManager.Instance.AllEntities.Count > damage.Item1 && EntityManager.Instance.AllEntities[damage.Item1].isActiveAndEnabled)
                     {
                         EntityManager.Instance.AllEntities[damage.Item1].OnDamage(damage.Item2, damage.Item3, damage.Item4);
+                        Debug.Log("DAMAGED");
                     }
                 }
 
