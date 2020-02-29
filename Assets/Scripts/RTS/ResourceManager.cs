@@ -332,6 +332,14 @@ public class ResourceManager : MonoBehaviour
                     Droid temp = (Droid)EntityManager.Instance.GetNewEntity(EntityType.Droid);
                     temp.gameObject.transform.position = home.position;
 
+                    Netcode.NetworkManager.SendPacketBuild(
+                        temp.id, (int)temp.type,
+                        new Vector3(
+                            temp.transform.position.x,
+                            temp.transform.position.y,
+                            temp.transform.position.z),
+                        temp.life);
+
                     break;
                 default:
                     Debug.Log("ERROR: DROID TYPE INVALID");
@@ -354,6 +362,7 @@ public class ResourceManager : MonoBehaviour
                     temp.gameObject.transform.position = home.position;
                     temp.IssueLocation(rally);
                     if (GameSceneController.Instance.type == PlayerType.RTS)
+                    {
                         Netcode.NetworkManager.SendPacketBuild(
                         temp.id, (int)temp.type,
                         new Vector3(
@@ -361,6 +370,7 @@ public class ResourceManager : MonoBehaviour
                             temp.transform.position.y,
                             temp.transform.position.z),
                         temp.life);
+                    }
                     break;
                 default:
                     Debug.Log("ERROR: DROID TYPE INVALID");
