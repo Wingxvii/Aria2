@@ -507,6 +507,7 @@ namespace Netcode
         {
             if (ID >= 0 && type >= 0)
             {
+                Debug.Log("BUILDING TYPE: " + (EntityType)type);
                 int loc = InitialOffset;
                 int Receiver = 0;
 
@@ -1153,7 +1154,7 @@ namespace Netcode
             UnpackFloat(ref bytes, ref loc, ref posZ);
             UnpackInt(ref bytes, ref loc, ref entityLife);
 
-            Debug.Log("Building");
+            Debug.Log("Building: " + (EntityType)type);
             lock (dataState)
             {
                 Tuple<int, int, Vector3, int> temp = Tuple.Create(ID, type, new Vector3(posX, posY, posZ), entityLife);
