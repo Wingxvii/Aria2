@@ -214,7 +214,7 @@ public class EntityManager : MonoBehaviour
         {
             returnEntity = EntitySwitch(type);
 
-            while (AllEntities.Count <= entityID)
+            while (AllEntities.Count < entityID)
             {
                 AllEntities.Add(null);
             }

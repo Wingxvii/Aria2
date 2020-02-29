@@ -870,7 +870,7 @@ namespace Netcode
                     //Debug.Log(damage.Item1 + ", " + damage.Item2 + ", " + damage.Item3);
                     //Debug.Log("PLAYER NUMBER: " + GameSceneController.Instance.playerNumber);
                     //Debug.Log(EntityManager.Instance.AllEntities[GameSceneController.Instance.playerNumber].name);
-                    if (EntityManager.Instance.AllEntities.Count < damage.Item1 && EntityManager.Instance.AllEntities[damage.Item1].isActiveAndEnabled)
+                    if (EntityManager.Instance.AllEntities.Count > damage.Item1 && EntityManager.Instance.AllEntities[damage.Item1].isActiveAndEnabled)
                     {
                         EntityManager.Instance.AllEntities[damage.Item1].OnDamage(damage.Item2, damage.Item3, damage.Item4);
                     }
