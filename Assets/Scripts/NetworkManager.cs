@@ -1916,7 +1916,7 @@ namespace Netcode
         public static void GameEnded()
         {
             // Insert SceneSwap to End Game Scene
-            GameSceneController.Instance.SwapScene(3);
+            StartManager.Instance.EndGame();
         }
     }
 }
