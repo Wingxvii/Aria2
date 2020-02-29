@@ -955,6 +955,7 @@ namespace Netcode
                 SendDebugOutput("User Added! Total: " + allUsers.Count.ToString());
             }
             allUsers[index].username = user;
+            RecieveMessage(user + " has joined the server!");
             StartManager.Instance.OnRoleUpdate(true);
         }
 
