@@ -280,6 +280,7 @@ public class Droid : Entity
     }
     public override void UpdateEntityStats(EntityData ed)
     {
+        Debug.Log("UPDATED STATS OF " + id);
         transform.position = ed.position;
         transform.rotation = Quaternion.Euler(ed.rotation);
     }
