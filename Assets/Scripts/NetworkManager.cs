@@ -444,9 +444,9 @@ namespace Netcode
                     PackData(ref sendByteArray, ref loc, turret.transform.position.x);
                     PackData(ref sendByteArray, ref loc, turret.transform.position.y);
                     PackData(ref sendByteArray, ref loc, turret.transform.position.z);
-                    PackData(ref sendByteArray, ref loc, turret.head.transform.localRotation.x);
-                    PackData(ref sendByteArray, ref loc, turret.body.transform.localRotation.y);
-                    PackData(ref sendByteArray, ref loc, turret.transform.rotation.z);
+                    PackData(ref sendByteArray, ref loc, turret.faceingPoint.x);
+                    PackData(ref sendByteArray, ref loc, turret.faceingPoint.y);
+                    PackData(ref sendByteArray, ref loc, turret.faceingPoint.z);
                 }
             }
             else if (GameSceneController.Instance.type == PlayerType.FPS)
