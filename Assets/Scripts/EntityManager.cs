@@ -119,7 +119,6 @@ public class EntityManager : MonoBehaviour
             temp.transform.rotation = Quaternion.identity;
 
 
-
             //temp.transform.position = new Vector3(-10f, 0.5f, -10f);
             //AllEntities.Add(temp);
             //ActiveEntitiesByType[(int)EntityType.Player].Add(temp);

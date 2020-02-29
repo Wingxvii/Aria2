@@ -219,12 +219,14 @@ namespace FPSPlayer {
 				Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
 				Vector3 intendedMovement = transform.rotation * new Vector3(movement.x, 0, movement.y);
 
-				//Apply Gravity
-				m_velocity.y += Physics.gravity.y * Time.fixedDeltaTime;
+                //Apply Gravity
+                m_velocity.y += Physics.gravity.y * Time.fixedDeltaTime;
 
-				//Grounded.
-				if (m_cControl.isGrounded && m_velocity.y < 0)
-					m_velocity.y = 0;
+                //Grounded.
+                if (m_cControl.isGrounded && m_velocity.y < 0)
+                {
+                    m_velocity.y = 0;
+                }
 
 				//Bump head
 				if (HeadTest() && m_velocity.y > 0)
