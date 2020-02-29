@@ -840,21 +840,24 @@ namespace Netcode
                         firearms[i].NetworkingUpdate(dataState.playerWeapons[i]);
                     }
 
-                    //Debug.Log(dataState)
-                    foreach (var keyVal in dataState.entityUpdates.Keys)
+                    lock (dataState.entityUpdates)
                     {
-
-                        EntityData ed = dataState.entityUpdates[keyVal];
-                        //SendDebugOutput("Updating Entities...");
-                        if (ed.updated)
+                        //Debug.Log(dataState)
+                        foreach (var keyVal in dataState.entityUpdates.Keys)
                         {
-                            //SendDebugOutput("Updating Entities now....");
-                            //Debug.Log("UPDATING POSITION FOR " + kvp.Key + "/" + EntityManager.Instance.AllEntities.Count);
-                            ed.updated = false;
-                            Entity temp = EntityManager.Instance.AllEntities[keyVal];
-                            //Debug.Log(temp.name);
-                            //Debug.Log(kvp.Value.position + ", " + kvp.Value.rotation);
-                            temp.UpdateEntityStats(ed);
+
+                            EntityData ed = dataState.entityUpdates[keyVal];
+                            //SendDebugOutput("Updating Entities...");
+                            if (ed.updated)
+                            {
+                                //SendDebugOutput("Updating Entities now....");
+                                //Debug.Log("UPDATING POSITION FOR " + kvp.Key + "/" + EntityManager.Instance.AllEntities.Count);
+                                ed.updated = false;
+                                Entity temp = EntityManager.Instance.AllEntities[keyVal];
+                                //Debug.Log(temp.name);
+                                //Debug.Log(kvp.Value.position + ", " + kvp.Value.rotation);
+                                temp.UpdateEntityStats(ed);
+                            }
                         }
                     }
                 }
