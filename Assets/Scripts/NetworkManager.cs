@@ -853,10 +853,14 @@ namespace Netcode
                                 //SendDebugOutput("Updating Entities now....");
                                 //Debug.Log("UPDATING POSITION FOR " + kvp.Key + "/" + EntityManager.Instance.AllEntities.Count);
                                 ed.updated = false;
-                                Entity temp = EntityManager.Instance.AllEntities[keyVal];
+                                if (EntityManager.Instance.AllEntities.Count > keyVal && EntityManager.Instance.AllEntities[keyVal].isActiveAndEnabled)
+                                {
+                                    Entity temp = EntityManager.Instance.AllEntities[keyVal];
+                                    temp.UpdateEntityStats(ed);
+                                }
                                 //Debug.Log(temp.name);
                                 //Debug.Log(kvp.Value.position + ", " + kvp.Value.rotation);
-                                temp.UpdateEntityStats(ed);
+
                             }
                         }
                     }
