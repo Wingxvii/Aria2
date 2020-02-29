@@ -101,7 +101,8 @@ namespace FPSPlayer {
             m_state = (PlayerState)state;
         }
 
-        private void Awake() {
+        protected override void BaseAwake() {
+            base.BaseAwake();
 			//Get a reference to the unity character controller (basically a capsule collider with bonus features).
 			if (type == EntityType.Player)
 			{

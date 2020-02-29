@@ -69,8 +69,8 @@ public abstract class Entity : MonoBehaviour
             Destroy(canvasTransform.gameObject);
         }
         //set id
-        id = idtracker++;
-        indexedList.Add(this);
+        //id = idtracker++;
+        //indexedList.Add(this);
         BaseStart();
     }
 
@@ -203,8 +203,16 @@ public abstract class Entity : MonoBehaviour
         NetworkManager.SendPacketDeath(this.id, killerID);
         OnDeActivate();
     }
-    
-    protected virtual void BaseAwake() {}
+
+    private void Awake()
+    {
+        BaseAwake();
+    }
+
+    protected virtual void BaseAwake() {
+        id = idtracker++;
+        indexedList.Add(this);
+    }
     protected virtual void BaseStart() {}
     protected virtual void BaseEnable() {}
     protected virtual void BaseUpdate() {}

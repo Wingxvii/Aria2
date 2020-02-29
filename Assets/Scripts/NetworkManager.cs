@@ -903,6 +903,8 @@ namespace Netcode
                     {
                         Tuple<int, int, Vector3, int> tempTup = dataState.BuildEntity.Dequeue();
 
+                        Debug.Log(tempTup.Item1 + ", " + tempTup.Item2 + ", " + tempTup.Item3 + ", " + tempTup.Item4);
+
                         Entity temp = EntityManager.Instance.GetEntityAt((EntityType)tempTup.Item2, tempTup.Item1);
                         temp.transform.position = tempTup.Item3;
                         temp.life = tempTup.Item4;

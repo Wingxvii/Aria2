@@ -34,6 +34,7 @@ namespace RTSInput
 
                 newEntity.transform.position = position;
                 newEntity.IssueBuild();
+                Debug.Log(newEntity.id);
                 if (GameSceneController.Instance.type == PlayerType.RTS)
                     Netcode.NetworkManager.SendPacketBuild(
                         newEntity.id, (int)newEntity.type, 
