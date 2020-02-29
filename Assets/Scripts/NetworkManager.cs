@@ -425,9 +425,11 @@ namespace Netcode
 
             if (GameSceneController.Instance.type == PlayerType.RTS)
             {
+                //This is not being called on respawned entities - broken
+                //Debug.Log("EVERYTHING SENT! ");
                 foreach (Droid droid in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Droid])
                 {
-                    Debug.Log("DROID SENT! " + droid.id);
+                    
                     PackData(ref sendByteArray, ref loc, droid.id);
                     PackData(ref sendByteArray, ref loc, (int)droid.state);
                     PackData(ref sendByteArray, ref loc, droid.transform.position.x);

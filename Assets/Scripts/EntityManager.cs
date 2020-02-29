@@ -132,7 +132,14 @@ public class EntityManager : MonoBehaviour
     {
         if (ActiveEntitiesByType[(int)EntityType.Turret].Count + ActiveEntitiesByType[(int)EntityType.Droid].Count > 0
             && GameSceneController.Instance.type == PlayerType.RTS)
+        {
+            //Not being called - broken
             NetworkManager.SendPacketEntities();
+        }
+        else
+        {
+            Debug.Log("No Entities Yet");
+        }
     }
 
     //returns an avaliable entity from pool or newly instantiated, if none are avaliable
