@@ -1030,7 +1030,7 @@ namespace Netcode
         static void PacketReceivedMsg(int sender, string msg)
         {
             SendDebugOutput("Player " + sender.ToString() + ": " + msg);
-            RecieveMessage(msg);
+            RecieveMessage(allUsers[sender].username + ": " + msg);
         }
 
         static void PacketReceivedState(int sender, int state)
