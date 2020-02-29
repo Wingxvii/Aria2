@@ -25,6 +25,7 @@ public abstract class Entity : MonoBehaviour
 
     //ID
     public int id;
+    public int killerID;
     private static int idtracker = 0;
     private static List<Entity> indexedList = new List<Entity>();
 
@@ -149,16 +150,19 @@ public abstract class Entity : MonoBehaviour
 
 
     //deals damage to entity
-    public virtual void OnDamage(float num)
+    public virtual void OnDamage(float num, int kID)
     {
+        Debug.Log(type);
         if (destructable)
         {
+            //Debug.Log("NO_BODY");
             currentHealth -= num;
         }
-        if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.RTS)
+        if (currentHealth <= 0)
         {
+            killerID = kID;
             OnDeath();
-        }
+        }//
     }
     public virtual void OnDamage(int num, Entity culprit)
     {
@@ -168,6 +172,7 @@ public abstract class Entity : MonoBehaviour
         }
         if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.RTS)
         {
+            killerID = culprit.id;
             OnDeath();
         }
     }
@@ -189,7 +194,7 @@ public abstract class Entity : MonoBehaviour
     public virtual void OnDeath()
     {
         //deactivate
-        int killerID = 0; // NEED UPDATE @PROGRAMMER
+        int killerID = 0;
         NetworkManager.SendPacketDeath(this.id, killerID);
         OnDeActivate();
     }
@@ -219,7 +224,6 @@ public abstract class Entity : MonoBehaviour
     public virtual void GetEntityString(ref StringBuilder dataToSend) {  }
 
     public virtual void UpdateEntityStats(EntityData ed) {
-        
-        
+        Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString());
     }
 }

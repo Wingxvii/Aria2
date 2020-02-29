@@ -22,8 +22,7 @@ namespace RTSInput
         Other,
     }
 
-    public class InputManager : MonoBehaviour
-    {
+    public class InputManager : MonoBehaviour { 
         #region SingletonCode
         private static InputManager _instance;
         public static InputManager Instance { get { return _instance; } }
@@ -137,17 +136,19 @@ namespace RTSInput
                 if (Physics.Raycast(ray, out hit, 500, EntityManager.Instance.staticsMask))
                 {
                     staticPosition = hit.point;
+                    PlacementGrid grid;
 
                     if (hit.collider.CompareTag("Ground"))
                     {
                         staticTag = StaticTag.Ground;
                     }
-                    else if (hit.collider.CompareTag("Buildable"))
+                    
+                    if (hit.collider.gameObject.TryGetComponent<PlacementGrid>(out grid))
                     {
+                        staticPosition = grid.Snap(hit.point) - grid.m_offset;
                         staticTag = StaticTag.Buildable;
                     }
-                    else
-                    {
+                    else {
                         staticTag = StaticTag.Other;
                     }
 
@@ -186,14 +187,22 @@ namespace RTSInput
                 CheckValidity();
 
 
+
                 //bind prefab object to mouse
-                if (activeBlueprint != null && activeBlueprint.activeSelf)
+                if (activeBlueprint != null && activeBlueprint.activeSelf && currentEvent != MouseEvent.MovementCursor && currentEvent != MouseEvent.RallyCursor)
                 {
-                    activeBlueprint.GetComponent<Transform>().position = new Vector3(InputManager.Instance.staticPosition.x, InputManager.Instance.staticPosition.y + activeBlueprint.GetComponent<Transform>().localScale.y, InputManager.Instance.staticPosition.z);
+                    activeBlueprint.transform.position = new Vector3(InputManager.Instance.staticPosition.x, InputManager.Instance.staticPosition.y, InputManager.Instance.staticPosition.z);
+                    ShellPlacement bp = activeBlueprint.GetComponent<ShellPlacement>();
+                    if (bp.offset)
+                    {
+                        activeBlueprint.transform.position += bp.offset.localPosition;
+                    }
+                }
+                else if (activeBlueprint != null && activeBlueprint.activeSelf) {
+                    activeBlueprint.transform.position = staticPosition;
                 }
             }
         }
-
         //handles selection box
         private void HandleSelectionBox()
         {
@@ -224,7 +233,9 @@ namespace RTSInput
                 {
                     foreach (Entity obj in EntityManager.Instance.AllEntities)
                     {
-                        Vector3 screenPoint = Camera.main.WorldToScreenPoint(obj.GetComponent<Transform>().position);
+                        if (obj == null) continue;
+
+                        Vector3 screenPoint = Camera.main.WorldToScreenPoint(obj.transform.position);
 
                         if (screenPoint.x >= Mathf.Min(boxStart.x, Input.mousePosition.x) &&
                             screenPoint.x <= Mathf.Max(boxStart.x, Input.mousePosition.x) &&
@@ -232,7 +243,6 @@ namespace RTSInput
                             screenPoint.y <= Mathf.Max(boxStart.y, Input.mousePosition.y) && !SelectedEntities.Contains(obj) &&
                             obj.gameObject.activeSelf)
                         {
-                            //Debug.Log(obj.name);
                             SelectedEntities.Add(obj);
                             obj.GetComponent<Entity>().OnSelect();
                             selectionChanged = true;
@@ -269,19 +279,19 @@ namespace RTSInput
                         }
                         if (ResourceManager.Instance.Purchase(shell.type))
                         {
-                            CommandManager.Instance.Build(staticPosition, shell.type);
+                            CommandManager.Instance.Build(activeBlueprint.transform.position, shell.type);
                         }
                         //not purchaseable
                         else
                         {
-                            Debug.Log("NOT ENOUGH CREDITS");
+                            NotificationManager.Instance.HitNotification(NotificationType.INSUFFICIENT_CREDITS);
                         }
 
                     }
                     //handle prefab not placeable exception
                     else if (activeBlueprint != null && !activeBlueprint.GetComponent<ShellPlacement>().placeable)
                     {
-                        Debug.Log("INVALID PLACEMENT");
+                        NotificationManager.Instance.HitNotification(NotificationType.INVALID_PLACEMENT);
                     }
                 }
                 #endregion

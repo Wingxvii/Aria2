@@ -3,15 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using RTSInput;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class ActionMenuButton : MonoBehaviour
 {
     public ActionButton buttonInfo;
+    public GameObject hintPanelPrefab;
+    private GameObject hintPanel;
 
     private Button button;
 
-    private void Start() {
+    public KeyCode hotkey = KeyCode.None;
+
+    private void Awake() {
         button = GetComponent<Button>();
+
+        EventTrigger trigger = gameObject.AddComponent<EventTrigger>();
+        EventTrigger.Entry onEnter = new EventTrigger.Entry();
+        onEnter.eventID = EventTriggerType.PointerEnter;
+
+        UnityAction<BaseEventData> beginHoverAction = new UnityAction<BaseEventData>(BeginHover);
+        onEnter.callback.AddListener(beginHoverAction);
+
+        EventTrigger.Entry onExit = new EventTrigger.Entry();
+        onExit.eventID = EventTriggerType.PointerExit;
+
+        UnityAction<BaseEventData> endHoverAction = new UnityAction<BaseEventData>(EndHover);
+        onExit.callback.AddListener(endHoverAction);
+
+        trigger.triggers.Add(onEnter);
+        trigger.triggers.Add(onExit);
+    }
+
+    private void BeginHover(BaseEventData e) {
+        if (buttonInfo && buttonInfo.hintInfo) {
+            if (hintPanel==null) {
+                hintPanel = Instantiate<GameObject>(hintPanelPrefab);
+                hintPanel.transform.SetParent(transform);
+            }
+            hintPanel.SetActive(true);
+        }
+    }
+
+    private void EndHover(BaseEventData e) {
+        if (hintPanel)
+            hintPanel.SetActive(false);
     }
 
     private void Update()
@@ -27,6 +64,16 @@ public class ActionMenuButton : MonoBehaviour
             button.image.color = new Color(1, 1, 1, 0);
             button.image.raycastTarget = false;
             button.onClick.RemoveAllListeners();
+        }
+        if (hintPanel&&buttonInfo&&buttonInfo.hintInfo) {
+            hintPanel.transform.localPosition = new Vector3(32, 32, 0);
+            hintPanel.GetComponent<HoverHint>().m_hintInfo = buttonInfo.hintInfo;
+        }
+
+        if (hotkey!=KeyCode.None) {
+            if (Input.GetKeyDown(hotkey)) {
+                OnClick();
+            }
         }
     }
 

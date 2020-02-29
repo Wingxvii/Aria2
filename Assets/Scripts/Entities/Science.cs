@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Science : Building
 {
-    public Slider researchProgress;
+    public ResearchProgress researchProgress;
     private Canvas canvas;
 
 
@@ -23,7 +23,7 @@ public class Science : Building
         canvas = GetComponentInChildren<Canvas>();
         canvas.transform.LookAt(canvas.transform.position + Camera.main.transform.rotation * Vector3.back, Camera.main.transform.rotation * Vector3.up);
 
-        researchProgress = canvas.transform.Find("Research Progress").GetComponent<Slider>();
+        //researchProgress = canvas.transform.Find("Research Progress").GetComponent<ResearchProgress>();
         researchProgress.gameObject.SetActive(false);
 
     }

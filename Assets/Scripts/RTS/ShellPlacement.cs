@@ -11,6 +11,7 @@ public class ShellPlacement : MonoBehaviour
 
     public int collisionCount = 0;
 
+    public Transform offset = null;
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +36,11 @@ public class ShellPlacement : MonoBehaviour
             selfRenderer.material = red;
             placeable = false;
         }
-    }
 
+        //Get new position based on mouse position
+        //transform.position = new Vector3(RTSInput.InputManager.Instance.staticPosition.x, RTSInput.InputManager.Instance.staticPosition.y, RTSInput.InputManager.Instance.staticPosition.z);
+
+    }
 
     private void OnTriggerEnter(Collider collision)
     {

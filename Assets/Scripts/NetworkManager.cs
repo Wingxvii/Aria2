@@ -228,8 +228,6 @@ namespace Netcode
         static extern int GetErrorLoc(IntPtr client);
 
 
-
-
         public static string ip = "127.0.0.1";
         private static IntPtr Client;
         private static int playerNumber = -1;
@@ -298,25 +296,29 @@ namespace Netcode
 
         static bool SendIntPtr(ref byte[] bytes, int length, bool TCP, int receiver, int packetType)
         {
-            int playerID = GameSceneController.Instance.playerNumber;
-            BitConverter.GetBytes(length).CopyTo(bytes, 0);
-            BitConverter.GetBytes(receiver).CopyTo(bytes, 4);
-            BitConverter.GetBytes(packetType).CopyTo(bytes, 8);
-            BitConverter.GetBytes(playerID).CopyTo(bytes, 12);
+            bool returnVal = false;
+            if (isConnected)
+            {
+                int playerID = GameSceneController.Instance.playerNumber;
+                BitConverter.GetBytes(length).CopyTo(bytes, 0);
+                BitConverter.GetBytes(receiver).CopyTo(bytes, 4);
+                BitConverter.GetBytes(packetType).CopyTo(bytes, 8);
+                BitConverter.GetBytes(playerID).CopyTo(bytes, 12);
 
-            //SendDebugOutput("ID: " + playerID.ToString() + ", Type: " + packetType.ToString() + ", LENGTH: " + length.ToString());
+                //SendDebugOutput("ID: " + playerID.ToString() + ", Type: " + packetType.ToString() + ", LENGTH: " + length.ToString());
 
-            IntPtr ptr = Marshal.AllocCoTaskMem(length);
+                IntPtr ptr = Marshal.AllocCoTaskMem(length);
 
-            Marshal.Copy(bytes, 0, ptr, length);
+                Marshal.Copy(bytes, 0, ptr, length);
 
-            //SendDataFunc
+                //SendDataFunc
 
-            //SendDebugOutput("C#: SENDING PACKET");
-            bool returnVal = SendDataPacket(ptr, length, TCP, Client);
+                //SendDebugOutput("C#: SENDING PACKET");
+                returnVal = SendDataPacket(ptr, length, TCP, Client);
 
-            Marshal.FreeCoTaskMem(ptr);
+                Marshal.FreeCoTaskMem(ptr);
 
+            }
             return returnVal;
         }
         #endregion
@@ -442,22 +444,22 @@ namespace Netcode
                     PackData(ref sendByteArray, ref loc, turret.transform.position.x);
                     PackData(ref sendByteArray, ref loc, turret.transform.position.y);
                     PackData(ref sendByteArray, ref loc, turret.transform.position.z);
-                    PackData(ref sendByteArray, ref loc, turret.head.transform.localRotation.x);
-                    PackData(ref sendByteArray, ref loc, turret.body.transform.localRotation.y);
-                    PackData(ref sendByteArray, ref loc, turret.transform.rotation.z);
+                    PackData(ref sendByteArray, ref loc, turret.faceingPoint.x);
+                    PackData(ref sendByteArray, ref loc, turret.faceingPoint.y);
+                    PackData(ref sendByteArray, ref loc, turret.faceingPoint.z);
                 }
             }
             else if (GameSceneController.Instance.type == PlayerType.FPS)
             {
-                PlayerFPS player = (PlayerFPS)EntityManager.Instance.AllEntities[playerNumber];
+                FPSPlayer.Player player = (FPSPlayer.Player)EntityManager.Instance.AllEntities[playerNumber];
                 PackData(ref sendByteArray, ref loc, player.id);
-                PackData(ref sendByteArray, ref loc, player.stats.state);
+                PackData(ref sendByteArray, ref loc, (int)player.GetState());
                 PackData(ref sendByteArray, ref loc, player.transform.position.x);
                 PackData(ref sendByteArray, ref loc, player.transform.position.y);
                 PackData(ref sendByteArray, ref loc, player.transform.position.z);
-                PackData(ref sendByteArray, ref loc, player.mainCam.transform.localRotation.x);
-                PackData(ref sendByteArray, ref loc, player.transform.localRotation.y);
-                PackData(ref sendByteArray, ref loc, player.mainCam.transform.rotation.z);
+                PackData(ref sendByteArray, ref loc, player.m_pitch);
+                PackData(ref sendByteArray, ref loc, player.m_yaw);
+                PackData(ref sendByteArray, ref loc, player.transform.rotation.z);
             }
             else
             {
@@ -818,9 +820,20 @@ namespace Netcode
                 if (dataState.GameState == (int)GameState.GAME)
                 {
                     //SendDebugOutput("Game Update");
-                    foreach (PlayerFPS pfps in EntityManager.Instance.ActivePlayers())
+                    //foreach (FPSPlayer.Player pfps in EntityManager.Instance.ActivePlayers())
+                    //{
+                    //
+                    //    pfps. = pfps.playerGun.slots[dataState.playerWeapons[pfps.id - 1]];
+                    //}
+                    //
+                    //foreach (FirearmHandler firearm in firearms)
+                    //{
+                    //   
+                    //}
+
+                    for(int i = 0; i < 3; i++)
                     {
-                        pfps.playerGun.activeGun = pfps.playerGun.slots[dataState.playerWeapons[pfps.id - 1]];
+                        firearms[i].NetworkingUpdate(dataState.playerWeapons[i]);
                     }
 
                     foreach (KeyValuePair<int, EntityData> kvp in dataState.entityUpdates)
@@ -852,15 +865,17 @@ namespace Netcode
                         //Debug.Log("NO!");
                         Tuple<int, float, int> damage = dataState.DamageDealt.Dequeue();
 
-                        EntityManager.Instance.AllEntities[damage.Item1].OnDamage(damage.Item2);
+                        EntityManager.Instance.AllEntities[damage.Item1].OnDamage(damage.Item2, damage.Item3);
                     }
                     else
                     {
                         //Debug.Log("YEAH!");
+
                         Tuple<int, float, int> damage = dataState.DamageDealt.Dequeue();
+                        //Debug.Log(damage.Item1 + ", " + damage.Item2 + ", " + damage.Item3);
                         //Debug.Log("PLAYER NUMBER: " + GameSceneController.Instance.playerNumber);
                         //Debug.Log(EntityManager.Instance.AllEntities[GameSceneController.Instance.playerNumber].name);
-                        EntityManager.Instance.AllEntities[damage.Item1].OnDamage(damage.Item2);
+                        EntityManager.Instance.AllEntities[damage.Item1].OnDamage(damage.Item2, damage.Item3);
                     }
                 }
 
@@ -908,16 +923,19 @@ namespace Netcode
         #region PacketReception
         static void PacketReceivedInit(int sender, int index)
         {
-            SendDebugOutput("INIT PACKET");
-            isConnected = true;
-            OnConnected(true);
             GameSceneController.Instance.playerNumber = index;
             playerNumber = index;
-            allUsers.Add(new UsersData());
-            SendDebugOutput("Sending UDP INIT");
-            SendPacketInitUDP(GameSceneController.Instance.playerNumber);
-            SendDebugOutput("Sending TCP for username");
-            SendPacketUser(GameSceneController.Instance.playerNumber, StartManager.Instance.username.text);
+            if (!isConnected)
+            {
+                SendDebugOutput("INIT PACKET");
+                isConnected = true;
+                OnConnected(true);
+                allUsers.Add(new UsersData());
+                SendDebugOutput("Sending UDP INIT");
+                SendPacketInitUDP(GameSceneController.Instance.playerNumber);
+                SendDebugOutput("Sending TCP for username");
+                SendPacketUser(GameSceneController.Instance.playerNumber, StartManager.Instance.username.text);
+            }
         }
 
         static void PacketReceivedUser(int index, string user)
@@ -1540,6 +1558,18 @@ namespace Netcode
             {
                 packet_state state = new packet_state
                 {
+                    packet_build build = new packet_build
+                    {
+                        id = entity.id,
+                        type = (int)entity.type,
+                        posX = entity.transform.position.x,
+                        posY = entity.transform.position.y,
+                        posZ = entity.transform.position.z
+                    };
+                    if (!SendDataBuild(build, true, Client))
+                    {
+                        Debug.Log("Error Loc: " + GetErrorLoc(Client).ToString() + " , Error: " + GetError(Client).ToString());
+                    }
                     state = s
                 };
 

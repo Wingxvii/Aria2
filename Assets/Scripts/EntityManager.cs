@@ -69,10 +69,6 @@ public class EntityManager : MonoBehaviour
         }
 
 
-        SpawnManager.Instance.Initialize();
-
-        SpawnManager.Instance.Initialize();
-
         //create all lists
         ActiveEntitiesByType = new List<List<Entity>>();
         DeactivatedEntitiesByType = new List<Queue<Entity>>();
@@ -87,7 +83,7 @@ public class EntityManager : MonoBehaviour
         {
             foreach (Entity entity in AllEntities)
             {
-                if (entity.gameObject.activeSelf)
+                if (entity&&entity.gameObject.activeSelf)
                 {
                     ActiveEntitiesByType[(int)entity.type].Add(entity);
                 }
@@ -110,20 +106,36 @@ public class EntityManager : MonoBehaviour
         //spawn players for debugging
         EntityType[] spawnType = new EntityType[3];
         Entity temp;
+        SpawnManager.Instance.Initialize();
 
         for (int i = 0; i < spawnType.Length; ++i)
         {
             spawnType[i] = (GameSceneController.Instance.playerNumber == i + 1) ? EntityType.Player : EntityType.Dummy;
-
             temp = GetNewEntity(spawnType[i]);
+
+            //set spawn
+            int spawnPointNum = SpawnManager.Instance.freeSpawnPoints.Dequeue();
+            temp.transform.position = SpawnManager.Instance.FPSspawnpoints[spawnPointNum].position;
+            temp.transform.rotation = Quaternion.identity;
+
+
 
             //temp.transform.position = new Vector3(-10f, 0.5f, -10f);
             //AllEntities.Add(temp);
-            ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
+            //ActiveEntitiesByType[(int)EntityType.Player].Add(temp);
         }
 
         //tell network that user is done loading
         NetworkManager.OnLoaded();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.P))
+        {
+            Debug.Log("Active Entity Types: " + ActiveEntitiesByType.Count.ToString());
+            Debug.Log("Active Entity Dummys: " + ActiveEntitiesByType[6].Count.ToString());
+        }
     }
 
     private void FixedUpdate()
@@ -222,6 +234,6 @@ public class EntityManager : MonoBehaviour
 
     //simple getters
     public List<Entity> ActivePlayers() {
-        return ActiveEntitiesByType[(int)EntityType.Player];
+        return ActiveEntitiesByType[(int)EntityType.Dummy];
     }
 }

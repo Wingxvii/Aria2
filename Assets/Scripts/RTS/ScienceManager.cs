@@ -24,6 +24,7 @@ namespace RTSInput
         //single pattern ends here
         #endregion
 
+        public Sprite[] researchImages;
         
         // Start is called before the first frame update
         void Start()
@@ -95,10 +96,14 @@ namespace RTSInput
 
         public void CallResearch(int num)
         {
-            Slider slider = InputManager.Instance.PrimaryEntity.GetComponent<Science>().researchProgress;
+            ResearchProgress slider = InputManager.Instance.PrimaryEntity.GetComponent<Science>().researchProgress;
             if (!slider.gameObject.activeSelf && !CheckResearched(num) && ResourceManager.Instance.RequestResearch(num))
             {
+                //No need for the old slider to be visible
                 slider.gameObject.SetActive(true);
+                if (num < researchImages.Length) {
+                    slider.SetImage(researchImages[num]);
+                }
                 switch (num)
                 {
                     case 0:
@@ -187,14 +192,14 @@ namespace RTSInput
         }
 
 
-        IEnumerator ResearchCoroutine(float timer, Slider progress, int researchNum)
+        IEnumerator ResearchCoroutine(float timer, ResearchProgress progress, int researchNum)
         {
             float startTime = 0.0f;
 
             while (startTime < timer)
             {
                 startTime += Time.deltaTime;
-                progress.value = startTime / timer;
+                progress.SetValue(1-(startTime / timer));
 
                 yield return 0;
             }

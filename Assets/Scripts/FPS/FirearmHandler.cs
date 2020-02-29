@@ -17,6 +17,7 @@ public class FirearmHandler : MonoBehaviour
 	//Firearm Universal
 	public GameObject bulletHole;
 	public GameObject bulletImpact;
+	public GameObject muzzleFlash;
 
 	public Transform barrel;
 
@@ -34,10 +35,13 @@ public class FirearmHandler : MonoBehaviour
 
 		reload();
 
-        parentPlayer = GetComponentInParent<PlayerFPS>().id;
+        if (GetComponentInParent<FPSPlayer.Player>())
+        {
+            parentPlayer = GetComponentInParent<FPSPlayer.Player>().id;
 
-        Debug.Log(parentPlayer - 1);
-        Netcode.NetworkManager.firearms[parentPlayer - 1] = this;
+            Debug.Log(parentPlayer - 1);
+            Netcode.NetworkManager.firearms[parentPlayer - 1] = this;
+        }
     }
 
   
@@ -126,7 +130,20 @@ public class FirearmHandler : MonoBehaviour
 			{
 				Debug.DrawRay(PV.transform.position,projectileDirection*10,Color.green,10,false);
 				GameObject impact= Instantiate(bulletImpact, hit.point, Quaternion.LookRotation(hit.normal));
+				GameObject flash = Instantiate(muzzleFlash,barrel.position, Quaternion.LookRotation(PV.transform.forward));
+				flash.transform.SetParent(barrel);
 				Destroy(impact,1f);
+				Destroy(flash, 1f);
+
+                Entity ET = hit.collider.GetComponentInParent<Entity>();
+                if (ET != null)
+                {
+                    Debug.Log(ET.name);
+                    if (ET.type != EntityType.Player && ET.type != EntityType.Dummy)
+                    {
+                        Netcode.NetworkManager.SendPacketDamage(parentPlayer, ET.id, gunStats.dmg);
+                    }
+                }
 			}
 		}
 	}

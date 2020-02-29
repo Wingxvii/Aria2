@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 834821345826798437}
   - component: {fileID: 1794353788709505666}
   - component: {fileID: 892674384751640563}
-  - component: {fileID: 3348022310264832715}
   - component: {fileID: 8394695437777111199}
+  - component: {fileID: 6503143729064451448}
   m_Layer: 14
   m_Name: TurretShell
   m_TagString: Shell
@@ -81,20 +81,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &3348022310264832715
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1436627955740270682}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: -2432090755550338912, guid: 9f4392875d10a574f9ebbd4e798403b9, type: 3}
 --- !u!114 &8394695437777111199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,3 +98,17 @@ MonoBehaviour:
   type: 4
   placeable: 0
   collisionCount: 0
+  offset: {fileID: 0}
+--- !u!65 &6503143729064451448
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436627955740270682}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.132605, y: 2.205032, z: 2.0612175}
+  m_Center: {x: 0.000024199486, y: 1.5366753, z: -0.010850668}

@@ -123,6 +123,7 @@ MonoBehaviour:
   type: 7
   placeable: 0
   collisionCount: 0
+  offset: {fileID: 0}
 --- !u!65 &7734902289719453885
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -134,5 +135,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3702184, y: 0.3702214, z: 0.4855841}
-  m_Center: {x: 0.000000022351742, y: 0.000002034009, z: 0.24278723}
+  m_Size: {x: 0.3702184, y: 0.3702214, z: 0.4787618}
+  m_Center: {x: 0.000000019868216, y: 0.000002026558, z: 0.24619839}

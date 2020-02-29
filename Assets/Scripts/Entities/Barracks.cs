@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using RTSInput;
 
 public class Barracks : Building
 {
     public Slider buildProcess;
+    public GameObject processObject;
+
     public Queue<float> buildTimes;
     public float currentBuildTime = 0;
 
     public static float droidTrainTime = 5.0f;
-    public static int maxTrainingCap = 25;
+    public static int maxTrainingCap = 6;
 
     private Canvas canvas;
 
@@ -37,10 +40,13 @@ public class Barracks : Building
         canvas.transform.LookAt(canvas.transform.position + Camera.main.transform.rotation * Vector3.back, Camera.main.transform.rotation * Vector3.up);
 
         spawnPoint = this.transform.Find("SpawnPoint");
+        
         buildProcess.gameObject.SetActive(false);
 
         buildProcess = canvas.transform.Find("Building Progress").GetComponent<Slider>();
         buildProcess.gameObject.SetActive(false);
+
+        processObject.SetActive(false);
 
         buildTimes = new Queue<float>();
 
@@ -60,7 +66,8 @@ public class Barracks : Building
             //add to queue
             if (currentBuildTime <= 0 && buildTimes.Count > 0)
             {
-                buildProcess.gameObject.SetActive(true);
+                // buildProcess.gameObject.SetActive(true);
+                processObject.SetActive(true);
                 currentBuildTime += buildTimes.Dequeue();
             }
             //tick queue
@@ -83,7 +90,8 @@ public class Barracks : Building
             //queue ended
             else if (currentBuildTime <= 0)
             {
-                buildProcess.gameObject.SetActive(false);
+                // buildProcess.gameObject.SetActive(false);
+                processObject.SetActive(false);
             }
         }
     }
@@ -135,15 +143,15 @@ public class Barracks : Building
             buildTimes.Enqueue(ResourceManager.Instance.RequestQueue(EntityType.Droid));
         }
         else if (ResourceManager.Instance.supplyCurrent >= ResourceManager.Instance.totalSupply) {
-            Debug.Log("MAX SUPPLY REACHED");
+            NotificationManager.Instance.HitNotification(NotificationType.SUPPLY_BLOCKED);
         }
         else if (buildTimes.Count >= maxTrainingCap)
         {
-            Debug.Log("QUEUE IS FULL");
+            NotificationManager.Instance.HitNotification(NotificationType.QUEUE_FULL);
         }
         else
         {
-            Debug.Log("NOT ENOUGH CREDITS");
+            NotificationManager.Instance.HitNotification(NotificationType.INSUFFICIENT_CREDITS);
         }
     }
 
