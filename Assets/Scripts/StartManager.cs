@@ -49,7 +49,6 @@ public class StartManager : MonoBehaviour
     public float countdownSeconds = 5.0f;
     public bool countdown = false;
     public bool loadGame = false;
-    public bool endGame = false;
     public bool connected = false;
 
     private void Start()
@@ -151,11 +150,6 @@ public class StartManager : MonoBehaviour
         loadGame = true;
     }
 
-    public void EndGame()
-    {
-        endGame = true;
-    }
-
     public void StartCount() {
         countdown = true;
         //rtsButton.interactable = false;
@@ -191,11 +185,6 @@ public class StartManager : MonoBehaviour
         {
             loadGame = false;
             GameSceneController.Instance.SwapScene(2);
-        }
-        if(endGame)
-        {
-            endGame = false;
-            GameSceneController.Instance.SwapScene(3);
         }
         if (countdown)
         {

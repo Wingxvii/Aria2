@@ -231,6 +231,7 @@ namespace Netcode
         public static string ip = "127.0.0.1";
         private static IntPtr Client;
         private static int playerNumber = -1;
+        private static bool endGame = false;
 
         static public bool isConnected = false;
 
@@ -783,6 +784,14 @@ namespace Netcode
 
             if (isConnected)
             {
+                if(Input.GetKeyDown(KeyCode.P))
+                {
+                    endGame = true;
+                }
+                if (endGame)
+                {
+                    GameSceneController.Instance.SwapScene(3);
+                }
                 //update players
                 //if (dataState.p1.updated)
                 //{
@@ -831,7 +840,7 @@ namespace Netcode
                     //   
                     //}
 
-                    for(int i = 0; i < 3; i++)
+                    for (int i = 0; i < 3; i++)
                     {
                         firearms[i].NetworkingUpdate(dataState.playerWeapons[i]);
                     }
@@ -1916,7 +1925,7 @@ namespace Netcode
         public static void GameEnded()
         {
             // Insert SceneSwap to End Game Scene
-            StartManager.Instance.EndGame();
+            endGame = true;
         }
     }
 }
