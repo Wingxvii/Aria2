@@ -25,10 +25,10 @@ public class StartManager : MonoBehaviour
     }
     //single pattern ends here
     #endregion
-
-    public InputField ipText;
-    public InputField chatText;
-    public InputField username;
+    
+    public TMPro.TMP_InputField ipText;
+    public TMPro.TMP_InputField username;
+    public TMPro.TMP_InputField chatText;
 
     public Text connectionStatus;
     public Text chatLog;
