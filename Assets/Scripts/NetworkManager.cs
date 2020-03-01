@@ -152,10 +152,10 @@ namespace Netcode
         public Dictionary<int, EntityData> entityUpdates = new Dictionary<int, EntityData>();
 
         //instanced data
-        public Queue<Tuple<int, int, Vector3>> BuildEntity = new Queue<Tuple<int, int, Vector3>>();
+        public Queue<Tuple<int, int, Vector3, int>> BuildEntity = new Queue<Tuple<int, int, Vector3, int>>();
         public Queue<int> KilledEntity = new Queue<int>();
         //for fps: damage, culprit; for fps: damage, hit id
-        public Queue<Tuple<int, float, int>> DamageDealt = new Queue<Tuple<int, float, int>>();
+        public Queue<Tuple<int, float, int, int>> DamageDealt = new Queue<Tuple<int, float, int, int>>();
 
         //game state
         public int GameState = -1;
@@ -426,8 +426,11 @@ namespace Netcode
 
             if (GameSceneController.Instance.type == PlayerType.RTS)
             {
+                //This is not being called on respawned entities - broken
+                //Debug.Log("EVERYTHING SENT! ");
                 foreach (Droid droid in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Droid])
                 {
+                    
                     PackData(ref sendByteArray, ref loc, droid.id);
                     PackData(ref sendByteArray, ref loc, (int)droid.state);
                     PackData(ref sendByteArray, ref loc, droid.transform.position.x);
@@ -471,7 +474,7 @@ namespace Netcode
         }
 
 
-        public static void SendPacketDamage(int senderID, int receiverID, float damage)
+        public static void SendPacketDamage(int senderID, int receiverID, float damage, int entityLife)
         {
             if (damage >= 0)
             {
@@ -483,6 +486,7 @@ namespace Netcode
                 PackData(ref sendByteArray, ref loc, senderID);
                 PackData(ref sendByteArray, ref loc, receiverID);
                 PackData(ref sendByteArray, ref loc, damage);
+                PackData(ref sendByteArray, ref loc, entityLife);
 
                 SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.DAMAGE);
             }
@@ -503,10 +507,11 @@ namespace Netcode
             }
         }
 
-        public static void SendPacketBuild(int ID, int type, Vector3 pos)
+        public static void SendPacketBuild(int ID, int type, Vector3 pos, int entityLife)
         {
             if (ID >= 0 && type >= 0)
             {
+                Debug.Log("BUILDING TYPE: " + (EntityType)type);
                 int loc = InitialOffset;
                 int Receiver = 0;
 
@@ -517,6 +522,7 @@ namespace Netcode
                 PackData(ref sendByteArray, ref loc, pos.x);
                 PackData(ref sendByteArray, ref loc, pos.y);
                 PackData(ref sendByteArray, ref loc, pos.z);
+                PackData(ref sendByteArray, ref loc, entityLife);
 
                 SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.BUILD);
             }
@@ -680,10 +686,12 @@ namespace Netcode
                     int senderID = 0;
                     int receiverID = 0;
                     float damage = 0.0f;
+                    int entityLife = -1;
                     UnpackInt(ref bytes, ref loc, ref senderID);
                     UnpackInt(ref bytes, ref loc, ref receiverID);
                     UnpackFloat(ref bytes, ref loc, ref damage);
-                    PacketReceivedDamage(senderID, receiverID, damage);
+                    UnpackInt(ref bytes, ref loc, ref entityLife);
+                    PacketReceivedDamage(senderID, receiverID, damage, entityLife);
                     break;
                 case (int)PacketType.WEAPON:
                     int weapon = 0;
@@ -845,18 +853,28 @@ namespace Netcode
                         firearms[i].NetworkingUpdate(dataState.playerWeapons[i]);
                     }
 
-                    foreach (KeyValuePair<int, EntityData> kvp in dataState.entityUpdates)
+                    lock (dataState.entityUpdates)
                     {
-                        //SendDebugOutput("Updating Entities...");
-                        if (kvp.Value.updated)
+                        //Debug.Log(dataState)
+                        foreach (var keyVal in dataState.entityUpdates.Keys)
                         {
-                            //SendDebugOutput("Updating Entities now....");
-                            //Debug.Log("UPDATING POSITION FOR " + kvp.Key + "/" + EntityManager.Instance.AllEntities.Count);
-                            kvp.Value.updated = false;
-                            Entity temp = EntityManager.Instance.AllEntities[kvp.Key];
-                            //Debug.Log(temp.name);
-                            //Debug.Log(kvp.Value.position + ", " + kvp.Value.rotation);
-                            temp.UpdateEntityStats(kvp.Value);
+
+                            EntityData ed = dataState.entityUpdates[keyVal];
+                            //SendDebugOutput("Updating Entities...");
+                            if (ed.updated)
+                            {
+                                //SendDebugOutput("Updating Entities now....");
+                                //Debug.Log("UPDATING POSITION FOR " + kvp.Key + "/" + EntityManager.Instance.AllEntities.Count);
+                                ed.updated = false;
+                                if (EntityManager.Instance.AllEntities.Count > keyVal && EntityManager.Instance.AllEntities[keyVal].isActiveAndEnabled)
+                                {
+                                    Entity temp = EntityManager.Instance.AllEntities[keyVal];
+                                    temp.UpdateEntityStats(ed);
+                                }
+                                //Debug.Log(temp.name);
+                                //Debug.Log(kvp.Value.position + ", " + kvp.Value.rotation);
+
+                            }
                         }
                     }
                 }
@@ -867,31 +885,28 @@ namespace Netcode
                 //update damage
                 while (dataState.DamageDealt.Count > 0)
                 {
-                    //Debug.Log("WAITING...");
-                    //rts damage calculation
-                    if (GameSceneController.Instance.type == PlayerType.RTS)
-                    {
-                        //Debug.Log("NO!");
-                        Tuple<int, float, int> damage = dataState.DamageDealt.Dequeue();
 
-                        EntityManager.Instance.AllEntities[damage.Item1].OnDamage(damage.Item2, damage.Item3);
-                    }
-                    else
+                    Tuple<int, float, int, int> damage = dataState.DamageDealt.Dequeue();
+                    //Debug.Log(damage.Item1 + ", " + damage.Item2 + ", " + damage.Item3);
+                    //Debug.Log("PLAYER NUMBER: " + GameSceneController.Instance.playerNumber);
+                    //Debug.Log(EntityManager.Instance.AllEntities[GameSceneController.Instance.playerNumber].name);
+                    if (EntityManager.Instance.AllEntities.Count > damage.Item1 && EntityManager.Instance.AllEntities[damage.Item1].isActiveAndEnabled)
                     {
-                        //Debug.Log("YEAH!");
-
-                        Tuple<int, float, int> damage = dataState.DamageDealt.Dequeue();
-                        //Debug.Log(damage.Item1 + ", " + damage.Item2 + ", " + damage.Item3);
-                        //Debug.Log("PLAYER NUMBER: " + GameSceneController.Instance.playerNumber);
-                        //Debug.Log(EntityManager.Instance.AllEntities[GameSceneController.Instance.playerNumber].name);
-                        EntityManager.Instance.AllEntities[damage.Item1].OnDamage(damage.Item2, damage.Item3);
+                        EntityManager.Instance.AllEntities[damage.Item1].OnDamage(damage.Item2, damage.Item3, damage.Item4);
+                        Debug.Log("DAMAGED");
                     }
                 }
 
                 while (dataState.KilledEntity.Count > 0)
                 {
                     if (GameSceneController.Instance.type == PlayerType.FPS)
+                    {
                         EntityManager.Instance.AllEntities[dataState.KilledEntity.Dequeue()].OnDeActivate();
+                    }
+                    else
+                    {
+                        dataState.KilledEntity.Dequeue();
+                    }
                 }
 
                 while (dataState.KilledEntity.Count > 0)
@@ -913,10 +928,13 @@ namespace Netcode
                 {
                     if (GameSceneController.Instance.type == PlayerType.FPS)
                     {
-                        Tuple<int, int, Vector3> tempTup = dataState.BuildEntity.Dequeue();
+                        Tuple<int, int, Vector3, int> tempTup = dataState.BuildEntity.Dequeue();
 
-                        Entity temp = EntityManager.Instance.GetNewEntity((EntityType)tempTup.Item2);
+                        Debug.Log(tempTup.Item1 + ", " + tempTup.Item2 + ", " + tempTup.Item3 + ", " + tempTup.Item4);
+
+                        Entity temp = EntityManager.Instance.GetEntityAt((EntityType)tempTup.Item2, tempTup.Item1);
                         temp.transform.position = tempTup.Item3;
+                        temp.life = tempTup.Item4;
                         temp.IssueBuild();
 
                     }
@@ -1100,9 +1118,9 @@ namespace Netcode
         }
 
         // NEEDS UPDATE @PROGRAMMERS
-        static void PacketReceivedDamage(int senderID, int receiverID, float damage)
+        static void PacketReceivedDamage(int senderID, int receiverID, float damage, int entityLife)
         {
-            Tuple<int, float, int> temp = Tuple.Create(receiverID, damage, senderID);
+            Tuple<int, float, int, int> temp = Tuple.Create(receiverID, damage, senderID, entityLife);
 
             lock (dataState)
             {
@@ -1148,16 +1166,18 @@ namespace Netcode
             float posX = 0;
             float posY = 0;
             float posZ = 0;
+            int entityLife = -1;
             UnpackInt(ref bytes, ref loc, ref ID);
             UnpackInt(ref bytes, ref loc, ref type);
             UnpackFloat(ref bytes, ref loc, ref posX);
             UnpackFloat(ref bytes, ref loc, ref posY);
             UnpackFloat(ref bytes, ref loc, ref posZ);
+            UnpackInt(ref bytes, ref loc, ref entityLife);
 
-            Debug.Log("Building");
+            Debug.Log("Building: " + (EntityType)type);
             lock (dataState)
             {
-                Tuple<int, int, Vector3> temp = Tuple.Create(ID, type, new Vector3(posX, posY, posZ));
+                Tuple<int, int, Vector3, int> temp = Tuple.Create(ID, type, new Vector3(posX, posY, posZ), entityLife);
                 dataState.BuildEntity.Enqueue(temp);
             }
         }

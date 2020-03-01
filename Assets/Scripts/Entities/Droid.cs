@@ -115,7 +115,7 @@ public class Droid : Entity
                     shortestDist = float.MaxValue;
 
                     //check shortest in range for each player
-                    foreach (PlayerFPS player in EntityManager.Instance.ActivePlayers())
+                    foreach (FPSPlayer.Player player in EntityManager.Instance.ActivePlayers())
                     {
                         float dist = Vector3.Distance(player.transform.position, this.transform.position);
                         if (dist < shortestDist)
@@ -140,7 +140,7 @@ public class Droid : Entity
                     shortestDist = float.MaxValue;
 
                     //check shortest in range for each player
-                    foreach (PlayerFPS player in EntityManager.Instance.ActivePlayers())
+                    foreach (FPSPlayer.Player player in EntityManager.Instance.ActivePlayers())
                     {
                         float dist = Vector3.Distance(player.transform.position, this.transform.position);
                         if (dist < shortestDist)
@@ -161,7 +161,7 @@ public class Droid : Entity
                     anim.SetFloat("Walk", 0);
                     anim.SetFloat("Turn", 0);
 
-                    foreach (PlayerFPS player in EntityManager.Instance.ActivePlayers())
+                    foreach (FPSPlayer.Player player in EntityManager.Instance.ActivePlayers())
                     {
                         float dist = Vector3.Distance(player.transform.position, this.transform.position);
                         if (dist < shortestDist)
@@ -226,12 +226,12 @@ public class Droid : Entity
         {
             if (ResourceManager.Instance.droidStronger)
             {
-                NetworkManager.SendPacketDamage(this.id, attackPoint.id, attackDamage);
+                NetworkManager.SendPacketDamage(this.id, attackPoint.id, attackDamage, attackPoint.life);
                 currentCoolDown = coolDown;
                 anim.Play("Attack");
             }
             else {
-                NetworkManager.SendPacketDamage(this.id, attackPoint.id, strongAttack);
+                NetworkManager.SendPacketDamage(this.id, attackPoint.id, strongAttack, attackPoint.life);
                 currentCoolDown = lowCoolDown;
                 anim.Play("Attack");
 
@@ -246,9 +246,9 @@ public class Droid : Entity
             {
                 state = DroidState.TetherAttacking;
             }
-            if (!(state == DroidState.TetherAttacking && attackPoint != other.gameObject.GetComponent<PlayerFPS>()) && state != DroidState.TargetAttacking)
+            if (!(state == DroidState.TetherAttacking && attackPoint != other.gameObject.GetComponent<FPSPlayer.Player>()) && state != DroidState.TargetAttacking)
             {
-                attackPoint = other.gameObject.GetComponent<PlayerFPS>();
+                attackPoint = other.gameObject.GetComponent<FPSPlayer.Player>();
             }
             OnAttack();
         }
@@ -280,12 +280,14 @@ public class Droid : Entity
     }
     public override void UpdateEntityStats(EntityData ed)
     {
+        Debug.Log("UPDATED STATS OF " + id);
         transform.position = ed.position;
         transform.rotation = Quaternion.Euler(ed.rotation);
     }
 
     public override void OnDeath()
     {
+        ++life;
         StartCoroutine(PlayDeath());
     }
 

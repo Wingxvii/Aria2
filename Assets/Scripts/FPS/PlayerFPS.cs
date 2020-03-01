@@ -282,7 +282,7 @@ public class PlayerFPS : Entity
     //Use this to network damage being dealt
     public void SendDamage(int damage, Entity receiver)
     {
-        Netcode.NetworkManager.SendPacketDamage(this.id, receiver.id, damage);
+        Netcode.NetworkManager.SendPacketDamage(this.id, receiver.id, damage, receiver.life);
         receiver.OnDamage(damage, this);
     }
 
@@ -373,16 +373,19 @@ public class PlayerFPS : Entity
         //}
     }
 
-    public override void OnDamage(float num, int id)
+    public override void OnDamage(float num, int id, int entityLife)
     {
-        if (destructable)
+        if (life == entityLife)
         {
-            currentHealth -= num;
-        }
-        if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.FPS)
-        {
-            killerID = id;
-            OnDeath();
+            if (destructable)
+            {
+                currentHealth -= num;
+            }
+            if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.FPS)
+            {
+                killerID = id;
+                OnDeath();
+            }
         }
     }
 

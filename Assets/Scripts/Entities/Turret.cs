@@ -167,7 +167,7 @@ public class Turret : Building
                             if (HitPlayer())
                             {
                                 Debug.Log("Hit Player");
-                                NetworkManager.SendPacketDamage(this.id, attackPoint.id, attackDamage);
+                                NetworkManager.SendPacketDamage(this.id, attackPoint.id, attackDamage, attackPoint.life);
                                 //attackPoint.OnDamage(attackDamage, this);
                             }
                             currentAmno--;
@@ -204,7 +204,7 @@ public class Turret : Building
 
                             if (HitPlayer())
                             {
-                                    NetworkManager.SendPacketDamage(this.id, attackPoint.id, attackDamage);
+                                    NetworkManager.SendPacketDamage(this.id, attackPoint.id, attackDamage, attackPoint.life);
                                     //attackPoint.OnDamage(attackDamage, this);
                             }
                             currentAmno--;

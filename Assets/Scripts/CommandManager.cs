@@ -34,13 +34,15 @@ namespace RTSInput
 
                 newEntity.transform.position = position;
                 newEntity.IssueBuild();
+                Debug.Log(newEntity.id);
                 if (GameSceneController.Instance.type == PlayerType.RTS)
                     Netcode.NetworkManager.SendPacketBuild(
                         newEntity.id, (int)newEntity.type, 
                         new Vector3(
                             newEntity.transform.position.x,
                             newEntity.transform.position.y,
-                            newEntity.transform.position.z));
+                            newEntity.transform.position.z),
+                        newEntity.life);
             }
         }
 
