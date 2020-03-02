@@ -540,7 +540,7 @@ namespace Netcode
                 int loc = InitialOffset;
                 int Receiver = 0;
 
-                Receiver = (~(int)PlayerMask.SERVER);
+                Receiver = ~(((int)PlayerMask.SERVER) + (1 << (GameSceneController.Instance.playerNumber + 1)));
 
                 PackData(ref sendByteArray, ref loc, ID);
                 PackData(ref sendByteArray, ref loc, killerID);
@@ -823,6 +823,7 @@ namespace Netcode
                 if (endGame)
                 {
                     GameSceneController.Instance.SwapScene(3);
+                    endGame = false;
                 }
                 //update players
                 //if (dataState.p1.updated)
