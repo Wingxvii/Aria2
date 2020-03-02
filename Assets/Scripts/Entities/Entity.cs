@@ -238,7 +238,6 @@ public abstract class Entity : MonoBehaviour
     public virtual void GetEntityString(ref StringBuilder dataToSend) {  }
 
     public virtual void UpdateEntityStats(EntityData ed) {
-        
-        
+        Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString());
     }
 }

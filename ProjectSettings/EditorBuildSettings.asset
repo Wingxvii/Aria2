@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CRITICAL/GameScene.unity
     guid: 228a9e6ac7b1d9c40b4d7e95ccae179d
+  - enabled: 1
+    path: Assets/Scenes/CRITICAL/EndScene.unity
+    guid: bae7a1b4d2663284eb64748e766f1b52
   m_configObjects: {}

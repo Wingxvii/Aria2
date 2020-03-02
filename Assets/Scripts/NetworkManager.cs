@@ -235,6 +235,7 @@ namespace Netcode
         public static string ip = "127.0.0.1";
         private static IntPtr Client;
         private static int playerNumber = -1;
+        private static bool endGame = false;
 
         static public bool isConnected = false;
 
@@ -599,7 +600,7 @@ namespace Netcode
 
         static void receivePacket(IntPtr ptr, int length, bool TCP)
         {
-            if (16 <= length && length < 5000)
+            if (length < 5000 && length >= InitialOffset)
             {
 
                 //SendDebugOutput("C# RECEIVED PACKET");
@@ -815,6 +816,14 @@ namespace Netcode
 
             if (isConnected)
             {
+                if(Input.GetKeyDown(KeyCode.P))
+                {
+                    endGame = true;
+                }
+                if (endGame)
+                {
+                    GameSceneController.Instance.SwapScene(3);
+                }
                 //update players
                 //if (dataState.p1.updated)
                 //{
@@ -863,7 +872,7 @@ namespace Netcode
                     //   
                     //}
 
-                    for(int i = 0; i < 3; i++)
+                    for (int i = 0; i < 3; i++)
                     {
                         firearms[i].NetworkingUpdate(dataState.playerWeapons[i]);
                     }
@@ -957,16 +966,19 @@ namespace Netcode
         #region PacketReception
         static void PacketReceivedInit(int sender, int index)
         {
-            SendDebugOutput("INIT PACKET");
-            isConnected = true;
-            OnConnected(true);
             GameSceneController.Instance.playerNumber = index;
             playerNumber = index;
-            allUsers.Add(new UsersData());
-            SendDebugOutput("Sending UDP INIT");
-            SendPacketInitUDP(GameSceneController.Instance.playerNumber);
-            SendDebugOutput("Sending TCP for username");
-            SendPacketUser(GameSceneController.Instance.playerNumber, StartManager.Instance.username.text);
+            if (!isConnected)
+            {
+                SendDebugOutput("INIT PACKET");
+                isConnected = true;
+                OnConnected(true);
+                allUsers.Add(new UsersData());
+                SendDebugOutput("Sending UDP INIT");
+                SendPacketInitUDP(GameSceneController.Instance.playerNumber);
+                SendDebugOutput("Sending TCP for username");
+                SendPacketUser(GameSceneController.Instance.playerNumber, StartManager.Instance.username.text);
+            }
         }
 
         static void PacketReceivedUser(int index, string user)
@@ -977,6 +989,7 @@ namespace Netcode
                 SendDebugOutput("User Added! Total: " + allUsers.Count.ToString());
             }
             allUsers[index].username = user;
+            RecieveMessage(user + " has joined the server!");
             StartManager.Instance.OnRoleUpdate(true);
         }
 
@@ -1052,7 +1065,7 @@ namespace Netcode
         static void PacketReceivedMsg(int sender, string msg)
         {
             SendDebugOutput("Player " + sender.ToString() + ": " + msg);
-            RecieveMessage(msg);
+            RecieveMessage(allUsers[sender].username + ": " + msg);
         }
 
         static void PacketReceivedState(int sender, int state)
@@ -1077,6 +1090,10 @@ namespace Netcode
                     case (int)GameState.GAME:
                         Debug.Log("Game Start!");
                         GameReady();
+                        break;
+                    case (int)GameState.ENDGAME:
+                        Debug.Log("End Game!");
+                        GameEnded();
                         break;
                 }
                 dataState.GameState = state;
@@ -1933,8 +1950,19 @@ namespace Netcode
         {
             StartManager.Instance.recieveMessage(message);
         }
-
-
         #endregion
+
+
+        public static void EndGame()
+        {
+            SendPacketState((int)GameState.ENDGAME);
+        }
+
+        // Client receive ENDGAME state from server, Call Scene Switch Here
+        public static void GameEnded()
+        {
+            // Insert SceneSwap to End Game Scene
+            endGame = true;
+        }
     }
 }
