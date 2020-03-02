@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Terminal : MonoBehaviour
 {
-	public GameObject gate;
-	public bool final;
-	private bool launch = false;
+    int gateNumber = -1;
+    public GameObject gate;
+    public bool final;
+    private bool launch = false;
+    public bool opened { get; private set; } = false;
 	// Start is called before the first frame update
 	void Start()
 	{
-
+        gateNumber = Netcode.NetworkManager.gates.Count;
+        Netcode.NetworkManager.gates.Add(this);
 	}
 
 	// Update is called once per frame
@@ -21,12 +24,20 @@ public class Terminal : MonoBehaviour
 	}
 	public void openGate(GameObject gate)
 	{
-		if (!final)
-			Destroy(gate);
-		else
-		{
-			launch = true;
-			
-		}
+        if (!opened)
+        {
+            if (!final)
+            {
+                Destroy(gate);
+
+            }
+            else
+            {
+                launch = true;
+
+            }
+
+            opened = true;
+        }
 	}
 }
