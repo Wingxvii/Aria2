@@ -147,6 +147,7 @@ public class EntityManager : MonoBehaviour
         if (DeactivatedEntitiesByType[(int)type].Count != 0)
         {
             Entity returnEntity = DeactivatedEntitiesByType[(int)type].Dequeue();
+            ActiveEntitiesByType[(int)type].Add(returnEntity);
             returnEntity.OnActivate();
 
             return returnEntity;
