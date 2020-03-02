@@ -7,7 +7,8 @@ namespace FPSPlayer {
     [RequireComponent(typeof(CharacterController))]
     public class Player : Entity
     {
-
+        bool heDead = false;
+        bool doubleCheckDead = false;
         /*
          *  For a FSM representation of the player.
          */
@@ -23,6 +24,7 @@ namespace FPSPlayer {
         }
 
         private CharacterController m_cControl = null;
+        public Vector3 spawnpoint { get; set; } = Vector3.zero;
 
         #region Serialised Members
             [Header("References")]
@@ -76,8 +78,15 @@ namespace FPSPlayer {
          */
 
         public void SetLocation(Vector3 _location) {
+
+            if (type == EntityType.Player)
+                m_cControl.enabled = false;
+
             transform.position = _location;
             m_oldPosition = _location;
+
+            if (type == EntityType.Player)
+                m_cControl.enabled = true;
         }
 
         /*
@@ -85,8 +94,19 @@ namespace FPSPlayer {
          *  Uses the camera object's rotation for pitch.
          */
         public void SetRotation(Vector3 _rotation) {
+            if (type == EntityType.Player)
+                m_cControl.enabled = false;
+
             transform.localRotation = Quaternion.Euler(0,_rotation.y,0);
-            m_camera.transform.rotation = Quaternion.Euler(_rotation.x, 0, 0);
+            m_pitch = 0f;
+            m_yaw = 0f;
+            if (type == EntityType.Player)
+            {
+                m_camera.transform.localRotation = Quaternion.Euler(_rotation.x, 0, 0);
+            }
+
+            if (type == EntityType.Player)
+                m_cControl.enabled = true;
         }
 
         /*
@@ -132,7 +152,8 @@ namespace FPSPlayer {
         }
 
         private void Update() {
-			//Jump.
+            //Jump.
+
 			if (type == EntityType.Player)
 			{
 				if (Input.GetKeyDown(KeyCode.Space)) Jump();
@@ -217,7 +238,23 @@ namespace FPSPlayer {
 			}
         }
 
+        void DebugDead()
+        {
+            if (heDead)
+            {
+                Debug.Log(transform.position + ", " + m_oldPosition);
+                heDead = false;
+            }
+            else if (doubleCheckDead)
+            {
+                Debug.Log(transform.position + ", " + m_oldPosition);
+                doubleCheckDead = false;
+            }
+        }
+
         private void FixedUpdate() {
+
+
 			if (type == EntityType.Player)
 			{
 				//Process movement input.
@@ -319,10 +356,13 @@ namespace FPSPlayer {
 				//Save whether or not the player was just grounded before the movement.
 				m_wasGrounded = m_cControl.isGrounded;
 
+                //DebugDead();
 				//Move the player
 				m_oldPosition = transform.position;
 				m_oldPositionT = Time.time;
 				m_cControl.Move(m_velocity * Time.deltaTime);
+
+                //DebugDead();
 
 				//Check if the player just unwillingly left the ground.
 				if (!GroundTest() && m_wasGrounded && m_velocity.y <= 0)
@@ -347,14 +387,23 @@ namespace FPSPlayer {
 		public override void OnDeath()
 		{
 			ResetValues();
+            if (GameSceneController.Instance.type == PlayerType.FPS)
+                Netcode.NetworkManager.SendPacketDeath(this.id, killerID);
             Debug.Log("U DEAD");
 		}
 
         public override void ResetValues()
         {
-            SetLocation(Vector3.zero);
+            SetLocation(spawnpoint);
             SetRotation(Vector3.zero);
             this.currentHealth = maxHealth;
+            heDead = true;
+            doubleCheckDead = true;
+        }
+
+        public override void OnDeActivate()
+        {
+            
         }
 
         /*
@@ -386,8 +435,10 @@ namespace FPSPlayer {
 
         public override void UpdateEntityStats(Netcode.EntityData ed)
         {
-            transform.position = ed.position;
-            transform.localRotation = Quaternion.Euler(new Vector3(0, ed.rotation.y, 0));
+            SetLocation(ed.position);
+            SetRotation(ed.rotation);
+            //transform.position = ed.position;
+            //transform.localRotation = Quaternion.Euler(new Vector3(0, ed.rotation.y, 0));
             //m_pitch = ed.rotation.x;
             //m_yaw = ed.rotation.y;
         }

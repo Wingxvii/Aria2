@@ -200,7 +200,8 @@ public abstract class Entity : MonoBehaviour
         ++life;
         //deactivate
         int killerID = 0; // NEED UPDATE @PROGRAMMER
-        NetworkManager.SendPacketDeath(this.id, killerID);
+        if (GameSceneController.Instance.type == PlayerType.RTS)
+            NetworkManager.SendPacketDeath(this.id, killerID);
         OnDeActivate();
     }
 

@@ -115,8 +115,17 @@ public class EntityManager : MonoBehaviour
 
             //set spawn
             int spawnPointNum = SpawnManager.Instance.freeSpawnPoints.Dequeue();
-            temp.transform.position = SpawnManager.Instance.FPSspawnpoints[spawnPointNum].position;
-            temp.transform.rotation = Quaternion.identity;
+
+
+            FPSPlayer.Player player = (FPSPlayer.Player)temp;
+
+            player.SetLocation(SpawnManager.Instance.FPSspawnpoints[spawnPointNum].position);
+            player.SetRotation(new Vector3(0, 0, 0));
+
+            player.spawnpoint = SpawnManager.Instance.FPSspawnpoints[spawnPointNum].position;
+
+            //temp.transform.position = SpawnManager.Instance.FPSspawnpoints[spawnPointNum].position;
+            //temp.transform.rotation = Quaternion.identity;
 
 
             //temp.transform.position = new Vector3(-10f, 0.5f, -10f);
@@ -138,7 +147,7 @@ public class EntityManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("No Entities Yet");
+            //Debug.Log("No Entities Yet");
         }
     }
 

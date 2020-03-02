@@ -921,29 +921,14 @@ namespace Netcode
 
                 while (dataState.KilledEntity.Count > 0)
                 {
-                    if (GameSceneController.Instance.type == PlayerType.FPS)
-                    {
-                        EntityManager.Instance.AllEntities[dataState.KilledEntity.Dequeue()].OnDeActivate();
-                    }
-                    else
-                    {
-                        dataState.KilledEntity.Dequeue();
-                    }
-                }
-
-                while (dataState.KilledEntity.Count > 0)
-                {
-                    if (GameSceneController.Instance.type == PlayerType.FPS)
-                    {
-                        EntityManager.Instance.AllEntities[dataState.KilledEntity.Dequeue()].OnDeActivate();
-                    }
-                    else
-                    {
-                        if (EntityManager.Instance.AllEntities[dataState.KilledEntity.Dequeue()].type == EntityType.Dummy)
-                        {
-                            ResourceManager.Instance.KilledPlayer();
-                        }
-                    }
+                    //if (GameSceneController.Instance.type == PlayerType.FPS)
+                    //{
+                        EntityManager.Instance.AllEntities[dataState.KilledEntity.Dequeue()].OnDeath();
+                    //}
+                    //else
+                    //{
+                    //    dataState.KilledEntity.Dequeue();
+                    //}
                 }
 
                 while (dataState.BuildEntity.Count > 0)
