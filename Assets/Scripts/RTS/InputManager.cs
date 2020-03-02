@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace RTSInput
 {
@@ -46,7 +47,7 @@ namespace RTSInput
         public Vector2 boxStart;
         public Vector2 boxEnd;
         public bool boxActive = false;
-        public Texture selectionBox;
+        public Image selectionBox;
         public int BoxThreshold = 15;
         #endregion
 
@@ -204,25 +205,22 @@ namespace RTSInput
         //handles selection box
         private void HandleSelectionBox()
         {
-            if (!EventSystem.current.IsPointerOverGameObject())
+            //handle box init behaviour
+            if (Input.GetMouseButtonDown(0) && boxActive == false && currentEvent == MouseEvent.None)
             {
-                //handle box init behaviour
-                if (Input.GetMouseButtonDown(0) && boxActive == false && currentEvent == MouseEvent.None)
+                boxStart = Input.mousePosition;
+                boxActive = true;
+            }
+            //handle box drag updates
+            else if (Input.GetMouseButton(0) && boxActive)
+            {
+                if (Mathf.Abs(boxStart.x - Input.mousePosition.x) > BoxThreshold || Mathf.Abs(boxStart.y - Input.mousePosition.y) > BoxThreshold)
                 {
-                    boxStart = Input.mousePosition;
-                    boxActive = true;
+                    boxEnd = Input.mousePosition;
                 }
-                //handle box drag updates
-                else if (Input.GetMouseButton(0) && boxActive)
+                else
                 {
-                    if (Mathf.Abs(boxStart.x - Input.mousePosition.x) > BoxThreshold || Mathf.Abs(boxStart.y - Input.mousePosition.y) > BoxThreshold)
-                    {
-                        boxEnd = Input.mousePosition;
-                    }
-                    else
-                    {
-                        boxEnd = Vector2.zero;
-                    }
+                    boxEnd = Vector2.zero;
                 }
             }
 
@@ -253,6 +251,24 @@ namespace RTSInput
                     boxActive = false;
 
                 }
+
+            if (boxStart != Vector2.zero && boxEnd != Vector2.zero)
+            {
+                selectionBox.rectTransform.sizeDelta = new Vector2(Mathf.Abs(boxStart.x - boxEnd.x), Mathf.Abs(boxStart.y - boxEnd.y));
+                selectionBox.rectTransform.position = new Vector2(Mathf.Abs(boxStart.x + boxEnd.x) / 2, Mathf.Abs(boxStart.y + boxEnd.y) / 2);
+
+                if (boxActive)
+                {
+                    selectionBox.gameObject.SetActive(true);
+                }
+                else {
+                    selectionBox.gameObject.SetActive(false);
+                }
+            }
+            else{
+                selectionBox.gameObject.SetActive(false);
+            }
+
         }
 
         //handles left mouse input
@@ -842,16 +858,6 @@ namespace RTSInput
         #endregion
 
         #region Functional Input
-        private void OnGUI()
-        {
-            //used to draw selection box
-
-            if (boxStart != Vector2.zero && boxEnd != Vector2.zero)
-            {
-                GUI.DrawTexture(new Rect(boxStart.x, Screen.height - boxStart.y, boxEnd.x - boxStart.x, -1 * ((Screen.height - boxStart.y) - (Screen.height - boxEnd.y))), selectionBox);
-            }
-        }
-
         private IEnumerator DoubleClickListener()
         {
             while (enabled)
