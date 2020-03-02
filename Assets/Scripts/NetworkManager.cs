@@ -33,7 +33,9 @@ namespace Netcode
         // entity built
         BUILD,
         // entity killed
-        DEATH
+        DEATH,
+
+        TERMINAL
     };
 
     enum PlayerMask
@@ -239,6 +241,7 @@ namespace Netcode
         int fixedTimeStep;
         public static DataState dataState;
         public static FirearmHandler[] firearms = new FirearmHandler[3];
+        public static List<Terminal> gates = new List<Terminal>();
 
         static byte[] sendByteArray = new byte[5000];
         static byte[] tcpByteArray = new byte[5000];
@@ -542,6 +545,16 @@ namespace Netcode
                 SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.DEATH);
             }
         }
+
+        public static void SendPacketGateOpen(int gateNum)
+        {
+            int loc = InitialOffset;
+            int Receiver = ~(((int)PlayerMask.SERVER) + (1 << (GameSceneController.Instance.playerNumber + 1)));
+
+            PackData(ref sendByteArray, ref loc, gateNum);
+
+            SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.TERMINAL);
+        }
         #endregion
 
         #region ReceivingPackets
@@ -706,6 +719,14 @@ namespace Netcode
                     UnpackInt(ref bytes, ref loc, ref id);
                     UnpackInt(ref bytes, ref loc, ref killerID);
                     PacketReceivedDeath(id, killerID);
+                    break;
+                case (int)PacketType.TERMINAL:
+                    int toDisarm = -1;
+                    UnpackInt(ref bytes, ref loc, ref toDisarm);
+                    if (toDisarm >= 0 && gates[toDisarm] != null)
+                    {
+                        gates[toDisarm].openGate(gates[toDisarm].gate);
+                    }
                     break;
                 default:
                     SendDebugOutput("Error Packet Type");
