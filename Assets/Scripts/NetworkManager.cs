@@ -159,6 +159,8 @@ namespace Netcode
         //for fps: damage, culprit; for fps: damage, hit id
         public Queue<Tuple<int, float, int, int>> DamageDealt = new Queue<Tuple<int, float, int, int>>();
 
+        public Queue<Tuple<int>> TerminalsOpened = new Queue<Tuple<int>>();
+
         //game state
         public int GameState = -1;
     }
@@ -725,7 +727,8 @@ namespace Netcode
                     UnpackInt(ref bytes, ref loc, ref toDisarm);
                     if (toDisarm >= 0 && gates[toDisarm] != null)
                     {
-                        gates[toDisarm].openGate(gates[toDisarm].gate);
+                        dataState.TerminalsOpened.Enqueue(new Tuple<int>(toDisarm));
+                        //gates[toDisarm].openGate(gates[toDisarm].gate);
                     }
                     break;
                 default:
@@ -889,6 +892,13 @@ namespace Netcode
                             }
                         }
                     }
+                }
+
+                while (dataState.TerminalsOpened.Count > 0)
+                {
+                    Tuple<int> toOpen = dataState.TerminalsOpened.Dequeue();
+
+                    gates[toOpen.Item1].openGate(gates[toOpen.Item1].gate);
                 }
 
                 //if (dataState.entityUpdates.Count > 0)
