@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Terminal : MonoBehaviour
 {
-    int gateNumber = -1;
+    public int gateNumber { get; private set; } = -1;
     public GameObject gate;
     public bool final;
     private bool launch = false;

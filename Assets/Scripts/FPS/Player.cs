@@ -337,7 +337,10 @@ namespace FPSPlayer {
 					}
 				}
 
-                Netcode.NetworkManager.SendPacketEntities();
+                if (Netcode.NetworkManager.isConnected)
+                {
+                    Netcode.NetworkManager.SendPacketEntities();
+                }
             }
         }
 
