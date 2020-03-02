@@ -141,9 +141,7 @@ namespace RTSInput
                     if (hit.collider.CompareTag("Ground"))
                     {
                         staticTag = StaticTag.Ground;
-                    }
-                    
-                    if (hit.collider.gameObject.TryGetComponent<PlacementGrid>(out grid))
+                    }else if (hit.collider.gameObject.TryGetComponent<PlacementGrid>(out grid))
                     {
                         staticPosition = grid.Snap(hit.point) - grid.m_offset;
                         staticTag = StaticTag.Buildable;
@@ -438,6 +436,7 @@ namespace RTSInput
                 //if current event is selection
                 if (currentEvent == MouseEvent.None)
                 {
+                    Debug.Log("Right Click Location Issued");
                     //check if enemy selected
                     if (HitObject != null && HitObject.type == EntityType.Player)
                     {
@@ -451,6 +450,7 @@ namespace RTSInput
                     }
                     else if(SelectedEntities.Count > 0 && staticTag == StaticTag.Ground)
                     {
+                        Debug.Log("Ground Type Issued");
                         //give every object their default commands
                         foreach (Entity obj in SelectedEntities)
                         {
@@ -463,6 +463,7 @@ namespace RTSInput
                                 CommandManager.Instance.IssueLocation(obj, staticPosition);
                             }
                             else if (obj.type == EntityType.Barracks) {
+                                Debug.Log("Barracks Location Issued");
                                 CommandManager.Instance.IssueLocation(obj, staticPosition);
                             }
                         }
