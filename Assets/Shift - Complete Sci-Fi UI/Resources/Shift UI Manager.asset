@@ -3,15 +3,16 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9aabd12c6a06b464ba68864f87a71c02, type: 3}
   m_Name: Shift UI Manager
   m_EditorClassIdentifier: 
-  enableDynamicUpdate: 0
+  enableDynamicUpdate: 1
   enableExtendedColorPicker: 1
   editorHints: 1
   backgroundColorTint: {r: 0.627451, g: 0.88235295, b: 1, a: 1}
