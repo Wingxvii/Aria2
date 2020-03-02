@@ -185,7 +185,11 @@ namespace FPSPlayer {
 							Debug.DrawRay(m_camera.transform.position, m_camera.transform.forward * 10, Color.green, 10, false);
 							if (interactTimer > (interactStartTime + holdTime))
 							{
-								currentTerminal.openGate(currentTerminal.gate);
+                                if (Netcode.NetworkManager.isConnected)
+                                {
+                                    Netcode.NetworkManager.SendPacketGateOpen(currentTerminal.gateNumber);
+                                }
+                                currentTerminal.openGate(currentTerminal.gate);
 							}
 						}
 						else
