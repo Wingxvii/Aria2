@@ -164,7 +164,7 @@ public abstract class Entity : MonoBehaviour
             if (currentHealth <= 0)
             {
                 killerID = kID;
-                OnDeath();
+                OnDeath(true);
             }//
         }
     }
@@ -195,12 +195,12 @@ public abstract class Entity : MonoBehaviour
         this.currentHealth = maxHealth;
     }
     //death of unit
-    public virtual void OnDeath()
+    public virtual void OnDeath(bool networkData)
     {
         ++life;
         //deactivate
         int killerID = 0; // NEED UPDATE @PROGRAMMER
-        if (GameSceneController.Instance.type == PlayerType.RTS)
+        if (networkData)
             NetworkManager.SendPacketDeath(this.id, killerID);
         OnDeActivate();
     }

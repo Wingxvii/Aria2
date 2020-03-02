@@ -384,10 +384,10 @@ namespace FPSPlayer {
             }
         }
 
-		public override void OnDeath()
+		public override void OnDeath(bool networkData)
 		{
 			ResetValues();
-            if (GameSceneController.Instance.type == PlayerType.FPS)
+            if (networkData)
                 Netcode.NetworkManager.SendPacketDeath(this.id, killerID);
             Debug.Log("U DEAD");
 		}
@@ -429,7 +429,7 @@ namespace FPSPlayer {
 			}
 			if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.FPS)
 			{
-				OnDeath();
+				OnDeath(true);
 			}
 		}
 

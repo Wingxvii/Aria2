@@ -923,7 +923,7 @@ namespace Netcode
                 {
                     //if (GameSceneController.Instance.type == PlayerType.FPS)
                     //{
-                        EntityManager.Instance.AllEntities[dataState.KilledEntity.Dequeue()].OnDeath();
+                        EntityManager.Instance.AllEntities[dataState.KilledEntity.Dequeue()].OnDeath(false);
                     //}
                     //else
                     //{

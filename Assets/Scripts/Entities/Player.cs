@@ -116,7 +116,7 @@ namespace DEPRECATED
             //anim.SetFloat("Turn", Vector3.Dot(this.GetComponent<Rigidbody>().velocity, transform.right) / 10);
         }
 
-        public override void OnDeath()
+        public override void OnDeath(bool networkData)
         {
             Debug.Log("Player's Dead");
             if (ResourceManager.ResourceConstants.UNKILLABLEPLAYER)
@@ -125,7 +125,7 @@ namespace DEPRECATED
             }
             else
             {
-                base.OnDeath();
+                base.OnDeath(networkData);
             }
         }
 

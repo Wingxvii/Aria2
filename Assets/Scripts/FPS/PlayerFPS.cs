@@ -267,7 +267,7 @@ public class PlayerFPS : Entity
         }
     }
 
-    public override void OnDeath()
+    public override void OnDeath(bool networkData)
     {
         ResetValues();
         Debug.Log("U DEAD");
@@ -384,7 +384,7 @@ public class PlayerFPS : Entity
             if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.FPS)
             {
                 killerID = id;
-                OnDeath();
+                OnDeath(true);
             }
         }
     }
@@ -398,7 +398,7 @@ public class PlayerFPS : Entity
         }
         if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.FPS)
         {
-            OnDeath();
+            OnDeath(true);
         }
     }
 

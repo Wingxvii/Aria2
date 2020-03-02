@@ -285,9 +285,11 @@ public class Droid : Entity
         transform.rotation = Quaternion.Euler(ed.rotation);
     }
 
-    public override void OnDeath()
+    public override void OnDeath(bool networkData)
     {
         ++life;
+        if (networkData)
+            NetworkManager.SendPacketDeath(this.id, killerID);
         StartCoroutine(PlayDeath());
     }
 
@@ -300,8 +302,7 @@ public class Droid : Entity
     IEnumerator PlayDeath()
     {
         anim.Play("Death");
-        if (GameSceneController.Instance.type == PlayerType.RTS)
-            NetworkManager.SendPacketDeath(this.id, killerID);
+
         yield return new WaitForSeconds(3.2f);
 
         OnDeActivate();
