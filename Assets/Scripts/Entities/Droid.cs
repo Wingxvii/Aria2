@@ -12,6 +12,8 @@ public enum DroidState {
     TetherAttacking = 3,
     TargetAttacking = 4,
     Dancing = 5,
+    Death = 6,
+
 }
 
 public class Droid : Entity
@@ -177,7 +179,9 @@ public class Droid : Entity
 
 
                     break;
+                case DroidState.Death:
 
+                    break;
             }
         }
     }
@@ -294,13 +298,12 @@ public class Droid : Entity
 
         Debug.Log("IT DIED " + id);
 		StartCoroutine(PlayDeath());
-		
+        state = DroidState.Death;
     }
 
     public void OnDance()
     {
         anim.Play("Dance");
-
     }
 
     IEnumerator PlayDeath()
