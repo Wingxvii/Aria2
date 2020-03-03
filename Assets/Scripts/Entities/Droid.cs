@@ -287,10 +287,14 @@ public class Droid : Entity
 
     public override void OnDeath(bool networkData)
     {
-        ++life;
-        if (networkData)
-            NetworkManager.SendPacketDeath(this.id, killerID);
-        StartCoroutine(PlayDeath());
+		if (this.isActiveAndEnabled)
+		{
+			++life;
+			if (networkData)
+				NetworkManager.SendPacketDeath(this.id, killerID);
+
+			StartCoroutine(PlayDeath());
+		}
     }
 
     public void OnDance()
