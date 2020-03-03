@@ -17,8 +17,6 @@ namespace FPSPlayer {
             WALKING,
             RUNNING,
             JUMPING,
-            FALLING,
-
 
             NUM_STATES
         }
@@ -69,7 +67,7 @@ namespace FPSPlayer {
 
 
             //The current state of the player.
-            private PlayerState m_state;
+            public PlayerState m_state;
         #endregion
 
         /* 
@@ -340,18 +338,6 @@ namespace FPSPlayer {
 						m_state = PlayerState.RUNNING;
 					}
 				}
-				else
-				{
-					if (m_velocity.y > 0)
-					{
-						m_state = PlayerState.JUMPING;
-					}
-					else
-					{
-						m_state = PlayerState.FALLING;
-					}
-				}
-
 
 				//Save whether or not the player was just grounded before the movement.
 				m_wasGrounded = m_cControl.isGrounded;

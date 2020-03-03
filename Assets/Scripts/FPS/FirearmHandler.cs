@@ -4,9 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 
+public enum AnimationState { 
+    NONE,
+    WALK,
+    RUN,
+    RELOAD,
+    FIRE,
+}
+
 public class FirearmHandler : MonoBehaviour
 {
-	public GunStats gunStats;
+    public AnimationState currState = AnimationState.NONE;
+
+    public GunStats gunStats;
 	//Scriptable Object required variables
 	public Firearms activeGun;
 	public Firearms[] slots;
@@ -21,10 +31,13 @@ public class FirearmHandler : MonoBehaviour
 
 	public Transform barrel;
 
-	//Method usage
-	private int remainingClip;
+    public Animation anim;
+    public FPSPlayer.Player parentController;
+
+    //Method usage
+    private int remainingClip;
 	private float currentAcc;
-	private float timeToNextShot;
+	public float timeToNextShot;
 
     int parentPlayer = -1;
 
@@ -32,8 +45,10 @@ public class FirearmHandler : MonoBehaviour
     void Start()
     {
 		updateWeapon();
+        anim = GetComponent<Animation>();
+        parentController = GetComponentInParent<FPSPlayer.Player>();
 
-		reload();
+        reload();
 
         if (GetComponentInParent<FPSPlayer.Player>())
         {
@@ -52,6 +67,7 @@ public class FirearmHandler : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
                 reload();
+                StartCoroutine(ReloadGun());
             }
             if (Input.GetKey(KeyCode.Mouse0) && Time.time >= timeToNextShot)
             {
@@ -66,6 +82,40 @@ public class FirearmHandler : MonoBehaviour
                 }
 
             }
+            else
+            {
+                //update to walk or run animations
+                if ((currState == AnimationState.NONE || currState == AnimationState.WALK) && parentController.m_state == FPSPlayer.Player.PlayerState.RUNNING)
+                {
+                    currState = AnimationState.RUN;
+                    anim.Play("run");
+                }
+                else if ((currState == AnimationState.NONE || currState == AnimationState.RUN) && parentController.m_state == FPSPlayer.Player.PlayerState.WALKING)
+                {
+                    currState = AnimationState.WALK;
+                    anim.Play("move");
+                }
+
+
+                if (currState == AnimationState.RUN && parentController.m_state != FPSPlayer.Player.PlayerState.RUNNING){
+                    Debug.Log("Stop Running");
+                    currState = AnimationState.NONE;
+                    anim.Stop();
+                }
+                if (currState == AnimationState.WALK && parentController.m_state != FPSPlayer.Player.PlayerState.WALKING) {
+                    Debug.Log("Stop Walking");
+                    currState = AnimationState.NONE;
+                    anim.Stop();
+                }
+                if(currState == AnimationState.NONE && parentController.m_state == FPSPlayer.Player.PlayerState.IDLE && Time.time <= timeToNextShot)
+                {
+                    Debug.Log("Nothing");
+                    currState = AnimationState.NONE;
+                    anim.Stop();
+                }
+            }
+
+            //check movement
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 activeGun = slots[0];
@@ -146,8 +196,32 @@ public class FirearmHandler : MonoBehaviour
                 }
 			}
 		}
-	}
-	void dryFire()
+        StartCoroutine(FireGun());
+    }
+    void dryFire()
 	{
+        if (currState != AnimationState.RELOAD)
+        {
+            StartCoroutine(FireGun());
+        }
 	}
+
+    IEnumerator ReloadGun()
+    {
+        anim.Play("reload");
+        currState = AnimationState.RELOAD;
+
+        yield return new WaitForSeconds(anim.GetClip("reload").length);
+        if (!anim.isPlaying) { currState = AnimationState.NONE; }
+        
+    }
+    IEnumerator FireGun()
+    {
+        anim.Play("fire");
+        currState = AnimationState.FIRE;
+
+        yield return new WaitForSeconds(anim.GetClip("fire").length);
+        if (!anim.isPlaying) { currState = AnimationState.NONE; }
+    }
+
 }
