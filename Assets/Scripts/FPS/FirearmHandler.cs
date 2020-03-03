@@ -206,6 +206,8 @@ public class FirearmHandler : MonoBehaviour
 			}
 
 			PlayShootEffect(impactPoint, impactNormal);
+
+            Networking.NetworkManager.SendPacketFiring(parentPlayer, impactPoint, impactNormal);
 		}
 		StartCoroutine(FireGun());
 	}
