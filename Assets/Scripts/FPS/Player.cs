@@ -9,6 +9,8 @@ namespace FPSPlayer {
     {
         bool heDead = false;
         bool doubleCheckDead = false;
+
+        float timeSinceLastUpdate = 0f;
         /*
          *  For a FSM representation of the player.
          */
@@ -69,6 +71,8 @@ namespace FPSPlayer {
             //The current state of the player.
             public PlayerState m_state;
         #endregion
+
+        public Animator anim;
 
         /* 
          *  Use this to manually set the player's location.
@@ -131,6 +135,10 @@ namespace FPSPlayer {
 				m_fov = m_camera.fieldOfView;
 				m_state = PlayerState.IDLE;
 			}
+
+            timeSinceLastUpdate = Time.time;
+
+            anim = GetComponentInChildren<Animator>();
         }
 
         //Set the upward velocity of the player.
@@ -421,8 +429,15 @@ namespace FPSPlayer {
 
         public override void UpdateEntityStats(Netcode.EntityData ed)
         {
+            Vector3 oldPos = transform.position;
+
             SetLocation(ed.position);
             SetRotation(ed.rotation);
+
+            anim.SetFloat("Walk", Mathf.Clamp(Vector3.Dot((ed.position - oldPos) / (Time.time - timeSinceLastUpdate), transform.forward), -1, 1));
+            anim.SetFloat("Turn", Mathf.Clamp(Vector3.Dot((ed.position - oldPos) / (Time.time - timeSinceLastUpdate), transform.right), -1, 1));
+
+
             //transform.position = ed.position;
             //transform.localRotation = Quaternion.Euler(new Vector3(0, ed.rotation.y, 0));
             //m_pitch = ed.rotation.x;
