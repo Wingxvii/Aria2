@@ -226,12 +226,12 @@ public class Droid : Entity
         {
             if (ResourceManager.Instance.droidStronger)
             {
-                NetworkManager.SendPacketDamage(this.id, attackPoint.id, attackDamage, attackPoint.life);
+                NetworkManager.SendPacketDamage(this.id, attackPoint.id, attackDamage, attackPoint.deaths);
                 currentCoolDown = coolDown;
                 anim.Play("Attack");
             }
             else {
-                NetworkManager.SendPacketDamage(this.id, attackPoint.id, strongAttack, attackPoint.life);
+                NetworkManager.SendPacketDamage(this.id, attackPoint.id, strongAttack, attackPoint.deaths);
                 currentCoolDown = lowCoolDown;
                 anim.Play("Attack");
 
@@ -287,14 +287,13 @@ public class Droid : Entity
 
     public override void OnDeath(bool networkData)
     {
-		if (this.isActiveAndEnabled)
-		{
-			++life;
-			if (networkData)
-				NetworkManager.SendPacketDeath(this.id, killerID);
+		if (networkData)
+			++deaths;
+		if (networkData)
+			NetworkManager.SendPacketDeath(this.id, killerID);
 
-			StartCoroutine(PlayDeath());
-		}
+		StartCoroutine(PlayDeath());11
+		
     }
 
     public void OnDance()

@@ -42,7 +42,7 @@ namespace RTSInput
                             newEntity.transform.position.x,
                             newEntity.transform.position.y,
                             newEntity.transform.position.z),
-                        newEntity.life);
+                        newEntity.deaths);
             }
         }
 

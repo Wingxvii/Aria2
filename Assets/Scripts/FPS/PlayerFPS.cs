@@ -282,7 +282,7 @@ public class PlayerFPS : Entity
     //Use this to network damage being dealt
     public void SendDamage(int damage, Entity receiver)
     {
-        Networking.NetworkManager.SendPacketDamage(this.id, receiver.id, damage, receiver.life);
+        Networking.NetworkManager.SendPacketDamage(this.id, receiver.id, damage, receiver.deaths);
         receiver.OnDamage(damage, this);
     }
 
@@ -375,7 +375,7 @@ public class PlayerFPS : Entity
 
     public override void OnDamage(float num, int id, int entityLife)
     {
-        if (life == entityLife)
+        if (deaths == entityLife)
         {
             if (destructable)
             {

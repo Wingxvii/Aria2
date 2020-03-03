@@ -24,7 +24,7 @@ public abstract class Entity : MonoBehaviour
 {
 
     //ID
-    public int life = 0;
+    public int deaths = 0;
     public int id;
     public int killerID;
     private static int idtracker = 0;
@@ -153,7 +153,7 @@ public abstract class Entity : MonoBehaviour
     //deals damage to entity
     public virtual void OnDamage(float num, int kID, int entityLife)
     {
-        if (life == entityLife)
+        if (deaths == entityLife)
         {
             Debug.Log(type);
             if (destructable)
@@ -198,7 +198,8 @@ public abstract class Entity : MonoBehaviour
     //death of unit
     public virtual void OnDeath(bool networkData)
     {
-        ++life;
+		if (networkData)
+			++deaths;
         //deactivate
         int killerID = 0; // NEED UPDATE @PROGRAMMER
         if (networkData)

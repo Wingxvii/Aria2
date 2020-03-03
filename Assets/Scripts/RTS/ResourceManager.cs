@@ -338,7 +338,7 @@ public class ResourceManager : MonoBehaviour
                             temp.transform.position.x,
                             temp.transform.position.y,
                             temp.transform.position.z),
-                        temp.life);
+                        temp.deaths);
 
                     break;
                 default:
@@ -369,7 +369,7 @@ public class ResourceManager : MonoBehaviour
                             temp.transform.position.x,
                             temp.transform.position.y,
                             temp.transform.position.z),
-                        temp.life);
+                        temp.deaths);
                     }
                     break;
                 default:

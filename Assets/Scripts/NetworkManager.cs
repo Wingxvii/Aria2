@@ -951,7 +951,7 @@ namespace Networking
 
                         Entity temp = EntityManager.Instance.GetEntityAt((EntityType)tempTup.Item2, tempTup.Item1);
                         temp.transform.position = tempTup.Item3;
-                        temp.life = tempTup.Item4;
+                        temp.deaths = tempTup.Item4;
                         temp.IssueBuild();
 
                     }
