@@ -68,7 +68,7 @@ namespace FPSPlayer {
 		private float interactTimer = 0f;
 		private float heldTime = 0f;
 		
-
+        public FirearmHandler firearmHandler { get; private set; }
 
             //The current state of the player.
             public PlayerState m_state;
@@ -127,6 +127,7 @@ namespace FPSPlayer {
 
         protected override void BaseAwake() {
             base.BaseAwake();
+            firearmHandler = GetComponentInChildren<FirearmHandler>();
 			//Get a reference to the unity character controller (basically a capsule collider with bonus features).
 			if (type == EntityType.Player)
 			{

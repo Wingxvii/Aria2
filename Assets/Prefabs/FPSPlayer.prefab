@@ -188,6 +188,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 40cf983deb667484ead5edc4c75df91a, type: 2}
   - {fileID: 11400000, guid: 213fc104588a02b4b8ab66de21a29b79, type: 2}
   PV: {fileID: 2070961772415355655}
+  DummyPV: {fileID: 0}
   ammoHUD: {fileID: 0}
   bulletHole: {fileID: 6117956809001252063, guid: 535661e45ec156c4dbfafb4dfc20b243,
     type: 3}
@@ -554,7 +555,7 @@ MonoBehaviour:
   killerID: 0
   type: 5
   currentHealth: 1
-  maxHealth: 25
+  maxHealth: 500
   destructable: 1
   ready: 1
   m_camera: {fileID: 2070961772415355655}
@@ -571,6 +572,7 @@ MonoBehaviour:
   m_yaw: 0
   interactTimerSlider: {fileID: 4268118371514187026}
   m_state: 0
+  anim: {fileID: 0}
 --- !u!1 &2070961772415355650
 GameObject:
   m_ObjectHideFlags: 0

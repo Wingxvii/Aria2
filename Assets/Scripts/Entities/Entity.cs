@@ -160,6 +160,7 @@ public abstract class Entity : MonoBehaviour
             {
                 //Debug.Log("NO_BODY");
                 currentHealth -= num;
+                Debug.Log("Ouch: " + num.ToString());
             }
             if (currentHealth <= 0)
             {

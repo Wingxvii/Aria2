@@ -35,7 +35,9 @@ namespace Networking
         // entity killed
         DEATH,
 
-        TERMINAL
+        TERMINAL,
+
+        FIRING
     };
 
     enum PlayerMask
@@ -160,6 +162,8 @@ namespace Networking
         public Queue<Tuple<int, float, int, int>> DamageDealt = new Queue<Tuple<int, float, int, int>>();
 
         public Queue<Tuple<int>> TerminalsOpened = new Queue<Tuple<int>>();
+
+        public Queue<Tuple<int, Vector3, Vector3>> bullets = new Queue<Tuple<int, Vector3, Vector3>>();
 
         //game state
         public int GameState = -1;
@@ -397,7 +401,7 @@ namespace Networking
                 //Debug.Log("EVERYTHING SENT! ");
                 foreach (Droid droid in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Droid])
                 {
-                    
+
                     PackData(ref sendByteArray, ref loc, droid.id);
                     PackData(ref sendByteArray, ref loc, (int)droid.state);
                     PackData(ref sendByteArray, ref loc, droid.transform.position.x);
@@ -519,6 +523,24 @@ namespace Networking
             PackData(ref sendByteArray, ref loc, gateNum);
 
             SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.TERMINAL);
+        }
+
+        public static void SendPacketFiring(int id, Vector3 hitPoint, Vector3 hitNormal)
+        {
+            int loc = InitialOffset;
+            int Receiver = 0;
+
+            Receiver = ~(((int)PlayerMask.SERVER) + (1 << (GameSceneController.Instance.playerNumber + 1)));
+
+            PackData(ref sendByteArray, ref loc, id);
+            PackData(ref sendByteArray, ref loc, hitPoint.x);
+            PackData(ref sendByteArray, ref loc, hitPoint.y);
+            PackData(ref sendByteArray, ref loc, hitPoint.z);
+            PackData(ref sendByteArray, ref loc, hitNormal.x);
+            PackData(ref sendByteArray, ref loc, hitNormal.y);
+            PackData(ref sendByteArray, ref loc, hitNormal.z);
+
+            SendIntPtr(ref sendByteArray, loc, false, Receiver, (int)PacketType.ENTITY);
         }
         #endregion
 
@@ -694,6 +716,9 @@ namespace Networking
                         //gates[toDisarm].openGate(gates[toDisarm].gate);
                     }
                     break;
+                case (int)PacketType.FIRING:
+                    PacketReceivedFiring(ref bytes, ref loc);
+                    break;
                 default:
                     SendDebugOutput("Error Packet Type");
                     break;
@@ -778,7 +803,7 @@ namespace Networking
 
             if (isConnected)
             {
-                if(Input.GetKeyDown(KeyCode.P) && gameState == GameState.GAME)
+                if (Input.GetKeyDown(KeyCode.P) && gameState == GameState.GAME)
                 {
                     endGame = true;
                 }
@@ -866,6 +891,19 @@ namespace Networking
                     }
                 }
 
+                while (dataState.bullets.Count > 0)
+                {
+                    Tuple<int, Vector3, Vector3> singleBullet = dataState.bullets.Dequeue();
+
+                    if (EntityManager.Instance.AllEntities[singleBullet.Item1] != null && EntityManager.Instance.AllEntities[singleBullet.Item1].isActiveAndEnabled)
+                    {
+                        if (EntityManager.Instance.AllEntities[singleBullet.Item1].type == EntityType.Dummy)
+                        {
+                            ((FPSPlayer.Player)EntityManager.Instance.AllEntities[singleBullet.Item1]).firearmHandler.PlayShootEffect(singleBullet.Item2, singleBullet.Item3);
+                        }
+                    }
+                }
+
                 while (dataState.TerminalsOpened.Count > 0)
                 {
                     Tuple<int> toOpen = dataState.TerminalsOpened.Dequeue();
@@ -895,7 +933,7 @@ namespace Networking
                 {
                     //if (GameSceneController.Instance.type == PlayerType.FPS)
                     //{
-                        EntityManager.Instance.AllEntities[dataState.KilledEntity.Dequeue()].OnDeath(false);
+                    EntityManager.Instance.AllEntities[dataState.KilledEntity.Dequeue()].OnDeath(false);
                     //}
                     //else
                     //{
@@ -1101,7 +1139,7 @@ namespace Networking
         {
             Tuple<int, float, int, int> temp = Tuple.Create(receiverID, damage, senderID, entityLife);
 
-            lock (dataState)
+            lock (dataState.DamageDealt)
             {
                 dataState.DamageDealt.Enqueue(temp);
             }
@@ -1154,7 +1192,7 @@ namespace Networking
             UnpackInt(ref bytes, ref loc, ref entityLife);
 
             Debug.Log("Building: " + (EntityType)type);
-            lock (dataState)
+            lock (dataState.BuildEntity)
             {
                 Tuple<int, int, Vector3, int> temp = Tuple.Create(ID, type, new Vector3(posX, posY, posZ), entityLife);
                 dataState.BuildEntity.Enqueue(temp);
@@ -1163,9 +1201,33 @@ namespace Networking
 
         static void PacketReceivedDeath(int id, int killerID)
         {
-            lock (dataState)
+            lock (dataState.KilledEntity)
             {
                 dataState.KilledEntity.Enqueue(id);
+            }
+        }
+
+        static void PacketReceivedFiring(ref byte[] bytes, ref int loc)
+        {
+            int ID = 0;
+            float pointX = 0;
+            float pointY = 0;
+            float pointZ = 0;
+            float normalX = 0;
+            float normalY = 0;
+            float normalZ = 0;
+
+            UnpackInt(ref bytes, ref loc, ref ID);
+            UnpackFloat(ref bytes, ref loc, ref pointX);
+            UnpackFloat(ref bytes, ref loc, ref pointY);
+            UnpackFloat(ref bytes, ref loc, ref pointZ);
+            UnpackFloat(ref bytes, ref loc, ref normalX);
+            UnpackFloat(ref bytes, ref loc, ref normalY);
+            UnpackFloat(ref bytes, ref loc, ref normalZ);
+
+            lock (dataState.bullets)
+            {
+                dataState.bullets.Enqueue(new Tuple<int, Vector3, Vector3>(ID, new Vector3(pointX, pointY, pointZ), new Vector3(normalX, normalY, normalZ)));
             }
         }
 
