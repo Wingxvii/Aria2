@@ -434,11 +434,14 @@ namespace FPSPlayer {
             SetLocation(ed.position);
             SetRotation(ed.rotation);
 
+            Vector3 vel = (ed.position - oldPos) / (Time.time - timeSinceLastUpdate);
+
             anim.SetFloat("Walk", Mathf.Clamp(Vector3.Dot((ed.position - oldPos) / (Time.time - timeSinceLastUpdate), transform.forward), -1, 1));
             anim.SetFloat("Turn", Mathf.Clamp(Vector3.Dot((ed.position - oldPos) / (Time.time - timeSinceLastUpdate), transform.right), -1, 1));
 
             timeSinceLastUpdate = Time.time;
 
+            m_velocity = vel;
 
             //transform.position = ed.position;
             //transform.localRotation = Quaternion.Euler(new Vector3(0, ed.rotation.y, 0));
