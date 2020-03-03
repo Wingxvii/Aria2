@@ -282,7 +282,7 @@ public class PlayerFPS : Entity
     //Use this to network damage being dealt
     public void SendDamage(int damage, Entity receiver)
     {
-        Networking.NetworkManager.SendPacketDamage(this.id, receiver.id, damage, receiver.deaths);
+        //Networking.NetworkManager.SendPacketDamage(this.id, receiver.id, damage, receiver.deaths);
         receiver.OnDamage(damage, this);
     }
 
@@ -387,6 +387,12 @@ public class PlayerFPS : Entity
                 OnDeath(true);
             }
         }
+    }
+
+    public override void OnOtherDamage(float num, int kID, int entityLife)
+    {
+        currentHealth -= num;
+        currentHealth = Mathf.Max(currentHealth, num);
     }
 
     public override void OnDamage(int num, Entity culprit)

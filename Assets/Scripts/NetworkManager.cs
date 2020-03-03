@@ -159,7 +159,7 @@ namespace Networking
         public Queue<Tuple<int, int, Vector3, int>> BuildEntity = new Queue<Tuple<int, int, Vector3, int>>();
         public Queue<int> KilledEntity = new Queue<int>();
         //for fps: damage, culprit; for fps: damage, hit id
-        public Queue<Tuple<int, float, int, int>> DamageDealt = new Queue<Tuple<int, float, int, int>>();
+        public Queue<Tuple<int, float, int, int, int>> DamageDealt = new Queue<Tuple<int, float, int, int, int>>();
 
         public Queue<Tuple<int>> TerminalsOpened = new Queue<Tuple<int>>();
 
@@ -445,7 +445,7 @@ namespace Networking
         }
 
 
-        public static void SendPacketDamage(int senderID, int receiverID, float damage, int entityLife)
+        public static void SendPacketDamage(int senderID, int receiverID, float damage, int entityLife, int importantReceivers)
         {
             if (damage >= 0)
             {
@@ -458,6 +458,7 @@ namespace Networking
                 PackData(ref sendByteArray, ref loc, receiverID);
                 PackData(ref sendByteArray, ref loc, damage);
                 PackData(ref sendByteArray, ref loc, entityLife);
+                PackData(ref sendByteArray, ref loc, importantReceivers);
 
                 SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.DAMAGE);
             }
@@ -686,11 +687,13 @@ namespace Networking
                     int receiverID = 0;
                     float damage = 0.0f;
                     int entityLife = -1;
+                    int importantReceivers = 0;
                     UnpackInt(ref bytes, ref loc, ref senderID);
                     UnpackInt(ref bytes, ref loc, ref receiverID);
                     UnpackFloat(ref bytes, ref loc, ref damage);
                     UnpackInt(ref bytes, ref loc, ref entityLife);
-                    PacketReceivedDamage(senderID, receiverID, damage, entityLife);
+                    UnpackInt(ref bytes, ref loc, ref importantReceivers);
+                    PacketReceivedDamage(senderID, receiverID, damage, entityLife, importantReceivers);
                     break;
                 case (int)PacketType.WEAPON:
                     int weapon = 0;
@@ -918,13 +921,21 @@ namespace Networking
                 while (dataState.DamageDealt.Count > 0)
                 {
 
-                    Tuple<int, float, int, int> damage = dataState.DamageDealt.Dequeue();
+                    Tuple<int, float, int, int, int> damage = dataState.DamageDealt.Dequeue();
                     //Debug.Log(damage.Item1 + ", " + damage.Item2 + ", " + damage.Item3);
                     //Debug.Log("PLAYER NUMBER: " + GameSceneController.Instance.playerNumber);
                     //Debug.Log(EntityManager.Instance.AllEntities[GameSceneController.Instance.playerNumber].name);
                     if (EntityManager.Instance.AllEntities.Count > damage.Item1 && EntityManager.Instance.AllEntities[damage.Item1].isActiveAndEnabled)
                     {
-                        EntityManager.Instance.AllEntities[damage.Item1].OnDamage(damage.Item2, damage.Item3, damage.Item4);
+                        if ((damage.Item5 & (1 << (GameSceneController.Instance.playerNumber + 1))) > 0)
+                        {
+                            EntityManager.Instance.AllEntities[damage.Item1].OnDamage(damage.Item2, damage.Item3, damage.Item4);
+                        }
+                        else
+                        {
+                            EntityManager.Instance.AllEntities[damage.Item1].OnOtherDamage(damage.Item2, damage.Item3, damage.Item4);
+                        }
+                        
                         Debug.Log("DAMAGED");
                     }
                 }
@@ -1135,9 +1146,9 @@ namespace Networking
         }
 
         // NEEDS UPDATE @PROGRAMMERS
-        static void PacketReceivedDamage(int senderID, int receiverID, float damage, int entityLife)
+        static void PacketReceivedDamage(int senderID, int receiverID, float damage, int entityLife, int importantReceivers)
         {
-            Tuple<int, float, int, int> temp = Tuple.Create(receiverID, damage, senderID, entityLife);
+            Tuple<int, float, int, int, int> temp = Tuple.Create(receiverID, damage, senderID, entityLife, importantReceivers);
 
             lock (dataState.DamageDealt)
             {

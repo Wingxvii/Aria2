@@ -131,7 +131,7 @@ namespace DEPRECATED
 
         public override void OnDamage(int dmg, Entity entity)
         {
-            NetworkManager.SendPacketDamage(this.id, entity.id, dmg, entity.deaths);
+            //NetworkManager.SendPacketDamage(this.id, entity.id, dmg, entity.deaths);
         }
     }
 }

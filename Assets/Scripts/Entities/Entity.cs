@@ -169,6 +169,13 @@ public abstract class Entity : MonoBehaviour
             }//
         }
     }
+
+    public virtual void OnOtherDamage(float num, int kID, int entityLife)
+    {
+        currentHealth -= num;
+        currentHealth = Mathf.Max(currentHealth, num);
+    }
+
     public virtual void OnDamage(int num, Entity culprit)
     {
         //if (destructable)

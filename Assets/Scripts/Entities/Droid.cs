@@ -226,12 +226,12 @@ public class Droid : Entity
         {
             if (ResourceManager.Instance.droidStronger)
             {
-                NetworkManager.SendPacketDamage(this.id, attackPoint.id, attackDamage, attackPoint.deaths);
+                NetworkManager.SendPacketDamage(this.id, attackPoint.id, attackDamage, attackPoint.deaths, 1 << (attackPoint.id + 1));
                 currentCoolDown = coolDown;
                 anim.Play("Attack");
             }
             else {
-                NetworkManager.SendPacketDamage(this.id, attackPoint.id, strongAttack, attackPoint.deaths);
+                NetworkManager.SendPacketDamage(this.id, attackPoint.id, strongAttack, attackPoint.deaths, 1 << (attackPoint.id + 1));
                 currentCoolDown = lowCoolDown;
                 anim.Play("Attack");
 
@@ -292,7 +292,8 @@ public class Droid : Entity
 		if (networkData)
 			NetworkManager.SendPacketDeath(this.id, killerID);
 
-		StartCoroutine(PlayDeath());11
+        Debug.Log("IT DIED " + id);
+		StartCoroutine(PlayDeath());
 		
     }
 
