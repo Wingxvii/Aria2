@@ -215,7 +215,7 @@ public class FirearmHandler : MonoBehaviour
 		GameObject flash = Instantiate(muzzleFlash, barrel.position, Quaternion.LookRotation(PV.transform.forward));
 		Destroy(flash, 1f);
 		flash.transform.SetParent(barrel);
-		if (float.IsNaN(impactPoint.x))
+		if (!float.IsNaN(impactPoint.x))
 		{
 			GameObject impact = Instantiate(bulletImpact, impactPoint, Quaternion.LookRotation(impactNormal));
 
