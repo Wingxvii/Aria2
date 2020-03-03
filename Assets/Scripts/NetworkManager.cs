@@ -47,7 +47,7 @@ namespace Networking
         CLIENT4 = 1 << 4,
     }
 
-    enum GameState
+    public enum GameState
     {
         LOBBY = 0,
         TIMER,
@@ -187,7 +187,7 @@ namespace Networking
         [DllImport(DLL_NAME)]
         static extern bool SendDebugOutput(string data);
         [DllImport(DLL_NAME)]
-        static extern void ShowConsole(bool open);
+        static extern void ShowConsole(IntPtr client, bool open);
         [DllImport(DLL_NAME)]
         static extern int GetError(IntPtr client);
         [DllImport(DLL_NAME)]
@@ -197,7 +197,7 @@ namespace Networking
         private static IntPtr Client;
         private static int playerNumber = -1;
         private static bool endGame = false;
-
+        public static GameState gameState = GameState.LOBBY;
         static public bool isConnected = false;
 
         #endregion
@@ -224,7 +224,7 @@ namespace Networking
             Client = CreateClient();
             SetupPacketReception(receivePacket);
             StartUpdating(Client);
-            ShowConsole(true);
+            ShowConsole(Client, true);
         }
 
         #region packingData
@@ -778,7 +778,7 @@ namespace Networking
 
             if (isConnected)
             {
-                if(Input.GetKeyDown(KeyCode.P))
+                if(Input.GetKeyDown(KeyCode.P) && gameState == GameState.GAME)
                 {
                     endGame = true;
                 }
