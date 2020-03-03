@@ -540,7 +540,7 @@ namespace Networking
             PackData(ref sendByteArray, ref loc, hitNormal.y);
             PackData(ref sendByteArray, ref loc, hitNormal.z);
 
-            SendIntPtr(ref sendByteArray, loc, false, Receiver, (int)PacketType.ENTITY);
+            SendIntPtr(ref sendByteArray, loc, false, Receiver, (int)PacketType.FIRING);
         }
         #endregion
 
