@@ -214,8 +214,12 @@ public class FirearmHandler : MonoBehaviour
 
 	public void PlayShootEffect(Vector3 impactPoint, Vector3 impactNormal)
 	{
-		GameObject flash = Instantiate(muzzleFlash, barrel.position, Quaternion.LookRotation(DummyPV.transform.forward));
-		Destroy(flash, 1f);
+        GameObject flash;
+        if (EntityManager.Instance.AllEntities[parentPlayer].type == EntityType.Dummy)
+		    flash = Instantiate(muzzleFlash, barrel.position, Quaternion.LookRotation(DummyPV.transform.forward));
+        else
+            flash = Instantiate(muzzleFlash, barrel.position, Quaternion.LookRotation(PV.transform.forward));
+        Destroy(flash, 1f);
 		flash.transform.SetParent(barrel);
 		if (!float.IsNaN(impactPoint.x))
 		{
