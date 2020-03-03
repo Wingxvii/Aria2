@@ -1,0 +1,419 @@
+fileFormatVersion: 2
+guid: 2dff92e67513d204d9695e79dcf429d7
+ModelImporter:
+  serializedVersion: 19300
+  internalIDToNameTable:
+  - first:
+      74: 3058381756349913703
+    second: Alex_Hips|Alex_Hips|Jumping Good|Base Layer
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Alex_Hips|Alex_Hips|Jumping Good|Base Layer
+      takeName: Alex_Hips|Alex_Hips|Jumping Good|Base Layer
+      internalID: 0
+      firstFrame: 248
+      lastFrame: 433
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: Alex_Spine
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_Spine1
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Alex_RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Jumping - Cleaned(Clone)
+      parentName: 
+      position: {x: -0.041718166, y: 0.88579154, z: -0.001420211}
+      rotation: {x: -0.039685495, y: 0.68344134, z: -0.0003688372, w: 0.7289258}
+      scale: {x: 0.99999994, y: 0.9999998, z: 0.99999994}
+    - name: Alex_Spine
+      parentName: Jumping - Cleaned(Clone)
+      position: {x: 0.0012952877, y: 0.10355707, z: 0.04607437}
+      rotation: {x: 0.024341993, y: -0.6785661, z: -0.0022895236, w: 0.7341324}
+      scale: {x: 1, y: 1, z: 0.9999999}
+    - name: Alex_Spine1
+      parentName: Alex_Spine
+      position: {x: 0.0000000021606683, y: 0.19353351, z: -2.9802322e-10}
+      rotation: {x: 0.020033404, y: 0.0088788895, z: 0.0041685477, w: 0.9997512}
+      scale: {x: 1, y: 0.9999999, z: 0.99999994}
+    - name: Alex_Neck
+      parentName: Alex_Spine1
+      position: {x: -0.0000000025331974, y: 0.21211794, z: 0.000000002235174}
+      rotation: {x: -0.022610486, y: 0.13345394, z: -0.06301038, w: 0.98879147}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alex_Head
+      parentName: Alex_Neck
+      position: {x: 0.000000015497207, y: 0.14047374, z: 0.018125663}
+      rotation: {x: -0.077135935, y: 0.1255633, z: 0.024764247, w: 0.9887723}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+    - name: Alex_Head_end
+      parentName: Alex_Head
+      position: {x: -0, y: 0.14522362, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alex_LeftShoulder
+      parentName: Alex_Spine1
+      position: {x: -0.037218314, y: 0.16955662, z: -0.0006372645}
+      rotation: {x: 0.010699296, y: -0.041870456, z: -0.14980629, w: 0.9877705}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: Alex_LeftArm
+      parentName: Alex_LeftShoulder
+      position: {x: -0.12883765, y: 0.000000009834766, z: 0.0000000028312206}
+      rotation: {x: -0.029532395, y: 0.05349807, z: 0.15930736, w: 0.98533595}
+      scale: {x: 0.99999994, y: 1, z: 0.9999999}
+    - name: Alex_LeftForeArm
+      parentName: Alex_LeftArm
+      position: {x: -0.28796372, y: -0.00000002324581, z: 0.0000000013411044}
+      rotation: {x: 0.0021189486, y: -0.001065228, z: 0.0068055, w: 0.9999741}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: Alex_LeftHand
+      parentName: Alex_LeftForeArm
+      position: {x: -0.224504, y: 0.000000102519984, z: 0.000000021159648}
+      rotation: {x: 0.0330777, y: -0.040600587, z: 0.6735721, w: 0.7372639}
+      scale: {x: 1, y: 1, z: 0.9999999}
+    - name: Alex_LeftHand_end
+      parentName: Alex_LeftHand
+      position: {x: -0, y: 0.22190207, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alex_RightShoulder
+      parentName: Alex_Spine1
+      position: {x: 0.037072103, y: 0.16955665, z: -0.0006372681}
+      rotation: {x: 0.013234953, y: -0.016382627, z: 0.13909347, w: 0.9900553}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Alex_RightArm
+      parentName: Alex_RightShoulder
+      position: {x: 0.12883766, y: -0.0000000011920929, z: 5.9604643e-10}
+      rotation: {x: 0.043561168, y: -0.036658324, z: -0.17994463, w: 0.98202777}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+    - name: Alex_RightForeArm
+      parentName: Alex_RightArm
+      position: {x: 0.28796366, y: 0.00000007182359, z: -0.000000011920928}
+      rotation: {x: -0.007858159, y: 0.009992783, z: -0.008130739, w: 0.9998862}
+      scale: {x: 1, y: 1, z: 0.9999998}
+    - name: Alex_RightHand
+      parentName: Alex_RightForeArm
+      position: {x: 0.22672068, y: 0.000000073313714, z: 0.000000030994414}
+      rotation: {x: 0.012390677, y: -0.06218209, z: -0.66943496, w: 0.74016}
+      scale: {x: 0.9999999, y: 0.9999999, z: 0.9999998}
+    - name: Alex_RightHand_end
+      parentName: Alex_RightHand
+      position: {x: -0, y: 0.22190207, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alex_LeftUpLeg
+      parentName: Alex_Spine
+      position: {x: -0.09292232, y: -0.07619631, z: 9.313225e-11}
+      rotation: {x: 0.08224755, y: 0.072474204, z: 0.029306795, w: 0.9935411}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1.0000001}
+    - name: Alex_LeftLeg
+      parentName: Alex_LeftUpLeg
+      position: {x: 0.0000000047683715, y: -0.39940834, z: -0.0000000011920929}
+      rotation: {x: -0.031979393, y: -0.0056317835, z: 0.01269586, w: 0.99939203}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: Alex_LeftFoot
+      parentName: Alex_LeftLeg
+      position: {x: -0.000000007152557, y: -0.44345072, z: 0.000000006854534}
+      rotation: {x: -0.03803554, y: -0.14597294, z: -0.01677399, w: 0.9884148}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Alex_LeftToeBase
+      parentName: Alex_LeftFoot
+      position: {x: 0.0000000055879354, y: -0.060399458, z: 0.1393835}
+      rotation: {x: -0.0000000011641533, y: -0.000000002561137, z: 0.0000000013969841,
+        w: 1}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Alex_LeftToeBase_end
+      parentName: Alex_LeftToeBase
+      position: {x: -0, y: 0.15190741, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Alex_RightUpLeg
+      parentName: Alex_Spine
+      position: {x: 0.09292232, y: -0.07619631, z: -7.636845e-10}
+      rotation: {x: 0.08063791, y: 0.037492957, z: 0.062267486, w: 0.99408984}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: Alex_RightLeg
+      parentName: Alex_RightUpLeg
+      position: {x: -0.000000013709068, y: -0.39940834, z: -5.9604643e-10}
+      rotation: {x: -0.03362431, y: 0.019209467, z: -0.052935455, w: 0.99784684}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: Alex_RightFoot
+      parentName: Alex_RightLeg
+      position: {x: -0.000000030994414, y: -0.44345066, z: -0.0000000023841857}
+      rotation: {x: -0.078948714, y: -0.014818067, z: 0.007689005, w: 0.9967389}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+    - name: Alex_RightToeBase
+      parentName: Alex_RightFoot
+      position: {x: -0.000000026319176, y: -0.060399413, z: 0.13938351}
+      rotation: {x: -9.313228e-10, y: -0.000000002444722, z: 3.492459e-10, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Alex_RightToeBase_end
+      parentName: Alex_RightToeBase
+      position: {x: -0, y: 0.15190741, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 1
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

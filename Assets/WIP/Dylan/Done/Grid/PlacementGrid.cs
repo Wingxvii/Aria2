@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class PlacementGrid : MonoBehaviour
 {
@@ -54,7 +55,7 @@ public class PlacementGrid : MonoBehaviour
         return temp;
     }
 
-    private void Awake() {
+    private void Start() {
         m_rigidbody = gameObject.AddComponent<Rigidbody>();
         m_rigidbody.isKinematic = true;
         m_rigidbody.useGravity = false;
@@ -66,15 +67,16 @@ public class PlacementGrid : MonoBehaviour
 
         m_meshCollider = gameObject.AddComponent<MeshCollider>();
         m_meshCollider.sharedMesh = m_hitMesh;
-        //m_meshCollider.convex = true;
 
-        if (m_drawHitbox) {
+        if (GameSceneController.Instance.type == PlayerType.RTS) {
             m_meshFilter = gameObject.AddComponent<MeshFilter>();
             m_meshFilter.mesh = m_hitMesh;
             m_meshFilter.sharedMesh = m_hitMesh;
 
             m_renderer = gameObject.AddComponent<MeshRenderer>();
+
             m_renderer.material = m_hitboxMaterial;
+            m_renderer.material.SetTextureScale("_BaseColorMap", new Vector2(m_width, m_height));
         }
     }
 
@@ -126,6 +128,7 @@ public class PlacementGrid : MonoBehaviour
             2,1,0,
             5,4,3
         };
+
 
         m_hitMesh.SetVertices(verts);
         m_hitMesh.SetNormals(norms);
