@@ -255,7 +255,7 @@ public class EntityManager : MonoBehaviour
     //deactivates an entity: DO NOT USE
     //@Entity OnDeActivate()
     public void DeactivateEntity(EntityType type, Entity entity) {
-        if (GameSceneController.Instance.type == PlayerType.RTS)
+        if (GameSceneController.Instance.type == PlayerType.RTS && entity.gameObject.activeInHierarchy)
         {
             ActiveEntitiesByType[(int)type].Remove(entity);
             DeactivatedEntitiesByType[(int)type].Enqueue(entity);

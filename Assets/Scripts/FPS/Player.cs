@@ -61,6 +61,8 @@ namespace FPSPlayer {
             //Used to check whether or not the player was grounded before moving.
             private bool m_wasGrounded = false;
 
+        private Rigidbody rb;
+
 		private float interactStartTime = 0f;
 		private float holdTime = 3.0f;
 		private float interactTimer = 0f;
@@ -135,6 +137,10 @@ namespace FPSPlayer {
 				m_fov = m_camera.fieldOfView;
 				m_state = PlayerState.IDLE;
 			}
+            else
+            {
+                rb = GetComponent<Rigidbody>();
+            }
 
             timeSinceLastUpdate = Time.time;
 
@@ -441,7 +447,7 @@ namespace FPSPlayer {
 
             timeSinceLastUpdate = Time.time;
 
-            m_velocity = vel;
+            rb.velocity = vel;
 
             //transform.position = ed.position;
             //transform.localRotation = Quaternion.Euler(new Vector3(0, ed.rotation.y, 0));
