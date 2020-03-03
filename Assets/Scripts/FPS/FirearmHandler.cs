@@ -134,8 +134,11 @@ public class FirearmHandler : MonoBehaviour
                 updateWeapon();
                 Netcode.NetworkManager.SendPacketWeapon(2);
             }
+
+            if (!anim.isPlaying) { currState = AnimationState.NONE; }
+
         }
-	}
+    }
 
     public void NetworkingUpdate(int weapon)
     {
