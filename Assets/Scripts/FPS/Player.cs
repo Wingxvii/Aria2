@@ -206,9 +206,9 @@ namespace FPSPlayer {
 							Debug.DrawRay(m_camera.transform.position, m_camera.transform.forward * 10, Color.green, 10, false);
 							if (interactTimer > (interactStartTime + holdTime))
 							{
-                                if (Netcode.NetworkManager.isConnected)
+                                if (Networking.NetworkManager.isConnected)
                                 {
-                                    Netcode.NetworkManager.SendPacketGateOpen(currentTerminal.gateNumber);
+                                    Networking.NetworkManager.SendPacketGateOpen(currentTerminal.gateNumber);
                                 }
                                 currentTerminal.openGate(currentTerminal.gate);
 							}
@@ -377,9 +377,9 @@ namespace FPSPlayer {
 					}
 				}
 
-                if (Netcode.NetworkManager.isConnected)
+                if (Networking.NetworkManager.isConnected)
                 {
-                    Netcode.NetworkManager.SendPacketEntities();
+                    Networking.NetworkManager.SendPacketEntities();
                 }
             }
         }
@@ -388,7 +388,7 @@ namespace FPSPlayer {
 		{
 			ResetValues();
             if (networkData)
-                Netcode.NetworkManager.SendPacketDeath(this.id, killerID);
+                Networking.NetworkManager.SendPacketDeath(this.id, killerID);
             Debug.Log("U DEAD");
 		}
 
@@ -433,7 +433,7 @@ namespace FPSPlayer {
 			}
 		}
 
-        public override void UpdateEntityStats(Netcode.EntityData ed)
+        public override void UpdateEntityStats(Networking.EntityData ed)
         {
             SetLocation(ed.position);
             SetRotation(ed.rotation);

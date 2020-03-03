@@ -40,7 +40,7 @@ public class FirearmHandler : MonoBehaviour
             parentPlayer = GetComponentInParent<FPSPlayer.Player>().id;
 
             Debug.Log(parentPlayer - 1);
-            Netcode.NetworkManager.firearms[parentPlayer - 1] = this;
+            Networking.NetworkManager.firearms[parentPlayer - 1] = this;
         }
     }
 
@@ -70,19 +70,19 @@ public class FirearmHandler : MonoBehaviour
             {
                 activeGun = slots[0];
                 updateWeapon();
-                Netcode.NetworkManager.SendPacketWeapon(0);
+                Networking.NetworkManager.SendPacketWeapon(0);
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 activeGun = slots[1];
                 updateWeapon();
-                Netcode.NetworkManager.SendPacketWeapon(1);
+                Networking.NetworkManager.SendPacketWeapon(1);
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 activeGun = slots[2];
                 updateWeapon();
-                Netcode.NetworkManager.SendPacketWeapon(2);
+                Networking.NetworkManager.SendPacketWeapon(2);
             }
         }
 	}
@@ -141,7 +141,7 @@ public class FirearmHandler : MonoBehaviour
                     Debug.Log(ET.name);
                     if (ET.type != EntityType.Player && ET.type != EntityType.Dummy)
                     {
-                        Netcode.NetworkManager.SendPacketDamage(parentPlayer, ET.id, gunStats.dmg, ET.life);
+                        Networking.NetworkManager.SendPacketDamage(parentPlayer, ET.id, gunStats.dmg, ET.life);
                     }
                 }
 			}

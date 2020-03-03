@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Netcode;
+using Networking;
 public class EntityManager : MonoBehaviour
 {
     #region SingletonCode
@@ -53,14 +53,14 @@ public class EntityManager : MonoBehaviour
         //add managers
         if (GameSceneController.Instance.type == PlayerType.FPS)
         {
-            if (!Netcode.NetworkManager.isConnected)
+            if (!Networking.NetworkManager.isConnected)
             {
                 GameSceneController.Instance.playerNumber = 1;
             }
             Destroy(RTSManagers);
         }
         else if (GameSceneController.Instance.type == PlayerType.RTS) {
-            if (!Netcode.NetworkManager.isConnected)
+            if (!Networking.NetworkManager.isConnected)
             {
                 GameSceneController.Instance.playerNumber = 0;
             }

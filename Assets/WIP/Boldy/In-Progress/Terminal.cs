@@ -12,8 +12,8 @@ public class Terminal : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-        gateNumber = Netcode.NetworkManager.gates.Count;
-        Netcode.NetworkManager.gates.Add(this);
+        gateNumber = Networking.NetworkManager.gates.Count;
+        Networking.NetworkManager.gates.Add(this);
 	}
 
 	// Update is called once per frame
@@ -22,7 +22,7 @@ public class Terminal : MonoBehaviour
         if (launch)
         {
             gate.GetComponent<Transform>().position = gate.GetComponent<Transform>().position + Vector3.up * 0.1f;
-            Netcode.NetworkManager.EndGame();
+            Networking.NetworkManager.EndGame();
         }
 	}
 	public void openGate(GameObject gate)

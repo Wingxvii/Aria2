@@ -332,7 +332,7 @@ public class ResourceManager : MonoBehaviour
                     Droid temp = (Droid)EntityManager.Instance.GetNewEntity(EntityType.Droid);
                     temp.gameObject.transform.position = home.position;
 
-                    Netcode.NetworkManager.SendPacketBuild(
+                    Networking.NetworkManager.SendPacketBuild(
                         temp.id, (int)temp.type,
                         new Vector3(
                             temp.transform.position.x,
@@ -363,7 +363,7 @@ public class ResourceManager : MonoBehaviour
                     temp.IssueLocation(rally);
                     if (GameSceneController.Instance.type == PlayerType.RTS)
                     {
-                        Netcode.NetworkManager.SendPacketBuild(
+                        Networking.NetworkManager.SendPacketBuild(
                         temp.id, (int)temp.type,
                         new Vector3(
                             temp.transform.position.x,

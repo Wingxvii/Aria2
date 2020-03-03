@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Netcode;
+using Networking;
 using UnityEngine;
 
 [System.Serializable]
@@ -154,7 +154,7 @@ public class PlayerFPS : Entity
             stats.groundAngleFloat = 180f;
             stats.colliding = false;
 
-            Netcode.NetworkManager.SendPacketEntities();
+            Networking.NetworkManager.SendPacketEntities();
         }
         else if (type == EntityType.Dummy)
         {
@@ -282,7 +282,7 @@ public class PlayerFPS : Entity
     //Use this to network damage being dealt
     public void SendDamage(int damage, Entity receiver)
     {
-        Netcode.NetworkManager.SendPacketDamage(this.id, receiver.id, damage, receiver.life);
+        Networking.NetworkManager.SendPacketDamage(this.id, receiver.id, damage, receiver.life);
         receiver.OnDamage(damage, this);
     }
 

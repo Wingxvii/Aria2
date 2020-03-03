@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System;
 using System.Text;
 
-namespace Netcode
+namespace Networking
 {
     enum PacketType
     {
@@ -184,53 +184,14 @@ namespace Netcode
         static extern void StartUpdating(IntPtr client);                                //Starts updating
         [DllImport(DLL_NAME)]
         static extern bool SendDataPacket(IntPtr ptr, int length, bool TCP, IntPtr client);
-        //[DllImport(DLL_NAME)]
-        //static extern bool SendDataInit(packet_init pkt, bool useTCP, IntPtr client);  //Sends Message to all other clients    
-        //[DllImport(DLL_NAME)]
-        //static extern bool SendDataJoin(packet_join pkt, bool useTCP, IntPtr client);
-        //[DllImport(DLL_NAME)]
-        //static extern bool SendDataMsg(packet_msg pkt, bool useTCP, IntPtr client);
-        //[DllImport(DLL_NAME)]
-        //static extern bool SendDataState(packet_state pkt, bool useTCP, IntPtr client);
-        //[DllImport(DLL_NAME)]
-        //static extern bool SendDataEntity(packet_entity pkt, bool useTCP, IntPtr client);
-        //[DllImport(DLL_NAME)]
-        //static extern bool SendDataDamage(packet_damage pkt, bool useTCP, IntPtr client);
-        //[DllImport(DLL_NAME)]
-        //static extern bool SendDataWeapon(packet_weapon pkt, bool useTCP, IntPtr client);
-        //[DllImport(DLL_NAME)]
-        //static extern bool SendDataBuild(packet_build pkt, bool useTCP, IntPtr client);
-        //[DllImport(DLL_NAME)]
-        //static extern bool SendDataKill(packet_kill pkt, bool useTCP, IntPtr client);
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReception(Action<int, string> action);       //recieve packets from server
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReceptionInit(Action<int, packet_init> action);
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReceptionJoin(Action<int, packet_join> action);
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReceptionMsg(Action<int, packet_msg> action);
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReceptionState(Action<int, packet_state> action);
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReceptionEntity(Action<int, packet_entity> action);
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReceptionDamage(Action<int, packet_damage> action);
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReceptionWeapon(Action<int, packet_weapon> action);
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReceptionBuild(Action<int, packet_build> action);
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReceptionKill(Action<int, packet_kill> action);
-        //[DllImport(DLL_NAME)]
-        //static extern int GetPlayerNumber(IntPtr client);
         [DllImport(DLL_NAME)]
         static extern bool SendDebugOutput(string data);
+        [DllImport(DLL_NAME)]
+        static extern void ShowConsole(bool open);
         [DllImport(DLL_NAME)]
         static extern int GetError(IntPtr client);
         [DllImport(DLL_NAME)]
         static extern int GetErrorLoc(IntPtr client);
-
 
         public static string ip = "127.0.0.1";
         private static IntPtr Client;
@@ -263,6 +224,7 @@ namespace Netcode
             Client = CreateClient();
             SetupPacketReception(receivePacket);
             StartUpdating(Client);
+            ShowConsole(true);
         }
 
         #region packingData
