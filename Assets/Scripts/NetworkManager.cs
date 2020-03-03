@@ -264,7 +264,13 @@ namespace Networking
             }
         }
 
-        static int InitialOffset = 16;
+        static int InitialOffset = 20;
+        static int PACKET_SENDER = 16;
+        static int PACKET_TYPE = 12;
+        static int PACKET_RECEIVERS = 8;
+        static int PACKET_LENGTH = 4;
+        static int PACKET_STAMP = 0;
+        static int OK_STAMP = 123456789;
 
         static bool SendIntPtr(ref byte[] bytes, int length, bool TCP, int receiver, int packetType)
         {
@@ -272,10 +278,12 @@ namespace Networking
             if (isConnected)
             {
                 int playerID = GameSceneController.Instance.playerNumber;
-                BitConverter.GetBytes(length).CopyTo(bytes, 0);
-                BitConverter.GetBytes(receiver).CopyTo(bytes, 4);
-                BitConverter.GetBytes(packetType).CopyTo(bytes, 8);
-                BitConverter.GetBytes(playerID).CopyTo(bytes, 12);
+
+                BitConverter.GetBytes(OK_STAMP).CopyTo(bytes, 0);
+                BitConverter.GetBytes(length).CopyTo(bytes, 4);
+                BitConverter.GetBytes(receiver).CopyTo(bytes, 8);
+                BitConverter.GetBytes(packetType).CopyTo(bytes, 12);
+                BitConverter.GetBytes(playerID).CopyTo(bytes, 16);
 
                 //SendDebugOutput("ID: " + playerID.ToString() + ", Type: " + packetType.ToString() + ", LENGTH: " + length.ToString());
 
@@ -610,8 +618,8 @@ namespace Networking
 
         static void deconstructPacket(ref byte[] bytes, int length)
         {
-            int type = BitConverter.ToInt32(bytes, 8);
-            int sender = BitConverter.ToInt32(bytes, 12);
+            int type = BitConverter.ToInt32(bytes, PACKET_TYPE);
+            int sender = BitConverter.ToInt32(bytes, PACKET_SENDER);
             int loc = InitialOffset;
 
             //SendDebugOutput("Type: " + type.ToString() + " , Sender: " + sender.ToString());
