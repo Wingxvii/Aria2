@@ -22,6 +22,7 @@ public class FirearmHandler : MonoBehaviour
 	public Firearms[] slots;
 
 	public Camera PV;
+    public Transform DummyPV;
 	public Transform ammoHUD;
 
 	//Firearm Universal
