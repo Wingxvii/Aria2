@@ -38,7 +38,7 @@ public class Turret : Building
 
     //hit ray
     private RaycastHit hit;
-    private LayerMask turretLayerMask;
+    public LayerMask turretLayerMask;
 
     //models
     public GameObject head;
@@ -74,6 +74,8 @@ public class Turret : Building
 
         turretLayerMask = LayerMask.GetMask("Player");
         turretLayerMask += LayerMask.GetMask("Wall");
+        turretLayerMask += LayerMask.GetMask("StaticObject");
+
     }
 
     void TickUpdate()
