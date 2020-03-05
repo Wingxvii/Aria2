@@ -753,8 +753,8 @@ namespace Networking
                     if (TID >= EntityManager.Instance.AllEntities.Count)
                         break;
                     Turret t = (Turret)EntityManager.Instance.AllEntities[TID];
-                    if (t != null)
-                        t.muzzle.Play();
+                    //if (t != null)
+                    //    t.muzzle.Play();
                     break;
             }
 

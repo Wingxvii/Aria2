@@ -432,8 +432,15 @@ namespace FPSPlayer
 		}
         */
 
-        public override void OnDamage(int num, Entity culprit)
+        public override void OnDamage(float num, int kID, int entityLife)
         {
+            if (type == EntityType.Player)
+            {
+                BloodSettings.v3[BloodSettings.currentBlood] = Quaternion.Inverse(m_camera.transform.rotation) * (-EntityManager.Instance.AllEntities[kID].transform.position + m_camera.transform.position);
+                BloodSettings.v3[BloodSettings.currentBlood].z = 1f;
+                BloodSettings.currentBlood = (BloodSettings.currentBlood + 1) % BloodSettings.v3.Length;
+            }
+
             Debug.Log("DAMAGE: " + num);
             currentHealth -= num;
             if (currentHealth <= 0 && GameSceneController.Instance.type == PlayerType.FPS)
