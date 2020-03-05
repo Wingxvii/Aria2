@@ -37,7 +37,9 @@ namespace Networking
 
         TERMINAL,
 
-        FIRING
+        FIRING,
+        
+        TURRETFIRE
     };
 
     enum PlayerMask
@@ -551,6 +553,18 @@ namespace Networking
 
             SendIntPtr(ref sendByteArray, loc, false, Receiver, (int)PacketType.FIRING);
         }
+
+        public static void SendPacketTurretFire(int id)
+        {
+            int loc = InitialOffset;
+            int Receiver = 0;
+
+            Receiver = ~(((int)PlayerMask.SERVER) + (1 << (GameSceneController.Instance.playerNumber + 1)));
+
+            PackData(ref sendByteArray, ref loc, id);
+
+            SendIntPtr(ref sendByteArray, loc, false, Receiver, (int)PacketType.TURRETFIRE);
+        }
         #endregion
 
         #region ReceivingPackets
@@ -732,6 +746,13 @@ namespace Networking
                     break;
                 default:
                     SendDebugOutput("Error Packet Type");
+                    break;
+                case (int)PacketType.TURRETFIRE:
+                    int TID = 0;
+                    UnpackInt(ref bytes, ref loc, ref TID);
+                    Turret t = (Turret)EntityManager.Instance.AllEntities[TID];
+                    if (t != null)
+                        t.muzzle.Play();
                     break;
             }
 

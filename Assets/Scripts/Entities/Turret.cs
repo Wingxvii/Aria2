@@ -166,6 +166,11 @@ public class Turret : Building
                         if (currentAmno > 0)
                         {
                             muzzle.Play();
+                            if (NetworkManager.isConnected)
+                            {
+                                NetworkManager.SendPacketTurretFire(id);
+                            }
+
                             if (HitPlayer())
                             {
                                 Debug.Log("Hit Player");
@@ -203,6 +208,10 @@ public class Turret : Building
                         if (currentAmno > 0)
                         {
                             muzzle.Play();
+                            if (NetworkManager.isConnected)
+                            {
+                                NetworkManager.SendPacketTurretFire(id);
+                            }
 
                             if (HitPlayer())
                             {
