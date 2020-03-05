@@ -750,6 +750,8 @@ namespace Networking
                 case (int)PacketType.TURRETFIRE:
                     int TID = 0;
                     UnpackInt(ref bytes, ref loc, ref TID);
+                    if (TID >= EntityManager.Instance.AllEntities.Count)
+                        break;
                     Turret t = (Turret)EntityManager.Instance.AllEntities[TID];
                     if (t != null)
                         t.muzzle.Play();
