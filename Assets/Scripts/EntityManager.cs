@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Netcode;
+using Networking;
 public class EntityManager : MonoBehaviour
 {
     #region SingletonCode
@@ -53,14 +53,14 @@ public class EntityManager : MonoBehaviour
         //add managers
         if (GameSceneController.Instance.type == PlayerType.FPS)
         {
-            if (!Netcode.NetworkManager.isConnected)
+            if (!Networking.NetworkManager.isConnected)
             {
                 GameSceneController.Instance.playerNumber = 1;
             }
             Destroy(RTSManagers);
         }
         else if (GameSceneController.Instance.type == PlayerType.RTS) {
-            if (!Netcode.NetworkManager.isConnected)
+            if (!Networking.NetworkManager.isConnected)
             {
                 GameSceneController.Instance.playerNumber = 0;
             }
@@ -135,6 +135,15 @@ public class EntityManager : MonoBehaviour
 
         //tell network that user is done loading
         NetworkManager.OnLoaded();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.P))
+        {
+            Debug.Log("Active Entity Types: " + ActiveEntitiesByType.Count.ToString());
+            Debug.Log("Active Entity Dummys: " + ActiveEntitiesByType[6].Count.ToString());
+        }
     }
 
     private void FixedUpdate()
@@ -246,7 +255,7 @@ public class EntityManager : MonoBehaviour
     //deactivates an entity: DO NOT USE
     //@Entity OnDeActivate()
     public void DeactivateEntity(EntityType type, Entity entity) {
-        if (GameSceneController.Instance.type == PlayerType.RTS)
+        if (GameSceneController.Instance.type == PlayerType.RTS && entity.gameObject.activeInHierarchy)
         {
             ActiveEntitiesByType[(int)type].Remove(entity);
             DeactivatedEntitiesByType[(int)type].Enqueue(entity);

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Netcode;
+using Networking;
 using System.Text;
 
 public class StartManager : MonoBehaviour
@@ -218,7 +218,7 @@ public class StartManager : MonoBehaviour
             countdownSeconds -= Time.deltaTime;
             if (countdownSeconds < 0.0f) { countdownSeconds = 0.0f; }
             
-            readyStatus.text = "Status: Game Starting in " + ((int)countdownSeconds).ToString() + " Seconds";
+            readyStatus.text = "Status: Start in " + ((int)countdownSeconds).ToString() + " Sec";
         }
 
         //update roles

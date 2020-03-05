@@ -9,6 +9,8 @@ namespace FPSPlayer {
     {
         bool heDead = false;
         bool doubleCheckDead = false;
+
+        float timeSinceLastUpdate = 0f;
         /*
          *  For a FSM representation of the player.
          */
@@ -17,8 +19,6 @@ namespace FPSPlayer {
             WALKING,
             RUNNING,
             JUMPING,
-            FALLING,
-
 
             NUM_STATES
         }
@@ -61,16 +61,20 @@ namespace FPSPlayer {
             //Used to check whether or not the player was grounded before moving.
             private bool m_wasGrounded = false;
 
+        private Rigidbody rb;
+
 		private float interactStartTime = 0f;
 		private float holdTime = 3.0f;
 		private float interactTimer = 0f;
 		private float heldTime = 0f;
 		
-
+        public FirearmHandler firearmHandler { get; private set; }
 
             //The current state of the player.
-            private PlayerState m_state;
+            public PlayerState m_state;
         #endregion
+
+        public Animator anim;
 
         /* 
          *  Use this to manually set the player's location.
@@ -123,6 +127,7 @@ namespace FPSPlayer {
 
         protected override void BaseAwake() {
             base.BaseAwake();
+            firearmHandler = GetComponentInChildren<FirearmHandler>();
 			//Get a reference to the unity character controller (basically a capsule collider with bonus features).
 			if (type == EntityType.Player)
 			{
@@ -133,6 +138,14 @@ namespace FPSPlayer {
 				m_fov = m_camera.fieldOfView;
 				m_state = PlayerState.IDLE;
 			}
+            else
+            {
+                rb = GetComponent<Rigidbody>();
+            }
+
+            timeSinceLastUpdate = Time.time;
+
+            anim = GetComponentInChildren<Animator>();
         }
 
         //Set the upward velocity of the player.
@@ -206,9 +219,9 @@ namespace FPSPlayer {
 							Debug.DrawRay(m_camera.transform.position, m_camera.transform.forward * 10, Color.green, 10, false);
 							if (interactTimer > (interactStartTime + holdTime))
 							{
-                                if (Netcode.NetworkManager.isConnected)
+                                if (Networking.NetworkManager.isConnected)
                                 {
-                                    Netcode.NetworkManager.SendPacketGateOpen(currentTerminal.gateNumber);
+                                    Networking.NetworkManager.SendPacketGateOpen(currentTerminal.gateNumber);
                                 }
                                 currentTerminal.openGate(currentTerminal.gate);
 							}
@@ -340,18 +353,6 @@ namespace FPSPlayer {
 						m_state = PlayerState.RUNNING;
 					}
 				}
-				else
-				{
-					if (m_velocity.y > 0)
-					{
-						m_state = PlayerState.JUMPING;
-					}
-					else
-					{
-						m_state = PlayerState.FALLING;
-					}
-				}
-
 
 				//Save whether or not the player was just grounded before the movement.
 				m_wasGrounded = m_cControl.isGrounded;
@@ -377,9 +378,9 @@ namespace FPSPlayer {
 					}
 				}
 
-                if (Netcode.NetworkManager.isConnected)
+                if (Networking.NetworkManager.isConnected)
                 {
-                    Netcode.NetworkManager.SendPacketEntities();
+                    Networking.NetworkManager.SendPacketEntities();
                 }
             }
         }
@@ -388,7 +389,7 @@ namespace FPSPlayer {
 		{
 			ResetValues();
             if (networkData)
-                Netcode.NetworkManager.SendPacketDeath(this.id, killerID);
+                Networking.NetworkManager.SendPacketDeath(this.id, killerID);
             Debug.Log("U DEAD");
 		}
 
@@ -433,10 +434,22 @@ namespace FPSPlayer {
 			}
 		}
 
-        public override void UpdateEntityStats(Netcode.EntityData ed)
+        public override void UpdateEntityStats(Networking.EntityData ed)
         {
+            Vector3 oldPos = transform.position;
+
             SetLocation(ed.position);
             SetRotation(ed.rotation);
+
+            Vector3 vel = (ed.position - oldPos) / (Time.time - timeSinceLastUpdate);
+
+            anim.SetFloat("Walk", Mathf.Clamp(Vector3.Dot((ed.position - oldPos) / (Time.time - timeSinceLastUpdate), transform.forward), -1, 1));
+            anim.SetFloat("Turn", Mathf.Clamp(Vector3.Dot((ed.position - oldPos) / (Time.time - timeSinceLastUpdate), transform.right), -1, 1));
+
+            timeSinceLastUpdate = Time.time;
+
+            rb.velocity = vel;
+
             //transform.position = ed.position;
             //transform.localRotation = Quaternion.Euler(new Vector3(0, ed.rotation.y, 0));
             //m_pitch = ed.rotation.x;

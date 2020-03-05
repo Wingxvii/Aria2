@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System;
 using System.Text;
 
-namespace Netcode
+namespace Networking
 {
     enum PacketType
     {
@@ -35,7 +35,9 @@ namespace Netcode
         // entity killed
         DEATH,
 
-        TERMINAL
+        TERMINAL,
+
+        FIRING
     };
 
     enum PlayerMask
@@ -47,7 +49,7 @@ namespace Netcode
         CLIENT4 = 1 << 4,
     }
 
-    enum GameState
+    public enum GameState
     {
         LOBBY = 0,
         TIMER,
@@ -157,9 +159,11 @@ namespace Netcode
         public Queue<Tuple<int, int, Vector3, int>> BuildEntity = new Queue<Tuple<int, int, Vector3, int>>();
         public Queue<int> KilledEntity = new Queue<int>();
         //for fps: damage, culprit; for fps: damage, hit id
-        public Queue<Tuple<int, float, int, int>> DamageDealt = new Queue<Tuple<int, float, int, int>>();
+        public Queue<Tuple<int, float, int, int, int>> DamageDealt = new Queue<Tuple<int, float, int, int, int>>();
 
         public Queue<Tuple<int>> TerminalsOpened = new Queue<Tuple<int>>();
+
+        public Queue<Tuple<int, Vector3, Vector3>> bullets = new Queue<Tuple<int, Vector3, Vector3>>();
 
         //game state
         public int GameState = -1;
@@ -184,58 +188,20 @@ namespace Netcode
         static extern void StartUpdating(IntPtr client);                                //Starts updating
         [DllImport(DLL_NAME)]
         static extern bool SendDataPacket(IntPtr ptr, int length, bool TCP, IntPtr client);
-        //[DllImport(DLL_NAME)]
-        //static extern bool SendDataInit(packet_init pkt, bool useTCP, IntPtr client);  //Sends Message to all other clients    
-        //[DllImport(DLL_NAME)]
-        //static extern bool SendDataJoin(packet_join pkt, bool useTCP, IntPtr client);
-        //[DllImport(DLL_NAME)]
-        //static extern bool SendDataMsg(packet_msg pkt, bool useTCP, IntPtr client);
-        //[DllImport(DLL_NAME)]
-        //static extern bool SendDataState(packet_state pkt, bool useTCP, IntPtr client);
-        //[DllImport(DLL_NAME)]
-        //static extern bool SendDataEntity(packet_entity pkt, bool useTCP, IntPtr client);
-        //[DllImport(DLL_NAME)]
-        //static extern bool SendDataDamage(packet_damage pkt, bool useTCP, IntPtr client);
-        //[DllImport(DLL_NAME)]
-        //static extern bool SendDataWeapon(packet_weapon pkt, bool useTCP, IntPtr client);
-        //[DllImport(DLL_NAME)]
-        //static extern bool SendDataBuild(packet_build pkt, bool useTCP, IntPtr client);
-        //[DllImport(DLL_NAME)]
-        //static extern bool SendDataKill(packet_kill pkt, bool useTCP, IntPtr client);
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReception(Action<int, string> action);       //recieve packets from server
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReceptionInit(Action<int, packet_init> action);
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReceptionJoin(Action<int, packet_join> action);
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReceptionMsg(Action<int, packet_msg> action);
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReceptionState(Action<int, packet_state> action);
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReceptionEntity(Action<int, packet_entity> action);
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReceptionDamage(Action<int, packet_damage> action);
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReceptionWeapon(Action<int, packet_weapon> action);
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReceptionBuild(Action<int, packet_build> action);
-        //[DllImport(DLL_NAME)]
-        //static extern void SetupPacketReceptionKill(Action<int, packet_kill> action);
-        //[DllImport(DLL_NAME)]
-        //static extern int GetPlayerNumber(IntPtr client);
         [DllImport(DLL_NAME)]
         static extern bool SendDebugOutput(string data);
+        [DllImport(DLL_NAME)]
+        static extern void ShowConsole(IntPtr client, bool open);
         [DllImport(DLL_NAME)]
         static extern int GetError(IntPtr client);
         [DllImport(DLL_NAME)]
         static extern int GetErrorLoc(IntPtr client);
 
-
         public static string ip = "127.0.0.1";
         private static IntPtr Client;
         private static int playerNumber = -1;
-
+        private static bool endGame = false;
+        public static GameState gameState = GameState.LOBBY;
         static public bool isConnected = false;
 
         #endregion
@@ -262,6 +228,7 @@ namespace Netcode
             Client = CreateClient();
             SetupPacketReception(receivePacket);
             StartUpdating(Client);
+            ShowConsole(Client, true);
         }
 
         #region packingData
@@ -297,7 +264,13 @@ namespace Netcode
             }
         }
 
-        static int InitialOffset = 16;
+        static int InitialOffset = 20;
+        static int PACKET_SENDER = 16;
+        static int PACKET_TYPE = 12;
+        static int PACKET_RECEIVERS = 8;
+        static int PACKET_LENGTH = 4;
+        static int PACKET_STAMP = 0;
+        static int OK_STAMP = 123456789;
 
         static bool SendIntPtr(ref byte[] bytes, int length, bool TCP, int receiver, int packetType)
         {
@@ -305,10 +278,12 @@ namespace Netcode
             if (isConnected)
             {
                 int playerID = GameSceneController.Instance.playerNumber;
-                BitConverter.GetBytes(length).CopyTo(bytes, 0);
-                BitConverter.GetBytes(receiver).CopyTo(bytes, 4);
-                BitConverter.GetBytes(packetType).CopyTo(bytes, 8);
-                BitConverter.GetBytes(playerID).CopyTo(bytes, 12);
+
+                BitConverter.GetBytes(OK_STAMP).CopyTo(bytes, 0);
+                BitConverter.GetBytes(length).CopyTo(bytes, 4);
+                BitConverter.GetBytes(receiver).CopyTo(bytes, 8);
+                BitConverter.GetBytes(packetType).CopyTo(bytes, 12);
+                BitConverter.GetBytes(playerID).CopyTo(bytes, 16);
 
                 //SendDebugOutput("ID: " + playerID.ToString() + ", Type: " + packetType.ToString() + ", LENGTH: " + length.ToString());
 
@@ -434,7 +409,7 @@ namespace Netcode
                 //Debug.Log("EVERYTHING SENT! ");
                 foreach (Droid droid in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Droid])
                 {
-                    
+
                     PackData(ref sendByteArray, ref loc, droid.id);
                     PackData(ref sendByteArray, ref loc, (int)droid.state);
                     PackData(ref sendByteArray, ref loc, droid.transform.position.x);
@@ -478,7 +453,7 @@ namespace Netcode
         }
 
 
-        public static void SendPacketDamage(int senderID, int receiverID, float damage, int entityLife)
+        public static void SendPacketDamage(int senderID, int receiverID, float damage, int entityLife, int importantReceivers)
         {
             if (damage >= 0)
             {
@@ -491,6 +466,7 @@ namespace Netcode
                 PackData(ref sendByteArray, ref loc, receiverID);
                 PackData(ref sendByteArray, ref loc, damage);
                 PackData(ref sendByteArray, ref loc, entityLife);
+                PackData(ref sendByteArray, ref loc, importantReceivers);
 
                 SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.DAMAGE);
             }
@@ -519,7 +495,7 @@ namespace Netcode
                 int loc = InitialOffset;
                 int Receiver = 0;
 
-                Receiver = (~(int)PlayerMask.SERVER);
+                Receiver = ~(((int)PlayerMask.SERVER) + (1 << (GameSceneController.Instance.playerNumber + 1)));
 
                 PackData(ref sendByteArray, ref loc, ID);
                 PackData(ref sendByteArray, ref loc, type);
@@ -539,7 +515,7 @@ namespace Netcode
                 int loc = InitialOffset;
                 int Receiver = 0;
 
-                Receiver = (~(int)PlayerMask.SERVER);
+                Receiver = ~(((int)PlayerMask.SERVER) + (1 << (GameSceneController.Instance.playerNumber + 1)));
 
                 PackData(ref sendByteArray, ref loc, ID);
                 PackData(ref sendByteArray, ref loc, killerID);
@@ -556,6 +532,24 @@ namespace Netcode
             PackData(ref sendByteArray, ref loc, gateNum);
 
             SendIntPtr(ref sendByteArray, loc, true, Receiver, (int)PacketType.TERMINAL);
+        }
+
+        public static void SendPacketFiring(int id, Vector3 hitPoint, Vector3 hitNormal)
+        {
+            int loc = InitialOffset;
+            int Receiver = 0;
+
+            Receiver = ~(((int)PlayerMask.SERVER) + (1 << (GameSceneController.Instance.playerNumber + 1)));
+
+            PackData(ref sendByteArray, ref loc, id);
+            PackData(ref sendByteArray, ref loc, hitPoint.x);
+            PackData(ref sendByteArray, ref loc, hitPoint.y);
+            PackData(ref sendByteArray, ref loc, hitPoint.z);
+            PackData(ref sendByteArray, ref loc, hitNormal.x);
+            PackData(ref sendByteArray, ref loc, hitNormal.y);
+            PackData(ref sendByteArray, ref loc, hitNormal.z);
+
+            SendIntPtr(ref sendByteArray, loc, false, Receiver, (int)PacketType.FIRING);
         }
         #endregion
 
@@ -599,7 +593,7 @@ namespace Netcode
 
         static void receivePacket(IntPtr ptr, int length, bool TCP)
         {
-            if (16 <= length && length < 5000)
+            if (length < 5000 && length >= InitialOffset)
             {
 
                 //SendDebugOutput("C# RECEIVED PACKET");
@@ -624,8 +618,8 @@ namespace Netcode
 
         static void deconstructPacket(ref byte[] bytes, int length)
         {
-            int type = BitConverter.ToInt32(bytes, 8);
-            int sender = BitConverter.ToInt32(bytes, 12);
+            int type = BitConverter.ToInt32(bytes, PACKET_TYPE);
+            int sender = BitConverter.ToInt32(bytes, PACKET_SENDER);
             int loc = InitialOffset;
 
             //SendDebugOutput("Type: " + type.ToString() + " , Sender: " + sender.ToString());
@@ -701,11 +695,13 @@ namespace Netcode
                     int receiverID = 0;
                     float damage = 0.0f;
                     int entityLife = -1;
+                    int importantReceivers = 0;
                     UnpackInt(ref bytes, ref loc, ref senderID);
                     UnpackInt(ref bytes, ref loc, ref receiverID);
                     UnpackFloat(ref bytes, ref loc, ref damage);
                     UnpackInt(ref bytes, ref loc, ref entityLife);
-                    PacketReceivedDamage(senderID, receiverID, damage, entityLife);
+                    UnpackInt(ref bytes, ref loc, ref importantReceivers);
+                    PacketReceivedDamage(senderID, receiverID, damage, entityLife, importantReceivers);
                     break;
                 case (int)PacketType.WEAPON:
                     int weapon = 0;
@@ -730,6 +726,9 @@ namespace Netcode
                         dataState.TerminalsOpened.Enqueue(new Tuple<int>(toDisarm));
                         //gates[toDisarm].openGate(gates[toDisarm].gate);
                     }
+                    break;
+                case (int)PacketType.FIRING:
+                    PacketReceivedFiring(ref bytes, ref loc);
                     break;
                 default:
                     SendDebugOutput("Error Packet Type");
@@ -815,6 +814,15 @@ namespace Netcode
 
             if (isConnected)
             {
+                if (Input.GetKeyDown(KeyCode.P) && gameState == GameState.GAME)
+                {
+                    endGame = true;
+                }
+                if (endGame)
+                {
+                    GameSceneController.Instance.SwapScene(3);
+                    endGame = false;
+                }
                 //update players
                 //if (dataState.p1.updated)
                 //{
@@ -863,7 +871,7 @@ namespace Netcode
                     //   
                     //}
 
-                    for(int i = 0; i < 3; i++)
+                    for (int i = 0; i < 3; i++)
                     {
                         firearms[i].NetworkingUpdate(dataState.playerWeapons[i]);
                     }
@@ -894,6 +902,19 @@ namespace Netcode
                     }
                 }
 
+                while (dataState.bullets.Count > 0)
+                {
+                    Tuple<int, Vector3, Vector3> singleBullet = dataState.bullets.Dequeue();
+
+                    if (EntityManager.Instance.AllEntities[singleBullet.Item1] != null && EntityManager.Instance.AllEntities[singleBullet.Item1].isActiveAndEnabled)
+                    {
+                        if (EntityManager.Instance.AllEntities[singleBullet.Item1].type == EntityType.Dummy)
+                        {
+                            ((FPSPlayer.Player)EntityManager.Instance.AllEntities[singleBullet.Item1]).firearmHandler.PlayShootEffect(singleBullet.Item2, singleBullet.Item3);
+                        }
+                    }
+                }
+
                 while (dataState.TerminalsOpened.Count > 0)
                 {
                     Tuple<int> toOpen = dataState.TerminalsOpened.Dequeue();
@@ -908,13 +929,21 @@ namespace Netcode
                 while (dataState.DamageDealt.Count > 0)
                 {
 
-                    Tuple<int, float, int, int> damage = dataState.DamageDealt.Dequeue();
+                    Tuple<int, float, int, int, int> damage = dataState.DamageDealt.Dequeue();
                     //Debug.Log(damage.Item1 + ", " + damage.Item2 + ", " + damage.Item3);
                     //Debug.Log("PLAYER NUMBER: " + GameSceneController.Instance.playerNumber);
                     //Debug.Log(EntityManager.Instance.AllEntities[GameSceneController.Instance.playerNumber].name);
                     if (EntityManager.Instance.AllEntities.Count > damage.Item1 && EntityManager.Instance.AllEntities[damage.Item1].isActiveAndEnabled)
                     {
-                        EntityManager.Instance.AllEntities[damage.Item1].OnDamage(damage.Item2, damage.Item3, damage.Item4);
+                        if ((damage.Item5 & (1 << (GameSceneController.Instance.playerNumber + 1))) > 0)
+                        {
+                            EntityManager.Instance.AllEntities[damage.Item1].OnDamage(damage.Item2, damage.Item3, damage.Item4);
+                        }
+                        else
+                        {
+                            EntityManager.Instance.AllEntities[damage.Item1].OnOtherDamage(damage.Item2, damage.Item3, damage.Item4);
+                        }
+                        
                         Debug.Log("DAMAGED");
                     }
                 }
@@ -923,7 +952,7 @@ namespace Netcode
                 {
                     //if (GameSceneController.Instance.type == PlayerType.FPS)
                     //{
-                        EntityManager.Instance.AllEntities[dataState.KilledEntity.Dequeue()].OnDeath(false);
+                    EntityManager.Instance.AllEntities[dataState.KilledEntity.Dequeue()].OnDeath(false);
                     //}
                     //else
                     //{
@@ -941,7 +970,7 @@ namespace Netcode
 
                         Entity temp = EntityManager.Instance.GetEntityAt((EntityType)tempTup.Item2, tempTup.Item1);
                         temp.transform.position = tempTup.Item3;
-                        temp.life = tempTup.Item4;
+                        temp.deaths = tempTup.Item4;
                         temp.IssueBuild();
 
                     }
@@ -957,16 +986,19 @@ namespace Netcode
         #region PacketReception
         static void PacketReceivedInit(int sender, int index)
         {
-            SendDebugOutput("INIT PACKET");
-            isConnected = true;
-            OnConnected(true);
             GameSceneController.Instance.playerNumber = index;
             playerNumber = index;
-            allUsers.Add(new UsersData());
-            SendDebugOutput("Sending UDP INIT");
-            SendPacketInitUDP(GameSceneController.Instance.playerNumber);
-            SendDebugOutput("Sending TCP for username");
-            SendPacketUser(GameSceneController.Instance.playerNumber, StartManager.Instance.username.text);
+            if (!isConnected)
+            {
+                SendDebugOutput("INIT PACKET");
+                isConnected = true;
+                OnConnected(true);
+                allUsers.Add(new UsersData());
+                SendDebugOutput("Sending UDP INIT");
+                SendPacketInitUDP(GameSceneController.Instance.playerNumber);
+                SendDebugOutput("Sending TCP for username");
+                SendPacketUser(GameSceneController.Instance.playerNumber, StartManager.Instance.username.text);
+            }
         }
 
         static void PacketReceivedUser(int index, string user)
@@ -977,6 +1009,7 @@ namespace Netcode
                 SendDebugOutput("User Added! Total: " + allUsers.Count.ToString());
             }
             allUsers[index].username = user;
+            RecieveMessage(user + " has joined the server!");
             StartManager.Instance.OnRoleUpdate(true);
         }
 
@@ -1052,7 +1085,7 @@ namespace Netcode
         static void PacketReceivedMsg(int sender, string msg)
         {
             SendDebugOutput("Player " + sender.ToString() + ": " + msg);
-            RecieveMessage(msg);
+            RecieveMessage(allUsers[sender].username + ": " + msg);
         }
 
         static void PacketReceivedState(int sender, int state)
@@ -1077,6 +1110,10 @@ namespace Netcode
                     case (int)GameState.GAME:
                         Debug.Log("Game Start!");
                         GameReady();
+                        break;
+                    case (int)GameState.ENDGAME:
+                        Debug.Log("End Game!");
+                        GameEnded();
                         break;
                 }
                 dataState.GameState = state;
@@ -1117,11 +1154,11 @@ namespace Netcode
         }
 
         // NEEDS UPDATE @PROGRAMMERS
-        static void PacketReceivedDamage(int senderID, int receiverID, float damage, int entityLife)
+        static void PacketReceivedDamage(int senderID, int receiverID, float damage, int entityLife, int importantReceivers)
         {
-            Tuple<int, float, int, int> temp = Tuple.Create(receiverID, damage, senderID, entityLife);
+            Tuple<int, float, int, int, int> temp = Tuple.Create(receiverID, damage, senderID, entityLife, importantReceivers);
 
-            lock (dataState)
+            lock (dataState.DamageDealt)
             {
                 dataState.DamageDealt.Enqueue(temp);
             }
@@ -1174,7 +1211,7 @@ namespace Netcode
             UnpackInt(ref bytes, ref loc, ref entityLife);
 
             Debug.Log("Building: " + (EntityType)type);
-            lock (dataState)
+            lock (dataState.BuildEntity)
             {
                 Tuple<int, int, Vector3, int> temp = Tuple.Create(ID, type, new Vector3(posX, posY, posZ), entityLife);
                 dataState.BuildEntity.Enqueue(temp);
@@ -1183,9 +1220,33 @@ namespace Netcode
 
         static void PacketReceivedDeath(int id, int killerID)
         {
-            lock (dataState)
+            lock (dataState.KilledEntity)
             {
                 dataState.KilledEntity.Enqueue(id);
+            }
+        }
+
+        static void PacketReceivedFiring(ref byte[] bytes, ref int loc)
+        {
+            int ID = 0;
+            float pointX = 0;
+            float pointY = 0;
+            float pointZ = 0;
+            float normalX = 0;
+            float normalY = 0;
+            float normalZ = 0;
+
+            UnpackInt(ref bytes, ref loc, ref ID);
+            UnpackFloat(ref bytes, ref loc, ref pointX);
+            UnpackFloat(ref bytes, ref loc, ref pointY);
+            UnpackFloat(ref bytes, ref loc, ref pointZ);
+            UnpackFloat(ref bytes, ref loc, ref normalX);
+            UnpackFloat(ref bytes, ref loc, ref normalY);
+            UnpackFloat(ref bytes, ref loc, ref normalZ);
+
+            lock (dataState.bullets)
+            {
+                dataState.bullets.Enqueue(new Tuple<int, Vector3, Vector3>(ID, new Vector3(pointX, pointY, pointZ), new Vector3(normalX, normalY, normalZ)));
             }
         }
 
@@ -1933,8 +1994,19 @@ namespace Netcode
         {
             StartManager.Instance.recieveMessage(message);
         }
-
-
         #endregion
+
+
+        public static void EndGame()
+        {
+            SendPacketState((int)GameState.ENDGAME);
+        }
+
+        // Client receive ENDGAME state from server, Call Scene Switch Here
+        public static void GameEnded()
+        {
+            // Insert SceneSwap to End Game Scene
+            endGame = true;
+        }
     }
 }

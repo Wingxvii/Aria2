@@ -30,6 +30,7 @@ public class GameSceneController : MonoBehaviour
     public int playerNumber = -1; 
 
     public bool gameStart = false;
+    public bool gameEnd = false;
     public int loadedScene = 1;
     public PlayerType type;
     public int gameState = 0;

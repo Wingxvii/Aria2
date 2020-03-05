@@ -856,6 +856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: -1
   gameStart: 1
+  gameEnd: 0
   loadedScene: 1
   type: 1
   gameState: 0

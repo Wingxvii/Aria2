@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using Netcode;
+using Networking;
 using UnityEngine;
 
 
@@ -12,6 +12,8 @@ public enum DroidState {
     TetherAttacking = 3,
     TargetAttacking = 4,
     Dancing = 5,
+    Death = 6,
+
 }
 
 public class Droid : Entity
@@ -177,7 +179,9 @@ public class Droid : Entity
 
 
                     break;
+                case DroidState.Death:
 
+                    break;
             }
         }
     }
@@ -226,12 +230,12 @@ public class Droid : Entity
         {
             if (ResourceManager.Instance.droidStronger)
             {
-                NetworkManager.SendPacketDamage(this.id, attackPoint.id, attackDamage, attackPoint.life);
+                NetworkManager.SendPacketDamage(this.id, attackPoint.id, attackDamage, attackPoint.deaths, 1 << (attackPoint.id + 1));
                 currentCoolDown = coolDown;
                 anim.Play("Attack");
             }
             else {
-                NetworkManager.SendPacketDamage(this.id, attackPoint.id, strongAttack, attackPoint.life);
+                NetworkManager.SendPacketDamage(this.id, attackPoint.id, strongAttack, attackPoint.deaths, 1 << (attackPoint.id + 1));
                 currentCoolDown = lowCoolDown;
                 anim.Play("Attack");
 
@@ -287,16 +291,19 @@ public class Droid : Entity
 
     public override void OnDeath(bool networkData)
     {
-        ++life;
-        if (networkData)
-            NetworkManager.SendPacketDeath(this.id, killerID);
-        StartCoroutine(PlayDeath());
+		if (networkData)
+			++deaths;
+		if (networkData)
+			NetworkManager.SendPacketDeath(this.id, killerID);
+
+        Debug.Log("IT DIED " + id);
+		StartCoroutine(PlayDeath());
+        state = DroidState.Death;
     }
 
     public void OnDance()
     {
         anim.Play("Dance");
-
     }
 
     IEnumerator PlayDeath()

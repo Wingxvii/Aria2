@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Netcode;
+using Networking;
 
 namespace DEPRECATED
 {
@@ -131,7 +131,7 @@ namespace DEPRECATED
 
         public override void OnDamage(int dmg, Entity entity)
         {
-            NetworkManager.SendPacketDamage(this.id, entity.id, dmg, entity.life);
+            //NetworkManager.SendPacketDamage(this.id, entity.id, dmg, entity.deaths);
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Netcode;
+using Networking;
 using System;
 using System.Text;
 
@@ -24,7 +24,7 @@ public abstract class Entity : MonoBehaviour
 {
 
     //ID
-    public int life = 0;
+    public int deaths = 0;
     public int id;
     public int killerID;
     private static int idtracker = 0;
@@ -153,13 +153,14 @@ public abstract class Entity : MonoBehaviour
     //deals damage to entity
     public virtual void OnDamage(float num, int kID, int entityLife)
     {
-        if (life == entityLife)
+        if (deaths == entityLife)
         {
             Debug.Log(type);
             if (destructable)
             {
                 //Debug.Log("NO_BODY");
                 currentHealth -= num;
+                Debug.Log("Ouch: " + num.ToString());
             }
             if (currentHealth <= 0)
             {
@@ -168,6 +169,13 @@ public abstract class Entity : MonoBehaviour
             }//
         }
     }
+
+    public virtual void OnOtherDamage(float num, int kID, int entityLife)
+    {
+        currentHealth -= num;
+        currentHealth = Mathf.Max(currentHealth, num);
+    }
+
     public virtual void OnDamage(int num, Entity culprit)
     {
         //if (destructable)
@@ -197,7 +205,8 @@ public abstract class Entity : MonoBehaviour
     //death of unit
     public virtual void OnDeath(bool networkData)
     {
-        ++life;
+		if (networkData)
+			++deaths;
         //deactivate
         int killerID = 0; // NEED UPDATE @PROGRAMMER
         if (networkData)
@@ -238,7 +247,6 @@ public abstract class Entity : MonoBehaviour
     public virtual void GetEntityString(ref StringBuilder dataToSend) {  }
 
     public virtual void UpdateEntityStats(EntityData ed) {
-        
-        
+        Debug.LogWarning("BASE FUNCTION USED ON ENTITY:" + id.ToString());
     }
 }

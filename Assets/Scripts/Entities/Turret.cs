@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using Netcode;
+using Networking;
 using UnityEngine;
 
 public enum TurretState
@@ -38,7 +38,7 @@ public class Turret : Building
 
     //hit ray
     private RaycastHit hit;
-    private LayerMask turretLayerMask;
+    public LayerMask turretLayerMask;
 
     //models
     public GameObject head;
@@ -74,6 +74,8 @@ public class Turret : Building
 
         turretLayerMask = LayerMask.GetMask("Player");
         turretLayerMask += LayerMask.GetMask("Wall");
+        turretLayerMask += LayerMask.GetMask("StaticObject");
+
     }
 
     void TickUpdate()
@@ -167,7 +169,7 @@ public class Turret : Building
                             if (HitPlayer())
                             {
                                 Debug.Log("Hit Player");
-                                NetworkManager.SendPacketDamage(this.id, attackPoint.id, attackDamage, attackPoint.life);
+                                NetworkManager.SendPacketDamage(this.id, attackPoint.id, attackDamage, attackPoint.deaths, 1 << (attackPoint.id + 1));
                                 //attackPoint.OnDamage(attackDamage, this);
                             }
                             currentAmno--;
@@ -204,7 +206,7 @@ public class Turret : Building
 
                             if (HitPlayer())
                             {
-                                    NetworkManager.SendPacketDamage(this.id, attackPoint.id, attackDamage, attackPoint.life);
+                                    NetworkManager.SendPacketDamage(this.id, attackPoint.id, attackDamage, attackPoint.deaths, 1 << (attackPoint.id + 1));
                                     //attackPoint.OnDamage(attackDamage, this);
                             }
                             currentAmno--;

@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 4224903672921372367}
   - component: {fileID: 697680683534145694}
   - component: {fileID: 2944722344727024708}
+  - component: {fileID: 6620587703501244327}
   m_Layer: 13
   m_Name: Gun
   m_TagString: Untagged
@@ -106,7 +107,7 @@ Transform:
   - {fileID: 7158014749424182887}
   m_Father: {fileID: 2070961772415355654}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -128.307, y: -186.593, z: 224.877}
 --- !u!33 &4224903672921372367
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -166,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3a04e0062ae09419daafd50b845da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currState: 0
   gunStats:
     accuracy: 0
     accReduc: 0
@@ -186,6 +188,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 40cf983deb667484ead5edc4c75df91a, type: 2}
   - {fileID: 11400000, guid: 213fc104588a02b4b8ab66de21a29b79, type: 2}
   PV: {fileID: 2070961772415355655}
+  DummyPV: {fileID: 0}
   ammoHUD: {fileID: 0}
   bulletHole: {fileID: 6117956809001252063, guid: 535661e45ec156c4dbfafb4dfc20b243,
     type: 3}
@@ -194,6 +197,28 @@ MonoBehaviour:
   muzzleFlash: {fileID: 4736684412357786358, guid: 6c813d96d006632428013fd0c789becd,
     type: 3}
   barrel: {fileID: 7158014749424182887}
+  anim: {fileID: 0}
+  parentController: {fileID: 0}
+  timeToNextShot: 0
+--- !u!111 &6620587703501244327
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504371968378089437}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 94764bfdb0ac1ec41b0dfef032a38288, type: 2}
+  - {fileID: 7400000, guid: 4e17508d832b3ba4d96e14bd52deacd7, type: 2}
+  - {fileID: 7400000, guid: 6ed6060bc4629684fad576d78a60ddfe, type: 2}
+  - {fileID: 7400000, guid: a79244bdd95d4644fb623f58e54dd770, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1558703982977958228
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,11 +550,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3644eed16cb8fb34fa84864a2daddb1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 0
   id: 0
   killerID: 0
   type: 5
   currentHealth: 1
-  maxHealth: 25
+  maxHealth: 500
   destructable: 1
   ready: 1
   m_camera: {fileID: 2070961772415355655}
@@ -545,6 +571,8 @@ MonoBehaviour:
   m_pitch: 0
   m_yaw: 0
   interactTimerSlider: {fileID: 4268118371514187026}
+  m_state: 0
+  anim: {fileID: 0}
 --- !u!1 &2070961772415355650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,6 +1081,7 @@ GameObject:
   - component: {fileID: 2095682554304252372}
   - component: {fileID: 3759065324377090143}
   - component: {fileID: 3873078100119357448}
+  - component: {fileID: 2563592556928188854}
   m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
@@ -1141,6 +1170,25 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!95 &2563592556928188854
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6359646101278471308}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7297062587284968938
 GameObject:
   m_ObjectHideFlags: 0

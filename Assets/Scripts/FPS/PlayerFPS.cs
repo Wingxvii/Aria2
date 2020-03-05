@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Netcode;
+using Networking;
 using UnityEngine;
 
 [System.Serializable]
@@ -154,7 +154,7 @@ public class PlayerFPS : Entity
             stats.groundAngleFloat = 180f;
             stats.colliding = false;
 
-            Netcode.NetworkManager.SendPacketEntities();
+            Networking.NetworkManager.SendPacketEntities();
         }
         else if (type == EntityType.Dummy)
         {
@@ -282,7 +282,7 @@ public class PlayerFPS : Entity
     //Use this to network damage being dealt
     public void SendDamage(int damage, Entity receiver)
     {
-        Netcode.NetworkManager.SendPacketDamage(this.id, receiver.id, damage, receiver.life);
+        //Networking.NetworkManager.SendPacketDamage(this.id, receiver.id, damage, receiver.deaths);
         receiver.OnDamage(damage, this);
     }
 
@@ -375,7 +375,7 @@ public class PlayerFPS : Entity
 
     public override void OnDamage(float num, int id, int entityLife)
     {
-        if (life == entityLife)
+        if (deaths == entityLife)
         {
             if (destructable)
             {
@@ -387,6 +387,12 @@ public class PlayerFPS : Entity
                 OnDeath(true);
             }
         }
+    }
+
+    public override void OnOtherDamage(float num, int kID, int entityLife)
+    {
+        currentHealth -= num;
+        currentHealth = Mathf.Max(currentHealth, num);
     }
 
     public override void OnDamage(int num, Entity culprit)
