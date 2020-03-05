@@ -807,11 +807,15 @@ namespace RTSInput
         //train unit in barracks
         public void OnTrainBarracks()
         {
+            CommandManager.Instance.CallAction(PrimaryEntity, 1);
+
+            /*
             foreach (Entity entity in SelectedEntities) {
                 if (entity.type == PrimaryEntity.type) {
-                    CommandManager.Instance.CallAction(entity, 1);
+                    CommandManager.Instance.CallAction(PrimaryEntity, 1);
                 }
             }
+            */
         }
 
         //switch current mouse action to Movement indicator
