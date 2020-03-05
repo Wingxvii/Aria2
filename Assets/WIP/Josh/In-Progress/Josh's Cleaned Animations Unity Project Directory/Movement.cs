@@ -46,25 +46,13 @@ public class Movement : MonoBehaviour
         {
             anim.Play("Jump");
         }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            anim.Play("Pickup");
-        }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            anim.Play("Pistol Melee");
-        }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             anim.Play("Reload");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Delete))
         {
-            anim.Play("Grenade");
+            anim.Play("Death");
         }
-        //if (Input.GetKeyDown(KeyCode.E))
-        //{
-        //    anim.Play("Defuse");
-        //}
     }
 }
