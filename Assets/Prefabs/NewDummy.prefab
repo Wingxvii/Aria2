@@ -660,12 +660,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3644eed16cb8fb34fa84864a2daddb1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 0
+  deaths: 0
   id: 0
   killerID: 0
   type: 6
-  currentHealth: 1
-  maxHealth: 1
+  currentHealth: 200
+  maxHealth: 200
   destructable: 0
   ready: 1
   m_camera: {fileID: 0}
