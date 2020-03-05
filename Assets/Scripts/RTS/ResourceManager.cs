@@ -42,8 +42,6 @@ public class ResourceManager : MonoBehaviour
 
 
         public const float DROIDTRAINTIME = 5.0f;
-
-
         public const int SUPPLY_PER_BARRACKS = 20;
 
         public const bool CREDITS_OFF = false;
@@ -84,6 +82,11 @@ public class ResourceManager : MonoBehaviour
     bool minutePassed = false;
     bool thirtyPassed = false;
     bool tenPassed = false;
+
+    //tick timestep
+    int fixedTimeStep = 0;
+    //tick delay
+    int tickDelay = 50;
 
     // Start is called before the first frame update
     void Start()
@@ -130,23 +133,42 @@ public class ResourceManager : MonoBehaviour
         {
             //NetworkManager.SendGameData((int)gameState, timeElapsed);
 
-            if (ResourceConstants.CREDITS_OFF)
+            #region Fixed Tick
+            ++fixedTimeStep;
+
+            if (fixedTimeStep >= tickDelay)
             {
-                credits = 99999;
+                TickUpdate();
+                fixedTimeStep = 0;
             }
-            else
-            {
-                credits += 2;
-                if (resourceTrickle) {
-                    credits += 1;
-                }
-            }
+            #endregion
+
+
 
         }
         creditText.text = credits.ToString();
         supplyText.text = supplyCurrent.ToString() + "/" + totalSupply.ToString();
 
     }
+
+    void TickUpdate()
+    {
+
+        if (ResourceConstants.CREDITS_OFF)
+        {
+            credits = 99999;
+        }
+        else
+        {
+            credits += 50;
+            if (resourceTrickle)
+            {
+                credits += 50;
+            }
+        }
+
+    }
+
 
     public bool Purchase(EntityType type)
     {
