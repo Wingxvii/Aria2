@@ -350,7 +350,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b77c7a127e0ff48a24190cb161594e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deaths: 0
   id: 0
+  killerID: 0
   type: 4
   currentHealth: 500
   maxHealth: 500
@@ -359,7 +361,7 @@ MonoBehaviour:
   healthUpgradeIncrease: 250
   state: 0
   visionRange: 30
-  maxRange: 50
+  maxRange: 40
   shortestDist: 0
   muzzle: {fileID: 4176829704521851602}
   reloadRate: 5
@@ -370,6 +372,9 @@ MonoBehaviour:
   currentAmno: 10
   rotateSpeed: 2
   faceingPoint: {x: 0, y: 0, z: 0}
+  turretLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   head: {fileID: 8884248750197795924}
   body: {fileID: 8858981734660671219}
   positionUpdated: 0

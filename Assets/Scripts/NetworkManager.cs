@@ -167,6 +167,8 @@ namespace Networking
 
         public Queue<Tuple<int, Vector3, Vector3>> bullets = new Queue<Tuple<int, Vector3, Vector3>>();
 
+        public Queue<int> turretFires = new Queue<int>();
+
         //game state
         public int GameState = -1;
     }
@@ -438,7 +440,7 @@ namespace Networking
             {
                 FPSPlayer.Player player = (FPSPlayer.Player)EntityManager.Instance.AllEntities[playerNumber];
                 PackData(ref sendByteArray, ref loc, player.id);
-                PackData(ref sendByteArray, ref loc, (int)player.GetState());
+                PackData(ref sendByteArray, ref loc, (int)player.firearmHandler.currState);
                 PackData(ref sendByteArray, ref loc, player.transform.position.x);
                 PackData(ref sendByteArray, ref loc, player.transform.position.y);
                 PackData(ref sendByteArray, ref loc, player.transform.position.z);
@@ -750,11 +752,7 @@ namespace Networking
                 case (int)PacketType.TURRETFIRE:
                     int TID = 0;
                     UnpackInt(ref bytes, ref loc, ref TID);
-                    if (TID >= EntityManager.Instance.AllEntities.Count)
-                        break;
-                    Turret t = (Turret)EntityManager.Instance.AllEntities[TID];
-                    //if (t != null)
-                    //    t.muzzle.Play();
+                    dataState.turretFires.Enqueue(TID);
                     break;
             }
 
@@ -923,6 +921,16 @@ namespace Networking
                             }
                         }
                     }
+                }
+
+                while(dataState.turretFires.Count > 0)
+                {
+                    int TID = dataState.turretFires.Dequeue();
+                    if (TID >= EntityManager.Instance.AllEntities.Count)
+                        continue;
+                    Turret t = (Turret)EntityManager.Instance.AllEntities[TID];
+                    if (t != null)
+                        t.muzzle.Play();
                 }
 
                 while (dataState.bullets.Count > 0)

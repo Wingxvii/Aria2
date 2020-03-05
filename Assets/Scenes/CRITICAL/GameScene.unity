@@ -1834,6 +1834,9 @@ Transform:
   - {fileID: 805544314}
   - {fileID: 2049987912}
   - {fileID: 23512778}
+  - {fileID: 1207763312}
+  - {fileID: 1344970496}
+  - {fileID: 1906249239}
   m_Father: {fileID: 4370506372133517084}
   m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2162,6 +2165,55 @@ MonoBehaviour:
   m_offset: {x: 0, y: 0, z: 0}
   m_drawHitbox: 0
   m_hitboxMaterial: {fileID: 2100000, guid: 29066b44698e6e045ad0aac83e4c55ba, type: 2}
+--- !u!1 &1207763311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1207763312}
+  - component: {fileID: 1207763313}
+  m_Layer: 9
+  m_Name: Grid (36)
+  m_TagString: Buildable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1207763312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207763311}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -96.93, y: 3.1, z: 17.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 973187113}
+  m_RootOrder: 36
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1207763313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207763311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42827287e3842814290828a363adc40d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_width: 4
+  m_height: 2
+  m_gridSize: 3
+  m_offset: {x: 0, y: 0, z: 0}
+  m_drawHitbox: 0
+  m_hitboxMaterial: {fileID: 2100000, guid: 29066b44698e6e045ad0aac83e4c55ba, type: 2}
 --- !u!1 &1224689275
 GameObject:
   m_ObjectHideFlags: 0
@@ -2192,6 +2244,55 @@ Transform:
   m_Father: {fileID: 1935975878}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1344970495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1344970496}
+  - component: {fileID: 1344970497}
+  m_Layer: 9
+  m_Name: Grid (37)
+  m_TagString: Buildable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1344970496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344970495}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -76.64, y: 3.1, z: 32.52}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 973187113}
+  m_RootOrder: 37
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1344970497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344970495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42827287e3842814290828a363adc40d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_width: 2
+  m_height: 4
+  m_gridSize: 3
+  m_offset: {x: 0, y: 0, z: 0}
+  m_drawHitbox: 0
+  m_hitboxMaterial: {fileID: 2100000, guid: 29066b44698e6e045ad0aac83e4c55ba, type: 2}
 --- !u!1001 &1359636751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2207,17 +2308,17 @@ PrefabInstance:
     - target: {fileID: 3083703331551410316, guid: 3abd0d57ee5e9ed43bf389ea277fe2eb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -126.7
+      value: -159.92
       objectReference: {fileID: 0}
     - target: {fileID: 3083703331551410316, guid: 3abd0d57ee5e9ed43bf389ea277fe2eb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.0000005
+      value: 6.06
       objectReference: {fileID: 0}
     - target: {fileID: 3083703331551410316, guid: 3abd0d57ee5e9ed43bf389ea277fe2eb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 75.8
+      value: 108.6
       objectReference: {fileID: 0}
     - target: {fileID: 3083703331551410316, guid: 3abd0d57ee5e9ed43bf389ea277fe2eb,
         type: 3}
@@ -3573,6 +3674,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871372934}
   m_CullTransparentMesh: 0
+--- !u!1 &1906249238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1906249239}
+  - component: {fileID: 1906249240}
+  m_Layer: 9
+  m_Name: Grid (38)
+  m_TagString: Buildable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1906249239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906249238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -77.13, y: 3.1, z: 18.58}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 973187113}
+  m_RootOrder: 38
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1906249240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906249238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42827287e3842814290828a363adc40d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_width: 2
+  m_height: 2
+  m_gridSize: 3
+  m_offset: {x: 0, y: 0, z: 0}
+  m_drawHitbox: 0
+  m_hitboxMaterial: {fileID: 2100000, guid: 29066b44698e6e045ad0aac83e4c55ba, type: 2}
 --- !u!1 &1918322067
 GameObject:
   m_ObjectHideFlags: 0
@@ -37138,7 +37288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ef8c68bade09b41aca258d42a632f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastTab: 2
+  lastTab: 1
   movementSettingsFoldout: 1
   zoomingSettingsFoldout: 0
   rotationSettingsFoldout: 1
@@ -37161,7 +37311,7 @@ MonoBehaviour:
   minHeight: 10
   heightDampening: 5
   keyboardZoomingSensitivity: 2
-  scrollWheelZoomingSensitivity: 100
+  scrollWheelZoomingSensitivity: 50
   limitMap: 1
   limitX: -180
   limitY: 125
@@ -37196,8 +37346,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20048c13a5d194941bac6cd566a5e468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetsTag:
-  - SelectableObject
+  targetsTag: []
+  offset: {x: 0, y: 0, z: 0}
 --- !u!124 &3086962081467398296
 Behaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ public class TargetSelector : MonoBehaviour
     private new Camera camera;
     public string[] targetsTag;
 
+    public Vector3 offset;
+
     private float doubleClickTime = 0.3f;
     private float lastClickTime = -10f;
 
@@ -37,6 +39,9 @@ public class TargetSelector : MonoBehaviour
                     {
                         if (hit.transform.CompareTag(target))
                         {
+                            //Transform newTransform = new Transform(hit.transform.position, hit.transform.rotation, hit.transform.localScale);
+                            //newTransform.position += offset;
+
                             cam.SetTarget(hit.transform);
                             foundTarget = true;
                         }
