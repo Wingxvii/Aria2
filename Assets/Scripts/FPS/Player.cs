@@ -20,7 +20,8 @@ namespace FPSPlayer
             IDLE,
             WALKING,
             RUNNING,
-            JUMPING,
+            RELOAD,
+            FIRE,
 
             NUM_STATES
         }
@@ -400,8 +401,13 @@ namespace FPSPlayer
         {
             ResetValues();
             if (networkData)
+            {
                 Networking.NetworkManager.SendPacketDeath(this.id, killerID);
-            Debug.Log("U DEAD");
+            }
+            else {
+                anim.Play("Death");
+            }
+
         }
 
         public override void ResetValues()
@@ -465,6 +471,38 @@ namespace FPSPlayer
 
             rb.velocity = vel;
 
+            switch ((PlayerState)ed.state) {
+                case PlayerState.IDLE:
+                    if (m_state != PlayerState.IDLE) {
+                        m_state = PlayerState.IDLE;
+                    }
+                    break;
+                case PlayerState.WALKING:
+                    if (m_state != PlayerState.WALKING)
+                    {
+                        m_state = PlayerState.WALKING;
+                    }
+                    break;
+                case PlayerState.RUNNING:
+                    if (m_state != PlayerState.RUNNING)
+                    {
+                        m_state = PlayerState.RUNNING;
+                    }
+                    break;
+                case PlayerState.RELOAD:
+                    if (m_state != PlayerState.RELOAD)
+                    {
+                        anim.Play("Reload");
+                        m_state = PlayerState.RELOAD;
+                    }
+                    break;
+                case PlayerState.FIRE:
+                    if (m_state != PlayerState.FIRE)
+                    {
+                        m_state = PlayerState.FIRE;
+                    }
+                    break;
+            }
             //transform.position = ed.position;
             //transform.localRotation = Quaternion.Euler(new Vector3(0, ed.rotation.y, 0));
             //m_pitch = ed.rotation.x;

@@ -440,7 +440,7 @@ namespace Networking
             {
                 FPSPlayer.Player player = (FPSPlayer.Player)EntityManager.Instance.AllEntities[playerNumber];
                 PackData(ref sendByteArray, ref loc, player.id);
-                PackData(ref sendByteArray, ref loc, (int)player.GetState());
+                PackData(ref sendByteArray, ref loc, (int)player.firearmHandler.currState);
                 PackData(ref sendByteArray, ref loc, player.transform.position.x);
                 PackData(ref sendByteArray, ref loc, player.transform.position.y);
                 PackData(ref sendByteArray, ref loc, player.transform.position.z);
