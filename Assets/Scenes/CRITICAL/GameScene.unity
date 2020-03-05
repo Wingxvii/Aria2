@@ -37288,7 +37288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ef8c68bade09b41aca258d42a632f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastTab: 2
+  lastTab: 1
   movementSettingsFoldout: 1
   zoomingSettingsFoldout: 0
   rotationSettingsFoldout: 1
@@ -37311,7 +37311,7 @@ MonoBehaviour:
   minHeight: 10
   heightDampening: 5
   keyboardZoomingSensitivity: 2
-  scrollWheelZoomingSensitivity: 100
+  scrollWheelZoomingSensitivity: 50
   limitMap: 1
   limitX: -180
   limitY: 125
@@ -37346,8 +37346,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20048c13a5d194941bac6cd566a5e468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetsTag:
-  - SelectableObject
+  targetsTag: []
+  offset: {x: 0, y: 0, z: 0}
 --- !u!124 &3086962081467398296
 Behaviour:
   m_ObjectHideFlags: 0
