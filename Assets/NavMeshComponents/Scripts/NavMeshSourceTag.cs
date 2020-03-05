@@ -19,6 +19,16 @@ public class NavMeshSourceTag : MonoBehaviour
             m_Meshes.Add(m);
         }
 
+        MeshFilter[] children = GetComponentsInChildren<MeshFilter>();
+
+        if (children.Length > 0)
+        {
+            foreach (MeshFilter filter in children)
+            {
+                m_Meshes.Add(filter);
+            }
+        }
+
         var t = GetComponent<Terrain>();
         if (t != null)
         {
@@ -32,6 +42,14 @@ public class NavMeshSourceTag : MonoBehaviour
         if (m != null)
         {
             m_Meshes.Remove(m);
+        }
+
+        MeshFilter[] children = GetComponentsInChildren<MeshFilter>();
+
+        if (children.Length > 0) {
+            foreach (MeshFilter filter in children) {
+                m_Meshes.Remove(filter);
+            }
         }
 
         var t = GetComponent<Terrain>();
