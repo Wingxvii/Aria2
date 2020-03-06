@@ -664,8 +664,8 @@ MonoBehaviour:
   id: 0
   killerID: 0
   type: 6
-  currentHealth: 200
-  maxHealth: 200
+  currentHealth: 100
+  maxHealth: 100
   destructable: 0
   ready: 1
   m_camera: {fileID: 0}

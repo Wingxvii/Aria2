@@ -847,11 +847,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683ba108f93114040ac4ea0bcd8753af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deaths: 0
   id: 0
   killerID: 0
   type: 2
-  currentHealth: 1000
-  maxHealth: 1000
+  currentHealth: 2000
+  maxHealth: 2000
   destructable: 1
   ready: 1
   healthUpgradeIncrease: 500

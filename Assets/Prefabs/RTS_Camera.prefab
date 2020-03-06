@@ -109,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetsTag:
   - SelectableObject
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &5758283557947862367
 MonoBehaviour:
   m_ObjectHideFlags: 0
