@@ -547,7 +547,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c26a820b2129e2f4eb122efd27df5339, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -818,6 +818,7 @@ GameObject:
   - component: {fileID: 2040518663655672345}
   - component: {fileID: 3418870684353746236}
   - component: {fileID: 149513195168540649}
+  - component: {fileID: -8488107208071283109}
   m_Layer: 12
   m_Name: Droid
   m_TagString: Entity
@@ -854,7 +855,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f57bedff1445aa4d898bfa304b79c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deaths: 0
   id: 0
+  killerID: 0
   type: 3
   currentHealth: 1
   maxHealth: 1
@@ -948,6 +951,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!195 &-8488107208071283109
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4037481489312127328}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 2
 --- !u!1 &4060247541715926779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1936,12 +1961,6 @@ PrefabInstance:
       objectReference: {fileID: 6906065652853572832}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2c1e144530cc1944b4caaf3c8044a52, type: 3}
---- !u!224 &8684579011137325306 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5810188686785473091, guid: b2c1e144530cc1944b4caaf3c8044a52,
-    type: 3}
-  m_PrefabInstance: {fileID: 2892504251793154745}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6906065652853572832 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8643387717652915801, guid: b2c1e144530cc1944b4caaf3c8044a52,
@@ -1954,3 +1973,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &8684579011137325306 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5810188686785473091, guid: b2c1e144530cc1944b4caaf3c8044a52,
+    type: 3}
+  m_PrefabInstance: {fileID: 2892504251793154745}
+  m_PrefabAsset: {fileID: 0}

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Networking;
+
+[DefaultExecutionOrder(-1)]
 public class EntityManager : MonoBehaviour
 {
     #region SingletonCode
@@ -10,7 +12,6 @@ public class EntityManager : MonoBehaviour
     public static EntityManager Instance { get { return _instance; } }
     private void Awake()
     {
-
         if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
@@ -48,9 +49,11 @@ public class EntityManager : MonoBehaviour
     public GameObject RTSManagers;
     public GameObject Debugger;
 
+    public GameObject map;
+
     private void Start()
     {
-        //add managers
+
         if (GameSceneController.Instance.type == PlayerType.FPS)
         {
             if (!Networking.NetworkManager.isConnected)
@@ -59,19 +62,21 @@ public class EntityManager : MonoBehaviour
             }
             Destroy(RTSManagers);
         }
-        else if (GameSceneController.Instance.type == PlayerType.RTS) {
+        else if (GameSceneController.Instance.type == PlayerType.RTS)
+        {
             if (!Networking.NetworkManager.isConnected)
             {
                 GameSceneController.Instance.playerNumber = 0;
             }
-            Destroy(FPSManagers); 
-
+            Destroy(FPSManagers);
         }
 
 
         //create all lists
         ActiveEntitiesByType = new List<List<Entity>>();
         DeactivatedEntitiesByType = new List<Queue<Entity>>();
+
+        map.SetActive(true);
 
         //create a list per type
         for (int counter = 0; counter < (int)EntityType.TOTAL; counter++) {

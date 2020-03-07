@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Networking;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 public enum DroidState {
@@ -36,6 +37,8 @@ public class Droid : Entity
     public float currentCoolDown = 0.0f;
 
     public float visualRange = 20.0f;
+    NavMeshAgent m_Agent;
+
 
     public Animator anim;
     public Transform mesh;
@@ -43,6 +46,8 @@ public class Droid : Entity
     public float rotateSpeed;
     public Vector3 faceingPoint = new Vector3(0, 0, 0);
     //network updates
+
+
 
     // Start is called before the first frame update
     protected override void BaseStart()
@@ -53,7 +58,7 @@ public class Droid : Entity
         if (!selfRigid){selfRigid = this.GetComponent<Rigidbody>();}
 
         anim = this.GetComponent<Animator>();
-
+        m_Agent = this.GetComponent<NavMeshAgent>();
         maxHealth = 100;
         currentHealth = 100;
 
@@ -208,6 +213,23 @@ public class Droid : Entity
 
     private void MoveTo(Vector2 pos)
     {
+
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+
+        //This will fire when you get the error you're describing.
+        if (!agent.isOnNavMesh)
+        {
+            NavMeshHit hit;
+            NavMesh.FindClosestEdge(transform.position, out hit, NavMesh.AllAreas);
+
+            agent.transform.position = hit.position;
+            agent.enabled = false;
+            agent.enabled = true;
+        }
+
+        m_Agent.destination = journeyPoint;
+
+        /*
         faceingPoint = journeyPoint;
 
         Vector2 dir = new Vector2(pos.x - this.transform.position.x, pos.y - this.transform.position.z).normalized * maxSpeed;
@@ -215,13 +237,13 @@ public class Droid : Entity
         selfRigid.velocity = new Vector3(dir.x, selfRigid.velocity.y, dir.y);
 
         Vector3 targetDir = new Vector3(faceingPoint.x - transform.position.x, 0, faceingPoint.z - transform.position.z);
-
+        */
         // Move our position a step closer to the target.
-        mesh.rotation = Quaternion.LookRotation(targetDir);
 
 
-        anim.SetFloat("Walk", Mathf.Clamp(Vector3.Dot(selfRigid.velocity / maxSpeed, transform.forward), -1, 1));
-        anim.SetFloat("Turn", Mathf.Clamp(Vector3.Dot(selfRigid.velocity / maxSpeed, transform.right), -1, 1));
+
+        anim.SetFloat("Walk", Mathf.Clamp(Vector3.Dot(m_Agent.velocity / m_Agent.speed, transform.forward), -1, 1));
+        anim.SetFloat("Turn", Mathf.Clamp(Vector3.Dot(m_Agent.velocity / m_Agent.speed, transform.right), -1, 1));
 
     }
     private void OnAttack()
@@ -284,7 +306,7 @@ public class Droid : Entity
     }
     public override void UpdateEntityStats(EntityData ed)
     {
-        Debug.Log("UPDATED STATS OF " + id);
+        //Debug.Log("UPDATED STATS OF " + id);
         transform.position = ed.position;
         transform.rotation = Quaternion.Euler(ed.rotation);
     }

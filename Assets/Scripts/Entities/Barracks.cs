@@ -39,7 +39,7 @@ public class Barracks : Building
         canvas = GetComponentInChildren<Canvas>();
         canvas.transform.LookAt(canvas.transform.position + Camera.main.transform.rotation * Vector3.back, Camera.main.transform.rotation * Vector3.up);
 
-        spawnPoint = this.transform.Find("SpawnPoint");
+        spawnPoint = this.transform.Find("Mesh").Find("SpawnPoint");
         
         buildProcess.gameObject.SetActive(false);
 

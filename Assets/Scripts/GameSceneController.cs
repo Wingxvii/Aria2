@@ -7,6 +7,7 @@ public enum PlayerType {
     FPS
 }
 
+[DefaultExecutionOrder(-202)]
 public class GameSceneController : MonoBehaviour
 {
 

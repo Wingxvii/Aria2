@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 2265924013750738571}
   - component: {fileID: 3600485139958480800}
   - component: {fileID: 5094779550812181481}
+  - component: {fileID: 8397401262983231910}
   m_Layer: 16
   m_Name: Science Building
   m_TagString: Entity
@@ -152,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a91f4616e9546f488014cb30b557f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deaths: 0
   id: 0
   killerID: 0
   type: 7
@@ -189,6 +191,18 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &8397401262983231910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929845155177562363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0ef62d1bb242240b05c4b095b73f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3485978097516131045
 GameObject:
   m_ObjectHideFlags: 0

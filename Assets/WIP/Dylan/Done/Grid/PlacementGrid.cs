@@ -21,6 +21,7 @@ public class PlacementGrid : MonoBehaviour
 
     private MeshFilter m_meshFilter = null;
     private MeshRenderer m_renderer = null;
+    private NavMeshSourceTag m_tag = null;
 
     public Vector3 Snap(Vector3 _in) {
         Vector3 temp = _in;
@@ -74,10 +75,12 @@ public class PlacementGrid : MonoBehaviour
             m_meshFilter.sharedMesh = m_hitMesh;
 
             m_renderer = gameObject.AddComponent<MeshRenderer>();
-
             m_renderer.material = m_hitboxMaterial;
             m_renderer.material.SetTextureScale("_BaseColorMap", new Vector2(m_width, m_height));
+
+            m_tag = gameObject.AddComponent<NavMeshSourceTag>();
         }
+
     }
 
     private Vector3 oldPos = Vector3.zero;
