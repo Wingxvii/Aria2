@@ -17,7 +17,9 @@ namespace RTSInput
         MINUTE_MARK,
         THIRTY_MARK,
         TEN_MARK,
-
+        START_TEN,
+        START_FIVE,
+        START,
     }
 
     public class NotificationManager : MonoBehaviour
@@ -79,6 +81,15 @@ namespace RTSInput
                     break;
                 case NotificationType.TEN_MARK:
                     StartCoroutine(NotifPlay("Ten Seconds Remaining"));
+                    break;
+                case NotificationType.START_TEN:
+                    StartCoroutine(NotifPlay("You have Ten Seconds to Build..."));
+                    break;
+                case NotificationType.START_FIVE:
+                    StartCoroutine(NotifPlay("You have Five Seconds to Build..."));
+                    break;
+                case NotificationType.START:
+                    StartCoroutine(NotifPlay("The game has Started!!"));
                     break;
 
             }

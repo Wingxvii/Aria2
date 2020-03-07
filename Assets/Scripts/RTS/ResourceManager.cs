@@ -77,11 +77,14 @@ public class ResourceManager : MonoBehaviour
     public bool fasterTraining = false;
     public bool droidStronger = false;
 
-    public float timeElapsed;
-
+    public float totalTimeRemaining;
+    public float totalTimeElapsed;
     bool minutePassed = false;
     bool thirtyPassed = false;
     bool tenPassed = false;
+    bool startTenPassed = false;
+    bool startFivePassed = false;
+    bool startOnePassed = false;
 
     //tick timestep
     int fixedTimeStep = 0;
@@ -91,12 +94,22 @@ public class ResourceManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        credits = 1000;
-        timeElapsed = 240;
+        credits = 1600;
+        totalTimeElapsed = 0;
+        if (Networking.NetworkManager.allUsers != null)
+        {
+            totalTimeRemaining = 180 + (Networking.NetworkManager.allUsers.Count * 30);
+        }
+        else {
+            totalTimeRemaining = 180;
+        }
+
         minutePassed = false;
         thirtyPassed = false;
         tenPassed = false;
-
+        startTenPassed = false;
+        startFivePassed = false;
+        startOnePassed = false;
     }
 
     private void Update()
@@ -104,22 +117,41 @@ public class ResourceManager : MonoBehaviour
         if (GameSceneController.Instance.gameStart) { gameState = GameState.Running; }
         if (gameState == GameState.Running)
         {
-            timeElapsed -= Time.deltaTime;
-            time.text = ((int)(timeElapsed / 60.0f)).ToString("00") + ":" + ((int)(timeElapsed % 60)).ToString("00");
-            if (!minutePassed && timeElapsed < 60) {
+            totalTimeRemaining -= Time.deltaTime;
+            totalTimeElapsed += Time.deltaTime;
+            time.text = ((int)(totalTimeElapsed / 60.0f)).ToString("00") + ":" + ((int)(totalTimeRemaining % 60)).ToString("00");
+
+            
+            if (!startOnePassed) {
+                NotificationManager.Instance.HitNotification(NotificationType.START_TEN);
+                startOnePassed = true;
+            }
+            else if (totalTimeElapsed > 5 && !startFivePassed)
+            {
+                NotificationManager.Instance.HitNotification(NotificationType.START_FIVE);
+                startFivePassed = true;
+            }
+            else if (totalTimeElapsed > 10 && !startTenPassed)
+            {
+                NotificationManager.Instance.HitNotification(NotificationType.START);
+                startTenPassed = true;
+            }
+            
+
+            if (!minutePassed && totalTimeRemaining < 60) {
                 NotificationManager.Instance.HitNotification(NotificationType.MINUTE_MARK);
                 minutePassed = true;
             }
-            else if (!thirtyPassed && timeElapsed < 30)
+            else if (!thirtyPassed && totalTimeRemaining < 30)
             {
                 NotificationManager.Instance.HitNotification(NotificationType.THIRTY_MARK);
                 thirtyPassed = true;
             }
-            else if (!tenPassed && timeElapsed < 10)
+            else if (!tenPassed && totalTimeRemaining < 10)
             {
                 NotificationManager.Instance.HitNotification(NotificationType.TEN_MARK);
                 tenPassed = true;
-            }else if (timeElapsed < 0)
+            }else if (totalTimeRemaining < 0)
             {
                 //RTSGameManager.Instance.GameEndWin();
             }
@@ -160,7 +192,15 @@ public class ResourceManager : MonoBehaviour
         }
         else
         {
-            credits += 50;
+            if (Networking.NetworkManager.allUsers != null)
+            {
+                credits += 50 + (Networking.NetworkManager.allUsers.Count * 20);
+            }
+            else
+            {
+                credits += 50;
+            }
+
             if (resourceTrickle)
             {
                 credits += 50;
