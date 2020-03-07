@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Upgrade 5
   titleColor: {r: 0, g: 1, b: 1, a: 1}
-  description: 'Research upgrade.
+  description: 'Improved Droid Damage and Health
 
 
     Cost: 1000'

@@ -293,7 +293,14 @@ namespace RTSInput
                         }
                         if (ResourceManager.Instance.Purchase(shell.type))
                         {
-                            CommandManager.Instance.Build(activeBlueprint.transform.position, shell.type);
+                            if (currentEvent == MouseEvent.Barracks)
+                            {
+                                CommandManager.Instance.Build(activeBlueprint.transform.position, shell.type);
+                            }
+                            else
+                            {
+                                CommandManager.Instance.Build(activeBlueprint.transform.position, activeBlueprint.transform.rotation, shell.type);
+                            }
                         }
                         //not purchaseable
                         else
@@ -519,6 +526,20 @@ namespace RTSInput
             if (Input.GetKeyDown("escape"))
             {
                 Application.Quit();
+            }
+            if (Input.GetKeyDown(KeyCode.Q)) 
+            {
+                if (currentEvent == MouseEvent.Barracks) {
+                    activeBlueprint.transform.rotation *= Quaternion.Euler(0, 90, 0);
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (currentEvent == MouseEvent.Barracks)
+                {
+                    activeBlueprint.transform.rotation *= Quaternion.Euler(0, -90, 0);
+                }
+
             }
 
 

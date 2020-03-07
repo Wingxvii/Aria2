@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Upgrade 3
   titleColor: {r: 0, g: 1, b: 1, a: 1}
-  description: 'Research upgrade.
+  description: 'Resource Trickle Rate Doubled
 
 
     Cost: 1000'
