@@ -2156,6 +2156,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.070813, y: 0.4605561, z: 4.2362795}
   m_Center: {x: 1.538958, y: 0.000007629395, z: 2.5181398}
+--- !u!114 &103754921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103754910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0ef62d1bb242240b05c4b095b73f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &103754922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103754911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0ef62d1bb242240b05c4b095b73f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &105632741
 GameObject:
   m_ObjectHideFlags: 0
@@ -6568,7 +6592,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405107531}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -66.6, y: -6.78, z: 82.4}
+  m_LocalPosition: {x: -66.6, y: -3.2, z: 82.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7295444142334338897}
@@ -10891,6 +10915,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.0708137, y: 0.4605562, z: 4.2362795}
   m_Center: {x: 1.5389583, y: 0.000022888187, z: 2.5181398}
+--- !u!114 &687678149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687678138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0ef62d1bb242240b05c4b095b73f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &687678150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687678139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0ef62d1bb242240b05c4b095b73f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &691744820
 GameObject:
   m_ObjectHideFlags: 0
@@ -15641,6 +15689,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.070813, y: 0.4605561, z: 4.2362795}
   m_Center: {x: 1.538958, y: 0.000007629395, z: 2.5181398}
+--- !u!114 &967899424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967899413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0ef62d1bb242240b05c4b095b73f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &967899425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967899414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0ef62d1bb242240b05c4b095b73f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &969892950
 GameObject:
   m_ObjectHideFlags: 0
@@ -16552,8 +16624,6 @@ GameObject:
   - component: {fileID: 1964560320}
   - component: {fileID: 1021438500}
   - component: {fileID: 1021438499}
-  - component: {fileID: 1021438502}
-  - component: {fileID: 1021438501}
   m_Layer: 10
   m_Name: Gate_PillarLong_S
   m_TagString: Untagged
@@ -22463,7 +22533,7 @@ Transform:
   m_Children:
   - {fileID: 182603011}
   m_Father: {fileID: 1129510397}
-  m_RootOrder: 113
+  m_RootOrder: 123
   m_LocalEulerAnglesHint: {x: -89.98, y: 90, z: 0}
 --- !u!114 &1385373226
 MonoBehaviour:
@@ -22878,6 +22948,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.070813, y: 0.4605561, z: 4.2362795}
   m_Center: {x: 1.538958, y: 0.000007629395, z: 2.5181398}
+--- !u!114 &1389210792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389210781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0ef62d1bb242240b05c4b095b73f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1389210793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389210782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0ef62d1bb242240b05c4b095b73f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1391487913
 GameObject:
   m_ObjectHideFlags: 0
@@ -35207,7 +35301,6 @@ GameObject:
   - component: {fileID: 2101028369}
   - component: {fileID: 2101028368}
   - component: {fileID: 2101028370}
-  - component: {fileID: 2101028371}
   m_Layer: 10
   m_Name: Gate_Entrance_W
   m_TagString: Untagged
@@ -45475,7 +45568,6 @@ GameObject:
   - component: {fileID: 8202061276403986023}
   - component: {fileID: 1399267435678945362}
   - component: {fileID: 4636420926540008920}
-  - component: {fileID: 7797033332817135352}
   - component: {fileID: 7797033332817135353}
   m_Layer: 10
   m_Name: MissilePlatform_Silo
@@ -45484,20 +45576,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!64 &7797033332817135352
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7797033332817135351}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5653830551221274593, guid: 61462354e06596645949d710e8cccec9, type: 3}
 --- !u!114 &7797033332817135353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45539,7 +45617,6 @@ GameObject:
   - component: {fileID: 1163030589993474347}
   - component: {fileID: 4751981459516146744}
   - component: {fileID: 5392861896805873669}
-  - component: {fileID: 7949866836023883134}
   m_Layer: 10
   m_Name: Missile
   m_TagString: Untagged
@@ -45547,18 +45624,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7949866836023883134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7949866836023883133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e0ef62d1bb242240b05c4b095b73f3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &7982077537169076096
 CanvasRenderer:
   m_ObjectHideFlags: 0
