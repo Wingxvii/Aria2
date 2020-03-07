@@ -9394,7 +9394,7 @@ MonoBehaviour:
   gameStart: 1
   gameEnd: 0
   loadedScene: 1
-  type: 2
+  type: 1
   gameState: 0
 --- !u!4 &574309900
 Transform:
@@ -15801,7 +15801,7 @@ GameObject:
   m_Component:
   - component: {fileID: 973187113}
   - component: {fileID: 973187114}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Grids
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22109,7 +22109,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 395031
+    m_Bits: 394519
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 1f08642ba8d9a444390a27d3a21b3549, type: 2}
   m_TargetDisplay: 0
@@ -42095,11 +42095,11 @@ MonoBehaviour:
   panningSpeed: 5
   mouseRotationSpeed: 100
   autoHeight: 0
-  maxHeight: 80
-  minHeight: 10
+  maxHeight: 100
+  minHeight: 20
   heightDampening: 5
   keyboardZoomingSensitivity: 2
-  scrollWheelZoomingSensitivity: 50
+  scrollWheelZoomingSensitivity: 30
   limitMap: 1
   limitX: -180
   limitY: 125
