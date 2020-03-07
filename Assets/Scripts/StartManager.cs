@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Netcode;
 using System.Text;
 
+using TMPro;
 public class StartManager : MonoBehaviour
 {
     #region SingletonCode
@@ -26,9 +27,9 @@ public class StartManager : MonoBehaviour
     //single pattern ends here
     #endregion
 
-    public InputField ipText;
-    public InputField chatText;
-    public InputField username;
+    public TMP_InputField ipText;
+    public TMP_InputField chatText;
+    public TMP_InputField username;
 
     public Text connectionStatus;
     public Text chatLog;
