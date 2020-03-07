@@ -867,7 +867,7 @@ MonoBehaviour:
   minSpeed: 2
   state: 0
   journeyAccuracy: 2
-  attackDamage: 5
+  attackDamage: 20
   strongAttack: 8
   coolDown: 1
   lowCoolDown: 0.8

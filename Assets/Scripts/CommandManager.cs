@@ -67,6 +67,33 @@ namespace RTSInput
             }
         }
 
+        //builds a entity from a blueprint
+        public void Build(Vector3 position, Quaternion rotation, EntityType type)
+        {
+            if (type == EntityType.Barracks || type == EntityType.Turret || type == EntityType.Wall || type == EntityType.Science)
+            {
+                Entity newEntity = EntityManager.Instance.GetNewEntity(type);
+
+                if (type == EntityType.Barracks)
+                {
+                    ((Barracks)newEntity).selfMesh.transform.rotation = rotation;
+                }
+
+                newEntity.transform.position = position;
+                newEntity.IssueBuild();
+                Debug.Log(newEntity.id);
+                if (GameSceneController.Instance.type == PlayerType.RTS)
+                    Networking.NetworkManager.SendPacketBuild(
+                        newEntity.id, (int)newEntity.type,
+                        new Vector3(
+                            newEntity.transform.position.x,
+                            newEntity.transform.position.y,
+                            newEntity.transform.position.z),
+                        newEntity.deaths);
+            }
+        }
+
+
         //gives unit a movement command
         public void IssueLocation(Entity source, Vector3 position)
         {

@@ -503,6 +503,14 @@ namespace RTSInput
             {
                 Debug.Break();
             }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                //activeBlueprint.transform.rotation.y += 90;
+            }
+            else if (Input.GetKeyDown(KeyCode.Q))
+            {
+                //activeBlueprint.transform.rotation.y -= 90;
+            }
             if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Delete))
             {
                 OnDeleteAll();

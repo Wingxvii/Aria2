@@ -368,10 +368,10 @@ MonoBehaviour:
   reloadRate: 5
   recoilRate: 0.5
   attackAmno: 10
-  attackDamage: 5
+  attackDamage: 10
   reloadTimer: 0
-  currentAmno: 10
-  rotateSpeed: 2
+  currentAmno: 5
+  rotateSpeed: 3
   faceingPoint: {x: 0, y: 0, z: 0}
   turretLayerMask:
     serializedVersion: 2

@@ -464,7 +464,7 @@ namespace Networking
                 int loc = InitialOffset;
                 int Receiver = 0;
 
-                Receiver = (~(int)PlayerMask.SERVER);
+                Receiver = (~0);
 
                 PackData(ref sendByteArray, ref loc, senderID);
                 PackData(ref sendByteArray, ref loc, receiverID);
