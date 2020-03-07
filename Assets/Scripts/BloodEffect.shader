@@ -77,11 +77,15 @@
 		uint2 positionSS = input.texcoord * _ScreenSize.xy;
 
 		float3 outColor = LOAD_TEXTURE2D_X(_InputTexture, positionSS).xyz;
+		float2 dist = (0.5f - input.texcoord.xy) * _ScreenSize.xy;
+
+		if (distance(dist / _ScreenSize.yy, 0.0f) < 0.7f)
+			return float4(outColor, 1);
 		
 		float redness = 0.0f;
 		float deepness = 0.2f;
 
-		float3 screenz = float3((0.5f - input.texcoord.x) * _ScreenSize.x, (0.5f - input.texcoord.y) * _ScreenSize.y, 0);
+		float3 screenz = float3(dist, 0);
 		
 		if (dot(normalize(screenz), normalize(float3(_AngleIntensity1.x, _AngleIntensity1.y, 0))) > 0.8f)
 		{
