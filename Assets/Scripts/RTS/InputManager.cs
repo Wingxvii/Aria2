@@ -293,6 +293,9 @@ namespace RTSInput
                         }
                         if (ResourceManager.Instance.Purchase(shell.type))
                         {
+                            if (currentEvent == MouseEvent.Barracks) {
+                                CommandManager.Instance.Build(activeBlueprint.transform.position,activeBlueprint.transform.rotation, shell.type);
+                            }
                             CommandManager.Instance.Build(activeBlueprint.transform.position, shell.type);
                         }
                         //not purchaseable
@@ -495,6 +498,14 @@ namespace RTSInput
             if (Input.GetKeyDown(KeyCode.P))
             {
                 Debug.Break();
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                //activeBlueprint.transform.rotation.y += 90;
+            }
+            else if (Input.GetKeyDown(KeyCode.Q))
+            {
+                //activeBlueprint.transform.rotation.y -= 90;
             }
             if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Delete))
             {

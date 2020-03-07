@@ -160,7 +160,7 @@ public class ResourceManager : MonoBehaviour
         }
         else
         {
-            credits += 50;
+            credits += 75;
             if (resourceTrickle)
             {
                 credits += 50;

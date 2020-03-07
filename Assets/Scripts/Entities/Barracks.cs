@@ -22,6 +22,8 @@ public class Barracks : Building
 
     private Transform spawnPoint;
 
+    public GameObject selfMesh;
+
     //inherited function realizations
     protected override void BaseStart()
     {
@@ -39,8 +41,16 @@ public class Barracks : Building
         canvas = GetComponentInChildren<Canvas>();
         canvas.transform.LookAt(canvas.transform.position + Camera.main.transform.rotation * Vector3.back, Camera.main.transform.rotation * Vector3.up);
 
-        spawnPoint = this.transform.Find("SpawnPoint");
         
+        spawnPoint = this.transform.Find("Mesh").Find("SpawnPoint");
+        if(spawnPoint != null)
+        {
+            Debug.Log("SpawnPoint Works");
+        }
+        else
+        {
+            Debug.Log("Failed to find spawn point");
+        }
         buildProcess.gameObject.SetActive(false);
 
         buildProcess = canvas.transform.Find("Building Progress").GetComponent<Slider>();

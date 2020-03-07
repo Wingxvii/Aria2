@@ -464,7 +464,7 @@ namespace Networking
                 int loc = InitialOffset;
                 int Receiver = 0;
 
-                Receiver = (~(int)PlayerMask.SERVER);
+                Receiver = (~0);
 
                 PackData(ref sendByteArray, ref loc, senderID);
                 PackData(ref sendByteArray, ref loc, receiverID);
@@ -499,7 +499,7 @@ namespace Networking
                 int loc = InitialOffset;
                 int Receiver = 0;
 
-                Receiver = ~(((int)PlayerMask.SERVER) + (1 << (GameSceneController.Instance.playerNumber + 1)));
+                Receiver = ~(1 << (GameSceneController.Instance.playerNumber + 1));
 
                 PackData(ref sendByteArray, ref loc, ID);
                 PackData(ref sendByteArray, ref loc, type);

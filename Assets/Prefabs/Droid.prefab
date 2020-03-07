@@ -854,7 +854,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f57bedff1445aa4d898bfa304b79c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deaths: 0
   id: 0
+  killerID: 0
   type: 3
   currentHealth: 1
   maxHealth: 1
@@ -864,7 +866,7 @@ MonoBehaviour:
   minSpeed: 2
   state: 0
   journeyAccuracy: 2
-  attackDamage: 5
+  attackDamage: 20
   strongAttack: 8
   coolDown: 1
   lowCoolDown: 0.8
