@@ -119,7 +119,7 @@ public class ResourceManager : MonoBehaviour
         {
             totalTimeRemaining -= Time.deltaTime;
             totalTimeElapsed += Time.deltaTime;
-            time.text = ((int)(totalTimeElapsed / 60.0f)).ToString("00") + ":" + ((int)(totalTimeRemaining % 60)).ToString("00");
+            time.text = ((int)(totalTimeRemaining / 60.0f)).ToString("00") + ":" + ((int)(totalTimeRemaining % 60)).ToString("00");
 
             
             if (!startOnePassed) {
