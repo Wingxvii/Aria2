@@ -846,6 +846,7 @@ namespace Networking
                     GameSceneController.Instance.SwapScene(3);
                     endGame = false;
                 }
+
                 //update players
                 //if (dataState.p1.updated)
                 //{
@@ -880,8 +881,10 @@ namespace Networking
                 //    }
                 //}
                 //SendDebugOutput("Game State: " + dataState.GameState.ToString());
+
                 if (dataState.GameState == (int)GameState.GAME)
                 {
+                    
                     //SendDebugOutput("Game Update");
                     //foreach (FPSPlayer.Player pfps in EntityManager.Instance.ActivePlayers())
                     //{

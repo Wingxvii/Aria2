@@ -295,7 +295,7 @@ namespace RTSInput
                         {
                             if (currentEvent == MouseEvent.Barracks)
                             {
-                                CommandManager.Instance.Build(activeBlueprint.transform.position, shell.type);
+                                CommandManager.Instance.Build(activeBlueprint.transform.position, activeBlueprint.transform.rotation);
                             }
                             else
                             {
