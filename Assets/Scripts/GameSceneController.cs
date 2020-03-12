@@ -10,7 +10,7 @@ public enum PlayerType {
 [DefaultExecutionOrder(-202)]
 public class GameSceneController : MonoBehaviour
 {
-
+    public GameObject NAV_MESH_BUILD;
     #region SingletonCode
         private static GameSceneController _instance;
         public static GameSceneController Instance { get { return _instance; } }
@@ -38,6 +38,11 @@ public class GameSceneController : MonoBehaviour
 
     public void Start()
     {
+        if (type == PlayerType.FPS)
+        {
+            Destroy(NAV_MESH_BUILD);
+        }
+
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             LoadScene(1);
