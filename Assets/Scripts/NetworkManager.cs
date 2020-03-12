@@ -419,9 +419,9 @@ namespace Networking
                     PackData(ref sendByteArray, ref loc, droid.transform.position.x);
                     PackData(ref sendByteArray, ref loc, droid.transform.position.y);
                     PackData(ref sendByteArray, ref loc, droid.transform.position.z);
-                    PackData(ref sendByteArray, ref loc, droid.transform.rotation.x);
-                    PackData(ref sendByteArray, ref loc, droid.transform.rotation.y);
-                    PackData(ref sendByteArray, ref loc, droid.transform.rotation.z);
+                    PackData(ref sendByteArray, ref loc, droid.transform.rotation.eulerAngles.x);
+                    PackData(ref sendByteArray, ref loc, droid.transform.rotation.eulerAngles.y);
+                    PackData(ref sendByteArray, ref loc, droid.transform.rotation.eulerAngles.z);
                 }
 
                 foreach (Turret turret in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Turret])
@@ -446,7 +446,7 @@ namespace Networking
                 PackData(ref sendByteArray, ref loc, player.transform.position.z);
                 PackData(ref sendByteArray, ref loc, player.m_pitch);
                 PackData(ref sendByteArray, ref loc, player.m_yaw);
-                PackData(ref sendByteArray, ref loc, player.transform.rotation.z);
+                PackData(ref sendByteArray, ref loc, player.transform.rotation.eulerAngles.z);
             }
             else
             {
