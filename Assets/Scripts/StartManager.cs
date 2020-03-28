@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Networking;
 using System.Text;
-
+using TMPro;
 public class StartManager : MonoBehaviour
 {
     #region SingletonCode
