@@ -12,6 +12,7 @@ public enum TurretState
     TargetedShooting,
     Recoil,
     Reloading,
+    Building,
 }
 
 public class Turret : Building
@@ -68,6 +69,8 @@ public class Turret : Building
             IncreaseBuildingHealth();
         }
 
+        buildTimer = this.GetComponent<Animation>().GetClip("BuildTurret").length;
+        state = TurretState.Building;
 
         positionUpdated = false;
         changedToIdle = false;
@@ -127,6 +130,16 @@ public class Turret : Building
 
             switch (state)
             {
+                case TurretState.Building:
+                    //building, do nothing
+                    buildTimer -= Time.deltaTime;
+
+                    if (buildTimer <= 0){
+                        state = TurretState.Idle;
+                        changedToIdle = true;
+                    }
+
+                    break;
                 case TurretState.Idle:
                     //search for shortest player
                     foreach (Entity player in EntityManager.Instance.ActivePlayers())
