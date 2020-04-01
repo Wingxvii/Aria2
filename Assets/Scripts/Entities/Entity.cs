@@ -38,13 +38,15 @@ public abstract class Entity : MonoBehaviour
     public bool ready = true;
 
     EntityData lastNetworked;
-    //RTS BEHAVIOURS
-    #region RTS
-    private bool isRTS = false;
 
     //canvas
     private Slider healthBar;
     private RectTransform canvasTransform;
+
+    //RTS BEHAVIOURS
+    #region RTS
+    private bool isRTS = false;
+
     //selection
     private Behaviour selectedHalo;
     protected bool selected = false;
@@ -60,14 +62,11 @@ public abstract class Entity : MonoBehaviour
             //init all ui elements
             selectedHalo = (Behaviour)this.GetComponent("Halo");
             selectedHalo.enabled = false;
-            canvasTransform = this.transform.Find("Canvas").GetComponent<RectTransform>();
-            healthBar = canvasTransform.transform.Find("Health").GetComponent<Slider>();
         }
-        else if (GameSceneController.Instance.type == PlayerType.FPS) {
-            //clean up unwanted items
-            canvasTransform = this.transform.Find("Canvas").GetComponent<RectTransform>();
-            Destroy(canvasTransform.gameObject);
-        }
+
+        canvasTransform = this.transform.Find("Canvas").GetComponent<RectTransform>();
+        healthBar = canvasTransform.transform.Find("Health").GetComponent<Slider>();
+
         //set id
         //id = idtracker++;
         //indexedList.Add(this);
@@ -79,10 +78,7 @@ public abstract class Entity : MonoBehaviour
     {
         if (ready)
         {
-            if (isRTS)
-            {
-                healthBar.value = (float)currentHealth / (float)maxHealth;
-            }
+            healthBar.value = (float)currentHealth / (float)maxHealth;
             BaseUpdate();
         }
     }
@@ -100,7 +96,10 @@ public abstract class Entity : MonoBehaviour
         {
             if (isRTS)
             {
-                canvasTransform.eulerAngles = new Vector3(90, 0, 0);
+                canvasTransform.eulerAngles = new Vector3(90, 90, 0);
+            }
+            else {
+                canvasTransform.eulerAngles = new Vector3(0, 0, 0);
             }
             BaseLateUpdate();
         }
