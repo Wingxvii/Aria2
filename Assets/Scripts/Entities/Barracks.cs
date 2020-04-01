@@ -173,5 +173,12 @@ public class Barracks : Building
         if (action == 1) {
             OnTrainRequest();
         }
+        else if (action == 2)
+        { //delete
+            OnDeath(true);
+            ResourceManager.Instance.RefundHalf(this.type);
+        }
+
     }
+
 }

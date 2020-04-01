@@ -286,6 +286,30 @@ public class ResourceManager : MonoBehaviour
                 break;
         }
     }
+    public void RefundHalf(EntityType type)
+    {
+        switch (type)
+        {
+            case EntityType.Barracks:
+                credits += ResourceConstants.COST_BARRACKS/2;
+                break;
+            case EntityType.Droid:
+                credits += ResourceConstants.COST_DROIDS/2;
+                break;
+            case EntityType.Turret:
+                credits += ResourceConstants.COST_TURRET/2;
+                break;
+            case EntityType.Wall:
+                credits += ResourceConstants.COST_WALL/2;
+                break;
+            case EntityType.Science:
+                credits += ResourceConstants.COST_SCIENCE/2;
+                break;
+            default:
+                Debug.Log("REFUND ERROR");
+                break;
+        }
+    }
 
     //requests a drone to build, returns time to build
     public float RequestQueue(EntityType type)

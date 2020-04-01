@@ -14,6 +14,7 @@ public class ActionButton : ScriptableObject
         DO_RALLY,
         DO_RELOAD,
         DO_UPGRADE,
+        DO_DELETE,
     }
 
     public ActionType actionType;

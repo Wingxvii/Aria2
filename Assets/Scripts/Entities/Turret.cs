@@ -286,8 +286,13 @@ public class Turret : Building
 
     public override void CallAction(int action)
     {
-        if (action == 1) { //reload
+        if (action == 1)
+        { //reload
             Reload();
+        }
+        else if (action == 2) { //delete
+            OnDeath(true);
+            ResourceManager.Instance.RefundHalf(this.type);
         }
 
     }

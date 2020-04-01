@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -124,6 +125,8 @@ namespace RTSInput
             activeBlueprint = turretBlueprint;
             activeBlueprint.SetActive(false);
         }
+
+     
 
         // Update is called once per frame
         void Update()
@@ -875,6 +878,18 @@ namespace RTSInput
                 if (entity.type == PrimaryEntity.type)
                 {
                     entity.CallAction(1);
+                }
+            }
+        }
+
+        //delete for a refund of the cost
+        public void OnDeleteIssue()
+        {
+            foreach (Entity entity in SelectedEntities)
+            {
+                if (entity.type == PrimaryEntity.type)
+                {
+                    entity.CallAction(2);
                 }
             }
         }

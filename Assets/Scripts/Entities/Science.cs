@@ -27,6 +27,14 @@ public class Science : Building
         researchProgress.gameObject.SetActive(false);
 
     }
+    public override void CallAction(int action)
+    {
+        if (action == 2)
+        { //delete
+            OnDeath(true);
+            ResourceManager.Instance.RefundHalf(this.type);
+        }
 
+    }
 
 }

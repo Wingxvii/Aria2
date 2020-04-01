@@ -100,6 +100,10 @@ public class ActionMenuButton : MonoBehaviour
             case ActionButton.ActionType.DO_UPGRADE:
                 ScienceManager.Instance.CallResearch(buttonInfo.argument);
                 break;
+            case ActionButton.ActionType.DO_DELETE:
+                InputManager.Instance.OnDeleteIssue();
+                break;
+
         }
     }
 }
