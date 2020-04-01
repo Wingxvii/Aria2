@@ -68,31 +68,31 @@ MonoBehaviour:
     min: 0
   baseHeight:
     m_OverrideState: 1
-    m_Value: 5.2
+    m_Value: 0
   maximumHeight:
     m_OverrideState: 1
     m_Value: 43.9
   albedo:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0.70699334, b: 0.5058824, a: 1}
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 40.4
+    m_Value: 50
     min: 1
   enableVolumetricFog:
     m_OverrideState: 1
     m_Value: 1
   anisotropy:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
     min: -1
     max: 1
   globalLightProbeDimmer:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 0.5
     min: 0
     max: 1
   depthExtent:
@@ -315,7 +315,7 @@ MonoBehaviour:
   active: 1
   m_AdvancedMode: 1
   rotation:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
     min: 0
     max: 360
@@ -340,8 +340,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 20000
   updateMode:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 2
   updatePeriod:
     m_OverrideState: 0
     m_Value: 0
@@ -353,10 +353,10 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: {fileID: 8900000, guid: a3de28b69b48944438c87668bd722ae7, type: 3}
   enableBackplate:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   backplateType:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   groundLevel:
     m_OverrideState: 0
@@ -387,8 +387,8 @@ MonoBehaviour:
     min: 0
     max: 100
   shadowTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 0.26727134, b: 0.18396229, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1

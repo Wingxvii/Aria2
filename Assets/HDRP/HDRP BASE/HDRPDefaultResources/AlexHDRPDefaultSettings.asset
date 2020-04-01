@@ -80,13 +80,13 @@ MonoBehaviour:
   m_AdvancedMode: 0
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9955168, z: 0.99750227, w: 0.103999995}
+    m_Value: {x: 1, y: 0.9955168, z: 0.99750227, w: 0.39200002}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.929088, z: 0.89392304, w: 0.37841424}
+    m_Value: {x: 0.99092144, y: 1, z: 0.9990414, w: 0.272}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9881324, z: 0.9787042, w: 0.344}
+    m_Value: {x: 1, y: 0.9881324, z: 0.9787042, w: 0.552}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
@@ -196,11 +196,11 @@ MonoBehaviour:
     min: 0
     max: 360
   skyIntensityMode:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   exposure:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: -0.5
   multiplier:
     m_OverrideState: 0
     m_Value: 1
@@ -295,8 +295,8 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   opacity:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 0.078
     min: 0
     max: 1
 --- !u!114 &1501199423866068322
@@ -327,7 +327,7 @@ MonoBehaviour:
     max: 1
   scatter:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.952
     min: 0
     max: 1
   tint:
@@ -370,8 +370,8 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   skyAmbientMode:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   fogType:
     m_OverrideState: 0
     m_Value: 0
@@ -399,8 +399,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 1
   fixedExposure:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: -1.4
   compensation:
     m_OverrideState: 0
     m_Value: 0
