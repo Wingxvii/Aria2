@@ -414,7 +414,9 @@ namespace FPSPlayer
             {
                 if (Networking.NetworkManager.isConnected)
                 {
-                    rb.velocity = (lerpTarg - transform.position) * Networking.NetworkManager.ESTIMATED_PING[id];
+                    if (Networking.NetworkManager.ESTIMATED_PING[id] > 0f)
+                        rb.velocity = (lerpTarg - transform.position) / Networking.NetworkManager.ESTIMATED_PING[id];
+
                     SetLocation(Vector3.Lerp(transform.position, lerpTarg, 0.4f));
                 }
             }

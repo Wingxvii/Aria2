@@ -1357,7 +1357,7 @@ namespace Networking
                 EntityData ed = new EntityData();
                 int id = 0;
 
-                UnpackByte(ref bytes, ref loc, ref ed.changedMask);
+                //UnpackByte(ref bytes, ref loc, ref ed.changedMask);
 
                 UnpackInt(ref bytes, ref loc, ref id);
 
@@ -1365,22 +1365,22 @@ namespace Networking
 
                 UnpackInt(ref bytes, ref loc, ref ed.state);
 
-                if ((ed.changedMask | (byte)UpdateDataMask.POSX) > 0)
+                //if ((ed.changedMask | (byte)UpdateDataMask.POSX) > 0)
                     UnpackFloat(ref bytes, ref loc, ref ed.position.x);
 
-                if ((ed.changedMask | (byte)UpdateDataMask.POSY) > 0)
+                //if ((ed.changedMask | (byte)UpdateDataMask.POSY) > 0)
                     UnpackFloat(ref bytes, ref loc, ref ed.position.y);
 
-                if ((ed.changedMask | (byte)UpdateDataMask.POSZ) > 0)
+                //if ((ed.changedMask | (byte)UpdateDataMask.POSZ) > 0)
                     UnpackFloat(ref bytes, ref loc, ref ed.position.z);
 
-                if ((ed.changedMask | (byte)UpdateDataMask.ROTX) > 0)
+               // if ((ed.changedMask | (byte)UpdateDataMask.ROTX) > 0)
                     UnpackFloat(ref bytes, ref loc, ref ed.rotation.x);
 
-                if ((ed.changedMask | (byte)UpdateDataMask.ROTY) > 0)
+                //if ((ed.changedMask | (byte)UpdateDataMask.ROTY) > 0)
                     UnpackFloat(ref bytes, ref loc, ref ed.rotation.y);
 
-                if ((ed.changedMask | (byte)UpdateDataMask.ROTZ) > 0)
+                //if ((ed.changedMask | (byte)UpdateDataMask.ROTZ) > 0)
                     UnpackFloat(ref bytes, ref loc, ref ed.rotation.z);
                 ed.updated = true;
 
