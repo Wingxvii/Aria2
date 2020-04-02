@@ -22,6 +22,7 @@ public class LocalNavMeshBuilder : MonoBehaviour
 
     IEnumerator Start()
     {
+        Debug.Log("Third");
         while (true)
         {
             UpdateNavMesh(true);

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Networking;
 
-[DefaultExecutionOrder(-1)]
+[DefaultExecutionOrder(-103)]
 public class EntityManager : MonoBehaviour
 {
     #region SingletonCode
@@ -53,6 +53,7 @@ public class EntityManager : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("Second");
 
         if (GameSceneController.Instance.type == PlayerType.FPS)
         {
