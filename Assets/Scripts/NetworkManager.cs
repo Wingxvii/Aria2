@@ -240,7 +240,7 @@ namespace Networking
 
         int fixedTimeStep;
 
-        public static float PING_INTERVAL = 0.2f;
+        public static float PING_INTERVAL = 0.4f;
         static float PING_TIME = 0f;
         public static float PING_TIMEOUT = 10f;
         public static float[] ESTIMATED_PING = { 0f, 0f, 0f, 0f };
