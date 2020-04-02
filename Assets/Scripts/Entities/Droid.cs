@@ -342,7 +342,9 @@ public class Droid : Entity
 
     public override void OnDeath(bool networkData)
     {
-		if (networkData)
+        healthBar.value = 0;
+
+        if (networkData)
 			++deaths;
 		if (networkData)
 			NetworkManager.SendPacketDeath(this.id, killerID);

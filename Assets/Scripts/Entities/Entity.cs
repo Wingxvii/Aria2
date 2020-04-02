@@ -169,7 +169,6 @@ public abstract class Entity : MonoBehaviour
             }
             if (currentHealth <= 0)
             {
-                healthBar.value = 0;
                 killerID = kID;
                 OnDeath(true);
             }//
