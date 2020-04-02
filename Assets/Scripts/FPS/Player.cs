@@ -279,9 +279,24 @@ namespace FPSPlayer
         private void FixedUpdate()
         {
 
-
             if (type == EntityType.Player)
             {
+                //changed = ((byte)Networking.UpdateDataMask.ID | (byte)Networking.UpdateDataMask.STATE);
+                //if (Vector3.Magnitude(transform.position - previousPosition) > posThreshold)
+                //{
+                //    previousPosition = transform.position;
+                //    changed |= (byte)Networking.UpdateDataMask.POSX;
+                //    changed |= (byte)Networking.UpdateDataMask.POSY;
+                //    changed |= (byte)Networking.UpdateDataMask.POSZ;
+                //}
+                //if (Vector3.Magnitude(new Vector3(m_pitch, m_yaw, 0) - previousRotation) > rotThreshold)
+                //{
+                //    previousRotation = new Vector3(m_pitch, m_yaw, 0);
+                //    changed |= (byte)Networking.UpdateDataMask.ROTX;
+                //    changed |= (byte)Networking.UpdateDataMask.ROTY;
+                //    changed |= (byte)Networking.UpdateDataMask.ROTZ;
+                //}
+
                 //Process movement input.
                 Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
                 Vector3 intendedMovement = transform.rotation * new Vector3(movement.x, 0, movement.y);
@@ -395,6 +410,14 @@ namespace FPSPlayer
                     Networking.NetworkManager.SendPacketEntities();
                 }
             }
+            else
+            {
+                if (Networking.NetworkManager.isConnected)
+                {
+                    rb.velocity = (lerpTarg - transform.position) * Networking.NetworkManager.ESTIMATED_PING[id];
+                    SetLocation(Vector3.Lerp(transform.position, lerpTarg, 0.4f));
+                }
+            }
         }
 
         public override void OnDeath(bool networkData)
@@ -464,19 +487,29 @@ namespace FPSPlayer
 
         public override void UpdateEntityStats(Networking.EntityData ed)
         {
-            Vector3 oldPos = transform.position;
+            if (Vector3.Magnitude(transform.position - ed.position) < SnapThreshold)
+            {
+                lerpTarg = ed.position + (ed.position - transform.position) * Networking.NetworkManager.ESTIMATED_PING[0];
+            }
+            else
+            {
+                SetLocation(ed.position);
+                lerpTarg = ed.position;
+            }
 
-            SetLocation(ed.position);
+            //Vector3 oldPos = transform.position;
+
+            //SetLocation(ed.position);
             SetRotation(ed.rotation);
 
-            Vector3 vel = (ed.position - oldPos) / (Time.time - timeSinceLastUpdate);
+            //Vector3 vel = (ed.position - oldPos) / (Time.time - timeSinceLastUpdate);
 
-            anim.SetFloat("Walk", Mathf.Clamp(Vector3.Dot((ed.position - oldPos) / (Time.time - timeSinceLastUpdate), transform.forward), -1, 1));
-            anim.SetFloat("Turn", Mathf.Clamp(Vector3.Dot((ed.position - oldPos) / (Time.time - timeSinceLastUpdate), transform.right), -1, 1));
+            anim.SetFloat("Walk", Mathf.Clamp(Vector3.Dot((ed.position - transform.position) / (Time.time - timeSinceLastUpdate), transform.forward), -1, 1));
+            anim.SetFloat("Turn", Mathf.Clamp(Vector3.Dot((ed.position - transform.position) / (Time.time - timeSinceLastUpdate), transform.right), -1, 1));
 
             timeSinceLastUpdate = Time.time;
 
-            rb.velocity = vel;
+            //rb.velocity = vel;
 
             switch ((PlayerState)ed.state) {
                 case PlayerState.IDLE:

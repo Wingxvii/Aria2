@@ -104,7 +104,21 @@ public class Turret : Building
 
     if (GameSceneController.Instance.type == PlayerType.RTS)
         {
-
+            //changed = ((byte)UpdateDataMask.ID | (byte)UpdateDataMask.STATE);
+            //if (Vector3.Magnitude(transform.position - previousPosition) > posThreshold)
+            //{
+            //    previousPosition = transform.position;
+            //    changed |= (byte)UpdateDataMask.POSX;
+            //    changed |= (byte)UpdateDataMask.POSY;
+            //    changed |= (byte)UpdateDataMask.POSZ;
+            //}
+            //if (Vector3.Magnitude(Quaternion.FromToRotation(faceingPoint, previousRotation).eulerAngles) > rotThreshold)
+            //{
+            //    previousRotation = faceingPoint;
+            //    changed |= (byte)UpdateDataMask.ROTX;
+            //    changed |= (byte)UpdateDataMask.ROTY;
+            //    changed |= (byte)UpdateDataMask.ROTZ;
+            //}
 
             shortestDist = float.MaxValue;
             float dist = 0.0f;

@@ -52,6 +52,8 @@ public class Droid : Entity
     // Start is called before the first frame update
     protected override void BaseStart()
     {
+        lerpTarg = transform.position;
+
         type = EntityType.Droid;
 
         //setup rigidbody
@@ -84,6 +86,9 @@ public class Droid : Entity
     }
 
     protected override void BaseFixedUpdate() {
+
+
+
         if (selfRigid.velocity.magnitude > maxSpeed)
         {
             selfRigid.velocity = selfRigid.velocity.normalized * maxSpeed;
@@ -92,9 +97,25 @@ public class Droid : Entity
 
         if (GameSceneController.Instance.type == PlayerType.FPS)
         {
-
+            transform.position = Vector3.Lerp(transform.position, lerpTarg, 0.4f);
         }
         else if (GameSceneController.Instance.type == PlayerType.RTS) {
+            //changed = ((byte)UpdateDataMask.ID | (byte)UpdateDataMask.STATE);
+            //if (Vector3.Magnitude(transform.position - previousPosition) > posThreshold)
+            //{
+            //    previousPosition = transform.position;
+            //    changed |= (byte)UpdateDataMask.POSX;
+            //    changed |= (byte)UpdateDataMask.POSY;
+            //    changed |= (byte)UpdateDataMask.POSZ;
+            //}
+            //if (Vector3.Magnitude(transform.rotation.eulerAngles - previousRotation) > rotThreshold)
+            //{
+            //    previousRotation = transform.rotation.eulerAngles;
+            //    changed |= (byte)UpdateDataMask.ROTX;
+            //    changed |= (byte)UpdateDataMask.ROTY;
+            //    changed |= (byte)UpdateDataMask.ROTZ;
+            //}
+
             float shortestDist;
 
             //AI STATE MACHINE
@@ -307,7 +328,15 @@ public class Droid : Entity
     public override void UpdateEntityStats(EntityData ed)
     {
         //Debug.Log("UPDATED STATS OF " + id);
-        transform.position = ed.position;
+        if (Vector3.Magnitude(transform.position - ed.position) < SnapThreshold)
+        {
+            lerpTarg = ed.position + (ed.position - transform.position) * NetworkManager.ESTIMATED_PING[0];
+        }
+        else
+        {
+            transform.position = ed.position;
+            lerpTarg = transform.position;
+        }
         transform.rotation = Quaternion.Euler(ed.rotation);
     }
 

@@ -39,7 +39,11 @@ namespace Networking
 
         FIRING,
         
-        TURRETFIRE
+        TURRETFIRE,
+
+        PINGSELF = 10000,
+
+        RETURNPING = 10001,
     };
 
     enum PlayerMask
@@ -49,6 +53,18 @@ namespace Networking
         CLIENT2 = 1 << 2,
         CLIENT3 = 1 << 3,
         CLIENT4 = 1 << 4,
+    }
+
+    public enum UpdateDataMask
+    {
+        ID      = 1 << 0,
+        STATE   = 1 << 1,
+        POSX    = 1 << 2,
+        POSY    = 1 << 3,
+        POSZ    = 1 << 4,
+        ROTX    = 1 << 5,
+        ROTY    = 1 << 6,
+        ROTZ    = 1 << 7,
     }
 
     public enum GameState
@@ -137,6 +153,7 @@ namespace Networking
 
     public class EntityData
     {
+        public byte changedMask = 0;
         public Vector3 position = new Vector3();
         public Vector3 rotation = new Vector3();
         public int state = 0;
@@ -173,6 +190,17 @@ namespace Networking
         public int GameState = -1;
     }
 
+    public class PingPacket
+    {
+        public PingPacket(uint id)
+        {
+            ID = id;
+        }
+
+        public float totalTime = 0f;
+        public uint ID = 0;
+        public int playerNumber = 0;
+    }
 
     public class NetworkManager : MonoBehaviour
     {
@@ -211,6 +239,15 @@ namespace Networking
         #endregion
 
         int fixedTimeStep;
+
+        public static float PING_INTERVAL = 0.2f;
+        static float PING_TIME = 0f;
+        public static float PING_TIMEOUT = 10f;
+        public static float[] ESTIMATED_PING = { 0f, 0f, 0f, 0f };
+        public static List<PingPacket>[] timePings = new List<PingPacket>[4];
+        public static List<uint>[] toRemove = new List<uint>[4];
+        public static uint pingIterator = 0;
+
         public static DataState dataState;
         public static FirearmHandler[] firearms = new FirearmHandler[3];
         public static List<Terminal> gates = new List<Terminal>();
@@ -222,8 +259,13 @@ namespace Networking
         public static List<UsersData> allUsers;
         void Awake()
         {
-            //firearms = new FirearmHandler[3];
-            fixedTimeStep = (int)(1f / Time.fixedDeltaTime);
+            for (int i = 0; i < timePings.Length; ++i)
+            {
+                timePings[i] = new List<PingPacket>();
+                toRemove[i] = new List<uint>();
+            }
+        //firearms = new FirearmHandler[3];
+        fixedTimeStep = (int)(1f / Time.fixedDeltaTime);
 
             dataState = new DataState();
             allUsers = new List<UsersData>();
@@ -241,11 +283,25 @@ namespace Networking
             BitConverter.GetBytes(data).CopyTo(bytes, loc);
             loc += Marshal.SizeOf(data);
         }
+
+        public static void PackData(ref byte[] bytes, ref int loc, byte data)
+        {
+            BitConverter.GetBytes(data).CopyTo(bytes, loc);
+            loc += Marshal.SizeOf(data);
+        }
+
         public static void PackData(ref byte[] bytes, ref int loc, int data)
         {
             BitConverter.GetBytes(data).CopyTo(bytes, loc);
             loc += Marshal.SizeOf(data);
         }
+
+        public static void PackData(ref byte[] bytes, ref int loc, uint data)
+        {
+            BitConverter.GetBytes(data).CopyTo(bytes, loc);
+            loc += Marshal.SizeOf(data);
+        }
+
         public static void PackData(ref byte[] bytes, ref int loc, float data)
         {
             BitConverter.GetBytes(data).CopyTo(bytes, loc);
@@ -413,40 +469,79 @@ namespace Networking
                 //Debug.Log("EVERYTHING SENT! ");
                 foreach (Droid droid in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Droid])
                 {
-
+                    //PackData(ref sendByteArray, ref loc, droid.changed);
                     PackData(ref sendByteArray, ref loc, droid.id);
                     PackData(ref sendByteArray, ref loc, (int)droid.state);
-                    PackData(ref sendByteArray, ref loc, droid.transform.position.x);
-                    PackData(ref sendByteArray, ref loc, droid.transform.position.y);
-                    PackData(ref sendByteArray, ref loc, droid.transform.position.z);
-                    PackData(ref sendByteArray, ref loc, droid.transform.rotation.eulerAngles.x);
-                    PackData(ref sendByteArray, ref loc, droid.transform.rotation.eulerAngles.y);
-                    PackData(ref sendByteArray, ref loc, droid.transform.rotation.eulerAngles.z);
+
+                    //if ((droid.changed | (byte)UpdateDataMask.POSX) > 0)
+                        PackData(ref sendByteArray, ref loc, droid.transform.position.x);
+
+                    //if ((droid.changed | (byte)UpdateDataMask.POSY) > 0)
+                        PackData(ref sendByteArray, ref loc, droid.transform.position.y);
+
+                    //if ((droid.changed | (byte)UpdateDataMask.POSZ) > 0)
+                        PackData(ref sendByteArray, ref loc, droid.transform.position.z);
+
+                   // if ((droid.changed | (byte)UpdateDataMask.ROTX) > 0)
+                        PackData(ref sendByteArray, ref loc, droid.transform.rotation.eulerAngles.x);
+
+                    //if ((droid.changed | (byte)UpdateDataMask.ROTY) > 0)
+                        PackData(ref sendByteArray, ref loc, droid.transform.rotation.eulerAngles.y);
+
+                    //if ((droid.changed | (byte)UpdateDataMask.ROTZ) > 0)
+                        PackData(ref sendByteArray, ref loc, droid.transform.rotation.eulerAngles.z);
                 }
 
                 foreach (Turret turret in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Turret])
                 {
+                    //PackData(ref sendByteArray, ref loc, turret.changed);
                     PackData(ref sendByteArray, ref loc, turret.id);
                     PackData(ref sendByteArray, ref loc, (int)turret.state);
-                    PackData(ref sendByteArray, ref loc, turret.transform.position.x);
-                    PackData(ref sendByteArray, ref loc, turret.transform.position.y);
-                    PackData(ref sendByteArray, ref loc, turret.transform.position.z);
-                    PackData(ref sendByteArray, ref loc, turret.faceingPoint.x);
-                    PackData(ref sendByteArray, ref loc, turret.faceingPoint.y);
-                    PackData(ref sendByteArray, ref loc, turret.faceingPoint.z);
+
+                    //if ((turret.changed | (byte)UpdateDataMask.POSX) > 0)
+                        PackData(ref sendByteArray, ref loc, turret.transform.position.x);
+
+                    //if ((turret.changed | (byte)UpdateDataMask.POSY) > 0)
+                        PackData(ref sendByteArray, ref loc, turret.transform.position.y);
+
+                    //if ((turret.changed | (byte)UpdateDataMask.POSZ) > 0)
+                        PackData(ref sendByteArray, ref loc, turret.transform.position.z);
+
+                    //if ((turret.changed | (byte)UpdateDataMask.ROTX) > 0)
+                        PackData(ref sendByteArray, ref loc, turret.faceingPoint.x);
+
+                    //if ((turret.changed | (byte)UpdateDataMask.ROTY) > 0)
+                        PackData(ref sendByteArray, ref loc, turret.faceingPoint.y);
+
+                    //if ((turret.changed | (byte)UpdateDataMask.ROTZ) > 0)
+                        PackData(ref sendByteArray, ref loc, turret.faceingPoint.z);
                 }
             }
             else if (GameSceneController.Instance.type == PlayerType.FPS)
             {
                 FPSPlayer.Player player = (FPSPlayer.Player)EntityManager.Instance.AllEntities[playerNumber];
+
+                //PackData(ref sendByteArray, ref loc, player.changed);
                 PackData(ref sendByteArray, ref loc, player.id);
                 PackData(ref sendByteArray, ref loc, (int)player.firearmHandler.currState);
-                PackData(ref sendByteArray, ref loc, player.transform.position.x);
-                PackData(ref sendByteArray, ref loc, player.transform.position.y);
-                PackData(ref sendByteArray, ref loc, player.transform.position.z);
-                PackData(ref sendByteArray, ref loc, player.m_pitch);
-                PackData(ref sendByteArray, ref loc, player.m_yaw);
-                PackData(ref sendByteArray, ref loc, player.transform.rotation.eulerAngles.z);
+
+                //if ((player.changed | (byte)UpdateDataMask.POSX) > 0)
+                    PackData(ref sendByteArray, ref loc, player.transform.position.x);
+
+                //if ((player.changed | (byte)UpdateDataMask.POSY) > 0)
+                    PackData(ref sendByteArray, ref loc, player.transform.position.y);
+
+                //if ((player.changed | (byte)UpdateDataMask.POSZ) > 0)
+                    PackData(ref sendByteArray, ref loc, player.transform.position.z);
+
+                //if ((player.changed | (byte)UpdateDataMask.ROTX) > 0)
+                    PackData(ref sendByteArray, ref loc, player.m_pitch);
+
+                //if ((player.changed | (byte)UpdateDataMask.ROTY) > 0)
+                    PackData(ref sendByteArray, ref loc, player.m_yaw);
+
+                //if ((player.changed | (byte)UpdateDataMask.ROTZ) > 0)
+                    PackData(ref sendByteArray, ref loc, player.transform.rotation.eulerAngles.z);
             }
             else
             {
@@ -569,6 +664,36 @@ namespace Networking
 
             SendIntPtr(ref sendByteArray, loc, false, Receiver, (int)PacketType.TURRETFIRE);
         }
+
+        public static void SendPacketPing()
+        {
+            for (int i = 0; i < timePings.Length; ++i)
+            {
+                if (i != GameSceneController.Instance.playerNumber)
+                {
+                    uint pingNum = ++pingIterator;
+
+                    timePings[i].Add(new PingPacket(pingNum));
+
+                    int loc = InitialOffset;
+                    int Receiver = (1 << (i + 1));
+
+                    PackData(ref sendByteArray, ref loc, pingNum);
+
+                    SendIntPtr(ref sendByteArray, loc, false, Receiver, (int)PacketType.PINGSELF);
+                }
+            }
+        }
+
+        public static void SendPacketReturnPing(int returnTo, uint pingID)
+        {
+            int loc = InitialOffset;
+            int Receiver = (1 << (returnTo + 1));
+
+            PackData(ref sendByteArray, ref loc, pingID);
+
+            SendIntPtr(ref sendByteArray, loc, false, Receiver, (int)PacketType.RETURNPING);
+        }
         #endregion
 
         #region ReceivingPackets
@@ -578,9 +703,21 @@ namespace Networking
             loc += Marshal.SizeOf(output);
         }
 
+        public static void UnpackByte(ref byte[] byteArray, ref int loc, ref byte output)
+        {
+            output = byteArray[loc];
+            loc += Marshal.SizeOf(output);
+        }
+
         public static void UnpackInt(ref byte[] byteArray, ref int loc, ref int output)
         {
             output = BitConverter.ToInt32(byteArray, loc);
+            loc += Marshal.SizeOf(output);
+        }
+
+        public static void UnpackUint(ref byte[] byteArray, ref int loc, ref uint output)
+        {
+            output = BitConverter.ToUInt32(byteArray, loc);
             loc += Marshal.SizeOf(output);
         }
 
@@ -756,6 +893,19 @@ namespace Networking
                     UnpackInt(ref bytes, ref loc, ref TID);
                     dataState.turretFires.Enqueue(TID);
                     break;
+                case (int)PacketType.RETURNPING:
+                    uint pID = 0;
+                    UnpackUint(ref bytes, ref loc, ref pID);
+                    lock (toRemove)
+                    {
+                        toRemove[sender].Add(pID);
+                    }
+                    break;
+                case (int)PacketType.PINGSELF:
+                    uint pingID = 0;
+                    UnpackUint(ref bytes, ref loc, ref pingID);
+                    SendPacketReturnPing(sender, pingID);
+                    break;
             }
 
         }
@@ -814,9 +964,50 @@ namespace Networking
         }
         */
 
+        private void Update()
+        {
+            for (int p = 0; p < timePings.Length; ++p)
+            {
+                for (int i = toRemove[p].Count - 1; i >= 0; --i)
+                {
+                    for (int j = timePings[p].Count - 1; j >= 0; --j)
+                    {
+                        if (timePings[p][j].ID == toRemove[p][i])
+                        {
+                            ESTIMATED_PING[p] = Mathf.Lerp(ESTIMATED_PING[p], timePings[p][j].totalTime, 0.1f);
+                            timePings[p].RemoveAt(j);
+                            toRemove[p].RemoveAt(i);
+                        }
+                    }
+                }
+
+                for (int j = timePings[p].Count - 1; j >= 0; --j)
+                {
+                    timePings[p][j].totalTime += Time.deltaTime;
+
+                    if (timePings[p][j].totalTime > PING_TIMEOUT)
+                    {
+                        timePings[p].RemoveAt(j);
+                    }
+                }
+
+            }
+
+
+            PING_TIME += Time.deltaTime;
+            if (PING_TIME >= PING_INTERVAL)
+            {
+                PING_TIME = 0f;
+
+                SendPacketPing();
+            }
+        }
+
         // Update is called once per frame
         void FixedUpdate()
         {
+            
+
             #region Fixed Tick
             //count down
             --fixedTimeStep;
@@ -1163,17 +1354,32 @@ namespace Networking
 
                 EntityData ed = new EntityData();
                 int id = 0;
+
+                UnpackByte(ref bytes, ref loc, ref ed.changedMask);
+
                 UnpackInt(ref bytes, ref loc, ref id);
 
                 //SendDebugOutput("C#: ENTITY PROCESSED: " + id.ToString());
 
                 UnpackInt(ref bytes, ref loc, ref ed.state);
-                UnpackFloat(ref bytes, ref loc, ref ed.position.x);
-                UnpackFloat(ref bytes, ref loc, ref ed.position.y);
-                UnpackFloat(ref bytes, ref loc, ref ed.position.z);
-                UnpackFloat(ref bytes, ref loc, ref ed.rotation.x);
-                UnpackFloat(ref bytes, ref loc, ref ed.rotation.y);
-                UnpackFloat(ref bytes, ref loc, ref ed.rotation.z);
+
+                if ((ed.changedMask | (byte)UpdateDataMask.POSX) > 0)
+                    UnpackFloat(ref bytes, ref loc, ref ed.position.x);
+
+                if ((ed.changedMask | (byte)UpdateDataMask.POSY) > 0)
+                    UnpackFloat(ref bytes, ref loc, ref ed.position.y);
+
+                if ((ed.changedMask | (byte)UpdateDataMask.POSZ) > 0)
+                    UnpackFloat(ref bytes, ref loc, ref ed.position.z);
+
+                if ((ed.changedMask | (byte)UpdateDataMask.ROTX) > 0)
+                    UnpackFloat(ref bytes, ref loc, ref ed.rotation.x);
+
+                if ((ed.changedMask | (byte)UpdateDataMask.ROTY) > 0)
+                    UnpackFloat(ref bytes, ref loc, ref ed.rotation.y);
+
+                if ((ed.changedMask | (byte)UpdateDataMask.ROTZ) > 0)
+                    UnpackFloat(ref bytes, ref loc, ref ed.rotation.z);
                 ed.updated = true;
 
                 lock (dataState.entityUpdates)
