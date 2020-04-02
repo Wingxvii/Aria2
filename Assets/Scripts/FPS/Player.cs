@@ -131,6 +131,11 @@ namespace FPSPlayer
             m_state = (PlayerState)state;
         }
 
+        protected override void BaseLateUpdate() 
+        {
+            this.healthBar.transform.position = new Vector3(0, 3.3f, 0); 
+        }
+
         protected override void BaseAwake()
         {
             base.BaseAwake();

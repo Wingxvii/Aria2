@@ -48,8 +48,8 @@ public abstract class Entity : MonoBehaviour
     EntityData lastNetworked;
 
     //canvas
-    private Slider healthBar;
-    private RectTransform canvasTransform;
+    protected Slider healthBar;
+    protected RectTransform canvasTransform;
 
     //RTS BEHAVIOURS
     #region RTS
@@ -104,7 +104,7 @@ public abstract class Entity : MonoBehaviour
         {
             if (isRTS)
             {
-                canvasTransform.eulerAngles = new Vector3(90, 90, 0);
+                canvasTransform.eulerAngles = new Vector3(90, 0, 0);
             }
             else {
                 canvasTransform.eulerAngles = new Vector3(0, 0, 0);
