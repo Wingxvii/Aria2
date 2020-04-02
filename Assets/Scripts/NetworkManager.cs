@@ -977,6 +977,7 @@ namespace Networking
                             ESTIMATED_PING[p] = Mathf.Lerp(ESTIMATED_PING[p], timePings[p][j].totalTime, 0.1f);
                             timePings[p].RemoveAt(j);
                             toRemove[p].RemoveAt(i);
+                            break;
                         }
                     }
                 }
