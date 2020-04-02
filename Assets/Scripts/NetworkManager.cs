@@ -690,9 +690,9 @@ namespace Networking
             int loc = InitialOffset;
             int Receiver = (1 << (returnTo + 1));
 
-            PackData(ref sendByteArray, ref loc, pingID);
+            PackData(ref udpByteArray, ref loc, pingID);
 
-            SendIntPtr(ref sendByteArray, loc, false, Receiver, (int)PacketType.RETURNPING);
+            SendIntPtr(ref udpByteArray, loc, false, Receiver, (int)PacketType.RETURNPING);
         }
         #endregion
 
