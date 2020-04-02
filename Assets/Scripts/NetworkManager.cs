@@ -991,6 +991,7 @@ namespace Networking
                     }
                 }
 
+                Debug.Log("ESTIMATED PING FOR PLAYER " + p + ": " + ESTIMATED_PING[p]);
             }
 
 
