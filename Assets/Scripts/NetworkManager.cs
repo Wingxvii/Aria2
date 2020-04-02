@@ -974,7 +974,7 @@ namespace Networking
                     {
                         if (timePings[p][j].ID == toRemove[p][i])
                         {
-                            ESTIMATED_PING[p] = Mathf.Lerp(ESTIMATED_PING[p], timePings[p][j].totalTime, 0.1f);
+                            ESTIMATED_PING[p] = Mathf.Lerp(ESTIMATED_PING[p], timePings[p][j].totalTime * 0.5f, 0.1f);
                             timePings[p].RemoveAt(j);
                             toRemove[p].RemoveAt(i);
                             break;
