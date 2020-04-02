@@ -22,10 +22,10 @@ public enum EntityType
 
 public abstract class Entity : MonoBehaviour
 {
-    public float SnapThreshold = 1f;
+    public static float SnapThreshold = 1f;
     //public byte changed { get; set; } = 0;
-    public float posThreshold = 0.05f;
-    public float rotThreshold = 0.01f;
+    public static float posThreshold = 0.05f;
+    public static float rotThreshold = 0.01f;
     public Vector3 previousPosition { get; set; }
     public Vector3 previousRotation { get; set; }
 
