@@ -10,7 +10,8 @@ public class SobelPost : CustomPostProcessVolumeComponent, IPostProcessComponent
 {
     Material m_Material = null;
     public RenderTextureParameter tp = new RenderTextureParameter(null);
-    //public MarchParamater marchManager = new MarchParamater(null);
+    public ColorParameter cp = new ColorParameter(Color.blue);
+        //public MarchParamater marchManager = new MarchParamater(null);
     //public TextureParameter tp = new TextureParameter(null);
     //public TextureParameter TP;
 
@@ -57,6 +58,8 @@ public class SobelPost : CustomPostProcessVolumeComponent, IPostProcessComponent
         m_Material.SetTexture("_RT", t);
 
         m_Material.SetTexture("_InputTexture", source);
+
+        m_Material.SetVector("clearColor", cp.value);
         HDUtils.DrawFullScreen(cmd, m_Material, destination);//
     }
 

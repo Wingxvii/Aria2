@@ -328,6 +328,7 @@ public class Turret : Building
             reloadTimer -= Time.deltaTime;
         }
     }
+
     public override void IssueAttack(Entity attackee)
     {
         if (state != TurretState.Reloading)
