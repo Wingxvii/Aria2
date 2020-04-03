@@ -2175,6 +2175,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1231747402195188865, guid: e678b7eeb5dc4a44aa74a11400595c62,
+        type: 3}
+      propertyPath: m_FillOrigin
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1231747402230720911, guid: e678b7eeb5dc4a44aa74a11400595c62,
         type: 3}
       propertyPath: m_SizeDelta.y
