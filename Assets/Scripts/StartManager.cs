@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Networking;
 using System.Text;
-using TMPro;
+
 public class StartManager : MonoBehaviour
 {
     #region SingletonCode
@@ -30,16 +30,14 @@ public class StartManager : MonoBehaviour
     public InputField chatText;
     public InputField username;
 
-    //public Text connectionStatus;
+    public Text connectionStatus;
     public Text chatLog;
-
-    public TMP_Text profileName;
-    public TMP_Text[] slots;
-    //public Text readyStatus;
-    //public Text readyButtonText;
+    public Text[] slots;
+    public Text readyStatus;
+    public Text readyButtonText;
 
     public Button readyButton;
-    //public Button sendButton;
+    public Button sendButton;
     public Button rtsButton;
     public Button fpsButton;
 
@@ -56,16 +54,17 @@ public class StartManager : MonoBehaviour
     private void Start()
     {
         readyButton.interactable = false;
-        //sendButton.interactable = false;
+        sendButton.interactable = false;
         rtsButton.interactable = false;
         fpsButton.interactable = false;
         GameSceneController.Instance.type = PlayerType.Spectator;
 
-        foreach (TMP_Text slot in slots) {
+        foreach (Text slot in slots) {
             slot.gameObject.SetActive(false);
         }
 
         queueMessages = new Queue<string>();
+
     }
 
     //initial connection to server
@@ -79,9 +78,6 @@ public class StartManager : MonoBehaviour
         {
             NetworkManager.ConnectToServer(ipText.text);
         }
-        profileName.text = username.text;
-        Debug.Log("User: " + username.text);
-        Debug.Log("Profile: " + profileName.text);
     }
 
     public void OnRoleUpdate(bool b)
@@ -135,15 +131,15 @@ public class StartManager : MonoBehaviour
         if (Ready == false)
         {
             Ready = true;
-            //readyButtonText.text = "Unready";
-            //readyStatus.text = "Status: Ready";
+            readyButtonText.text = "Unready";
+            readyStatus.text = "Status: Ready";
 
         }
         else {
             Ready = false;
             StopCount();
-            //readyButtonText.text = "Ready!";
-            //readyStatus.text = "Status: Not Ready";
+            readyButtonText.text = "Ready!";
+            readyStatus.text = "Status: Not Ready";
         }
         OnRoleUpdate(true);
         NetworkManager.OnReady(Ready);
@@ -172,15 +168,15 @@ public class StartManager : MonoBehaviour
     {
         if(connected)
         {
-            //connectionStatus.text = "Connection Status: Connected";
-            //sendButton.interactable = true;
+            connectionStatus.text = "Connection Status: Connected";
+            sendButton.interactable = true;
             rtsButton.interactable = true;
             fpsButton.interactable = true;
         }
         else
         {
-            //connectionStatus.text = "Connection Status: Unable to Connect";
-            //sendButton.interactable = false;
+            connectionStatus.text = "Connection Status: Unable to Connect";
+            sendButton.interactable = false;
             rtsButton.interactable = false;
             fpsButton.interactable = false;
             readyButton.interactable = false;
@@ -206,7 +202,7 @@ public class StartManager : MonoBehaviour
             chatLog.text += queueMessages.Dequeue();
         }
 
-        //readyStatus.text = "Status: Role " + GameSceneController.Instance.type.ToString();
+        readyStatus.text = "Status: Role " + GameSceneController.Instance.type.ToString();
         if (GameSceneController.Instance.type == PlayerType.Spectator)
         {
             readyButton.interactable = false;
@@ -222,7 +218,7 @@ public class StartManager : MonoBehaviour
             countdownSeconds -= Time.deltaTime;
             if (countdownSeconds < 0.0f) { countdownSeconds = 0.0f; }
             
-            //readyStatus.text = "Status: Start in " + ((int)countdownSeconds).ToString() + " Sec";
+            readyStatus.text = "Status: Start in " + ((int)countdownSeconds).ToString() + " Sec";
         }
 
         //update roles
