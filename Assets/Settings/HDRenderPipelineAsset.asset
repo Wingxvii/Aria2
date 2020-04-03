@@ -347,3 +347,4 @@ MonoBehaviour:
   beforePostProcessCustomPostProcesses: []
   afterPostProcessCustomPostProcesses:
   - BloodSettings, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - SobelPost, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null

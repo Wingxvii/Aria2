@@ -282,6 +282,16 @@ namespace FPSPlayer
             }
         }
 
+        public override void BaseSelected()
+        {
+            //base.BaseSelected();
+        }
+
+        public override void BaseDeselected()
+        {
+            //base.BaseDeselected();
+        }
+
         void DebugDead()
         {
             if (heDead)

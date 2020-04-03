@@ -245,8 +245,12 @@ public abstract class Entity : MonoBehaviour
     public virtual void BaseActivation() {}
     public virtual void BaseDeactivation() { }
 
-    public virtual void BaseSelected() {}
-    public virtual void BaseDeselected() { }
+    public virtual void BaseSelected() {
+        AlternateCamera.AddObjectToList(gameObject);
+    }
+    public virtual void BaseDeselected() {
+        AlternateCamera.RemoveObjectFromList(gameObject);
+    }
 
 
     public virtual void GetEntityString(ref StringBuilder dataToSend) {  }
