@@ -11446,6 +11446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97bdfb756a5cdd499f36808ad069e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NAV_MESH_BUILD: {fileID: 405107531}
   playerNumber: -1
   gameStart: 1
   gameEnd: 0
