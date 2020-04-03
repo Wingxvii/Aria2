@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Start.unity
     guid: 4b221e60178316740a3b647d6e1aaa40
   - enabled: 1
+    path: Assets/Scenes/CRITICAL/Intro.unity
+    guid: 42906e694bba1f842b4428d1a8d0f2a2
+  - enabled: 1
     path: Assets/Scenes/CRITICAL/StartScene.unity
     guid: db255d08894e70045a469029f1239f5b
   - enabled: 1

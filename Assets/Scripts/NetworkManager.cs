@@ -1036,7 +1036,7 @@ namespace Networking
                 }
                 if (endGame)
                 {
-                    GameSceneController.Instance.SwapScene(3);
+                    GameSceneController.Instance.SwapScene(4);
                     endGame = false;
                 }
 

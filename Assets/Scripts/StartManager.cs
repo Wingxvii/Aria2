@@ -184,7 +184,7 @@ public class StartManager : MonoBehaviour
         if(loadGame)
         {
             loadGame = false;
-            GameSceneController.Instance.SwapScene(2);
+            GameSceneController.Instance.SwapScene(3);
         }
         if (countdown)
         {
