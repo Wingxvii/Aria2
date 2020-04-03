@@ -154,6 +154,7 @@ public class ResourceManager : MonoBehaviour
             }else if (totalTimeRemaining < 0)
             {
                 //RTSGameManager.Instance.GameEndWin();
+                Networking.NetworkManager.EndGame();
             }
         }
     }
