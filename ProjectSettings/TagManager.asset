@@ -45,7 +45,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - SobelOutline
   - 
   m_SortingLayers:
   - name: Default

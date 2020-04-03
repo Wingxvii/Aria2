@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace FPSPlayer
 {
@@ -47,6 +48,13 @@ namespace FPSPlayer
         public float m_fovIncrease = 1.25f;
         public float m_fovLerpSpeed = 10.0f;
         public float m_pitch = 0.0f, m_yaw = 0.0f;
+		[Header("UI")]
+		public Slider health;
+		public Slider energy;
+		public TMP_Text healthText;
+		public TMP_Text energyText;
+		public Image healthBarFPS;
+		public Image energyBarFPS;
 
         public GameObject interactTimerSlider;
         #endregion
@@ -185,6 +193,13 @@ namespace FPSPlayer
 
             if (type == EntityType.Player)
             {
+				health.value = currentHealth;
+				healthText.text = (currentHealth.ToString()+"%");
+				healthBarFPS.fillAmount = currentHealth / 100;
+				energy.value = firearmHandler.remainingClip;
+				energyText.text = firearmHandler.remainingClip.ToString();
+				energyBarFPS.fillAmount = energy.value/firearmHandler.remainingClip;
+
                 if (Input.GetKeyDown(KeyCode.Space)) Jump();
 
                 //Interpolate camera world position
@@ -267,6 +282,16 @@ namespace FPSPlayer
             }
         }
 
+        public override void BaseSelected()
+        {
+            //base.BaseSelected();
+        }
+
+        public override void BaseDeselected()
+        {
+            //base.BaseDeselected();
+        }
+
         void DebugDead()
         {
             if (heDead)
@@ -335,7 +360,7 @@ namespace FPSPlayer
                 //Cap horizontal speed
                 float currentSpeedCap = m_speedCap;
 
-                if (Input.GetKey(KeyCode.Tab) && movement.y > 0)
+                if (Input.GetKey(KeyCode.LeftShift) && movement.y > 0)
                 {
                     currentSpeedCap *= m_runSpeedMod;
                     Debug.Log("Running");

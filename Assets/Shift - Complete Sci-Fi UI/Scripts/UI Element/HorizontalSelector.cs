@@ -301,7 +301,7 @@ namespace Michsky.UI.Shift
 
         public void UpdateUI()
         {
-            label.text = itemList[index].itemTitle;
+           // label.text = itemList[index].itemTitle;
 
             if (enableIndicators == true)
             {

@@ -37,7 +37,7 @@ public class FirearmHandler : MonoBehaviour
 	public FPSPlayer.Player parentController;
 
 	//Method usage
-	private int remainingClip;
+	public int remainingClip;
 	private float currentAcc;
 	public float timeToNextShot;
 

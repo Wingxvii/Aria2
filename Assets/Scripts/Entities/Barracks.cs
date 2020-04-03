@@ -108,6 +108,8 @@ public class Barracks : Building
 
     public override void BaseSelected()
     {
+        base.BaseDeselected();
+
         if (flagActive)
         {
             flagObj.SetActive(true);
@@ -117,6 +119,8 @@ public class Barracks : Building
     public override void BaseDeselected()
     {
         flagObj.SetActive(false);
+
+        base.BaseDeselected();
     }
 
 
