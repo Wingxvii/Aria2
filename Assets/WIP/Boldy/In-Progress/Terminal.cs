@@ -42,6 +42,8 @@ public class Terminal : MonoBehaviour
 			}
 
             opened = true;
+
+            Debug.Log("GATE OPENED: GATE NUMBER " + gateNumber);
         }
 	}
 }

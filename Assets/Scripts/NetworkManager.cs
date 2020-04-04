@@ -259,6 +259,8 @@ namespace Networking
         public static List<UsersData> allUsers;
         void Awake()
         {
+            gates = new List<Terminal>();
+
             for (int i = 0; i < timePings.Length; ++i)
             {
                 timePings[i] = new List<PingPacket>();
