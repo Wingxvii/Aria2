@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Terminal : MonoBehaviour
 {
-    public int gateNumber { get; private set; } = -1;
+    public int gateNumber = 0;
     public GameObject gate;
     public bool final;
     private bool launch = false;
@@ -12,9 +12,13 @@ public class Terminal : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-        gateNumber = Networking.NetworkManager.gates.Count;
-        Networking.NetworkManager.gates.Add(this);
-	}
+        //gateNumber = Networking.NetworkManager.gates.Count;
+        while (Networking.NetworkManager.gates.Count <= gateNumber)
+            Networking.NetworkManager.gates.Add(null);
+        Networking.NetworkManager.gates[gateNumber] = this;
+
+        Debug.Log("TERMINAL INITIALIZED: " + transform.parent.gameObject.name);
+    }
 
 	// Update is called once per frame
 	void Update()

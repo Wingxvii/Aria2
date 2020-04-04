@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10048653, g: 0.026669357, b: 0.016951261, a: 1}
+  m_IndirectSpecularColor: {r: 0.17077929, g: 0.046833176, b: 0.028998604, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7239,6 +7239,11 @@ PrefabInstance:
       propertyPath: gate
       value: 
       objectReference: {fileID: 7949866836023883133}
+    - target: {fileID: 7444820110562658973, guid: f61a8fa3b5fd8274cb1ec8c9aeaba6ed,
+        type: 3}
+      propertyPath: gateNumber
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8668765957605064098, guid: f61a8fa3b5fd8274cb1ec8c9aeaba6ed,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9830,6 +9835,11 @@ PrefabInstance:
       propertyPath: gate
       value: 
       objectReference: {fileID: 687678137}
+    - target: {fileID: 3805555483437904323, guid: c024c8bdf51cc1141870923d4afb5156,
+        type: 3}
+      propertyPath: gateNumber
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3829557299685557054, guid: c024c8bdf51cc1141870923d4afb5156,
         type: 3}
       propertyPath: m_Name
@@ -11492,7 +11502,7 @@ MonoBehaviour:
   gameStart: 1
   gameEnd: 0
   loadedScene: 1
-  type: 2
+  type: 1
   gameState: 0
 --- !u!4 &574309900
 Transform:
@@ -14585,6 +14595,11 @@ PrefabInstance:
       propertyPath: gate
       value: 
       objectReference: {fileID: 103754909}
+    - target: {fileID: 3805555483437904323, guid: c024c8bdf51cc1141870923d4afb5156,
+        type: 3}
+      propertyPath: gateNumber
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3829557299685557054, guid: c024c8bdf51cc1141870923d4afb5156,
         type: 3}
       propertyPath: m_Name
@@ -15335,6 +15350,11 @@ PrefabInstance:
       propertyPath: gate
       value: 
       objectReference: {fileID: 967899412}
+    - target: {fileID: 3805555483437904323, guid: c024c8bdf51cc1141870923d4afb5156,
+        type: 3}
+      propertyPath: gateNumber
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3829557299685557054, guid: c024c8bdf51cc1141870923d4afb5156,
         type: 3}
       propertyPath: m_Name
@@ -38337,6 +38357,11 @@ PrefabInstance:
       propertyPath: gate
       value: 
       objectReference: {fileID: 1389210780}
+    - target: {fileID: 3805555483437904323, guid: c024c8bdf51cc1141870923d4afb5156,
+        type: 3}
+      propertyPath: gateNumber
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3829557299685557054, guid: c024c8bdf51cc1141870923d4afb5156,
         type: 3}
       propertyPath: m_Name
