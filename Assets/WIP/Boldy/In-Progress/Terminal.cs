@@ -29,16 +29,17 @@ public class Terminal : MonoBehaviour
 	{
         if (!opened)
         {
-            if (!final)
+            if (final)
             {
-                Destroy(gate);
+				launch = true;
+				
 
             }
             else
             {
-                launch = true;
+				Destroy(gate);
 
-            }
+			}
 
             opened = true;
         }
