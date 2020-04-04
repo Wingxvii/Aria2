@@ -17,7 +17,7 @@ public class Terminal : MonoBehaviour
             Networking.NetworkManager.gates.Add(null);
         Networking.NetworkManager.gates[gateNumber] = this;
 
-        Debug.Log("TERMINAL INITIALIZED: " + transform.parent.gameObject.name);
+        Debug.Log("TERMINAL INITIALIZED: " + transform.parent.gameObject.name + ", INIT NUM: " + gateNumber);
     }
 
 	// Update is called once per frame
