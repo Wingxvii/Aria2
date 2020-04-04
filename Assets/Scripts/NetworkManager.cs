@@ -2245,6 +2245,7 @@ namespace Networking
 
         public static void EndGame()
         {
+            Debug.Log("ENDED GAME");
             SendPacketState((int)GameState.ENDGAME);
         }
 
