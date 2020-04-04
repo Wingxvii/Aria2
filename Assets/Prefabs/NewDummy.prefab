@@ -158,14 +158,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 116338197217365154}
-  m_LocalRotation: {x: -0.27911308, y: -0.045557, z: -0.41311997, w: -0.8656515}
-  m_LocalPosition: {x: 0.0027821364, y: -0.0024107215, z: 0.0061647985}
+  m_LocalRotation: {x: -0.61971754, y: 0.42863777, z: 0.42391163, w: 0.5025125}
+  m_LocalPosition: {x: -0.00046, y: 0.0056, z: -0.00042}
   m_LocalScale: {x: 0.022237724, y: 0.022237724, z: 0.022237724}
   m_Children:
   - {fileID: 8982133547495934055}
   m_Father: {fileID: 6399446079035667784}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: -206.461, y: -159.775, z: 235.826}
+  m_LocalEulerAnglesHint: {x: -80.484, y: -145.085, z: 579.53296}
 --- !u!33 &4925619602874012315
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -257,6 +257,7 @@ MonoBehaviour:
   barrel: {fileID: 8982133547495934055}
   anim: {fileID: 0}
   parentController: {fileID: 0}
+  remainingClip: 0
   timeToNextShot: 0
 --- !u!111 &707137683450217953
 Animation:
@@ -680,6 +681,12 @@ MonoBehaviour:
   m_fovLerpSpeed: 10
   m_pitch: 0
   m_yaw: 0
+  health: {fileID: 0}
+  energy: {fileID: 0}
+  healthText: {fileID: 0}
+  energyText: {fileID: 0}
+  healthBarFPS: {fileID: 0}
+  energyBarFPS: {fileID: 0}
   interactTimerSlider: {fileID: 0}
   m_state: 0
   anim: {fileID: 0}

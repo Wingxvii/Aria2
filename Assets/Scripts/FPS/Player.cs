@@ -55,6 +55,8 @@ namespace FPSPlayer
 		public TMP_Text energyText;
 		public Image healthBarFPS;
 		public Image energyBarFPS;
+		public TMP_Text timer;
+		public float remainingTime;
 
         public GameObject interactTimerSlider;
         #endregion
@@ -200,7 +202,9 @@ namespace FPSPlayer
 				energyText.text = firearmHandler.remainingClip.ToString();
 				energyBarFPS.fillAmount = energy.value/firearmHandler.remainingClip;
 
-                if (Input.GetKeyDown(KeyCode.Space)) Jump();
+				remainingTime -= Time.deltaTime;
+				timer.text = ((int)(remainingTime / 60.0f)).ToString("00") + ":" + ((int)(remainingTime % 60)).ToString("00");
+				if (Input.GetKeyDown(KeyCode.Space)) Jump();
 
                 //Interpolate camera world position
                 m_camera.transform.position = Vector3.Lerp(m_oldPosition + m_cameraHeight * Vector3.up, transform.position + m_cameraHeight * Vector3.up, (Time.time - m_oldPositionT) / Time.fixedDeltaTime);
