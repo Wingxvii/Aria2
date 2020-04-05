@@ -38,7 +38,7 @@ namespace Networking
         TERMINAL,
 
         FIRING,
-        
+
         TURRETFIRE,
 
         PINGSELF = 10000,
@@ -57,14 +57,14 @@ namespace Networking
 
     public enum UpdateDataMask
     {
-        ID      = 1 << 0,
-        STATE   = 1 << 1,
-        POSX    = 1 << 2,
-        POSY    = 1 << 3,
-        POSZ    = 1 << 4,
-        ROTX    = 1 << 5,
-        ROTY    = 1 << 6,
-        ROTZ    = 1 << 7,
+        ID = 1 << 0,
+        STATE = 1 << 1,
+        POSX = 1 << 2,
+        POSY = 1 << 3,
+        POSZ = 1 << 4,
+        ROTX = 1 << 5,
+        ROTY = 1 << 6,
+        ROTZ = 1 << 7,
     }
 
     public enum GameState
@@ -233,12 +233,15 @@ namespace Networking
         private static IntPtr Client;
         private static int playerNumber = -1;
         private static bool endGame = false;
-        public static GameState gameState = GameState.LOBBY;
+        //public static GameState gameState = GameState.LOBBY;
         static public bool isConnected = false;
 
         #endregion
 
         int fixedTimeStep;
+
+        public static int updateInterval = 1;
+        public static int updateCounter = 0;
 
         public static float PING_INTERVAL = 0.4f;
         static float PING_TIME = 0f;
@@ -266,8 +269,8 @@ namespace Networking
                 timePings[i] = new List<PingPacket>();
                 toRemove[i] = new List<uint>();
             }
-        //firearms = new FirearmHandler[3];
-        fixedTimeStep = (int)(1f / Time.fixedDeltaTime);
+            //firearms = new FirearmHandler[3];
+            fixedTimeStep = (int)(1f / Time.fixedDeltaTime);
 
             dataState = new DataState();
             allUsers = new List<UsersData>();
@@ -460,97 +463,102 @@ namespace Networking
 
         public static void SendPacketEntities()
         {
-            int loc = InitialOffset;
-            int Receiver = 0;
-
-            Receiver = ~(1 << (GameSceneController.Instance.playerNumber + 1));
-
-            if (GameSceneController.Instance.type == PlayerType.RTS)
+            if (updateCounter > 100)
             {
-                //This is not being called on respawned entities - broken
-                //Debug.Log("EVERYTHING SENT! ");
-                foreach (Droid droid in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Droid])
-                {
-                    //PackData(ref sendByteArray, ref loc, droid.changed);
-                    PackData(ref sendByteArray, ref loc, droid.id);
-                    PackData(ref sendByteArray, ref loc, (int)droid.state);
+                int loc = InitialOffset;
+                int Receiver = 0;
 
-                    //if ((droid.changed | (byte)UpdateDataMask.POSX) > 0)
+                Receiver = ~(1 << (GameSceneController.Instance.playerNumber + 1));
+
+                if (GameSceneController.Instance.type == PlayerType.RTS)
+                {
+                    //This is not being called on respawned entities - broken
+                    //Debug.Log("EVERYTHING SENT! ");
+                    foreach (Droid droid in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Droid])
+                    {
+                        //PackData(ref sendByteArray, ref loc, droid.changed);
+                        PackData(ref sendByteArray, ref loc, droid.id);
+                        PackData(ref sendByteArray, ref loc, (int)droid.state);
+
+                        //if ((droid.changed | (byte)UpdateDataMask.POSX) > 0)
                         PackData(ref sendByteArray, ref loc, droid.transform.position.x);
 
-                    //if ((droid.changed | (byte)UpdateDataMask.POSY) > 0)
+                        //if ((droid.changed | (byte)UpdateDataMask.POSY) > 0)
                         PackData(ref sendByteArray, ref loc, droid.transform.position.y);
 
-                    //if ((droid.changed | (byte)UpdateDataMask.POSZ) > 0)
+                        //if ((droid.changed | (byte)UpdateDataMask.POSZ) > 0)
                         PackData(ref sendByteArray, ref loc, droid.transform.position.z);
 
-                   // if ((droid.changed | (byte)UpdateDataMask.ROTX) > 0)
+                        // if ((droid.changed | (byte)UpdateDataMask.ROTX) > 0)
                         PackData(ref sendByteArray, ref loc, droid.transform.rotation.eulerAngles.x);
 
-                    //if ((droid.changed | (byte)UpdateDataMask.ROTY) > 0)
+                        //if ((droid.changed | (byte)UpdateDataMask.ROTY) > 0)
                         PackData(ref sendByteArray, ref loc, droid.transform.rotation.eulerAngles.y);
 
-                    //if ((droid.changed | (byte)UpdateDataMask.ROTZ) > 0)
+                        //if ((droid.changed | (byte)UpdateDataMask.ROTZ) > 0)
                         PackData(ref sendByteArray, ref loc, droid.transform.rotation.eulerAngles.z);
-                }
+                    }
 
-                foreach (Turret turret in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Turret])
-                {
-                    //PackData(ref sendByteArray, ref loc, turret.changed);
-                    PackData(ref sendByteArray, ref loc, turret.id);
-                    PackData(ref sendByteArray, ref loc, (int)turret.state);
+                    foreach (Turret turret in EntityManager.Instance.ActiveEntitiesByType[(int)EntityType.Turret])
+                    {
+                        //PackData(ref sendByteArray, ref loc, turret.changed);
+                        PackData(ref sendByteArray, ref loc, turret.id);
+                        PackData(ref sendByteArray, ref loc, (int)turret.state);
 
-                    //if ((turret.changed | (byte)UpdateDataMask.POSX) > 0)
+                        //if ((turret.changed | (byte)UpdateDataMask.POSX) > 0)
                         PackData(ref sendByteArray, ref loc, turret.transform.position.x);
 
-                    //if ((turret.changed | (byte)UpdateDataMask.POSY) > 0)
+                        //if ((turret.changed | (byte)UpdateDataMask.POSY) > 0)
                         PackData(ref sendByteArray, ref loc, turret.transform.position.y);
 
-                    //if ((turret.changed | (byte)UpdateDataMask.POSZ) > 0)
+                        //if ((turret.changed | (byte)UpdateDataMask.POSZ) > 0)
                         PackData(ref sendByteArray, ref loc, turret.transform.position.z);
 
-                    //if ((turret.changed | (byte)UpdateDataMask.ROTX) > 0)
+                        //if ((turret.changed | (byte)UpdateDataMask.ROTX) > 0)
                         PackData(ref sendByteArray, ref loc, turret.faceingPoint.x);
 
-                    //if ((turret.changed | (byte)UpdateDataMask.ROTY) > 0)
+                        //if ((turret.changed | (byte)UpdateDataMask.ROTY) > 0)
                         PackData(ref sendByteArray, ref loc, turret.faceingPoint.y);
 
-                    //if ((turret.changed | (byte)UpdateDataMask.ROTZ) > 0)
+                        //if ((turret.changed | (byte)UpdateDataMask.ROTZ) > 0)
                         PackData(ref sendByteArray, ref loc, turret.faceingPoint.z);
+                    }
                 }
-            }
-            else if (GameSceneController.Instance.type == PlayerType.FPS)
-            {
-                FPSPlayer.Player player = (FPSPlayer.Player)EntityManager.Instance.AllEntities[playerNumber];
+                else if (GameSceneController.Instance.type == PlayerType.FPS)
+                {
+                    FPSPlayer.Player player = (FPSPlayer.Player)EntityManager.Instance.AllEntities[playerNumber];
 
-                //PackData(ref sendByteArray, ref loc, player.changed);
-                PackData(ref sendByteArray, ref loc, player.id);
-                PackData(ref sendByteArray, ref loc, (int)player.firearmHandler.currState);
+                    //PackData(ref sendByteArray, ref loc, player.changed);
+                    PackData(ref sendByteArray, ref loc, player.id);
+                    PackData(ref sendByteArray, ref loc, (int)player.firearmHandler.currState);
 
-                //if ((player.changed | (byte)UpdateDataMask.POSX) > 0)
+                    //if ((player.changed | (byte)UpdateDataMask.POSX) > 0)
                     PackData(ref sendByteArray, ref loc, player.transform.position.x);
 
-                //if ((player.changed | (byte)UpdateDataMask.POSY) > 0)
+                    //if ((player.changed | (byte)UpdateDataMask.POSY) > 0)
                     PackData(ref sendByteArray, ref loc, player.transform.position.y);
 
-                //if ((player.changed | (byte)UpdateDataMask.POSZ) > 0)
+                    //if ((player.changed | (byte)UpdateDataMask.POSZ) > 0)
                     PackData(ref sendByteArray, ref loc, player.transform.position.z);
 
-                //if ((player.changed | (byte)UpdateDataMask.ROTX) > 0)
+                    //if ((player.changed | (byte)UpdateDataMask.ROTX) > 0)
                     PackData(ref sendByteArray, ref loc, player.m_pitch);
 
-                //if ((player.changed | (byte)UpdateDataMask.ROTY) > 0)
+                    //if ((player.changed | (byte)UpdateDataMask.ROTY) > 0)
                     PackData(ref sendByteArray, ref loc, player.m_yaw);
 
-                //if ((player.changed | (byte)UpdateDataMask.ROTZ) > 0)
+                    //if ((player.changed | (byte)UpdateDataMask.ROTZ) > 0)
                     PackData(ref sendByteArray, ref loc, player.transform.rotation.eulerAngles.z);
-            }
-            else
-            {
-                return;
-            }
+                }
+                else
+                {
+                    return;
+                }
 
-            SendIntPtr(ref sendByteArray, loc, false, Receiver, (int)PacketType.ENTITY);
+                SendIntPtr(ref sendByteArray, loc, false, Receiver, (int)PacketType.ENTITY);
+                updateCounter = 0;
+                Debug.Log("Sent UDP Update Packet");
+            }
         }
 
 
@@ -994,7 +1002,7 @@ namespace Networking
                     }
                 }
 
-                Debug.Log("ESTIMATED PING FOR PLAYER " + p + ": " + ESTIMATED_PING[p]);
+                //Debug.Log("ESTIMATED PING FOR PLAYER " + p + ": " + ESTIMATED_PING[p]);
             }
 
 
@@ -1010,7 +1018,8 @@ namespace Networking
         // Update is called once per frame
         void FixedUpdate()
         {
-            
+            updateCounter = updateCounter + updateInterval;
+            //Debug.Log("Update Counter Increment: " + updateCounter);
 
             #region Fixed Tick
             //count down
@@ -1032,7 +1041,7 @@ namespace Networking
 
             if (isConnected)
             {
-                if (Input.GetKeyDown(KeyCode.P) && gameState == GameState.GAME)
+                if (Input.GetKeyDown(KeyCode.P) && dataState.GameState == (int)GameState.GAME)
                 {
                     endGame = true;
                 }
@@ -1041,7 +1050,23 @@ namespace Networking
                     GameSceneController.Instance.SwapScene(4);
                     endGame = false;
                 }
-
+                if (Input.GetKeyDown(KeyCode.U) && dataState.GameState == (int)GameState.GAME)
+                {
+                    updateInterval++;
+                    Debug.Log("Update Interval: " + updateInterval);
+                }
+                if (Input.GetKeyDown(KeyCode.I) && dataState.GameState == (int)GameState.GAME)
+                {
+                    if (updateInterval > 0)
+                    {
+                        updateInterval--;
+                    }
+                    else
+                    {
+                        updateInterval = 1;
+                    }
+                    Debug.Log("Update Interval: " + updateInterval);
+                }
                 //update players
                 //if (dataState.p1.updated)
                 //{
@@ -1079,7 +1104,7 @@ namespace Networking
 
                 if (dataState.GameState == (int)GameState.GAME)
                 {
-                    
+
                     //SendDebugOutput("Game Update");
                     //foreach (FPSPlayer.Player pfps in EntityManager.Instance.ActivePlayers())
                     //{
@@ -1123,7 +1148,7 @@ namespace Networking
                     }
                 }
 
-                while(dataState.turretFires.Count > 0)
+                while (dataState.turretFires.Count > 0)
                 {
                     int TID = dataState.turretFires.Dequeue();
                     if (TID >= EntityManager.Instance.AllEntities.Count)
@@ -1174,8 +1199,8 @@ namespace Networking
                         {
                             EntityManager.Instance.AllEntities[damage.Item1].OnOtherDamage(damage.Item2, damage.Item3, damage.Item4);
                         }
-                        
-                        Debug.Log("DAMAGED");
+
+                        //Debug.Log("DAMAGED");
                     }
                 }
 
@@ -1368,22 +1393,22 @@ namespace Networking
                 UnpackInt(ref bytes, ref loc, ref ed.state);
 
                 //if ((ed.changedMask | (byte)UpdateDataMask.POSX) > 0)
-                    UnpackFloat(ref bytes, ref loc, ref ed.position.x);
+                UnpackFloat(ref bytes, ref loc, ref ed.position.x);
 
                 //if ((ed.changedMask | (byte)UpdateDataMask.POSY) > 0)
-                    UnpackFloat(ref bytes, ref loc, ref ed.position.y);
+                UnpackFloat(ref bytes, ref loc, ref ed.position.y);
 
                 //if ((ed.changedMask | (byte)UpdateDataMask.POSZ) > 0)
-                    UnpackFloat(ref bytes, ref loc, ref ed.position.z);
+                UnpackFloat(ref bytes, ref loc, ref ed.position.z);
 
-               // if ((ed.changedMask | (byte)UpdateDataMask.ROTX) > 0)
-                    UnpackFloat(ref bytes, ref loc, ref ed.rotation.x);
+                // if ((ed.changedMask | (byte)UpdateDataMask.ROTX) > 0)
+                UnpackFloat(ref bytes, ref loc, ref ed.rotation.x);
 
                 //if ((ed.changedMask | (byte)UpdateDataMask.ROTY) > 0)
-                    UnpackFloat(ref bytes, ref loc, ref ed.rotation.y);
+                UnpackFloat(ref bytes, ref loc, ref ed.rotation.y);
 
                 //if ((ed.changedMask | (byte)UpdateDataMask.ROTZ) > 0)
-                    UnpackFloat(ref bytes, ref loc, ref ed.rotation.z);
+                UnpackFloat(ref bytes, ref loc, ref ed.rotation.z);
                 ed.updated = true;
 
                 lock (dataState.entityUpdates)
