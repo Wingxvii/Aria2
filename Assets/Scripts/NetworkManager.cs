@@ -994,7 +994,7 @@ namespace Networking
                     }
                 }
 
-                Debug.Log("ESTIMATED PING FOR PLAYER " + p + ": " + ESTIMATED_PING[p]);
+                //Debug.Log("ESTIMATED PING FOR PLAYER " + p + ": " + ESTIMATED_PING[p]);
             }
 
 
@@ -1032,13 +1032,14 @@ namespace Networking
 
             if (isConnected)
             {
-                if (Input.GetKeyDown(KeyCode.P) && gameState == GameState.GAME)
+                if (Input.GetKeyDown(KeyCode.O) && dataState.GameState == (int)GameState.GAME)
                 {
                     endGame = true;
                 }
                 if (endGame)
                 {
-                    GameSceneController.Instance.SwapScene(4);
+                    //GameSceneController.Instance.SwapScene(4);
+                    EndGame();
                     endGame = false;
                 }
 
@@ -1175,7 +1176,7 @@ namespace Networking
                             EntityManager.Instance.AllEntities[damage.Item1].OnOtherDamage(damage.Item2, damage.Item3, damage.Item4);
                         }
                         
-                        Debug.Log("DAMAGED");
+                        //Debug.Log("DAMAGED");
                     }
                 }
 
