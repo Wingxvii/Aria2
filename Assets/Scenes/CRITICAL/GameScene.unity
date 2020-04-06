@@ -11502,7 +11502,7 @@ MonoBehaviour:
   gameStart: 1
   gameEnd: 0
   loadedScene: 1
-  type: 2
+  type: 1
   gameState: 0
 --- !u!4 &574309900
 Transform:
@@ -50126,8 +50126,6 @@ MonoBehaviour:
   buildMenuButtons:
   - {fileID: 11400000, guid: 8bbbae05a6d735f4fbec52200f096b9c, type: 2}
   - {fileID: 11400000, guid: f9c0496fd279e4a488fb9cafedb23189, type: 2}
-  - {fileID: 11400000, guid: dc392ec12f7f3b345860449d203c849b, type: 2}
-  - {fileID: 11400000, guid: 28adecdbac27b9f47948d793c6f06faf, type: 2}
   menus:
   - selectable: 2
     info: {fileID: 11400000, guid: b6411a0b8cabc4b4bb0e55d5097fee83, type: 2}
@@ -53202,7 +53200,7 @@ MonoBehaviour:
   actionTemlpate: {fileID: 6420665988925617097}
   progressFill: {fileID: 6420665987562870048}
   emptySlotImage: {fileID: 21300000, guid: 67cd93e5af90d5545896737a519f76e6, type: 3}
-  droidFilledImage: {fileID: 21300000, guid: cbe9c2918b5fdcd42a71270bdb5a56ca, type: 3}
+  droidFilledImage: {fileID: 21300000, guid: eebfc7f3d540c2a4ab864b11a11581d5, type: 3}
   currentActionSlot: {fileID: 6420665988874694738}
   slots:
   - {fileID: 6420665988925617094}
@@ -53317,19 +53315,19 @@ MonoBehaviour:
   content: {fileID: 6420665988315432704}
   unitIcons:
   - type: 2
-    sprite: {fileID: 21300000, guid: 1bf1c24f9bb007a4096b7096cadd8a48, type: 3}
+    sprite: {fileID: 21300000, guid: 53fcdd6eebd84774cadf97609609c83f, type: 3}
   - type: 3
-    sprite: {fileID: 21300000, guid: cbe9c2918b5fdcd42a71270bdb5a56ca, type: 3}
+    sprite: {fileID: 21300000, guid: eebfc7f3d540c2a4ab864b11a11581d5, type: 3}
   - type: 4
-    sprite: {fileID: 21300000, guid: 2389d3072600dde49855758de1818edd, type: 3}
+    sprite: {fileID: 21300000, guid: a6ac343efad94ca4f8c5c093784bea50, type: 3}
   - type: 1
     sprite: {fileID: 21300000, guid: 31c7b954327bd5840bfb01070831ce9d, type: 3}
   - type: 5
-    sprite: {fileID: 21300000, guid: cbe9c2918b5fdcd42a71270bdb5a56ca, type: 3}
+    sprite: {fileID: 21300000, guid: eebfc7f3d540c2a4ab864b11a11581d5, type: 3}
   - type: 6
-    sprite: {fileID: 21300000, guid: cbe9c2918b5fdcd42a71270bdb5a56ca, type: 3}
+    sprite: {fileID: 21300000, guid: eebfc7f3d540c2a4ab864b11a11581d5, type: 3}
   - type: 7
-    sprite: {fileID: 21300000, guid: 1bf1c24f9bb007a4096b7096cadd8a48, type: 3}
+    sprite: {fileID: 21300000, guid: d7dda5088b30b4342871cd7cb5971750, type: 3}
   buttons: []
 --- !u!222 &6420665989373945400
 CanvasRenderer:
