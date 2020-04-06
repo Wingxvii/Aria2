@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   name: Player
-  unitPortrait: {fileID: 21300000, guid: cbe9c2918b5fdcd42a71270bdb5a56ca, type: 3}
+  unitPortrait: {fileID: 21300000, guid: eebfc7f3d540c2a4ab864b11a11581d5, type: 3}
   useActionQueue: 0
   actions: []

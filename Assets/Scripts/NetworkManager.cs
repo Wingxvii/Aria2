@@ -1038,8 +1038,8 @@ namespace Networking
                 }
                 if (endGame)
                 {
-                    //GameSceneController.Instance.SwapScene(4);
                     EndGame();
+                    GameSceneController.Instance.SwapScene(4);
                     endGame = false;
                 }
 
