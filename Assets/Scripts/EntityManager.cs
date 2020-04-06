@@ -116,14 +116,21 @@ public class EntityManager : MonoBehaviour
 
         for (int i = 0; i < spawnType.Length; ++i)
         {
-            spawnType[i] = (GameSceneController.Instance.playerNumber == i + 1) ? EntityType.Player : EntityType.Dummy;
+            EntityType ET;
+            ET = (GameSceneController.Instance.playerNumber == i + 1) ? EntityType.Player : EntityType.Dummy;
+            spawnType[i] = ET; 
             temp = GetNewEntity(spawnType[i]);
 
             //set spawn
             int spawnPointNum = SpawnManager.Instance.freeSpawnPoints.Dequeue();
 
-
             FPSPlayer.Player player = (FPSPlayer.Player)temp;
+
+            if (ET == EntityType.Dummy)
+            {
+                Debug.Log("ADDED");
+                AlternateCamera.AddObjectToList(temp.gameObject);
+            }
 
             player.SetLocation(SpawnManager.Instance.FPSspawnpoints[spawnPointNum].position);
             player.SetRotation(new Vector3(0, 0, 0));

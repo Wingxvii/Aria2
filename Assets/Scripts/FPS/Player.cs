@@ -149,6 +149,7 @@ namespace FPSPlayer
         protected override void BaseAwake()
         {
             base.BaseAwake();
+
             firearmHandler = GetComponentInChildren<FirearmHandler>();
             //Get a reference to the unity character controller (basically a capsule collider with bonus features).
             if (type == EntityType.Player)
@@ -583,6 +584,17 @@ namespace FPSPlayer
             //transform.localRotation = Quaternion.Euler(new Vector3(0, ed.rotation.y, 0));
             //m_pitch = ed.rotation.x;
             //m_yaw = ed.rotation.y;
+        }
+
+        protected override void BaseOnDestory()
+        {
+            if (type == EntityType.Dummy)
+            {
+                Debug.Log("TERMINATED");
+                AlternateCamera.RemoveObjectFromList(gameObject);
+            }
+
+            base.BaseOnDestory();
         }
     }
 

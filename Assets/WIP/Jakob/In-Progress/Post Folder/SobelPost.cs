@@ -20,7 +20,7 @@ public class SobelPost : CustomPostProcessVolumeComponent, IPostProcessComponent
     public bool IsActive()
     {
         //return m_Material != null && mm != null;
-        return m_Material != null && tp.value != null;
+        return m_Material != null && tp.value != null && GameSceneController.Instance != null;
     }
 
     public override void Setup()
@@ -39,6 +39,8 @@ public class SobelPost : CustomPostProcessVolumeComponent, IPostProcessComponent
 
     public override void Render(CommandBuffer cmd, HDCamera camera, RTHandle source, RTHandle destination)
     {
+        Debug.Log(AlternateCamera.objectsToOutline.Count);
+
         if (m_Material == null)
         {
             Debug.Log("SHIIIT");
@@ -60,6 +62,8 @@ public class SobelPost : CustomPostProcessVolumeComponent, IPostProcessComponent
         m_Material.SetTexture("_InputTexture", source);
 
         m_Material.SetVector("clearColor", cp.value);
+
+        m_Material.SetInt("Flashing", GameSceneController.Instance.type == PlayerType.RTS ? 1 : 0);
         HDUtils.DrawFullScreen(cmd, m_Material, destination);//
     }
 

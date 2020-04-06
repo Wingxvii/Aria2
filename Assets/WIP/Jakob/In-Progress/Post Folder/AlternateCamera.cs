@@ -7,9 +7,10 @@ using System;
 [RequireComponent(typeof(Camera))]
 public class AlternateCamera : MonoBehaviour
 {
-    static List<GameObject> objectsToOutline = new List<GameObject>();
-    static List<MeshRenderer> meshes = new List<MeshRenderer>();
-    static List<int> previousLayers = new List<int>();
+    public static List<GameObject> objectsToOutline = new List<GameObject>();
+    public static List<Renderer> meshes = new List<Renderer>();
+    //public static List<SkinnedMeshRenderer> skinnedMeshes = new List<SkinnedMeshRenderer>();
+    public static List<int> previousLayers = new List<int>();
     int sobelLayer = -1;
     Camera parentCam;
     Camera thisCam;
@@ -18,6 +19,8 @@ public class AlternateCamera : MonoBehaviour
 
     private void Awake()
     {
+        objectsToOutline.Clear();
+
         parentCam = transform.parent.GetComponentInParent<Camera>();
         thisCam = GetComponent<Camera>();
 
@@ -67,7 +70,10 @@ public class AlternateCamera : MonoBehaviour
 
         for (int i = 0; i < objectsToOutline.Count; ++i)
         {
-            MeshRenderer[] allMeshes = objectsToOutline[i].GetComponentsInChildren<MeshRenderer>();
+            if (objectsToOutline[i] == null)
+                continue;
+
+            Renderer[] allMeshes = objectsToOutline[i].GetComponentsInChildren<Renderer>();
 
             for (int j = 0; j < allMeshes.Length; ++j)
             {
@@ -92,6 +98,7 @@ public class AlternateCamera : MonoBehaviour
 
     private void OnDestroy()
     {
+
         --AddFuncs;
 
         if (AddFuncs == 0)

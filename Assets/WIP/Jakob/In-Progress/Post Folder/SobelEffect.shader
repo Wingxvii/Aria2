@@ -68,6 +68,8 @@
 
 	float4 clearColor;
 
+	int Flashing;
+
 	bool vEquals(float3 f1, float3 f2)
 	{
 		return (f1.r == f2.r && f1.g == f2.g && f1.b == f2.b);
@@ -82,8 +84,12 @@
 		uint2 positionSS = input.texcoord * _ScreenSize.xy;
 		float4 outColor = LOAD_TEXTURE2D_X(_InputTexture, positionSS);
 
+		
+
 		float bigSin = sin((_Time + input.texcoord.x + input.texcoord.y) * _ScreenParams.x / 10);
-		float4 retCol = lerp(float4(0, 0, 0, 1), float4(1, 1, 1, 1), (bigSin * bigSin) > 0.5f ? 1 : 0);
+		float4 retCol = float4(0, 0, 1, 1);
+		if (Flashing == 1)
+			retCol = lerp(float4(0, 0, 0, 1), float4(1, 1, 1, 1), (bigSin * bigSin) > 0.5f ? 1 : 0);
 
 		float2 coords[9];
 
